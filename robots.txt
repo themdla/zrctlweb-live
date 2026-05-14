@@ -16,4 +16,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://zrctl.com/sitemap.xml
+Sitemap: https://www.zrctl.com/sitemap.xml
