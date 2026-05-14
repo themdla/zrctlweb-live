@@ -16,4 +16,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://themdla.github.io/zrctl-pages-test/sitemap.xml
+Sitemap: https://zrctl.com/sitemap.xml
