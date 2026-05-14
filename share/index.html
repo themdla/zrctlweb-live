@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZR Control (ZR Ctl) | Nikon ZR Remote Camera App</title>
+  <meta name="description" content="ZR Control, also known as ZR Ctl, is an independent remote camera control app for Nikon ZR and Z-series shooters, with live view, exposure tools, focus control, LUT preview, framing guides, and playback.">
+  <meta name="title" content="ZR Control (ZR Ctl) | Nikon ZR Remote Camera App">
+  <meta name="keywords" content="ZR Ctl, ZR Control, ZRCTL, Nikon ZR remote app, Nikon ZR camera control, Nikon Z camera remote, iOS camera control, iPad camera control, Android camera control, shutter angle, dual base ISO, anamorphic, false color, traffic lights">
+  <meta name="author" content="ZR Ctl">
+  <meta name="theme-color" content="#09090b">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta itemprop="name" content="ZR Control (ZR Ctl) | Nikon ZR Remote Camera App">
+  <meta itemprop="description" content="Independent remote camera control for Nikon ZR and Z-series shooters with live view, exposure tools, focus control, LUT preview, framing guides, and playback.">
+  <meta itemprop="image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="canonical" href="https://www.zrctl.com/share/">
+  <link rel="image_src" href="https://www.zrctl.com/og-image.jpg">
+
+  <meta property="og:title" content="ZR Control (ZR Ctl) | Nikon ZR Remote Camera App">
+  <meta property="og:description" content="Independent remote camera control for Nikon ZR and Z-series shooters. Live view, exposure tools, focus control, LUT preview, framing guides, and playback for iOS, iPadOS, and Android.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.zrctl.com/share/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:image:url" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:image:secure_url" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ZR Ctl app preview showing Nikon Z camera monitoring and controls">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.png">
+  <meta property="og:image:secure_url" content="https://www.zrctl.com/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ZR Ctl app preview showing Nikon Z camera monitoring and controls">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.zrctl.com/share/">
+  <meta name="twitter:title" content="ZR Control (ZR Ctl) | Nikon ZR Remote Camera App">
+  <meta name="twitter:description" content="Independent remote camera control for Nikon ZR and Z-series shooters, with live view, exposure tools, focus control, LUT preview, framing guides, and playback.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta name="twitter:image:alt" content="ZR Ctl app preview showing Nikon Z camera monitoring and controls">
+
+  <link rel="icon" href="https://www.zrctl.com/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.zrctl.com/icon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.zrctl.com/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.zrctl.com/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.zrctl.com/apple-touch-icon.png">
+  <link rel="manifest" href="https://www.zrctl.com/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ZR Ctl",
+    "alternateName": ["ZR Control", "ZRCTL"],
+    "description": "ZR Ctl, also known as ZR Control, is an independent remote camera control app for Nikon ZR and Z-series shooters with live view, exposure scopes, focus control, LUT preview, framing guides, and camera-card playback.",
+    "url": "https://www.zrctl.com/share/",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Camera remote control app",
+    "operatingSystem": ["iOS", "iPadOS", "Android"],
+    "downloadUrl": "https://testflight.apple.com/join/FdEvJWvY",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Nikon ZR remote camera control",
+      "Live view",
+      "Exposure scopes",
+      "False color",
+      "Traffic lights",
+      "Focus control",
+      "Anamorphic desqueeze",
+      "Waveform",
+      "Histogram",
+      "Zebras",
+      "Camera-card playback",
+      "Audio meters",
+      "Custom frame guides",
+      "Shutter angle control",
+      "Dual base ISO"
+    ],
+    "screenshot": "https://www.zrctl.com/og-image.jpg",
+    "image": "https://www.zrctl.com/og-image.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "ZR Ctl",
+      "alternateName": "ZR Control"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MAD Creative",
+      "url": "https://itsmadcreative.com"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Mike Aguado"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #111113;
+      --bg-card: #18181b;
+      --bg-card-hover: #1f1f23;
+      --border: #27272a;
+      --border-subtle: #1e1e21;
+      --text: #fafafa;
+      --text-2: #a1a1aa;
+      --text-3: #71717a;
+      --accent: #ffd200;
+      --accent-dim: rgba(255, 210, 0, 0.10);
+      --accent-glow: rgba(255, 210, 0, 0.18);
+      --blue: #60a5fa;
+      --blue-dim: rgba(96, 165, 250, 0.10);
+      --green: #4ade80;
+      --green-dim: rgba(74, 222, 128, 0.10);
+      --red: #f87171;
+      --red-dim: rgba(248, 113, 113, 0.10);
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 100px 0; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 12px 0;
+      background: rgba(9,9,11,0.82); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0; }
+    .logo-img { height: 44px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; color: var(--text-2); transition: color 0.2s; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg) !important;
+      padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: 0.875rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+    .hamburger { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 8px; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding-top: 80px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none; opacity: 0.35;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+      background: linear-gradient(to top, var(--bg), transparent); pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 960px; }
+
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; margin-bottom: 32px;
+      background: var(--accent-dim); border: 1px solid rgba(245,158,11,0.18);
+      border-radius: 100px; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; font-weight: 500; color: var(--accent);
+    }
+    .hero-pill .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2.4s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero h1 {
+      font-size: clamp(2.75rem, 6vw, 4.5rem); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 24px;
+    }
+    .hero h1 .hl {
+      background: linear-gradient(135deg, #ffd200, #e8b400);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub { font-size: 1.15rem; color: var(--text-2); max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
+
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px; background: linear-gradient(135deg, #ffd200, #e8b400);
+      color: var(--bg); border-radius: 12px; font-weight: 600; font-size: 1rem;
+      border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+    .btn-primary svg { width: 20px; height: 20px; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px; background: var(--bg-card); color: var(--text);
+      border: 1px solid var(--border); border-radius: 12px; font-weight: 600; font-size: 1rem;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-3); }
+
+    /* ── Testimonials (prominent, right after hero) ── */
+    .testimonials-band {
+      padding: 80px 0; background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+    }
+    .testimonials-band .section-intro { text-align: center; margin-bottom: 48px; }
+    .testimonials-band .section-intro h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem); font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 12px;
+    }
+    .testimonials-band .section-intro p { font-size: 1rem; color: var(--text-2); max-width: 480px; margin: 0 auto; }
+
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .testi-card {
+      padding: 28px 24px; background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); position: relative; transition: all 0.25s;
+    }
+    .testi-card:hover { border-color: var(--border); transform: translateY(-2px); }
+    .testi-card .quote-mark {
+      font-family: Georgia, serif; font-size: 2.8rem; line-height: 1;
+      color: var(--accent); opacity: 0.25; margin-bottom: 4px;
+    }
+    .testi-card blockquote {
+      font-size: 0.95rem; color: var(--text); line-height: 1.65; margin-bottom: 16px;
+      font-style: italic;
+    }
+    .testi-card .attr {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em;
+    }
+
+    /* ── Section Shared ── */
+    .sec-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; color: var(--accent);
+    }
+    .sec-head {
+      font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700;
+      letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 16px;
+    }
+    .sec-sub { font-size: 1.1rem; color: var(--text-2); max-width: 560px; line-height: 1.7; }
+    .sec-sub.center { margin: 0 auto; text-align: center; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+
+    /* ── Feature Showcase (big alternating sections) ── */
+    .feat-section { padding: 100px 0; }
+    .feat-section.alt { background: var(--bg-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+
+    .feat-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .feat-row.reverse .feat-text { order: 2; }
+    .feat-row.reverse .feat-visual { order: 1; }
+
+    .feat-text h3 {
+      font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2;
+    }
+    .feat-text p { font-size: 1.02rem; color: var(--text-2); line-height: 1.75; margin-bottom: 16px; }
+    .feat-text .detail-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+    .feat-text .detail-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.92rem; color: var(--text-2);
+    }
+    .feat-text .detail-list li .ck {
+      width: 18px; height: 18px; flex-shrink: 0; color: var(--accent);
+    }
+
+    /* Visual panels */
+    .feat-visual-box {
+      aspect-ratio: 4/3; background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); overflow: hidden; position: relative;
+    }
+
+    /* (mockup styles removed — using screenshot placeholders) */
+
+    /* ── Feature Cards Grid ── */
+    .cards-section { padding: 100px 0; }
+    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .f-card {
+      padding: 28px; background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .f-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .f-card:hover { border-color: var(--border); background: var(--bg-card-hover); transform: translateY(-2px); }
+    .f-card:hover::before { opacity: 1; }
+    .f-card-icon {
+      width: 44px; height: 44px; background: var(--accent-dim); border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); margin-bottom: 18px;
+    }
+    .f-card-icon svg { width: 22px; height: 22px; }
+    .f-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .f-card p { font-size: 0.9rem; color: var(--text-2); line-height: 1.65; }
+
+    /* ── Comparison ── */
+    .comp-section { background: var(--bg-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+    .comp-card {
+      max-width: 720px; margin: 0 auto; padding: 40px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); text-align: center;
+    }
+    .comp-card p { font-size: 1.05rem; color: var(--text-2); line-height: 1.8; }
+    .comp-card p strong { color: var(--text); font-weight: 600; }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center; padding: 120px 0; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; bottom: -20%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+      opacity: 0.25; pointer-events: none;
+    }
+    .cta-content { position: relative; z-index: 1; }
+    .cta-content h2 {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+      letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .cta-content p { font-size: 1.1rem; color: var(--text-2); max-width: 500px; margin: 0 auto 36px; }
+
+    .cta-platforms { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .plat-card {
+      padding: 24px 32px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); text-align: center; min-width: 220px; transition: all 0.2s;
+    }
+    .plat-card:hover { border-color: var(--accent); }
+    .plat-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .plat-card p { font-size: 0.82rem; color: var(--text-3); margin-bottom: 14px; }
+    .plat-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+      border: none; cursor: pointer; transition: all 0.2s;
+    }
+    .plat-btn.ios { background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg); }
+    .plat-btn.ios:hover { box-shadow: 0 4px 16px var(--accent-glow); }
+
+    .android-form { display: flex; gap: 8px; margin-top: 10px; }
+    .android-form input {
+      flex: 1; padding: 9px 12px; background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); font-size: 0.85rem; font-family: 'Inter', sans-serif;
+      outline: none; transition: border-color 0.2s;
+    }
+    .android-form input::placeholder { color: var(--text-3); }
+    .android-form input:focus { border-color: var(--accent); }
+    .android-form button {
+      padding: 9px 16px; background: var(--accent); color: var(--bg);
+      border: none; border-radius: 8px; font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; white-space: nowrap;
+    }
+    .android-form button:hover { box-shadow: 0 2px 12px var(--accent-glow); }
+    .form-msg { font-size: 0.75rem; margin-top: 6px; min-height: 16px; font-family: 'JetBrains Mono', monospace; }
+
+    /* ── Footer ── */
+    footer { padding: 40px 0; border-top: 1px solid var(--border-subtle); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-left { font-size: 0.85rem; color: var(--text-3); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 0.85rem; color: var(--text-3); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-legal {
+      width: 100%; margin-top: 24px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.72rem; color: var(--text-3); text-align: center; line-height: 1.6;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .feat-row { grid-template-columns: 1fr; gap: 36px; }
+      .feat-row.reverse .feat-text { order: 1; }
+      .feat-row.reverse .feat-visual { order: 2; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
+      .cta-platforms { flex-direction: column; align-items: center; }
+      .plat-card { width: 100%; max-width: 320px; }
+    }
+
+    /* ── Screenshots ── */
+    .feat-screenshot {
+      width: 100%; border-radius: var(--radius); border: 1px solid var(--border-subtle);
+      display: block;
+    }
+
+    /* ── Video Section ── */
+    .video-section { padding: 100px 0; }
+    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .video-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); overflow: hidden; transition: all 0.3s;
+    }
+    .video-card:hover { border-color: var(--border); transform: translateY(-2px); }
+    .video-wrap {
+      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+    }
+    .video-wrap iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+
+    /* ── Gallery ── */
+    .gallery-section { padding: 100px 0; background: var(--bg-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .gallery-item {
+      border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-subtle);
+      transition: all 0.3s;
+    }
+    .gallery-item:hover { border-color: var(--border); transform: translateY(-2px); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0; border: none; }
+
+    @media (max-width: 900px) {
+      .video-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Animations ── */
+    .reveal {
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.vis { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#videos">Reviews</a></li>
+        <li><a href="#download" class="nav-cta">Try Free</a></li>
+      </ul>
+      <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content reveal">
+      <img src="zrctl-logo-cropped.png" alt="ZR Ctl" style="width:min(500px, 70vw); height:auto; display:block; margin:0 auto 36px;">
+      <div class="hero-pill">
+        <span class="dot"></span>
+        Beta now available
+      </div>
+      <h1>ZR Control for<br><span class="hl">Nikon ZR</span> and Z-series cameras.</h1>
+      <p class="hero-sub">
+        ZR Ctl gives iPhone, iPad, and Android shooters a fast camera-control surface with live view, exposure tools, LUT preview, tap focus, framing guides, and camera-card playback.
+      </p>
+      <div class="hero-btns">
+        <a href="#download" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Try ZR Ctl Free
+        </a>
+        <a href="#features" class="btn-secondary">
+          See the features
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+      <img src="/images/liveview-hud.png" alt="ZR Ctl live view monitoring a Nikon Z camera" style="width:min(900px, 90vw); height:auto; display:block; margin:48px auto 0; border-radius:var(--radius); position:relative; z-index:2;">
+    </div>
+  </section>
+
+  <section class="testimonials-band">
+    <div class="container">
+      <div class="section-intro reveal">
+        <h2>Trusted by Z shooters.</h2>
+        <p>Real feedback from real filmmakers already using ZR Ctl on set.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <blockquote>Even in beta, this feels beyond what the camera companies ship themselves.</blockquote>
+          <div class="attr">Nikon Filmmaker</div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <blockquote>So many advantages over the Nikon built-in monitor.</blockquote>
+          <div class="attr">ZR Shooter</div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <blockquote>Connected instantly with my Z8 and immediately felt like a win for horizontal shooting.</blockquote>
+          <div class="attr">Z8 User</div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <blockquote>No issues to speak of at all — so far it's simply ideal.</blockquote>
+          <div class="attr">Z6III Android Tester</div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <blockquote>Nikon dev team needs to hire you!</blockquote>
+          <div class="attr">r/NikonFilmmakers</div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <blockquote>Whoever hasn't tried it yet — do it!</blockquote>
+          <div class="attr">Nikon Z Community</div>
+        </div>
+      </div>
+      <div class="testi-grid" style="margin-top:16px;">
+        <div class="testi-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <blockquote>This is a brilliant project.</blockquote>
+          <div class="attr">r/NikonFilmmakers</div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <blockquote>The latest version of ZR CTL is incredible.</blockquote>
+          <div class="attr">Nikon Z Cinema Group</div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <blockquote>You are a godsend.</blockquote>
+          <div class="attr">r/NikonFilmmakers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat-section" id="features">
+    <div class="container">
+      <div class="feat-row reveal">
+        <div class="feat-text">
+          <p class="sec-label" style="color: var(--red);">Exposure Confidence</p>
+          <h3>Traffic lights, goal posts, and scopes tuned for your signal.</h3>
+          <p>Channel-aware traffic lights give you a fast read on highlight and shadow pressure before a take goes sideways. Pair them with waveform and histogram scopes tuned for confident exposure decisions.</p>
+          <p>Signal-aware calibration for Log3G10, N-Log, and SDR monitoring workflows - built around how the Nikon ZR is actually shot.</p>
+          <ul class="detail-list">
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Traffic lights &amp; goal posts</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>False color with legend</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Waveform with exposure guidelines</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Zebras: highlights, shadows, mid-gray, all</li>
+          </ul>
+        </div>
+        <div class="feat-visual">
+          <img src="/images/waveform-traffic.png" alt="ZR Ctl waveform scope and traffic light exposure tools on Nikon Z live view" class="feat-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat-section alt" id="monitoring">
+    <div class="container">
+      <div class="feat-row reverse reveal">
+        <div class="feat-text">
+          <p class="sec-label" style="color: var(--green);">Focus Tools</p>
+          <h3>Focus peaking for Nikon ZR R3D NE and RAW workflows.</h3>
+          <p>ZR Ctl keeps peaking available for demanding Nikon ZR recording modes, including R3D NE workflows, with adjustable sensitivity, color, and fine calibration controls.</p>
+          <p>Tap anywhere in live view to move focus. AF trigger, AF area mode, AF area control, and focus-box feedback, all without touching the camera.</p>
+          <ul class="detail-list">
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Peaking for Nikon ZR R3D NE workflows</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tap-to-focus from live view</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Adjustable sensitivity &amp; color</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full AF area controls</li>
+          </ul>
+        </div>
+        <div class="feat-visual">
+          <img src="/images/focus-peaking.png" alt="ZR Ctl focus peaking overlay on Nikon Z live view" class="feat-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat-section">
+    <div class="container">
+      <div class="feat-row reveal">
+        <div class="feat-text">
+          <p class="sec-label" style="color: var(--blue);">Framing &amp; Desqueeze</p>
+          <h3>Anamorphic desqueeze with custom ratios. Frame guides for every delivery.</h3>
+          <p>Desqueeze 1.33x, 1.5x, 1.8x, 2x, or enter a custom ratio — right in live view. Stack multiple frame guides with dashed comparison lines for multi-delivery shoots.</p>
+          <p>Built-in cinema, vertical, and social ratios. Golden ratio, thirds, center cross, safe areas. Full control over matte and guide opacity.</p>
+          <ul class="detail-list">
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom anamorphic desqueeze input</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Multiple simultaneous frame guides</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>9:16, 4:5, 1:1, 2.39, custom ratios</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Matte &amp; guide opacity controls</li>
+          </ul>
+        </div>
+        <div class="feat-visual">
+          <img src="/images/frame-guides.png" alt="ZR Ctl frame guides with multiple aspect ratio overlays on Nikon Z live view" class="feat-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat-section alt" id="playback">
+    <div class="container">
+      <div class="feat-row reverse reveal">
+        <div class="feat-text">
+          <p class="sec-label" style="color: var(--accent);">Playback</p>
+          <h3>Review takes over WiFi without leaving the app.</h3>
+          <p>Scan the camera card, see thumbnails, stream playable MP4/MOV clips, jump between takes, scrub, check audio, and preview with your monitoring LUT — all over WiFi, without touching the camera.</p>
+          <p>No more crowding around the body to check a take. Review instantly, keep moving.</p>
+          <ul class="detail-list">
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Camera-card scan with thumbnails</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full-screen playback &amp; scrubber</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>LUT preview during playback</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Volume, clip navigation, audio check</li>
+          </ul>
+        </div>
+        <div class="feat-visual">
+          <img src="/images/playback-gallery.png" alt="ZR Ctl camera card playback gallery with 56 clips and thumbnails" class="feat-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">And That's Not All</p>
+        <h2 class="sec-head">Every control, every tool.</h2>
+        <p class="sec-sub center">23+ camera controls, a fully customizable interface, full audio monitoring, and LUT workflows designed for how the ZR is actually being shot.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="f-card reveal">
+          <div class="f-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3>Fully Customizable Interface</h3>
+          <p>Presets, customizable status chips, tool pills, modern/monitor/classic HUD styles. Landscape toolbar placement, rotation lock, and home-indicator-safe controls.</p>
+        </div>
+        <div class="f-card reveal">
+          <div class="f-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <h3>Full Audio Controls</h3>
+          <p>Real-time audio level meters, input sensitivity and gain adjustment, all controllable from live view. Monitor audio without a separate mixer.</p>
+        </div>
+        <div class="f-card reveal">
+          <div class="f-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>LUTs Without Losing Exposure</h3>
+          <p>Preview your LUT while exposure tools read the pre-LUT signal. A monitoring look should never hide clipped channels. Bundled Rec.709 conversion profiles plus custom .cube import.</p>
+        </div>
+        <div class="f-card reveal">
+          <div class="f-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          </div>
+          <h3>Deep Cinema Controls</h3>
+          <p>Shutter angle, dual base ISO, extended ISO, codec, resolution, frame rate, Kelvin, timecode, card slot, record start/stop — controls Nikon hasn't exposed anywhere else.</p>
+        </div>
+        <div class="f-card reveal">
+          <div class="f-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Near Zero Latency USB-C Monitoring</h3>
+          <p>Direct USB connection for near-latency-free monitoring with all tools active. Waveform, false color, peaking, and LUTs over a simple cable.</p>
+        </div>
+        <div class="f-card reveal">
+          <div class="f-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+          </div>
+          <h3>Built for the Field</h3>
+          <p>Bonjour discovery, direct AP connection, quick reconnect, transport switching, and support log capture. Designed for the messy parts of real camera days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">Gallery</p>
+        <h2 class="sec-head">The app, up close.</h2>
+        <p class="sec-sub center">Screenshots from ZR Ctl across live view, playback, exposure tools, and more.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="/images/liveview-hud.png" alt="Live view with full HUD" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/waveform-traffic.png" alt="Waveform scope and traffic lights" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/audio-level.png" alt="Audio meters and level overlay" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/controls-grid.png" alt="Camera controls grid" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/frame-guides.png" alt="Frame guides overlay" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/composition.png" alt="Composition guides" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/playback-gallery.png" alt="Playback clip gallery" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/playback-lut.png" alt="Playback with LUT preview" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/false-color.png" alt="False color exposure overlay" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/focus-peaking.png" alt="Focus peaking overlay" class="feat-screenshot" loading="lazy">
+        </div>
+        <div class="gallery-item reveal">
+          <img src="/images/playback-landscape.png" alt="Landscape playback" class="feat-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="comp-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom:32px;">
+        <p class="sec-label">How ZR Ctl Is Different</p>
+        <h2 class="sec-head">Built for the person actually<br>operating the camera.</h2>
+      </div>
+      <div class="comp-card reveal">
+        <p><strong>ZR Ctl is built to be the operator's control surface</strong> - camera settings, exposure confidence, framing, focus, LUTs, audio, and playback in one native workflow.</p>
+        <p style="margin-top:16px;">Every section is shaped around what Z shooters do during a real take: <strong>adjust quickly, judge exposure, frame confidently, focus cleanly, and review without breaking flow</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section" id="videos">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">See It In Action</p>
+        <h2 class="sec-head">Watch ZR Ctl in the field.</h2>
+        <p class="sec-sub center">Real reviews from real filmmakers putting ZR Ctl through its paces.</p>
+      </div>
+      <div class="video-grid">
+        <div class="video-card reveal">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/V2cIB4bvzNM" title="ZR Ctl Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/m-3EqPhjzUY" title="ZR Ctl Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="download">
+    <div class="cta-content reveal">
+      <h2>Ready to take control?</h2>
+      <p>Download ZR Ctl and turn your iPhone, iPad, or Android device into a professional camera control surface.</p>
+      <div class="cta-platforms">
+        <div class="plat-card">
+          <h3>iOS &amp; iPadOS</h3>
+          <p>iPhone, iPad &amp; Vision Pro</p>
+          <a href="https://testflight.apple.com/join/FdEvJWvY" target="_blank" rel="noopener" class="plat-btn ios">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Try ZR Ctl Free
+          </a>
+        </div>
+        <div class="plat-card">
+          <h3>Android</h3>
+          <p>Request access via email</p>
+          <div class="android-form" id="androidForm">
+            <input type="email" placeholder="your@email.com" id="androidEmail" />
+            <button onclick="submitAndroid()">Request</button>
+          </div>
+          <div class="form-msg" id="formMsg"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Contact</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or any other camera manufacturer or trademark owner mentioned on this site. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Scroll reveal ──
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // ── Nav ──
+    function toggleNav() {
+      const ul = document.querySelector('.nav-links');
+      if (ul.style.display === 'flex') { ul.style.display = 'none'; return; }
+      ul.style.display = 'flex';
+      ul.style.position = 'absolute'; ul.style.top = '60px'; ul.style.left = '0'; ul.style.right = '0';
+      ul.style.flexDirection = 'column'; ul.style.padding = '20px 24px';
+      ul.style.background = 'rgba(9,9,11,0.97)'; ul.style.borderBottom = '1px solid var(--border-subtle)';
+      ul.style.gap = '14px';
+    }
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' });
+          if (window.innerWidth <= 768) document.querySelector('.nav-links').style.display = 'none';
+        }
+      });
+    });
+
+    // ── Android form ──
+    function submitAndroid() {
+      const email = document.getElementById('androidEmail').value.trim();
+      const msg = document.getElementById('formMsg');
+      if (!email || !email.includes('@')) {
+        msg.style.color = 'var(--red)'; msg.textContent = 'Please enter a valid email.'; return;
+      }
+      const subject = encodeURIComponent('Android Beta Request');
+      const body = encodeURIComponent('Hi,\n\nI\'d like to request access to the ZR Ctl Android beta.\n\nMy email: ' + email + '\n\nThanks!');
+      window.location.href = 'mailto:mike@itsmadcreative.com?subject=' + subject + '&body=' + body;
+      msg.style.color = 'var(--green)'; msg.textContent = 'Opening your email client...';
+      document.getElementById('androidEmail').value = '';
+    }
+  </script>
+</body>
+</html>
