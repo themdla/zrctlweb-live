@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Connect ZR Ctl to Nikon ZR | USB, Wi-Fi, and AP Setup</title>
+  <meta name="description" content="Step-by-step setup instructions for connecting ZR Ctl to a Nikon ZR camera over USB, Wi-Fi search, or direct camera AP mode.">
+  <meta name="title" content="How to Connect ZR Ctl to Nikon ZR">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/how-to/">
+
+  <meta property="og:title" content="How to Connect ZR Ctl to Nikon ZR">
+  <meta property="og:description" content="Set up USB, Wi-Fi Search, or AP Direct mode for ZR Ctl camera control.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zrctl.com/how-to/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:image:alt" content="ZR Ctl app preview showing Nikon Z camera monitoring and controls">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Connect ZR Ctl to Nikon ZR">
+  <meta name="twitter:description" content="Set up USB, Wi-Fi Search, or AP Direct mode for ZR Ctl camera control.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="https://www.zrctl.com/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.zrctl.com/icon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.zrctl.com/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.zrctl.com/apple-touch-icon.png">
+  <link rel="manifest" href="https://www.zrctl.com/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #111113;
+      --bg-card: #18181b;
+      --bg-card-hover: #1f1f23;
+      --border: #27272a;
+      --border-subtle: #1e1e21;
+      --text: #fafafa;
+      --text-2: #a1a1aa;
+      --text-3: #71717a;
+      --accent: #ffd200;
+      --accent-dim: rgba(255, 210, 0, 0.10);
+      --accent-glow: rgba(255, 210, 0, 0.18);
+      --blue: #60a5fa;
+      --blue-dim: rgba(96, 165, 250, 0.10);
+      --green: #4ade80;
+      --green-dim: rgba(74, 222, 128, 0.10);
+      --red: #f87171;
+      --red-dim: rgba(248, 113, 113, 0.10);
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font-family: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 100px 0; scroll-margin-top: 92px; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 12px 0;
+      background: rgba(9,9,11,0.82); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0; }
+    .logo-img { height: 44px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; color: var(--text-2); transition: color 0.2s; font-weight: 500; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--text); }
+    .nav-cta {
+      background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg) !important;
+      padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: 0.875rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+    .hamburger { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 8px; }
+
+    .hero {
+      min-height: 92vh; display: flex; align-items: center; padding-top: 96px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -34%; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none; opacity: 0.28;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
+      background: linear-gradient(to top, var(--bg), transparent); pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr); gap: 56px; align-items: center; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; margin-bottom: 28px;
+      background: var(--accent-dim); border: 1px solid rgba(245,158,11,0.18);
+      border-radius: 100px; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; font-weight: 500; color: var(--accent);
+    }
+    .hero-pill .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2.4s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4.4rem); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 24px;
+    }
+    .hero h1 .hl {
+      background: linear-gradient(135deg, #ffd200, #e8b400);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub { font-size: 1.1rem; color: var(--text-2); max-width: 590px; line-height: 1.75; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary, .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 0.95rem;
+      border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .btn-primary { background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+    .btn-secondary { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-3); }
+    .btn-primary svg, .btn-secondary svg { width: 18px; height: 18px; }
+
+    .app-shot {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,0.34);
+    }
+    .app-shot img { width: 100%; height: auto; display: block; }
+    .shot-caption {
+      padding: 16px 18px; border-top: 1px solid var(--border-subtle);
+      color: var(--text-2); font-size: 0.86rem;
+    }
+    .shot-caption strong { color: var(--text); }
+
+    .sec-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; color: var(--accent);
+    }
+    .sec-head {
+      font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700;
+      letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 16px;
+    }
+    .sec-sub { font-size: 1.1rem; color: var(--text-2); max-width: 600px; line-height: 1.7; }
+    .sec-sub.center { margin: 0 auto; text-align: center; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+
+    .choice-band {
+      padding: 86px 0; background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+    }
+    .choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .choice-card {
+      padding: 24px; background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); transition: all 0.25s; position: relative; overflow: hidden;
+    }
+    .choice-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .choice-card:hover { border-color: var(--border); background: var(--bg-card-hover); transform: translateY(-2px); }
+    .choice-card:hover::before { opacity: 1; }
+    .choice-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+    }
+    .choice-icon svg { width: 24px; height: 24px; }
+    .choice-icon.usb { background: var(--green-dim); color: var(--green); }
+    .choice-icon.wifi { background: var(--blue-dim); color: var(--blue); }
+    .choice-icon.ap { background: rgba(129, 140, 248, 0.13); color: #818cf8; }
+    .choice-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .choice-card p { color: var(--text-2); font-size: 0.93rem; line-height: 1.65; }
+    .choice-meta {
+      margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-subtle);
+      color: var(--text-3); font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;
+    }
+
+    .setup-section { padding: 100px 0; }
+    .setup-shell {
+      display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 20px; align-items: start;
+    }
+    .tab-list {
+      position: sticky; top: 92px; display: flex; flex-direction: column; gap: 10px;
+      padding: 14px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius);
+    }
+    .tab-btn {
+      width: 100%; text-align: left; padding: 14px; border: 1px solid transparent;
+      border-radius: 12px; background: transparent; color: var(--text-2); cursor: pointer;
+      display: flex; align-items: center; gap: 12px; transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .tab-btn:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+    .tab-btn[aria-selected="true"] {
+      background: var(--accent-dim); color: var(--text); border-color: rgba(255,210,0,0.22);
+    }
+    .tab-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+      background: var(--text-3);
+    }
+    .tab-btn[aria-selected="true"] .tab-dot { background: var(--accent); box-shadow: 0 0 0 5px var(--accent-dim); }
+    .tab-title { display: block; font-size: 0.92rem; font-weight: 700; color: inherit; }
+    .tab-copy { display: block; font-size: 0.75rem; color: var(--text-3); margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .panel-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .panel-head {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+      gap: 28px; padding: 34px; border-bottom: 1px solid var(--border-subtle);
+    }
+    .panel-kicker {
+      display: inline-flex; align-items: center; gap: 8px; color: var(--accent);
+      font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; text-transform: uppercase;
+      letter-spacing: 0.12em; margin-bottom: 12px;
+    }
+    .panel-head h2 { font-size: clamp(1.65rem, 3vw, 2.2rem); line-height: 1.16; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .panel-head p { color: var(--text-2); line-height: 1.7; }
+    .key-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 24px; }
+    .key-item {
+      padding: 13px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+    }
+    .key-item span {
+      display: block; color: var(--text-3); font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;
+    }
+    .key-item strong { display: block; color: var(--text); font-size: 0.86rem; line-height: 1.35; }
+
+    .nikon-frame {
+      background: #f4f4f4; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08);
+      align-self: stretch; display: flex; align-items: center; justify-content: center; min-height: 230px;
+    }
+    .nikon-frame img { width: 100%; height: 100%; object-fit: contain; display: block; padding: 14px; }
+    .nikon-frame.screen { background: #151515; }
+    .nikon-frame.screen img { padding: 0; }
+
+    .panel-body { padding: 34px; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: start; }
+    .steps-wrap { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 12px; counter-reset: setup; }
+    .steps li {
+      counter-increment: setup; display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 14px;
+      padding: 16px; background: rgba(255,255,255,0.035); border: 1px solid var(--border-subtle);
+      border-radius: 13px;
+    }
+    .steps li::before {
+      content: counter(setup); width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+      border-radius: 12px; background: var(--accent-dim); color: var(--accent);
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+    }
+    .steps h3 { font-size: 0.98rem; line-height: 1.35; margin-bottom: 4px; }
+    .steps p { color: var(--text-2); font-size: 0.9rem; line-height: 1.62; }
+    .steps code {
+      font-family: 'JetBrains Mono', monospace; color: var(--text); font-size: 0.84em;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle);
+      padding: 1px 5px; border-radius: 6px;
+    }
+
+    .manual-sequence {
+      padding: 18px; background: rgba(255,255,255,0.035); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+    }
+    .manual-sequence h3 {
+      font-size: 0.9rem; margin-bottom: 12px; color: var(--text);
+      font-family: 'JetBrains Mono', monospace; letter-spacing: 0;
+    }
+    .manual-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;
+    }
+    .manual-thumb {
+      margin: 0; overflow: hidden; border-radius: 12px; background: #151515;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .manual-thumb img {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: contain; display: block;
+      background: #111; border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .manual-thumb figcaption {
+      min-height: 48px; padding: 9px 10px; color: var(--text-2);
+      font-size: 0.72rem; line-height: 1.35; font-family: 'JetBrains Mono', monospace;
+    }
+
+    .side-stack { display: flex; flex-direction: column; gap: 14px; }
+    .note-card {
+      padding: 18px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+    }
+    .note-card h3 {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.95rem; margin-bottom: 8px; letter-spacing: -0.01em;
+    }
+    .note-card h3 svg { width: 17px; height: 17px; color: var(--accent); }
+    .note-card p, .note-card li { color: var(--text-2); font-size: 0.86rem; line-height: 1.62; }
+    .note-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+    .note-card li { position: relative; padding-left: 16px; }
+    .note-card li::before {
+      content: ''; position: absolute; left: 0; top: 0.68em; width: 5px; height: 5px;
+      background: var(--accent); border-radius: 50%;
+    }
+
+    .troubleshoot-section {
+      padding: 96px 0; background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+    }
+    .trouble-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .trouble-card {
+      padding: 24px; background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+    }
+    .trouble-card h3 { font-size: 1.02rem; margin-bottom: 10px; }
+    .trouble-card p { color: var(--text-2); font-size: 0.9rem; line-height: 1.68; }
+
+    .source-section { padding: 84px 0; }
+    .source-card {
+      padding: 28px; background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+    }
+    .source-card p { color: var(--text-2); font-size: 0.92rem; line-height: 1.72; }
+    .source-card a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(255,210,0,0.35); text-underline-offset: 3px; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border-subtle); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-left { font-size: 0.85rem; color: var(--text-3); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 0.85rem; color: var(--text-3); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-legal {
+      width: 100%; margin-top: 24px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.72rem; color: var(--text-3); text-align: center; line-height: 1.6;
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.vis { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1000px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 38px; }
+      .setup-shell { grid-template-columns: 1fr; }
+      .tab-list { position: relative; top: auto; flex-direction: row; overflow-x: auto; }
+      .tab-btn { min-width: 210px; }
+      .panel-head, .panel-body { grid-template-columns: 1fr; }
+      .panel-body { gap: 20px; }
+      .key-grid { grid-template-columns: 1fr; }
+      .manual-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 900px) {
+      .choice-grid, .trouble-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+      .container { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .hero { min-height: auto; padding: 124px 0 70px; }
+      .hero h1 { font-size: 2.35rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .panel-head, .panel-body { padding: 22px; }
+      .manual-grid { grid-template-columns: 1fr; }
+      .tab-list { margin-left: -4px; margin-right: -4px; padding: 10px; }
+      .steps li { grid-template-columns: 1fr; }
+      .steps li::before { width: 34px; height: 34px; }
+      .footer-inner { align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="../zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/" aria-current="page">How-to</a></li>
+        <li><a href="/#gallery">Gallery</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Try Free</a></li>
+      </ul>
+      <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <div class="hero-pill">
+            <span class="dot"></span>
+            Camera setup guide
+          </div>
+          <h1>Connect ZR Ctl to your <span class="hl">Nikon ZR</span>.</h1>
+          <p class="hero-sub">Pick the same transport in the app and on the camera. USB is the clean wired path, Wi-Fi Search finds cameras on your current network, and AP Direct joins the camera's own network when there is no router nearby.</p>
+          <div class="hero-actions">
+            <a href="#setup" class="btn-primary">
+              Start setup
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <a href="/#download" class="btn-secondary">
+              Get the beta
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="app-shot reveal">
+          <img src="assets/zrctl-connection-screen.jpg" alt="ZR Ctl connection screen showing Quick Reconnect, USB Cable, Wi-Fi Search, and AP Direct options">
+          <p class="shot-caption"><strong>In ZR Ctl:</strong> open Connection, then choose the same path you set up on the camera.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="choice-band">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">Choose A Transport</p>
+        <h2 class="sec-head">Three ways in, one control surface.</h2>
+        <p class="sec-sub center">USB uses MTP/PTP, Wi-Fi Search uses your router, and AP Direct uses the camera's own network.</p>
+      </div>
+      <div class="choice-grid">
+        <a href="#setup" class="choice-card reveal" onclick="selectTransport('usb')">
+          <div class="choice-icon usb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 7v10"/><path d="M14 7v10"/><path d="M8 7h8"/><path d="M8 17h8"/><path d="M12 17v4"/><path d="M12 3v4"/></svg>
+          </div>
+          <h3>USB / Cable</h3>
+          <p>Best for the lowest-latency wired control path and for avoiding crowded Wi-Fi.</p>
+          <div class="choice-meta">Camera USB: MTP/PTP</div>
+        </a>
+        <a href="#setup" class="choice-card reveal" onclick="selectTransport('wifi')">
+          <div class="choice-icon wifi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+          </div>
+          <h3>Wi-Fi / Search</h3>
+          <p>Best when the camera and phone/tablet can stay on the same router or studio network.</p>
+          <div class="choice-meta">Camera profile: Search network</div>
+        </a>
+        <a href="#setup" class="choice-card reveal" onclick="selectTransport('ap')">
+          <div class="choice-icon ap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5 13a10 10 0 0 1 14 0"/><path d="M2 9.5a15 15 0 0 1 20 0"/></svg>
+          </div>
+          <h3>AP / Direct</h3>
+          <p>Best in the field when the camera needs to create its own direct Wi-Fi network.</p>
+          <div class="choice-meta">Default IP: 192.168.1.1</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="setup-section" id="setup">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">Camera Setup</p>
+        <h2 class="sec-head">Follow the path you want to use.</h2>
+        <p class="sec-sub center">These instructions match the transport names in ZR Ctl and the Nikon ZR network menu.</p>
+      </div>
+
+      <div class="setup-shell reveal">
+        <div class="tab-list" role="tablist" aria-label="Connection setup paths">
+          <button class="tab-btn" id="tab-usb" role="tab" aria-selected="true" aria-controls="panel-usb" onclick="selectTransport('usb')">
+            <span class="tab-dot"></span>
+            <span>
+              <span class="tab-title">USB / Cable</span>
+              <span class="tab-copy">Wired, direct, low latency</span>
+            </span>
+          </button>
+          <button class="tab-btn" id="tab-wifi" role="tab" aria-selected="false" aria-controls="panel-wifi" onclick="selectTransport('wifi')">
+            <span class="tab-dot"></span>
+            <span>
+              <span class="tab-title">Wi-Fi / Search</span>
+              <span class="tab-copy">Same router or network</span>
+            </span>
+          </button>
+          <button class="tab-btn" id="tab-ap" role="tab" aria-selected="false" aria-controls="panel-ap" onclick="selectTransport('ap')">
+            <span class="tab-dot"></span>
+            <span>
+              <span class="tab-title">AP / Direct</span>
+              <span class="tab-copy">Camera creates Wi-Fi</span>
+            </span>
+          </button>
+        </div>
+
+        <div>
+          <article class="panel active" id="panel-usb" role="tabpanel" aria-labelledby="tab-usb">
+            <div class="panel-card">
+              <div class="panel-head">
+                <div>
+                  <div class="panel-kicker">USB / Cable</div>
+                  <h2>Use MTP/PTP, then connect with a data cable.</h2>
+                  <p>USB is the cleanest wired path. The important part is putting the camera in the USB mode ZR Ctl can control, then using a cable that carries data.</p>
+                  <div class="key-grid">
+                    <div class="key-item">
+                      <span>Camera menu</span>
+                      <strong>Network menu > USB</strong>
+                    </div>
+                    <div class="key-item">
+                      <span>Camera setting</span>
+                      <strong>MTP/PTP</strong>
+                    </div>
+                    <div class="key-item">
+                      <span>ZR Ctl button</span>
+                      <strong>USB / Cable</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="nikon-frame">
+                  <img src="assets/nikon-usb.svg" alt="Nikon ZR USB cable connection diagram from the Nikon ZR Reference Guide">
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="steps-wrap">
+                  <ol class="steps">
+                  <li>
+                    <div>
+                      <h3>Set the camera USB mode.</h3>
+                      <p>On the ZR, open <code>Menu > Network menu > USB</code>, then choose <code>MTP/PTP</code>.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Avoid the other USB modes for app control.</h3>
+                      <p>Do not choose <code>iPhone</code> or <code>USB streaming (UVC/UAC)</code> when you want ZR Ctl camera control. Those modes are for other workflows.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Protect the phone battery if needed.</h3>
+                      <p>To avoid the camera pulling power from the iPhone over USB-C, set <code>Setup menu > USB power delivery > OFF</code>. Keep USB itself set to MTP/PTP.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Connect with a USB-C data cable.</h3>
+                      <p>Use a cable that supports data. A charge-only cable can power the camera without exposing it to iOS or Android as a controllable camera.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Dismiss camera import screens.</h3>
+                      <p>If the camera shows an upload-priority screen, half-press the shutter to exit. If the phone opens Photos, Files, or an import view, back out and return to ZR Ctl.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Connect from ZR Ctl.</h3>
+                      <p>Open Connection and tap <code>USB / Cable</code>. On iPhone or iPad, allow Camera permission if iOS asks.</p>
+                    </div>
+                  </li>
+                  </ol>
+                  <div class="manual-sequence">
+                    <h3>Nikon camera screens</h3>
+                    <div class="manual-grid">
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-usb-mtp-setting.svg" alt="Nikon ZR USB menu with MTP/PTP selected">
+                        <figcaption>Select MTP/PTP in the ZR USB menu.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-usb.svg" alt="Nikon ZR diagram showing a USB cable connected directly to the camera">
+                        <figcaption>Then connect directly with a USB data cable.</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                <aside class="side-stack">
+                  <div class="note-card">
+                    <h3>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg>
+                      If USB fails
+                    </h3>
+                    <ul>
+                      <li>Try another USB-C data cable.</li>
+                      <li>Confirm the ZR is still in MTP/PTP.</li>
+                      <li>Open Advanced Tools in ZR Ctl, run USB Checklist, then send logs after the failed attempt.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel" id="panel-wifi" role="tabpanel" aria-labelledby="tab-wifi">
+            <div class="panel-card">
+              <div class="panel-head">
+                <div>
+                  <div class="panel-kicker">Wi-Fi / Search</div>
+                  <h2>Put the camera and device on the same Wi-Fi network.</h2>
+                  <p>This is the best wireless option when you have a stable router, studio network, or production Wi-Fi. ZR Ctl searches the current network for the camera.</p>
+                  <div class="key-grid">
+                    <div class="key-item">
+                      <span>Camera mode</span>
+                      <strong>Connect to computer</strong>
+                    </div>
+                    <div class="key-item">
+                      <span>Profile type</span>
+                      <strong>Search for Wi-Fi network</strong>
+                    </div>
+                    <div class="key-item">
+                      <span>ZR Ctl button</span>
+                      <strong>Wi-Fi / Search</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="nikon-frame">
+                  <img src="assets/nikon-router.svg" alt="Nikon ZR wireless LAN station mode diagram showing camera, router, and computer">
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="steps-wrap">
+                  <ol class="steps">
+                  <li>
+                    <div>
+                      <h3>Join the phone or tablet to the Wi-Fi network.</h3>
+                      <p>Connect the device running ZR Ctl to the router, studio network, or production Wi-Fi you want the ZR to use.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Set the ZR connection type.</h3>
+                      <p>On the camera, open <code>Menu > Network menu > Connect to computer > Connection type</code>, then choose <code>Camera control</code>.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Create a camera network profile.</h3>
+                      <p>Go to <code>Connect to computer > Network settings > Create profile</code>. You can keep the default profile name or rename it.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Choose the same Wi-Fi network.</h3>
+                      <p>Select <code>Search for Wi-Fi network</code>, pick the same SSID your phone or tablet is using, then enter the Wi-Fi password on the camera.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Let the camera obtain an IP address.</h3>
+                      <p>Use automatic IP assignment unless your network requires manual addressing. Finish the profile when the camera reports configuration complete.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Search from ZR Ctl.</h3>
+                      <p>Return to the app and tap <code>Wi-Fi / Search</code>. When the camera appears under discovered cameras, select it.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Confirm pairing if the camera asks.</h3>
+                      <p>On a first connection or fresh install, the camera may show an authentication prompt. Confirm it, then enter the code in ZR Ctl if requested.</p>
+                    </div>
+                  </li>
+                  </ol>
+                  <div class="manual-sequence">
+                    <h3>Nikon camera screens</h3>
+                    <div class="manual-grid">
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-connect-computer.svg" alt="Nikon ZR Connect to computer network settings screen">
+                        <figcaption>Open Connect to computer, then Network settings.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-create-profile.svg" alt="Nikon ZR Create profile menu screen">
+                        <figcaption>Create a new camera network profile.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-profile-name-router.svg" alt="Nikon ZR profile name entry screen for router mode">
+                        <figcaption>Name the router Wi-Fi profile or keep the default.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-search-choice.svg" alt="Nikon ZR Search for Wi-Fi network selection screen">
+                        <figcaption>Choose Search for Wi-Fi network.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-choose-network.svg" alt="Nikon ZR Wi-Fi network SSID selection screen">
+                        <figcaption>Select the same SSID your device is using.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-enter-key.svg" alt="Nikon ZR encryption key entry screen">
+                        <figcaption>Enter the Wi-Fi password when prompted.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-key-entry-keyboard.svg" alt="Nikon ZR keyboard screen for entering a Wi-Fi encryption key">
+                        <figcaption>Finish the password entry on the camera.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-wifi-connected-message.svg" alt="Nikon ZR Wi-Fi connection completed message">
+                        <figcaption>Wait for the camera to confirm the Wi-Fi link.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-ip-address.svg" alt="Nikon ZR IP address assignment screen">
+                        <figcaption>Use automatic IP assignment unless you need manual settings.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-start-pairing.svg" alt="Nikon ZR Start pairing menu item">
+                        <figcaption>Start pairing after the profile is ready.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-auth-code.svg" alt="Nikon ZR authentication code screen">
+                        <figcaption>Confirm the authentication code if the camera asks.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-profile-connected.svg" alt="Nikon ZR connected network profile highlighted in green">
+                        <figcaption>The connected profile is shown in green.</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                <aside class="side-stack">
+                  <div class="nikon-frame screen">
+                    <img src="assets/nikon-search-choice.svg" alt="Nikon ZR menu showing Search for Wi-Fi network">
+                  </div>
+                  <div class="note-card">
+                    <h3>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                      If search finds nothing
+                    </h3>
+                    <ul>
+                      <li>Make sure the phone/tablet and ZR are on the same network.</li>
+                      <li>End any current camera network connection, then start the camera profile again.</li>
+                      <li>Open Advanced Tools in ZR Ctl and enter the camera IP address manually.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel" id="panel-ap" role="tabpanel" aria-labelledby="tab-ap">
+            <div class="panel-card">
+              <div class="panel-head">
+                <div>
+                  <div class="panel-kicker">AP / Direct</div>
+                  <h2>Let the camera create the Wi-Fi network.</h2>
+                  <p>AP Direct is the field option. The ZR creates its own network, the phone or tablet joins it, and ZR Ctl connects to the camera at the direct address.</p>
+                  <div class="key-grid">
+                    <div class="key-item">
+                      <span>Camera profile</span>
+                      <strong>Direct connection to computer</strong>
+                    </div>
+                    <div class="key-item">
+                      <span>Device Wi-Fi</span>
+                      <strong>Join camera SSID</strong>
+                    </div>
+                    <div class="key-item">
+                      <span>ZR Ctl button</span>
+                      <strong>AP / Direct</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="nikon-frame">
+                  <img src="assets/nikon-ap.svg" alt="Nikon ZR wireless LAN access point mode diagram showing camera connected directly to a computer">
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="steps-wrap">
+                  <ol class="steps">
+                  <li>
+                    <div>
+                      <h3>Use Connect to computer, not smart device.</h3>
+                      <p>ZR Ctl uses the camera-control computer path. On the camera, start from <code>Menu > Network menu > Connect to computer</code>.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Set the connection type to Camera control.</h3>
+                      <p>Open <code>Connection type</code>, then choose <code>Camera control</code> before creating the network profile.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Create a direct profile.</h3>
+                      <p>Go to <code>Network settings > Create profile</code>, then choose <code>Direct connection to computer</code>.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Join the camera's Wi-Fi network.</h3>
+                      <p>The ZR will show a network name and password. On the phone or tablet, open system Wi-Fi settings and join that network.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Return to ZR Ctl.</h3>
+                      <p>Open Connection and tap <code>AP / Direct</code>. The app will try the direct camera address, <code>192.168.1.1</code>.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Authenticate if prompted.</h3>
+                      <p>If the camera asks to pair or authenticate, confirm on the camera and continue in ZR Ctl.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Expect no internet during direct mode.</h3>
+                      <p>The device is joined to the camera, not a router. If live view is choppy, stay close to the camera or lower preview resolution/quality in Advanced > Preview.</p>
+                    </div>
+                  </li>
+                  </ol>
+                  <div class="manual-sequence">
+                    <h3>Nikon camera screens</h3>
+                    <div class="manual-grid">
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-connect-computer.svg" alt="Nikon ZR Connect to computer network settings screen">
+                        <figcaption>Start from Connect to computer.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-create-profile.svg" alt="Nikon ZR Create profile menu screen">
+                        <figcaption>Create a new direct camera profile.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-profile-name-direct.svg" alt="Nikon ZR profile name entry screen for direct mode">
+                        <figcaption>Name the direct profile or keep the default.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-direct-choice.svg" alt="Nikon ZR Direct connection to computer selection screen">
+                        <figcaption>Choose Direct connection to computer.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-direct-ssid.svg" alt="Nikon ZR direct Wi-Fi SSID and password screen">
+                        <figcaption>Use the SSID and password shown by the camera.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-start-pairing.svg" alt="Nikon ZR Start pairing menu item">
+                        <figcaption>Start pairing after the direct profile is ready.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-auth-code.svg" alt="Nikon ZR authentication code screen">
+                        <figcaption>Confirm the authentication code if the camera asks.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-profile-connected.svg" alt="Nikon ZR connected network profile highlighted in green">
+                        <figcaption>The connected profile is shown in green.</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                <aside class="side-stack">
+                  <div class="nikon-frame screen">
+                    <img src="assets/nikon-direct-choice.svg" alt="Nikon ZR menu showing Direct connection to computer">
+                  </div>
+                  <div class="note-card">
+                    <h3>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M12 4v16"/></svg>
+                      Before switching away
+                    </h3>
+                    <ul>
+                      <li>End the camera's current connection first when possible.</li>
+                      <li>Switch the phone/tablet back to normal Wi-Fi after leaving AP mode.</li>
+                      <li>If the camera gets stuck, turn camera Wi-Fi off, then start the profile again.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="troubleshoot-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">Connection Checks</p>
+        <h2 class="sec-head">The usual fixes before a long reset.</h2>
+        <p class="sec-sub center">Most failed connections come from a transport mismatch, a stale camera network session, or the device being on the wrong Wi-Fi.</p>
+      </div>
+      <div class="trouble-grid">
+        <div class="trouble-card reveal">
+          <h3>The camera is in a different transport mode</h3>
+          <p>The ZR can grey out Wi-Fi/AP options while USB MTP/PTP is active. If you switch from USB to wireless, disconnect or end the current camera connection first.</p>
+        </div>
+        <div class="trouble-card reveal">
+          <h3>The app cannot discover the camera</h3>
+          <p>For Wi-Fi Search, both devices must be on the same local network. If discovery still fails, use Advanced Tools and connect by IP.</p>
+        </div>
+        <div class="trouble-card reveal">
+          <h3>The camera asks for an authentication code</h3>
+          <p>That is normal on first pairing or after a fresh install. Confirm the camera prompt, then enter the code ZR shows in the app.</p>
+        </div>
+        <div class="trouble-card reveal">
+          <h3>Live view feels slower in AP mode</h3>
+          <p>Direct camera Wi-Fi has less headroom than a strong router or USB connection. Move closer to the camera or lower Preview Resolution and Preview Quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="source-section">
+    <div class="container">
+      <div class="source-card reveal">
+        <p><strong>Reference note:</strong> Nikon menu labels and camera diagrams are included as setup references from the Nikon ZR Reference Guide, especially Nikon's pages for <a href="https://onlinemanual.nikonimglib.com/zr/en/25-02.html" target="_blank" rel="noopener">USB computer connection</a>, <a href="https://onlinemanual.nikonimglib.com/zr/en/25-03.html" target="_blank" rel="noopener">wireless LAN computer connection</a>, <a href="https://onlinemanual.nikonimglib.com/zr/en/09-09-06.html" target="_blank" rel="noopener">Connect to computer</a>, <a href="https://onlinemanual.nikonimglib.com/zr/en/09-09-10.html" target="_blank" rel="noopener">USB mode</a>, and <a href="https://onlinemanual.nikonimglib.com/zr/en/09-06-30.html" target="_blank" rel="noopener">USB power delivery</a>. ZR Ctl is an independent app and is not affiliated with Nikon.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Contact</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or any other camera manufacturer or trademark owner mentioned on this site. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    function toggleNav() {
+      const ul = document.querySelector('.nav-links');
+      if (ul.style.display === 'flex') { ul.style.display = 'none'; return; }
+      ul.style.display = 'flex';
+      ul.style.position = 'absolute'; ul.style.top = '60px'; ul.style.left = '0'; ul.style.right = '0';
+      ul.style.flexDirection = 'column'; ul.style.padding = '20px 24px';
+      ul.style.background = 'rgba(9,9,11,0.97)'; ul.style.borderBottom = '1px solid var(--border-subtle)';
+      ul.style.gap = '14px';
+    }
+
+    function selectTransport(name) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.setAttribute('aria-selected', btn.id === 'tab-' + name ? 'true' : 'false');
+      });
+      document.querySelectorAll('.panel').forEach(panel => {
+        panel.classList.toggle('active', panel.id === 'panel-' + name);
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' });
+          if (window.innerWidth <= 768) document.querySelector('.nav-links').style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
