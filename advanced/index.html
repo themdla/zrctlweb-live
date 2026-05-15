@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Tools in ZR Ctl | iOS, iPadOS, and Android Details</title>
+  <meta name="description" content="A detailed guide to the Advanced section in ZR Ctl for iOS, iPadOS, and Android, including preview tuning, presets, exposure pipeline options, frame guides, playback cache, logs, and diagnostics.">
+  <meta name="title" content="Advanced Tools in ZR Ctl">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://zrctl.com/advanced/">
+
+  <meta property="og:title" content="Advanced Tools in ZR Ctl">
+  <meta property="og:description" content="Understand preview tuning, presets, exposure pipeline controls, frame guides, playback cache, logs, and diagnostics in ZR Ctl for iOS, iPadOS, and Android.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zrctl.com/advanced/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://zrctl.com/og-image.jpg">
+  <meta property="og:image:alt" content="ZR Ctl app preview showing Nikon Z camera monitoring and controls">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Advanced Tools in ZR Ctl">
+  <meta name="twitter:description" content="A detailed guide to the Advanced section in ZR Ctl for iOS, iPadOS, and Android.">
+  <meta name="twitter:image" content="https://zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="https://zrctl.com/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://zrctl.com/icon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://zrctl.com/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://zrctl.com/apple-touch-icon.png">
+  <link rel="manifest" href="https://zrctl.com/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #111113;
+      --bg-card: #18181b;
+      --bg-card-hover: #1f1f23;
+      --border: #27272a;
+      --border-subtle: #1e1e21;
+      --text: #fafafa;
+      --text-2: #a1a1aa;
+      --text-3: #71717a;
+      --accent: #ffd200;
+      --accent-dim: rgba(255, 210, 0, 0.10);
+      --accent-glow: rgba(255, 210, 0, 0.18);
+      --blue: #60a5fa;
+      --blue-dim: rgba(96, 165, 250, 0.10);
+      --green: #4ade80;
+      --green-dim: rgba(74, 222, 128, 0.10);
+      --red: #f87171;
+      --red-dim: rgba(248, 113, 113, 0.10);
+      --violet: #a78bfa;
+      --violet-dim: rgba(167, 139, 250, 0.12);
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 100px 0; scroll-margin-top: 92px; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 12px 0;
+      background: rgba(9,9,11,0.82); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0; }
+    .logo-img { height: 44px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; color: var(--text-2); transition: color 0.2s; font-weight: 500; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--text); }
+    .nav-cta {
+      background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg) !important;
+      padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: 0.875rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+    .hamburger { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 8px; }
+
+    .hero {
+      min-height: 94vh; display: flex; align-items: center; padding-top: 96px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -34%; left: 50%; transform: translateX(-50%);
+      width: 820px; height: 820px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none; opacity: 0.28;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
+      background: linear-gradient(to top, var(--bg), transparent); pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr); gap: 56px; align-items: center; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; margin-bottom: 28px;
+      background: var(--accent-dim); border: 1px solid rgba(245,158,11,0.18);
+      border-radius: 100px; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; font-weight: 500; color: var(--accent);
+    }
+    .hero-pill .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2.4s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4.4rem); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 24px;
+    }
+    .hero h1 .hl {
+      background: linear-gradient(135deg, #ffd200, #e8b400);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub { font-size: 1.1rem; color: var(--text-2); max-width: 620px; line-height: 1.75; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary, .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 0.95rem;
+      border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .btn-primary { background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+    .btn-secondary { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-3); }
+    .btn-primary svg, .btn-secondary svg { width: 18px; height: 18px; }
+
+    .app-shot {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,0.34);
+    }
+    .app-shot img { width: 100%; height: auto; display: block; }
+    .shot-caption {
+      padding: 16px 18px; border-top: 1px solid var(--border-subtle);
+      color: var(--text-2); font-size: 0.86rem;
+    }
+    .shot-caption strong { color: var(--text); }
+
+    .sec-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; color: var(--accent);
+    }
+    .sec-head {
+      font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700;
+      letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 16px;
+    }
+    .sec-sub { font-size: 1.1rem; color: var(--text-2); max-width: 640px; line-height: 1.7; }
+    .sec-sub.center { margin: 0 auto; text-align: center; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+
+    .overview-band {
+      padding: 86px 0; background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+    }
+    .overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .overview-card, .detail-card, .platform-card, .workflow-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); position: relative; overflow: hidden;
+    }
+    .overview-card {
+      padding: 26px; transition: all 0.25s;
+    }
+    .overview-card::before, .workflow-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .overview-card:hover, .workflow-card:hover { border-color: var(--border); background: var(--bg-card-hover); transform: translateY(-2px); }
+    .overview-card:hover::before, .workflow-card:hover::before { opacity: 1; }
+    .card-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+      background: var(--accent-dim); color: var(--accent);
+    }
+    .card-icon svg { width: 24px; height: 24px; }
+    .card-icon.blue { background: var(--blue-dim); color: var(--blue); }
+    .card-icon.green { background: var(--green-dim); color: var(--green); }
+    .card-icon.violet { background: var(--violet-dim); color: var(--violet); }
+    .card-icon.red { background: var(--red-dim); color: var(--red); }
+    .overview-card h2, .detail-card h3, .platform-card h3, .workflow-card h3 {
+      font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em;
+    }
+    .overview-card p, .detail-card p, .platform-card p, .workflow-card p {
+      color: var(--text-2); font-size: 0.92rem; line-height: 1.68;
+    }
+
+    .detail-section { padding: 100px 0; }
+    .detail-section.alt {
+      background: var(--bg-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+    }
+    .detail-row {
+      display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr); gap: 56px; align-items: center;
+    }
+    .detail-row.reverse .detail-copy { order: 2; }
+    .detail-row.reverse .detail-media { order: 1; }
+    .detail-copy h2 {
+      font-size: clamp(1.85rem, 3.6vw, 2.45rem); line-height: 1.16;
+      letter-spacing: -0.025em; margin-bottom: 14px;
+    }
+    .detail-copy > p { color: var(--text-2); font-size: 1rem; line-height: 1.76; margin-bottom: 18px; }
+    .detail-list { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-top: 20px; }
+    .detail-list li {
+      display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px;
+      color: var(--text-2); font-size: 0.92rem; line-height: 1.55;
+    }
+    .detail-list li svg { width: 20px; height: 20px; color: var(--accent); margin-top: 2px; }
+    .detail-list strong { color: var(--text); font-weight: 600; }
+    .detail-media {
+      display: grid; gap: 16px;
+    }
+    .media-frame {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); overflow: hidden; box-shadow: 0 18px 54px rgba(0,0,0,0.24);
+    }
+    .media-frame img { width: 100%; height: auto; display: block; }
+    .media-caption {
+      padding: 15px 17px; color: var(--text-2); font-size: 0.84rem; line-height: 1.55;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .media-caption strong { color: var(--text); }
+
+    .detail-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .detail-card { padding: 20px; }
+    .detail-card .mini-label {
+      display: block; color: var(--text-3); font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 7px;
+    }
+
+    .platform-section { padding: 96px 0; }
+    .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .platform-card { padding: 28px; }
+    .platform-card h3 { font-size: 1.18rem; margin-bottom: 10px; }
+    .platform-card .platform-meta {
+      margin: 16px 0 18px; padding: 12px 14px; border: 1px solid var(--border-subtle);
+      border-radius: 12px; background: rgba(255,255,255,0.035);
+      color: var(--text-2); font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; line-height: 1.55;
+    }
+    .platform-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .platform-list li { position: relative; padding-left: 17px; color: var(--text-2); font-size: 0.9rem; line-height: 1.62; }
+    .platform-list li::before {
+      content: ''; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px;
+      background: var(--accent); border-radius: 50%;
+    }
+
+    .tool-map {
+      padding: 96px 0; background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+    }
+    .map-shell {
+      display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 20px; align-items: start;
+    }
+    .map-nav {
+      position: sticky; top: 92px; display: flex; flex-direction: column; gap: 10px;
+      padding: 14px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius);
+    }
+    .map-nav a {
+      padding: 14px; border: 1px solid transparent; border-radius: 12px;
+      color: var(--text-2); transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .map-nav a:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+    .map-nav strong { display: block; font-size: 0.92rem; color: inherit; }
+    .map-nav span { display: block; font-size: 0.74rem; color: var(--text-3); margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+    .map-content { display: grid; gap: 16px; }
+    .map-block {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); padding: 28px;
+    }
+    .map-block h3 { font-size: 1.22rem; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .map-block p { color: var(--text-2); font-size: 0.94rem; line-height: 1.72; margin-bottom: 18px; }
+    .map-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .map-item {
+      padding: 14px; background: rgba(255,255,255,0.035); border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+    }
+    .map-item span {
+      display: block; color: var(--text-3); font-family: 'JetBrains Mono', monospace;
+      font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;
+    }
+    .map-item strong { display: block; color: var(--text); font-size: 0.85rem; line-height: 1.36; }
+
+    .function-section { padding: 100px 0; }
+    .function-shell { display: grid; gap: 18px; }
+    .function-group {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .function-group-head {
+      padding: 24px 26px; display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 20px; border-bottom: 1px solid var(--border-subtle);
+      background: rgba(255,255,255,0.025);
+    }
+    .function-group-head h3 { font-size: 1.18rem; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .function-group-head p { color: var(--text-2); font-size: 0.9rem; line-height: 1.62; max-width: 720px; }
+    .function-count {
+      flex-shrink: 0; color: var(--accent); font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em;
+      padding: 7px 10px; border-radius: 999px; background: var(--accent-dim);
+      border: 1px solid rgba(255,210,0,0.16);
+    }
+    .function-rows { display: grid; }
+    .function-row {
+      display: grid; grid-template-columns: 220px minmax(0, 1fr) 220px; gap: 20px;
+      padding: 18px 26px; align-items: start; border-top: 1px solid var(--border-subtle);
+    }
+    .function-row:first-child { border-top: 0; }
+    .function-name { color: var(--text); font-weight: 700; font-size: 0.94rem; line-height: 1.35; }
+    .function-desc { color: var(--text-2); font-size: 0.9rem; line-height: 1.62; }
+    .function-use { color: var(--text-3); font-size: 0.82rem; line-height: 1.55; }
+    .function-use strong {
+      display: block; color: var(--text); font-family: 'JetBrains Mono', monospace;
+      font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px;
+    }
+
+    .workflow-section { padding: 100px 0; }
+    .workflow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .workflow-card { padding: 26px; transition: all 0.25s; }
+    .workflow-card .number {
+      width: 42px; height: 42px; border-radius: 12px; margin-bottom: 18px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--accent-dim); color: var(--accent);
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+    }
+
+    .cta-section {
+      text-align: center; padding: 112px 0; position: relative; overflow: hidden;
+      background: var(--bg-elevated); border-top: 1px solid var(--border-subtle);
+    }
+    .cta-section::before {
+      content: ''; position: absolute; bottom: -24%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+      opacity: 0.25; pointer-events: none;
+    }
+    .cta-content { position: relative; z-index: 1; }
+    .cta-content h2 {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+      letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .cta-content p { font-size: 1.1rem; color: var(--text-2); max-width: 560px; margin: 0 auto 34px; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border-subtle); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-left { font-size: 0.85rem; color: var(--text-3); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 0.85rem; color: var(--text-3); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-legal {
+      width: 100%; margin-top: 24px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.72rem; color: var(--text-3); text-align: center; line-height: 1.6;
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.vis { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1000px) {
+      .hero-grid, .detail-row { grid-template-columns: 1fr; gap: 38px; }
+      .detail-row.reverse .detail-copy, .detail-row.reverse .detail-media { order: initial; }
+      .map-shell { grid-template-columns: 1fr; }
+      .map-nav { position: relative; top: auto; flex-direction: row; overflow-x: auto; }
+      .map-nav a { min-width: 210px; }
+      .map-grid { grid-template-columns: repeat(2, 1fr); }
+      .function-row { grid-template-columns: 1fr; gap: 7px; }
+    }
+
+    @media (max-width: 900px) {
+      .overview-grid, .workflow-grid { grid-template-columns: 1fr; }
+      .platform-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+      .container { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .hero { min-height: auto; padding: 124px 0 70px; }
+      .hero h1 { font-size: 2.35rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .detail-card-grid, .map-grid { grid-template-columns: 1fr; }
+      .map-nav { margin-left: -4px; margin-right: -4px; padding: 10px; }
+      .function-group-head { display: block; }
+      .function-count { display: inline-flex; margin-top: 14px; }
+      .function-row, .function-group-head { padding-left: 20px; padding-right: 20px; }
+      .footer-inner { align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="../zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/advanced/" aria-current="page">Advanced</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/#gallery">Gallery</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Try Free</a></li>
+      </ul>
+      <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <div class="hero-pill">
+            <span class="dot"></span>
+            Advanced tools
+          </div>
+          <h1>Fine tune ZR Ctl for <span class="hl">real camera days</span>.</h1>
+          <p class="hero-sub">The Advanced section is where iOS, iPadOS, and Android operators tune live view, save working layouts, control the exposure pipeline, manage playback cache, and capture the logs that make tricky USB or Wi-Fi issues easier to solve.</p>
+          <div class="hero-actions">
+            <a href="#function-reference" class="btn-primary">
+              Explore advanced
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <a href="/how-to/" class="btn-secondary">
+              Connection setup
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="app-shot reveal">
+          <img src="../images/controls-grid.png" alt="ZR Ctl camera controls grid with detailed Nikon Z controls">
+          <p class="shot-caption"><strong>Advanced is a working layer:</strong> tune the stream, shape the control surface, and collect diagnostics without leaving the app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview-band">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">What It Is</p>
+        <h2 class="sec-head">A utility bench for the app.</h2>
+        <p class="sec-sub center">Most shoots do not need every Advanced control. When conditions change, it gives you practical levers for bandwidth, visibility, framing, review, and support.</p>
+      </div>
+      <div class="overview-grid">
+        <article class="overview-card reveal">
+          <div class="card-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h10"/></svg>
+          </div>
+          <h2>Tune the stream</h2>
+          <p>Adjust preview size and compression so USB, router Wi-Fi, or AP Direct can favor speed, clarity, or stability depending on the set.</p>
+        </article>
+        <article class="overview-card reveal">
+          <div class="card-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+          </div>
+          <h2>Shape the interface</h2>
+          <p>Dial live-view UI scale, manage presets, and keep your preferred monitoring layout ready for handheld, tripod, gimbal, or client-monitor work.</p>
+        </article>
+        <article class="overview-card reveal">
+          <div class="card-icon violet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
+          </div>
+          <h2>Inspect the connection</h2>
+          <p>Use USB checks, connection logs, packet logs, poll captures, and property dumps when a camera or device needs deeper troubleshooting.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section" id="preview">
+    <div class="container">
+      <div class="detail-row reveal">
+        <div class="detail-copy">
+          <p class="sec-label" style="color: var(--blue);">Preview &amp; Transport</p>
+          <h2>Balance image quality against connection headroom.</h2>
+          <p>Preview controls are the first place to go when a setup is technically connected but the live view needs a different balance. USB can usually handle higher preview settings. Router Wi-Fi depends on the network. AP Direct is useful in the field, but often benefits from leaner settings.</p>
+          <ul class="detail-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Preview image size</strong> changes how much image data the app has to move and process each frame.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Compression</strong> helps crowded Wi-Fi, longer distances, and direct camera networks stay responsive.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Live-view UI scale</strong> lets operators make labels and controls larger for mounted devices or smaller for a cleaner monitor feel.</span></li>
+          </ul>
+        </div>
+        <div class="detail-media">
+          <div class="media-frame">
+            <img src="../images/liveview-hud.png" alt="ZR Ctl live view with HUD controls and monitoring overlays">
+            <p class="media-caption"><strong>Use higher quality when the link is strong.</strong> If AP Direct gets choppy, reduce preview size or increase compression before changing the whole setup.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section alt" id="exposure">
+    <div class="container">
+      <div class="detail-row reverse reveal">
+        <div class="detail-copy">
+          <p class="sec-label" style="color: var(--red);">Exposure Pipeline</p>
+          <h2>Keep your creative look from hiding the signal.</h2>
+          <p>Advanced exposure options are about trust. A LUT can make a monitoring image easier to judge, but exposure tools often need to read the camera signal before that look is applied. The pre-LUT exposure toggle lets you choose which behavior fits the job.</p>
+          <ul class="detail-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Pre-LUT exposure tools</strong> keep waveform, histogram, false color, zebras, and traffic-light style warnings tied to the underlying signal.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Post-look judging</strong> is useful when the operator wants tools to reflect a viewing transform or client-facing preview.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Consistent behavior across platforms</strong> helps the same monitoring decisions carry from iPhone or iPad to Android beta devices.</span></li>
+          </ul>
+        </div>
+        <div class="detail-media">
+          <div class="media-frame">
+            <img src="../images/waveform-traffic.png" alt="ZR Ctl waveform and traffic light exposure tools">
+            <p class="media-caption"><strong>Exposure confidence stays explicit.</strong> Advanced lets the operator decide whether the tools evaluate the signal before or after the selected monitoring look.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section" id="framing">
+    <div class="container">
+      <div class="detail-row reveal">
+        <div class="detail-copy">
+          <p class="sec-label" style="color: var(--green);">Guides &amp; Presets</p>
+          <h2>Build a repeatable monitoring layout.</h2>
+          <p>Advanced frame-guide controls are for productions that need more than one crop in mind. A vertical delivery, a 2.39 extraction, a square social cut, and a clean action-safe area can all require different visual pressure on the same live image.</p>
+          <ul class="detail-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Advanced frame guides</strong> unlock multiple simultaneous guides with comparison-style dashed lines.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Matte and guide opacity</strong> let you keep overlays visible without burying faces, focus marks, or action.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Preset save, rename, and delete</strong> make the layout portable between shoot types instead of rebuilding it every time.</span></li>
+          </ul>
+        </div>
+        <div class="detail-media">
+          <div class="media-frame">
+            <img src="../images/frame-guides.png" alt="ZR Ctl frame guide overlays with multiple aspect ratios">
+            <p class="media-caption"><strong>Framing can be layered.</strong> Use built-in ratios, custom aspect guides, composition guides, matte opacity, and desqueeze settings as a reusable camera-day preset.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tool-map" id="tool-map">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">Advanced Map</p>
+        <h2 class="sec-head">What each group is for.</h2>
+        <p class="sec-sub center">Use Advanced when you need to tune, preserve, inspect, or reset a part of the operator workflow.</p>
+      </div>
+      <div class="map-shell reveal">
+        <aside class="map-nav" aria-label="Advanced tool groups">
+          <a href="#preview-tools"><strong>Preview</strong><span>stream quality</span></a>
+          <a href="#layout-tools"><strong>Layout</strong><span>scale and presets</span></a>
+          <a href="#playback-tools"><strong>Playback</strong><span>cache and review</span></a>
+          <a href="#diagnostic-tools"><strong>Diagnostics</strong><span>logs and discovery</span></a>
+        </aside>
+        <div class="map-content">
+          <article class="map-block" id="preview-tools">
+            <h3>Preview controls</h3>
+            <p>These settings tune the live-view stream itself. They are especially helpful when a camera is connected but the preview feels heavy, delayed, or unstable on a specific transport.</p>
+            <div class="map-grid">
+              <div class="map-item"><span>Control</span><strong>Preview image size</strong></div>
+              <div class="map-item"><span>Control</span><strong>Preview compression</strong></div>
+              <div class="map-item"><span>Best use</span><strong>USB, Wi-Fi, AP tuning</strong></div>
+            </div>
+          </article>
+          <article class="map-block" id="layout-tools">
+            <h3>Interface and preset controls</h3>
+            <p>These keep the app comfortable on different devices and rig positions. Save a clean monitoring setup once, then return to it when the shoot changes pace.</p>
+            <div class="map-grid">
+              <div class="map-item"><span>Control</span><strong>Live-view UI scale</strong></div>
+              <div class="map-item"><span>Control</span><strong>Save, rename, delete presets</strong></div>
+              <div class="map-item"><span>Control</span><strong>Advanced frame-guide toggle</strong></div>
+            </div>
+          </article>
+          <article class="map-block" id="playback-tools">
+            <h3>Playback and cache controls</h3>
+            <p>Playback cache settings are there for review sessions. Clear the cache when a camera card changes, when thumbnails feel stale, or when you want a fresh playback scan.</p>
+            <div class="map-grid">
+              <div class="map-item"><span>Control</span><strong>Playback cache size</strong></div>
+              <div class="map-item"><span>Control</span><strong>Clear playback cache</strong></div>
+              <div class="map-item"><span>Best use</span><strong>Fresh card review</strong></div>
+            </div>
+          </article>
+          <article class="map-block" id="diagnostic-tools">
+            <h3>Diagnostics and protocol tools</h3>
+            <p>Diagnostics are for support, beta testing, and stubborn connection problems. They expose what the app is seeing from the camera so a failed connection can become a fixable report.</p>
+            <div class="map-grid">
+              <div class="map-item"><span>USB</span><strong>USB checklist and tests</strong></div>
+              <div class="map-item"><span>Logs</span><strong>Connection and packet logs</strong></div>
+              <div class="map-item"><span>Camera</span><strong>Property discovery and dumps</strong></div>
+              <div class="map-item"><span>Capture</span><strong>Poll capture</strong></div>
+              <div class="map-item"><span>Cleanup</span><strong>Poll noise filtering</strong></div>
+              <div class="map-item"><span>Support</span><strong>Full property dump</strong></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="function-section" id="function-reference">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">Function Reference</p>
+        <h2 class="sec-head">Almost every Advanced control, in plain language.</h2>
+        <p class="sec-sub center">Simple functions stay simple. The controls that affect image quality, connection behavior, or support logs get the extra context operators actually need.</p>
+      </div>
+
+      <div class="function-shell">
+        <article class="function-group reveal">
+          <div class="function-group-head">
+            <div>
+              <h3>Stream, display, and presets</h3>
+              <p>These settings change what the live-view experience feels like before you touch deeper diagnostics.</p>
+            </div>
+            <span class="function-count">6 controls</span>
+          </div>
+          <div class="function-rows">
+            <div class="function-row">
+              <div class="function-name">Advanced settings panel</div>
+              <div class="function-desc">The main place for tuning controls that do not need to sit on the everyday camera-control surface.</div>
+              <div class="function-use"><strong>Use when</strong>You need setup, tuning, or diagnostic options.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Preview image size</div>
+              <div class="function-desc">Sets the live-view frame size. Larger can look cleaner; smaller is easier on USB adapters, Wi-Fi, and older devices.</div>
+              <div class="function-use"><strong>Use when</strong>Live view stutters or AP Direct feels overloaded.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Preview compression</div>
+              <div class="function-desc">Trades some image fidelity for bandwidth headroom. This is one of the fastest ways to stabilize a rough wireless feed.</div>
+              <div class="function-use"><strong>Use when</strong>The connection is active but preview feels heavy.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Live-view UI scale</div>
+              <div class="function-desc">Changes the size of app controls and labels over the monitor image.</div>
+              <div class="function-use"><strong>Use when</strong>A mounted phone, tablet, or distance-view setup needs larger or smaller controls.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Preset save</div>
+              <div class="function-desc">Stores the current monitoring setup so it can be reused later.</div>
+              <div class="function-use"><strong>Use when</strong>You have a layout for handheld, tripod, gimbal, or review work.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Preset rename and delete</div>
+              <div class="function-desc">Keeps saved setups readable and removes ones you no longer use.</div>
+              <div class="function-use"><strong>Use when</strong>The preset list starts getting messy.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="function-group reveal">
+          <div class="function-group-head">
+            <div>
+              <h3>Exposure, LUTs, and framing</h3>
+              <p>These controls define how the monitor image is interpreted and how much guide information appears on top of it.</p>
+            </div>
+            <span class="function-count">5 controls</span>
+          </div>
+          <div class="function-rows">
+            <div class="function-row">
+              <div class="function-name">Exposure-tools pre-LUT toggle</div>
+              <div class="function-desc">Chooses whether exposure tools read the image before the monitoring LUT or after the look is applied.</div>
+              <div class="function-use"><strong>Use when</strong>You need waveform, false color, zebras, and traffic lights to reflect the actual camera signal.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Advanced frame-guide toggle</div>
+              <div class="function-desc">Unlocks the deeper guide workflow, including multiple guides at the same time.</div>
+              <div class="function-use"><strong>Use when</strong>You are protecting more than one delivery format.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Multiple frame guides</div>
+              <div class="function-desc">Shows more than one aspect ratio overlay, with dashed comparison lines when guides are stacked.</div>
+              <div class="function-use"><strong>Use when</strong>You need 2.39, vertical, square, or custom crops visible together.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Matte and guide opacity</div>
+              <div class="function-desc">Controls how strong the frame matte and guide lines appear over live view.</div>
+              <div class="function-use"><strong>Use when</strong>Guides need to be visible without hiding composition or focus detail.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Custom desqueeze and guides</div>
+              <div class="function-desc">Supports non-default anamorphic and aspect-ratio workflows alongside built-in guide choices.</div>
+              <div class="function-use"><strong>Use when</strong>The lens or delivery ratio does not fit a default preset.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="function-group reveal">
+          <div class="function-group-head">
+            <div>
+              <h3>Playback and cache</h3>
+              <p>These controls keep camera-card review quick while still giving operators a clean reset when media changes.</p>
+            </div>
+            <span class="function-count">4 controls</span>
+          </div>
+          <div class="function-rows">
+            <div class="function-row">
+              <div class="function-name">Playback cache size</div>
+              <div class="function-desc">Shows how much local playback cache the app is holding.</div>
+              <div class="function-use"><strong>Use when</strong>You want to understand storage use after review.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Clear playback cache</div>
+              <div class="function-desc">Removes cached playback data so the app can rebuild a fresh view of the card.</div>
+              <div class="function-use"><strong>Use when</strong>Cards changed, thumbnails look stale, or review needs a fresh scan.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Playable clip filtering</div>
+              <div class="function-desc">Keeps streamable MP4/MOV media in the review flow and avoids formats that cannot be played in-app.</div>
+              <div class="function-use"><strong>Use when</strong>The card includes a mix of playable clips and non-streamable RAW files.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Throughput test hooks</div>
+              <div class="function-desc">Helps beta builds compare playback behavior across USB, router Wi-Fi, and AP Direct.</div>
+              <div class="function-use"><strong>Use when</strong>Playback performance needs evidence, not a guess.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="function-group reveal">
+          <div class="function-group-head">
+            <div>
+              <h3>Diagnostics and support logs</h3>
+              <p>These tools are intentionally plain. Their job is to turn a confusing failure into data that can be reproduced, filtered, and fixed.</p>
+            </div>
+            <span class="function-count">7 tools</span>
+          </div>
+          <div class="function-rows">
+            <div class="function-row">
+              <div class="function-name">USB diagnostic tools</div>
+              <div class="function-desc">Checks the basic USB path: cable, device permission, camera visibility, and expected camera mode.</div>
+              <div class="function-use"><strong>Use when</strong>USB connects physically but ZR Ctl cannot control the camera.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Connection log</div>
+              <div class="function-desc">Records connection attempts, transport changes, and high-level failures.</div>
+              <div class="function-use"><strong>Use when</strong>You need to explain what happened before the app reached the camera.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Protocol packet log</div>
+              <div class="function-desc">Shows lower-level camera communication for debugging command and response behavior.</div>
+              <div class="function-use"><strong>Use when</strong>Support needs to see what the camera actually returned.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Poll capture</div>
+              <div class="function-desc">Captures repeated camera-state polling so changing properties can be inspected over time.</div>
+              <div class="function-use"><strong>Use when</strong>A setting changes, fails to change, or updates inconsistently.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Poll noise filtering</div>
+              <div class="function-desc">Removes duplicated or low-value poll chatter so important changes are easier to read.</div>
+              <div class="function-use"><strong>Use when</strong>A log is too noisy to scan quickly.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Property discovery</div>
+              <div class="function-desc">Finds camera properties exposed by the connected body and firmware.</div>
+              <div class="function-use"><strong>Use when</strong>A new camera, firmware, or mode needs capability mapping.</div>
+            </div>
+            <div class="function-row">
+              <div class="function-name">Full property dump</div>
+              <div class="function-desc">Exports the camera property state for deep debugging and compatibility work.</div>
+              <div class="function-use"><strong>Use when</strong>Support asks for a complete snapshot of what the app can see.</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="platform-section" id="platforms">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">iOS &amp; Android</p>
+        <h2 class="sec-head">Same intent, platform-aware behavior.</h2>
+        <p class="sec-sub center">Advanced tools serve the same operator workflow on iPhone, iPad, and Android, but each platform has its own permission prompts, USB behavior, and network details.</p>
+      </div>
+      <div class="platform-grid">
+        <article class="platform-card reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          </div>
+          <h3>iOS &amp; iPadOS</h3>
+          <p>On Apple devices, Advanced helps make the most of USB-C, Local Network discovery, iPad layouts, and permission-sensitive camera control.</p>
+          <div class="platform-meta">Best checks: Camera permission, Local Network permission, MTP/PTP USB mode, data-capable USB-C cable.</div>
+          <ul class="platform-list">
+            <li>Use preview tuning to keep live view smooth on iPhone, iPad, or Vision Pro-sized layouts.</li>
+            <li>If Photos, Files, or an import view opens after USB connection, leave that view and return to ZR Ctl.</li>
+            <li>Use logs after a failed USB or Wi-Fi attempt so support can see the exact permission, transport, or camera-response path.</li>
+          </ul>
+        </article>
+        <article class="platform-card reveal">
+          <div class="card-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="12" rx="2"/><path d="M8 7l-2-4"/><path d="M16 7l2-4"/><path d="M9 12h.01"/><path d="M15 12h.01"/></svg>
+          </div>
+          <h3>Android</h3>
+          <p>On Android, Advanced is especially useful because device USB behavior, cable quality, permissions, and network warnings can vary more from phone to phone.</p>
+          <div class="platform-meta">Best checks: USB host prompt, app permission, MTP/PTP camera mode, no-internet AP warning, cable and adapter quality.</div>
+          <ul class="platform-list">
+            <li>Approve Android USB access for ZR Ctl when the system asks which app should use the connected camera.</li>
+            <li>If AP Direct warns that the camera network has no internet, stay on that network while controlling the camera.</li>
+            <li>Use the USB checklist and connection log to separate cable issues from camera mode, permission, or device-specific behavior.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section alt" id="playback">
+    <div class="container">
+      <div class="detail-row reveal">
+        <div class="detail-copy">
+          <p class="sec-label">Playback &amp; Review</p>
+          <h2>Keep review fast without carrying stale cache forever.</h2>
+          <p>ZR Ctl playback scans the camera card, filters for playable clips, loads thumbnails, and streams supported MP4/MOV media for review. Advanced cache controls give you a way to reset that playback state when the camera card changes or when you want a clean scan.</p>
+          <ul class="detail-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Cache size</strong> helps you understand how much playback data the app is holding locally.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Clear cache</strong> is the right move after changing cards, deleting clips, or troubleshooting stale thumbnails.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Throughput test hooks</strong> help tune playback behavior over USB, router Wi-Fi, or AP Direct during beta testing.</span></li>
+          </ul>
+        </div>
+        <div class="detail-media">
+          <div class="media-frame">
+            <img src="../images/playback-gallery.png" alt="ZR Ctl playback gallery with camera card thumbnails">
+            <p class="media-caption"><strong>Playback stays practical.</strong> Cache controls support faster review while still giving operators a clean reset when the media state changes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workflow-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="sec-label">When To Use It</p>
+        <h2 class="sec-head">Three practical workflows.</h2>
+        <p class="sec-sub center">Advanced is most useful when you are preparing a setup, responding to a rough connection, or capturing evidence for support.</p>
+      </div>
+      <div class="workflow-grid">
+        <article class="workflow-card reveal">
+          <div class="number">01</div>
+          <h3>Before the shoot</h3>
+          <p>Connect the camera, choose the transport, tune preview quality, set UI scale, configure guides, then save the layout as a preset for that rig.</p>
+        </article>
+        <article class="workflow-card reveal">
+          <div class="number">02</div>
+          <h3>When live view gets heavy</h3>
+          <p>Lower preview image size, increase compression, move closer in AP Direct, or switch to USB/router Wi-Fi before tearing down the camera profile.</p>
+        </article>
+        <article class="workflow-card reveal">
+          <div class="number">03</div>
+          <h3>When support needs detail</h3>
+          <p>Reproduce the issue, open Advanced, capture the relevant USB, connection, packet, poll, or property data, then send the logs with device and firmware notes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>Need the connection guide too?</h2>
+        <p>Advanced is easiest after the camera and device are speaking the same transport. Start with USB, Wi-Fi Search, or AP Direct setup, then tune from here.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="/how-to/" class="btn-primary">
+            Open setup guide
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/#download" class="btn-secondary">
+            Try ZR Ctl
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/advanced/">Advanced</a></li>
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Contact</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or any other camera manufacturer or trademark owner mentioned on this site. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    function toggleNav() {
+      const ul = document.querySelector('.nav-links');
+      if (ul.style.display === 'flex') { ul.style.display = 'none'; return; }
+      ul.style.display = 'flex';
+      ul.style.position = 'absolute'; ul.style.top = '60px'; ul.style.left = '0'; ul.style.right = '0';
+      ul.style.flexDirection = 'column'; ul.style.padding = '20px 24px';
+      ul.style.background = 'rgba(9,9,11,0.97)'; ul.style.borderBottom = '1px solid var(--border-subtle)';
+      ul.style.gap = '14px';
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          if (window.innerWidth <= 768) document.querySelector('.nav-links').style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
