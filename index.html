@@ -350,24 +350,10 @@
       padding: 9px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
       border: none; cursor: pointer; transition: all 0.2s;
     }
-    .plat-btn.ios { background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg); }
-    .plat-btn.ios:hover { box-shadow: 0 4px 16px var(--accent-glow); }
-
-    .android-form { display: flex; gap: 8px; margin-top: 10px; }
-    .android-form input {
-      flex: 1; padding: 9px 12px; background: var(--bg); border: 1px solid var(--border);
-      border-radius: 8px; color: var(--text); font-size: 0.85rem; font-family: 'Inter', sans-serif;
-      outline: none; transition: border-color 0.2s;
-    }
-    .android-form input::placeholder { color: var(--text-3); }
-    .android-form input:focus { border-color: var(--accent); }
-    .android-form button {
-      padding: 9px 16px; background: var(--accent); color: var(--bg);
-      border: none; border-radius: 8px; font-size: 0.8rem; font-weight: 600;
-      cursor: pointer; white-space: nowrap;
-    }
-    .android-form button:hover { box-shadow: 0 2px 12px var(--accent-glow); }
-    .form-msg { font-size: 0.75rem; margin-top: 6px; min-height: 16px; font-family: 'JetBrains Mono', monospace; }
+    .plat-btn.ios,
+    .plat-btn.android { background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg); }
+    .plat-btn.ios:hover,
+    .plat-btn.android:hover { box-shadow: 0 4px 16px var(--accent-glow); }
 
     /* ── Footer ── */
     footer { padding: 40px 0; border-top: 1px solid var(--border-subtle); }
@@ -802,12 +788,11 @@
         </div>
         <div class="plat-card">
           <h3>Android</h3>
-          <p>Request access via email</p>
-          <div class="android-form" id="androidForm">
-            <input type="email" placeholder="your@email.com" id="androidEmail" />
-            <button onclick="submitAndroid()">Request</button>
-          </div>
-          <div class="form-msg" id="formMsg"></div>
+          <p>Google Play beta</p>
+          <a href="https://play.google.com/apps/testing/com.mikeaguado.nikonctl.android" class="plat-btn android">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.05-.82.23l-1.88 3.24A11.2 11.2 0 0 0 12 8c-1.58 0-3.1.33-4.48.92L5.64 5.68a.62.62 0 0 0-.82-.23.64.64 0 0 0-.26.85L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+            Join Android Beta
+          </a>
         </div>
       </div>
     </div>
@@ -858,19 +843,6 @@
       });
     });
 
-    // ── Android form ──
-    function submitAndroid() {
-      const email = document.getElementById('androidEmail').value.trim();
-      const msg = document.getElementById('formMsg');
-      if (!email || !email.includes('@')) {
-        msg.style.color = 'var(--red)'; msg.textContent = 'Please enter a valid email.'; return;
-      }
-      const subject = encodeURIComponent('Android Beta Request');
-      const body = encodeURIComponent('Hi,\n\nI\'d like to request access to the ZR Ctl Android beta.\n\nMy email: ' + email + '\n\nThanks!');
-      window.location.href = 'mailto:mike@itsmadcreative.com?subject=' + subject + '&body=' + body;
-      msg.style.color = 'var(--green)'; msg.textContent = 'Opening your email client...';
-      document.getElementById('androidEmail').value = '';
-    }
   </script>
 </body>
 </html>
