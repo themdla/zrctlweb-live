@@ -392,6 +392,16 @@
       width: 100%; border-radius: var(--radius); border: 1px solid var(--border-subtle);
       display: block;
     }
+    .loop-video {
+      height: auto; background: #000; object-fit: cover;
+      border: 0; border-radius: 0;
+    }
+    .feat-screenshot.loop-video {
+      border: 0; border-radius: 0;
+    }
+    .hero-video {
+      width: min(900px, 90vw); margin: 48px auto 0; position: relative; z-index: 2;
+    }
 
     /* ── Video Section ── */
     .video-section { padding: 100px 0; }
@@ -525,7 +535,9 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </a>
       </div>
-      <img src="/images/liveview-hud.png" alt="ZR Ctl live view monitoring a Nikon Z camera" style="width:min(900px, 90vw); height:auto; display:block; margin:48px auto 0; border-radius:var(--radius); position:relative; z-index:2;">
+      <video class="feat-screenshot loop-video hero-video" autoplay muted loop playsinline preload="metadata" poster="/images/liveview-hud.png" aria-label="ZR Ctl live view monitoring a Nikon Z camera">
+        <source src="/videos/ZRCTL-Main-web.mp4" type="video/mp4">
+      </video>
     </div>
   </section>
 
@@ -603,7 +615,9 @@
           </ul>
         </div>
         <div class="feat-visual">
-          <img src="/images/waveform-traffic.png" alt="ZR Ctl waveform scope and traffic light exposure tools on Nikon Z live view" class="feat-screenshot" loading="lazy">
+          <video class="feat-screenshot loop-video" autoplay muted loop playsinline preload="metadata" poster="/images/waveform-traffic.png" aria-label="ZR Ctl waveform scope and traffic light exposure tools on Nikon Z live view">
+            <source src="/videos/ZRCTL-2nd-web.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -613,15 +627,39 @@
     <div class="container">
       <div class="feat-row reverse reveal">
         <div class="feat-text">
-          <p class="sec-label" style="color: var(--green);">Focus Tools</p>
-          <h3>Focus peaking for Nikon ZR R3D NE and RAW workflows.</h3>
-          <p>ZR Ctl keeps peaking available for demanding Nikon ZR recording modes, including R3D NE workflows, with adjustable sensitivity, color, and fine calibration controls.</p>
-          <p>Tap anywhere in live view to move focus. AF trigger, AF area mode, AF area control, and focus-box feedback, all without touching the camera.</p>
+          <p class="sec-label" style="color: var(--green);">Focus Control</p>
+          <h3>Manual focus, pull moves, and cinematic AF from live view.</h3>
+          <p>Use ZR Ctl as a dedicated focus surface: tap to set focus, nudge manual focus in fine or coarse steps, and keep focus controls available without touching the camera body.</p>
+          <p>The pull tool helps you rehearse repeatable moves and execute them cleanly, while cinematic AF controls make focus transitions feel more intentional from the phone or tablet.</p>
+          <ul class="detail-list">
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Fine and coarse manual focus controls</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pull tool for repeatable focus moves</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cinematic AF trigger from live view</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AF area, subject area, and focus-box feedback</li>
+          </ul>
+        </div>
+        <div class="feat-visual">
+          <video class="feat-screenshot loop-video" autoplay muted loop playsinline preload="metadata" poster="/images/focus-peaking.png" aria-label="ZR Ctl manual focus, focus pull, and cinematic autofocus controls on Nikon Z live view">
+            <source src="/videos/ZRCTL-focus-web.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat-section">
+    <div class="container">
+      <div class="feat-row reveal">
+        <div class="feat-text">
+          <p class="sec-label" style="color: var(--green);">Focus Peaking</p>
+          <h3>Peaking that stays available in demanding ZR recording modes.</h3>
+          <p>For manual lenses, macro work, and R3D NE or RAW setups, ZR Ctl keeps edge peaking visible directly over live view so you can see what is actually biting.</p>
+          <p>Dial sensitivity and color to match the scene, then pair peaking with scopes, LUT preview, and framing tools without losing your focus reference.</p>
           <ul class="detail-list">
             <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Peaking for Nikon ZR R3D NE workflows</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tap-to-focus from live view</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Adjustable sensitivity &amp; color</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full AF area controls</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Adjustable sensitivity and color</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Fine calibration for busy or low-contrast scenes</li>
+            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Works alongside scopes, LUT preview, and frame guides</li>
           </ul>
         </div>
         <div class="feat-visual">
@@ -631,9 +669,9 @@
     </div>
   </section>
 
-  <section class="feat-section">
+  <section class="feat-section alt">
     <div class="container">
-      <div class="feat-row reveal">
+      <div class="feat-row reverse reveal">
         <div class="feat-text">
           <p class="sec-label" style="color: var(--blue);">Framing &amp; Desqueeze</p>
           <h3>Anamorphic desqueeze with custom ratios. Frame guides for every delivery.</h3>
@@ -653,9 +691,9 @@
     </div>
   </section>
 
-  <section class="feat-section alt" id="playback">
+  <section class="feat-section" id="playback">
     <div class="container">
-      <div class="feat-row reverse reveal">
+      <div class="feat-row reveal">
         <div class="feat-text">
           <p class="sec-label" style="color: var(--accent);">Playback</p>
           <h3>Review takes over WiFi without leaving the app.</h3>
