@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+  <title id="title">iPhone Personal Hotspot connection overview</title>
+  <desc id="desc">A Nikon ZR connects through an iPhone Personal Hotspot, and ZR Ctl uses Wi-Fi Search.</desc>
+  <defs>
+    <linearGradient id="phoneGlow" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd200" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0.7"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="480" height="360" fill="#101014"/>
+  <circle cx="240" cy="178" r="154" fill="#ffd200" opacity="0.05"/>
+  <circle cx="240" cy="178" r="96" fill="#60a5fa" opacity="0.07"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="44" y="58" width="118" height="214" rx="26" fill="#050507" stroke="#2a2a30" stroke-width="2"/>
+    <rect x="54" y="72" width="98" height="186" rx="18" fill="#17171b"/>
+    <rect x="82" y="82" width="42" height="5" rx="2.5" fill="#2f2f35"/>
+    <text x="103" y="114" text-anchor="middle" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">iPhone</text>
+    <rect x="68" y="132" width="70" height="64" rx="14" fill="#232329"/>
+    <path d="M82 172a29 29 0 0 1 41 0" fill="none" stroke="url(#phoneGlow)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M90 158a18 18 0 0 1 25 0" fill="none" stroke="url(#phoneGlow)" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="103" cy="181" r="5" fill="#ffd200"/>
+    <text x="103" y="218" text-anchor="middle" fill="#a1a1aa" font-family="Inter, Arial, sans-serif" font-size="10">Personal Hotspot</text>
+  </g>
+
+  <g fill="none" stroke="#ffd200" stroke-linecap="round" stroke-width="3" opacity="0.95">
+    <path d="M170 137c43-28 87-28 132 0"/>
+    <path d="M170 201c43 28 87 28 132 0"/>
+  </g>
+  <g fill="none" stroke="#60a5fa" stroke-linecap="round" stroke-width="2" opacity="0.75">
+    <path d="M184 151c34-19 69-19 104 0"/>
+    <path d="M184 187c34 19 69 19 104 0"/>
+  </g>
+  <text x="240" y="178" text-anchor="middle" fill="#fafafa" font-family="JetBrains Mono, Menlo, monospace" font-size="12" font-weight="700">Wi-Fi network</text>
+  <text x="240" y="196" text-anchor="middle" fill="#a1a1aa" font-family="Inter, Arial, sans-serif" font-size="11">iPhone acts like the router</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="314" y="92" width="118" height="84" rx="18" fill="#f4f4f4" stroke="#2a2a30" stroke-width="2"/>
+    <rect x="326" y="108" width="72" height="42" rx="8" fill="#17171b"/>
+    <circle cx="410" cy="128" r="13" fill="#17171b"/>
+    <circle cx="410" cy="128" r="6" fill="#0b0b0c"/>
+    <rect x="340" y="154" width="50" height="8" rx="4" fill="#d7d7d7"/>
+    <text x="373" y="202" text-anchor="middle" fill="#fafafa" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Nikon ZR</text>
+    <text x="373" y="219" text-anchor="middle" fill="#a1a1aa" font-family="Inter, Arial, sans-serif" font-size="11">Search network profile</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="292" y="244" width="154" height="48" rx="14" fill="#18181b" stroke="#27272a"/>
+    <circle cx="316" cy="268" r="9" fill="#ffd200"/>
+    <text x="335" y="263" fill="#fafafa" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">ZR Ctl</text>
+    <text x="335" y="280" fill="#a1a1aa" font-family="JetBrains Mono, Menlo, monospace" font-size="10">Wi-Fi / Search</text>
+  </g>
+</svg>

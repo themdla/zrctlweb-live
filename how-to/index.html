@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Connect ZR Ctl to Nikon ZR | USB, Wi-Fi, and AP Setup</title>
-  <meta name="description" content="Step-by-step setup instructions for connecting ZR Ctl to a Nikon ZR camera over USB, Wi-Fi search, or direct camera AP mode.">
+  <title>How to Connect ZR Ctl to Nikon ZR | USB, Wi-Fi, Hotspot, and AP Setup</title>
+  <meta name="description" content="Step-by-step setup instructions for connecting ZR Ctl to a Nikon ZR camera over USB, Wi-Fi search, iPhone Personal Hotspot, or direct camera AP mode.">
   <meta name="title" content="How to Connect ZR Ctl to Nikon ZR">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#09090b">
   <link rel="canonical" href="https://www.zrctl.com/how-to/">
 
   <meta property="og:title" content="How to Connect ZR Ctl to Nikon ZR">
-  <meta property="og:description" content="Set up USB, Wi-Fi Search, or AP Direct mode for ZR Ctl camera control.">
+  <meta property="og:description" content="Set up USB, Wi-Fi Search, iPhone Personal Hotspot, or AP Direct mode for ZR Ctl camera control.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.zrctl.com/how-to/">
   <meta property="og:site_name" content="ZR Ctl">
@@ -21,7 +21,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="How to Connect ZR Ctl to Nikon ZR">
-  <meta name="twitter:description" content="Set up USB, Wi-Fi Search, or AP Direct mode for ZR Ctl camera control.">
+  <meta name="twitter:description" content="Set up USB, Wi-Fi Search, iPhone Personal Hotspot, or AP Direct mode for ZR Ctl camera control.">
   <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
 
   <link rel="icon" href="https://www.zrctl.com/favicon.ico" sizes="any">
@@ -205,7 +205,7 @@
       padding: 86px 0; background: var(--bg-elevated);
       border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
     }
-    .choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .choice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .choice-card {
       padding: 24px; background: var(--bg-card); border: 1px solid var(--border-subtle);
       border-radius: var(--radius); transition: all 0.25s; position: relative; overflow: hidden;
@@ -224,6 +224,7 @@
     .choice-icon svg { width: 24px; height: 24px; }
     .choice-icon.usb { background: var(--green-dim); color: var(--green); }
     .choice-icon.wifi { background: var(--blue-dim); color: var(--blue); }
+    .choice-icon.hotspot { background: var(--accent-dim); color: var(--accent); }
     .choice-icon.ap { background: rgba(129, 140, 248, 0.13); color: #818cf8; }
     .choice-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
     .choice-card p { color: var(--text-2); font-size: 0.93rem; line-height: 1.65; }
@@ -292,6 +293,7 @@
     .nikon-frame img { width: 100%; height: 100%; object-fit: contain; display: block; padding: 14px; }
     .nikon-frame.screen { background: #151515; }
     .nikon-frame.screen img { padding: 0; }
+    .nikon-frame.hotspot { background: #101014; }
 
     .panel-body { padding: 34px; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: start; }
     .steps-wrap { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
@@ -349,6 +351,11 @@
     }
     .note-card h3 svg { width: 17px; height: 17px; color: var(--accent); }
     .note-card p, .note-card li { color: var(--text-2); font-size: 0.86rem; line-height: 1.62; }
+    .note-card code {
+      font-family: 'JetBrains Mono', monospace; color: var(--text); font-size: 0.84em;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle);
+      padding: 1px 5px; border-radius: 6px;
+    }
     .note-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
     .note-card li { position: relative; padding-left: 16px; }
     .note-card li::before {
@@ -403,6 +410,10 @@
       .panel-body { gap: 20px; }
       .key-grid { grid-template-columns: 1fr; }
       .manual-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 1100px) {
+      .choice-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 900px) {
@@ -472,7 +483,7 @@
             Camera setup guide
           </div>
           <h1>Connect ZR Ctl to your <span class="hl">Nikon ZR</span>.</h1>
-          <p class="hero-sub">Pick the same transport in the app and on the camera. USB is the clean wired path, Wi-Fi Search finds cameras on your current network, and AP Direct joins the camera's own network when there is no router nearby.</p>
+          <p class="hero-sub">Pick the same transport in the app and on the camera. USB is the clean wired path, Wi-Fi Search works on a router or iPhone Personal Hotspot, and AP Direct joins the camera's own network when there is no router nearby.</p>
           <div class="hero-actions">
             <a href="#setup" class="btn-primary">
               Start setup
@@ -496,8 +507,8 @@
     <div class="container">
       <div class="section-header reveal">
         <p class="sec-label">Choose A Transport</p>
-        <h2 class="sec-head">Three ways in, one control surface.</h2>
-        <p class="sec-sub center">USB uses MTP/PTP, Wi-Fi Search uses your router, and AP Direct uses the camera's own network.</p>
+        <h2 class="sec-head">Four setup paths, one control surface.</h2>
+        <p class="sec-sub center">USB uses MTP/PTP, Wi-Fi Search uses a router or your iPhone hotspot, and AP Direct uses the camera's own network.</p>
       </div>
       <div class="choice-grid">
         <a href="#setup" class="choice-card reveal" onclick="selectTransport('usb')">
@@ -516,6 +527,14 @@
           <p>Best when the camera and phone/tablet can stay on the same router or studio network.</p>
           <div class="choice-meta">Camera profile: Search network</div>
         </a>
+        <a href="#setup" class="choice-card reveal" onclick="selectTransport('hotspot')">
+          <div class="choice-icon hotspot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 18h4"/><path d="M20 8.5a8 8 0 0 1 0 7"/><path d="M4 8.5a8 8 0 0 0 0 7"/></svg>
+          </div>
+          <h3>iPhone Hotspot</h3>
+          <p>Best when you want router-style Wi-Fi Search without bringing a separate router.</p>
+          <div class="choice-meta">ZR Ctl button: Wi-Fi / Search</div>
+        </a>
         <a href="#setup" class="choice-card reveal" onclick="selectTransport('ap')">
           <div class="choice-icon ap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5 13a10 10 0 0 1 14 0"/><path d="M2 9.5a15 15 0 0 1 20 0"/></svg>
@@ -533,7 +552,7 @@
       <div class="section-header reveal">
         <p class="sec-label">Camera Setup</p>
         <h2 class="sec-head">Follow the path you want to use.</h2>
-        <p class="sec-sub center">These instructions match the transport names in ZR Ctl and the Nikon ZR network menu.</p>
+        <p class="sec-sub center">These instructions match the transport names in ZR Ctl, the Nikon ZR network menu, and the iPhone hotspot path.</p>
       </div>
 
       <div class="setup-shell reveal">
@@ -550,6 +569,13 @@
             <span>
               <span class="tab-title">Wi-Fi / Search</span>
               <span class="tab-copy">Same router or network</span>
+            </span>
+          </button>
+          <button class="tab-btn" id="tab-hotspot" role="tab" aria-selected="false" aria-controls="panel-hotspot" onclick="selectTransport('hotspot')">
+            <span class="tab-dot"></span>
+            <span>
+              <span class="tab-title">iPhone Hotspot</span>
+              <span class="tab-copy">Phone acts as router</span>
             </span>
           </button>
           <button class="tab-btn" id="tab-ap" role="tab" aria-selected="false" aria-controls="panel-ap" onclick="selectTransport('ap')">
@@ -805,6 +831,161 @@
             </div>
           </article>
 
+          <article class="panel" id="panel-hotspot" role="tabpanel" aria-labelledby="tab-hotspot">
+            <div class="panel-card">
+              <div class="panel-head">
+                <div>
+                  <div class="panel-kicker">iPhone Hotspot</div>
+                  <h2>Use your iPhone as the network.</h2>
+                  <p>This is a router-style wireless setup without carrying a router. The ZR joins the iPhone's Personal Hotspot, then ZR Ctl searches that hotspot network for the camera.</p>
+                  <div class="key-grid">
+                    <div class="key-item">
+                      <span>iPhone setting</span>
+                      <strong>Personal Hotspot</strong>
+                    </div>
+                    <div class="key-item">
+                      <span>Camera profile</span>
+                      <strong>Search for Wi-Fi network</strong>
+                    </div>
+                    <div class="key-item">
+                      <span>ZR Ctl button</span>
+                      <strong>Wi-Fi / Search</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="nikon-frame hotspot">
+                  <img src="assets/iphone-hotspot-overview.svg" alt="Diagram showing Nikon ZR connected to ZR Ctl through an iPhone Personal Hotspot">
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="steps-wrap">
+                  <ol class="steps">
+                  <li>
+                    <div>
+                      <h3>Turn on the iPhone hotspot.</h3>
+                      <p>On the iPhone running ZR Ctl, open <code>Settings > Personal Hotspot</code>, or <code>Settings > Cellular > Personal Hotspot</code>, then turn on <code>Allow Others to Join</code>.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Use a camera-friendly name and password.</h3>
+                      <p>The ZR will join the hotspot like normal Wi-Fi. If needed, simplify the iPhone name in <code>Settings > General > About > Name</code>, then use an easy-to-type hotspot password.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Keep the hotspot screen open while the ZR joins.</h3>
+                      <p>Leave the iPhone on the Personal Hotspot screen until the camera connects. This makes the hotspot easier for non-Apple devices to see.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Set the ZR connection type.</h3>
+                      <p>On the camera, open <code>Menu > Network menu > Connect to computer > Connection type</code>, then choose <code>Camera control</code>.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Create a Search network profile.</h3>
+                      <p>Go to <code>Connect to computer > Network settings > Create profile</code>, choose <code>Search for Wi-Fi network</code>, then select the iPhone hotspot name.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Enter the hotspot password on the camera.</h3>
+                      <p>Use automatic IP assignment unless you have a specific reason to set an address manually. Finish the profile when the camera reports the Wi-Fi link is complete.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Connect from ZR Ctl with Wi-Fi / Search.</h3>
+                      <p>Return to ZR Ctl, open Connection, and tap <code>Wi-Fi / Search</code>. Choose the discovered camera when it appears.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h3>Authenticate if prompted.</h3>
+                      <p>If the camera asks to pair or shows an authentication code, confirm on the camera and continue in ZR Ctl.</p>
+                    </div>
+                  </li>
+                  </ol>
+                  <div class="manual-sequence">
+                    <h3>Hotspot and camera screens</h3>
+                    <div class="manual-grid">
+                      <figure class="manual-thumb">
+                        <img src="assets/iphone-hotspot-settings.svg" alt="iPhone Personal Hotspot screen with Allow Others to Join enabled">
+                        <figcaption>Turn on Allow Others to Join on the iPhone.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/iphone-hotspot-password.svg" alt="iPhone Personal Hotspot screen showing the hotspot name and Wi-Fi password">
+                        <figcaption>Use the iPhone name and Wi-Fi password as the camera network.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-connect-computer.svg" alt="Nikon ZR Connect to computer network settings screen">
+                        <figcaption>Start from Connect to computer.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-create-profile.svg" alt="Nikon ZR Create profile menu screen">
+                        <figcaption>Create a new camera network profile.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-search-choice.svg" alt="Nikon ZR Search for Wi-Fi network selection screen">
+                        <figcaption>Choose Search for Wi-Fi network.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-choose-network.svg" alt="Nikon ZR Wi-Fi network SSID selection screen">
+                        <figcaption>Select the iPhone hotspot name from the SSID list.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-enter-key.svg" alt="Nikon ZR encryption key entry screen">
+                        <figcaption>Enter the iPhone hotspot password.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-wifi-connected-message.svg" alt="Nikon ZR Wi-Fi connection completed message">
+                        <figcaption>Wait for the camera to confirm the Wi-Fi link.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-start-pairing.svg" alt="Nikon ZR Start pairing menu item">
+                        <figcaption>Start pairing after the hotspot profile is ready.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/nikon-auth-code.svg" alt="Nikon ZR authentication code screen">
+                        <figcaption>Confirm the authentication code if the camera asks.</figcaption>
+                      </figure>
+                      <figure class="manual-thumb">
+                        <img src="assets/zrctl-connection-screen.jpg" alt="ZR Ctl connection screen with Wi-Fi Search option">
+                        <figcaption>In ZR Ctl, tap Wi-Fi / Search, not AP / Direct.</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                <aside class="side-stack">
+                  <div class="nikon-frame hotspot">
+                    <img src="assets/iphone-hotspot-settings.svg" alt="iPhone Personal Hotspot screen with Allow Others to Join turned on">
+                  </div>
+                  <div class="note-card">
+                    <h3>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 18h4"/><path d="M20 8.5a8 8 0 0 1 0 7"/><path d="M4 8.5a8 8 0 0 0 0 7"/></svg>
+                      Hotspot tips
+                    </h3>
+                    <ul>
+                      <li>Keep the iPhone hotspot screen open until the ZR connects.</li>
+                      <li>Use a simple hotspot password the camera keyboard can enter cleanly.</li>
+                      <li>Expect higher iPhone battery and cellular data use during the session.</li>
+                    </ul>
+                  </div>
+                  <div class="note-card">
+                    <h3>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+                      Which button?
+                    </h3>
+                    <p>Use <code>Wi-Fi / Search</code> in ZR Ctl. AP / Direct is only for the camera-created Wi-Fi network.</p>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </article>
+
           <article class="panel" id="panel-ap" role="tabpanel" aria-labelledby="tab-ap">
             <div class="panel-card">
               <div class="panel-head">
@@ -956,6 +1137,10 @@
           <p>For Wi-Fi Search, both devices must be on the same local network. If discovery still fails, use Advanced Tools and connect by IP.</p>
         </div>
         <div class="trouble-card reveal">
+          <h3>The camera cannot see the iPhone hotspot</h3>
+          <p>Keep the iPhone on the Personal Hotspot screen, confirm Allow Others to Join is on, simplify the hotspot name or password if needed, then run the camera's Search for Wi-Fi network step again.</p>
+        </div>
+        <div class="trouble-card reveal">
           <h3>The camera asks for an authentication code</h3>
           <p>That is normal on first pairing or after a fresh install. Confirm the camera prompt, then enter the code ZR shows in the app.</p>
         </div>
@@ -970,7 +1155,7 @@
   <section class="source-section">
     <div class="container">
       <div class="source-card reveal">
-        <p><strong>Reference note:</strong> Nikon menu labels and camera diagrams are included as setup references from the Nikon ZR Reference Guide, especially Nikon's pages for <a href="https://onlinemanual.nikonimglib.com/zr/en/25-02.html" target="_blank" rel="noopener">USB computer connection</a>, <a href="https://onlinemanual.nikonimglib.com/zr/en/25-03.html" target="_blank" rel="noopener">wireless LAN computer connection</a>, <a href="https://onlinemanual.nikonimglib.com/zr/en/09-09-06.html" target="_blank" rel="noopener">Connect to computer</a>, <a href="https://onlinemanual.nikonimglib.com/zr/en/09-09-10.html" target="_blank" rel="noopener">USB mode</a>, and <a href="https://onlinemanual.nikonimglib.com/zr/en/09-06-30.html" target="_blank" rel="noopener">USB power delivery</a>. ZR Ctl is an independent app and is not affiliated with Nikon.</p>
+        <p><strong>Reference note:</strong> Nikon menu labels and camera diagrams are included as setup references from the Nikon ZR Reference Guide, especially Nikon's pages for <a href="https://onlinemanual.nikonimglib.com/zr/en/25-02.html" target="_blank" rel="noopener">USB computer connection</a>, <a href="https://onlinemanual.nikonimglib.com/zr/en/25-03.html" target="_blank" rel="noopener">wireless LAN computer connection</a>, <a href="https://onlinemanual.nikonimglib.com/zr/en/09-09-06.html" target="_blank" rel="noopener">Connect to computer</a>, <a href="https://onlinemanual.nikonimglib.com/zr/en/09-09-10.html" target="_blank" rel="noopener">USB mode</a>, and <a href="https://onlinemanual.nikonimglib.com/zr/en/09-06-30.html" target="_blank" rel="noopener">USB power delivery</a>. iPhone Personal Hotspot behavior is referenced from <a href="https://support.apple.com/en-us/HT204023" target="_blank" rel="noopener">Apple Support's Personal Hotspot guide</a>. ZR Ctl is an independent app and is not affiliated with Nikon or Apple.</p>
       </div>
     </div>
   </section>
