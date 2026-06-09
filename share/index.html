@@ -440,8 +440,14 @@
 
     /* ── Screenshots ── */
     .feat-screenshot {
-      width: 100%; border-radius: var(--radius); border: 1px solid var(--border-subtle);
+      width: 100%; border-radius: var(--radius); border: 0;
       display: block;
+    }
+    .media-lightbox-trigger {
+      cursor: zoom-in;
+    }
+    .media-lightbox-trigger:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 4px;
     }
     .loop-video {
       height: auto; background: #000; object-fit: cover;
@@ -467,6 +473,13 @@
     }
     .video-wrap iframe {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+    .video-lightbox-trigger {
+      position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%;
+      border: 0; background: transparent; cursor: zoom-in;
+    }
+    .video-lightbox-trigger:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: -4px;
     }
 
     /* ── Coverage ── */
@@ -522,19 +535,86 @@
 
     /* ── Gallery ── */
     .gallery-section { padding: 100px 0; background: var(--bg-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+    .gallery-groups {
+      display: grid; gap: 58px;
+    }
+    .gallery-page {
+      display: grid; gap: 18px;
+    }
+    .gallery-page-header {
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);
+    }
+    .gallery-page-title {
+      font-size: clamp(1.4rem, 2vw, 2rem); line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .gallery-page-copy {
+      max-width: 460px; color: var(--text-2); font-size: 0.94rem; line-height: 1.6;
+      text-align: right;
+    }
     .gallery-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+      align-items: start;
     }
     .gallery-item {
-      border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-subtle);
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius); overflow: hidden; border: 0; background: #000;
       transition: all 0.3s;
     }
-    .gallery-item:hover { border-color: var(--border); transform: translateY(-2px); }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0; border: none; }
+    .gallery-item.portrait {
+      aspect-ratio: 9 / 16;
+      width: min(100%, 420px);
+      justify-self: center;
+    }
+    .gallery-item:hover { transform: translateY(-2px); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; border-radius: 0; border: none; }
+    .gallery-grid > .gallery-item:only-child {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+
+    /* ── Media Lightbox ── */
+    .media-lightbox {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: fit-content; height: fit-content; max-width: none; max-height: none;
+      max-inline-size: none; max-block-size: none; margin: 0; padding: 0; border: 0;
+      background: transparent; color: var(--text); overflow: visible;
+    }
+    .media-lightbox::backdrop { background: rgba(0,0,0,0.82); }
+    .media-lightbox-inner {
+      position: relative; display: grid; place-items: center;
+    }
+    .media-lightbox-content {
+      --media-aspect: 1.7777777778;
+      display: grid; place-items: center;
+      width: min(94vw, 1600px, calc(92vh * var(--media-aspect)));
+      height: min(92vh, calc(94vw / var(--media-aspect)), calc(1600px / var(--media-aspect)));
+      aspect-ratio: var(--media-aspect);
+      background: #000;
+    }
+    .media-lightbox-inner img,
+    .media-lightbox-inner video,
+    .media-lightbox-inner iframe {
+      display: block; width: 100%; height: 100%; object-fit: contain;
+      margin: 0; max-width: none; position: static; z-index: auto;
+      background: #000;
+    }
+    .media-lightbox-inner iframe { border: 0; }
+    .media-lightbox-close {
+      position: absolute; top: -18px; right: -18px; z-index: 2;
+      display: grid; place-items: center; width: 40px; height: 40px;
+      border-radius: 999px; border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(9,9,11,0.72); color: var(--text); font-size: 28px; line-height: 1;
+      cursor: pointer;
+    }
+    .media-lightbox-close:hover { background: rgba(42,42,46,0.86); }
 
     @media (max-width: 900px) {
       .video-grid { grid-template-columns: 1fr; }
       .coverage-grid { grid-template-columns: 1fr; }
+      .gallery-page-header { display: grid; gap: 8px; }
+      .gallery-page-copy { max-width: none; text-align: left; }
       .gallery-grid { grid-template-columns: 1fr; }
     }
 
@@ -768,7 +848,7 @@
           </ul>
         </div>
         <div class="feat-visual">
-          <img src="/images/playback-gallery.png" alt="ZR Ctl camera card playback gallery with 56 clips and thumbnails" class="feat-screenshot" loading="lazy">
+          <img src="/images/gallery-playback-overview.png" alt="ZR Ctl camera card playback gallery with thumbnails and media filters" class="feat-screenshot" loading="lazy">
         </div>
       </div>
     </div>
@@ -833,41 +913,145 @@
       <div class="section-header reveal">
         <p class="sec-label">Gallery</p>
         <h2 class="sec-head">The app, up close.</h2>
-        <p class="sec-sub center">Screenshots from ZR Ctl across live view, playback, exposure tools, and more.</p>
+        <p class="sec-sub center">Screenshots from ZR Ctl organized by the app pages operators use during a shoot.</p>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item reveal">
-          <img src="/images/liveview-hud.png" alt="Live view with full HUD" class="feat-screenshot" loading="lazy">
+      <div class="gallery-groups">
+        <div class="gallery-page reveal">
+          <div class="gallery-page-header">
+            <h3 class="gallery-page-title">Connect Page</h3>
+            <p class="gallery-page-copy">Transport selection and reconnect flows in landscape and portrait.</p>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-connect-landscape.png" alt="ZR Ctl connect page in landscape" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal portrait">
+              <img src="/images/gallery-connect-portrait.png" alt="ZR Ctl connect page in portrait" class="feat-screenshot" loading="lazy">
+            </div>
+          </div>
         </div>
-        <div class="gallery-item reveal">
-          <img src="/images/waveform-traffic.png" alt="Waveform scope and traffic lights" class="feat-screenshot" loading="lazy">
+
+        <div class="gallery-page reveal">
+          <div class="gallery-page-header">
+            <h3 class="gallery-page-title">Live View Page</h3>
+            <p class="gallery-page-copy">LUT looks, scopes, frame guides, false color, recording overlays, and live-view scenes.</p>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-liveview-look.png" alt="ZR Ctl live view with monitoring LUT controls" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-liveview-scopes-audio.png" alt="ZR Ctl live view with scopes and audio meters" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-liveview-false-color.png" alt="ZR Ctl live view false color overlay" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-monitor-frame-guides.png" alt="ZR Ctl frame guide monitoring overlay" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-liveview-recording.png" alt="ZR Ctl live view recording overlay" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-liveview-band.png" alt="ZR Ctl live view monitoring a stage performance" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-liveview-elin.png" alt="ZR Ctl live view monitoring a portrait scene" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-liveview-rome.png" alt="ZR Ctl live view monitoring a cinematic statue shot" class="feat-screenshot" loading="lazy">
+            </div>
+          </div>
         </div>
-        <div class="gallery-item reveal">
-          <img src="/images/audio-level.png" alt="Audio meters and level overlay" class="feat-screenshot" loading="lazy">
+
+        <div class="gallery-page reveal">
+          <div class="gallery-page-header">
+            <h3 class="gallery-page-title">Photo Controls Page</h3>
+            <p class="gallery-page-copy">Still photo status, exposure, capture, storage, and focus controls.</p>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-photo-controls.png" alt="ZR Ctl photo controls page" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-photo-capture.png" alt="ZR Ctl photo capture controls page" class="feat-screenshot" loading="lazy">
+            </div>
+          </div>
         </div>
-        <div class="gallery-item reveal">
-          <img src="/images/controls-grid.png" alt="Camera controls grid" class="feat-screenshot" loading="lazy">
+
+        <div class="gallery-page reveal">
+          <div class="gallery-page-header">
+            <h3 class="gallery-page-title">Video Controls Page</h3>
+            <p class="gallery-page-copy">Video exposure, codec, resolution, timecode, and focus pages.</p>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-video-exposure.png" alt="ZR Ctl video exposure controls page" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-video-focus.png" alt="ZR Ctl video focus controls page" class="feat-screenshot" loading="lazy">
+            </div>
+          </div>
         </div>
-        <div class="gallery-item reveal">
-          <img src="/images/frame-guides.png" alt="Frame guides overlay" class="feat-screenshot" loading="lazy">
+
+        <div class="gallery-page reveal">
+          <div class="gallery-page-header">
+            <h3 class="gallery-page-title">Audio / TC Page</h3>
+            <p class="gallery-page-copy">Audio, input, timecode, and card status controls for video work.</p>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-audio-timecode.png" alt="ZR Ctl audio and timecode controls page" class="feat-screenshot" loading="lazy">
+            </div>
+          </div>
         </div>
-        <div class="gallery-item reveal">
-          <img src="/images/composition.png" alt="Composition guides" class="feat-screenshot" loading="lazy">
+
+        <div class="gallery-page reveal">
+          <div class="gallery-page-header">
+            <h3 class="gallery-page-title">Playback Page</h3>
+            <p class="gallery-page-copy">Camera-card browsing, filters, photo review, video playback, and portrait browsing.</p>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-playback-overview.png" alt="ZR Ctl playback gallery overview" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-playback-filter-menu.png" alt="ZR Ctl playback type filter menu" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-playback-photo-viewer.png" alt="ZR Ctl playback photo viewer" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal">
+              <img src="/images/gallery-playback-video-player.png" alt="ZR Ctl playback video player" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal portrait">
+              <img src="/images/gallery-playback-portrait-grid.png" alt="ZR Ctl portrait playback gallery" class="feat-screenshot" loading="lazy">
+            </div>
+          </div>
         </div>
-        <div class="gallery-item reveal">
-          <img src="/images/playback-gallery.png" alt="Playback clip gallery" class="feat-screenshot" loading="lazy">
-        </div>
-        <div class="gallery-item reveal">
-          <img src="/images/playback-lut.png" alt="Playback with LUT preview" class="feat-screenshot" loading="lazy">
-        </div>
-        <div class="gallery-item reveal">
-          <img src="/images/false-color.png" alt="False color exposure overlay" class="feat-screenshot" loading="lazy">
-        </div>
-        <div class="gallery-item reveal">
-          <img src="/images/focus-peaking.png" alt="Focus peaking overlay" class="feat-screenshot" loading="lazy">
-        </div>
-        <div class="gallery-item reveal">
-          <img src="/images/playback-landscape.png" alt="Landscape playback" class="feat-screenshot" loading="lazy">
+
+        <div class="gallery-page reveal">
+          <div class="gallery-page-header">
+            <h3 class="gallery-page-title">Advanced Page</h3>
+            <p class="gallery-page-copy">Advanced layout, monitoring, framing, playback, and camera preferences.</p>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-item reveal portrait">
+              <img src="/images/gallery-advanced-live-view.png" alt="ZR Ctl advanced live view layout settings" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal portrait">
+              <img src="/images/gallery-advanced-monitoring.png" alt="ZR Ctl advanced monitoring settings" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal portrait">
+              <img src="/images/gallery-advanced-framing.png" alt="ZR Ctl advanced framing settings" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal portrait">
+              <img src="/images/gallery-advanced-playback.png" alt="ZR Ctl advanced playback settings" class="feat-screenshot" loading="lazy">
+            </div>
+            <div class="gallery-item reveal portrait">
+              <img src="/images/gallery-advanced-camera.png" alt="ZR Ctl advanced camera settings" class="feat-screenshot" loading="lazy">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -990,6 +1174,13 @@
     </div>
   </footer>
 
+  <dialog class="media-lightbox" id="mediaLightbox" aria-label="Media preview">
+    <div class="media-lightbox-inner">
+      <button class="media-lightbox-close" type="button" aria-label="Close media preview">&times;</button>
+      <div class="media-lightbox-content"></div>
+    </div>
+  </dialog>
+
   <script>
     // ── Scroll reveal ──
     const obs = new IntersectionObserver(entries => {
@@ -1052,6 +1243,146 @@
     ['touchstart', 'click'].forEach(eventName => {
       document.addEventListener(eventName, playVisibleLoopVideos, { passive: true });
     });
+
+    // ── Media lightbox ──
+    const mediaLightbox = document.getElementById('mediaLightbox');
+    const mediaLightboxContent = mediaLightbox.querySelector('.media-lightbox-content');
+    const mediaLightboxClose = mediaLightbox.querySelector('.media-lightbox-close');
+    let movedLightboxVideo = null;
+
+    function restoreMovedLightboxVideo() {
+      if (!movedLightboxVideo) return;
+      const { video, parent, nextSibling, state } = movedLightboxVideo;
+      video.pause();
+      video.controls = state.controls;
+      video.muted = state.muted;
+      video.defaultMuted = state.defaultMuted;
+      video.loop = state.loop;
+      video.autoplay = state.autoplay;
+      if (state.role === null) video.removeAttribute('role');
+      else video.setAttribute('role', state.role);
+      if (state.ariaLabel === null) video.removeAttribute('aria-label');
+      else video.setAttribute('aria-label', state.ariaLabel);
+      if (state.tabIndex === null) video.removeAttribute('tabindex');
+      else video.tabIndex = state.tabIndex;
+      if (nextSibling && nextSibling.parentNode === parent) parent.insertBefore(video, nextSibling);
+      else parent.append(video);
+      movedLightboxVideo = null;
+      if (video.classList.contains('loop-video')) {
+        prepareLoopVideo(video);
+        if (!state.paused && videoIsInViewport(video)) playLoopVideo(video);
+      }
+    }
+
+    function clearMediaLightbox() {
+      restoreMovedLightboxVideo();
+      mediaLightboxContent.querySelectorAll('video').forEach(video => {
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+      });
+      mediaLightboxContent.style.removeProperty('--media-aspect');
+      mediaLightboxContent.replaceChildren();
+    }
+
+    function setMediaLightboxAspect(width, height) {
+      if (!width || !height) return;
+      mediaLightboxContent.style.setProperty('--media-aspect', String(width / height));
+    }
+
+    function openMediaLightbox(media) {
+      if (mediaLightbox.contains(media)) return;
+      clearMediaLightbox();
+      let preview;
+      if (media.tagName.toLowerCase() === 'video') {
+        const source = media.currentSrc || media.querySelector('source')?.src;
+        if (!source) return;
+        setMediaLightboxAspect(media.videoWidth || 16, media.videoHeight || 9);
+        movedLightboxVideo = {
+          video: media,
+          parent: media.parentNode,
+          nextSibling: media.nextSibling,
+          state: {
+            controls: media.controls,
+            muted: media.muted,
+            defaultMuted: media.defaultMuted,
+            loop: media.loop,
+            autoplay: media.autoplay,
+            paused: media.paused,
+            role: media.getAttribute('role'),
+            ariaLabel: media.getAttribute('aria-label'),
+            tabIndex: media.hasAttribute('tabindex') ? media.tabIndex : null
+          }
+        };
+        preview = media;
+        preview.controls = true;
+        preview.loop = false;
+        preview.autoplay = false;
+        preview.playsInline = true;
+        preview.removeAttribute('role');
+        preview.removeAttribute('aria-label');
+        preview.removeAttribute('tabindex');
+        if (preview.readyState < 1) preview.addEventListener('loadedmetadata', () => {
+          setMediaLightboxAspect(preview.videoWidth, preview.videoHeight);
+        }, { once: true });
+      } else if (media.tagName.toLowerCase() === 'iframe') {
+        const source = media.src;
+        if (!source) return;
+        preview = document.createElement('iframe');
+        preview.src = source;
+        preview.title = media.title || 'Video preview';
+        preview.allow = media.getAttribute('allow') || '';
+        preview.allowFullscreen = true;
+        setMediaLightboxAspect(16, 9);
+      } else {
+        const source = media.currentSrc || media.src;
+        if (!source) return;
+        preview = document.createElement('img');
+        preview.alt = media.alt || '';
+        preview.addEventListener('load', () => {
+          setMediaLightboxAspect(preview.naturalWidth, preview.naturalHeight);
+        }, { once: true });
+        preview.src = source;
+      }
+      mediaLightboxContent.append(preview);
+      if (typeof mediaLightbox.showModal === 'function') mediaLightbox.showModal();
+      else mediaLightbox.setAttribute('open', '');
+      if (preview.tagName.toLowerCase() === 'video') {
+        const playPromise = preview.play();
+        if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
+      }
+    }
+
+    document.querySelectorAll('img.feat-screenshot, video.feat-screenshot').forEach(media => {
+      media.classList.add('media-lightbox-trigger');
+      media.tabIndex = 0;
+      media.setAttribute('role', 'button');
+      media.setAttribute('aria-label', `Open larger preview${media.alt ? `: ${media.alt}` : ''}`);
+      media.addEventListener('click', () => {
+        if (!media.closest('.media-lightbox')) openMediaLightbox(media);
+      });
+      media.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          if (!media.closest('.media-lightbox')) openMediaLightbox(media);
+        }
+      });
+    });
+
+    document.querySelectorAll('.video-wrap iframe').forEach(iframe => {
+      const button = document.createElement('button');
+      button.className = 'video-lightbox-trigger';
+      button.type = 'button';
+      button.setAttribute('aria-label', `Open larger preview${iframe.title ? `: ${iframe.title}` : ''}`);
+      button.addEventListener('click', () => openMediaLightbox(iframe));
+      iframe.parentElement.append(button);
+    });
+
+    mediaLightboxClose.addEventListener('click', () => mediaLightbox.close());
+    mediaLightbox.addEventListener('click', event => {
+      if (event.target === mediaLightbox) mediaLightbox.close();
+    });
+    mediaLightbox.addEventListener('close', clearMediaLightbox);
 
     // ── Nav ──
     function toggleNav() {
