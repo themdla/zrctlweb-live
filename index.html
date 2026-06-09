@@ -598,7 +598,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </a>
       </div>
-      <video class="feat-screenshot loop-video hero-video" autoplay muted loop playsinline preload="metadata" poster="images/zrctl-main-poster.jpg" aria-label="ZR Ctl live view monitoring a Nikon Z camera">
+      <video class="feat-screenshot loop-video hero-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-main-poster.jpg" aria-label="ZR Ctl live view monitoring a Nikon Z camera">
         <source src="videos/ZRCTL-Main-web.mp4" type="video/mp4">
       </video>
     </div>
@@ -678,7 +678,7 @@
           </ul>
         </div>
         <div class="feat-visual">
-          <video class="feat-screenshot loop-video" autoplay muted loop playsinline preload="metadata" poster="images/zrctl-2nd-poster.jpg" aria-label="ZR Ctl waveform scope and traffic light exposure tools on Nikon Z live view">
+          <video class="feat-screenshot loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-2nd-poster.jpg" aria-label="ZR Ctl waveform scope and traffic light exposure tools on Nikon Z live view">
             <source src="videos/ZRCTL-2nd-web.mp4" type="video/mp4">
           </video>
         </div>
@@ -702,7 +702,7 @@
           </ul>
         </div>
         <div class="feat-visual">
-          <video class="feat-screenshot loop-video" autoplay muted loop playsinline preload="metadata" poster="images/zrctl-focus-poster.jpg" aria-label="ZR Ctl manual focus, focus pull, and cinematic autofocus controls on Nikon Z live view">
+          <video class="feat-screenshot loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-focus-poster.jpg" aria-label="ZR Ctl manual focus, focus pull, and cinematic autofocus controls on Nikon Z live view">
             <source src="videos/ZRCTL-focus-web.mp4" type="video/mp4">
           </video>
         </div>
@@ -1014,6 +1014,62 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // ── Mobile video autoplay ──
+    const loopVideos = Array.from(document.querySelectorAll('.loop-video'));
+
+    function prepareLoopVideo(video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+    }
+
+    function videoIsInViewport(video) {
+      const rect = video.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 &&
+        rect.bottom > 0 && rect.right > 0 &&
+        rect.top < window.innerHeight && rect.left < window.innerWidth;
+    }
+
+    function playLoopVideo(video) {
+      prepareLoopVideo(video);
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => { video.dataset.autoplayBlocked = 'true'; });
+      }
+    }
+
+    function playVisibleLoopVideos() {
+      loopVideos.forEach(video => {
+        if (videoIsInViewport(video)) playLoopVideo(video);
+      });
+    }
+
+    loopVideos.forEach(prepareLoopVideo);
+
+    if ('IntersectionObserver' in window) {
+      const videoObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) playLoopVideo(entry.target);
+          else entry.target.pause();
+        });
+      }, { threshold: 0.25 });
+      loopVideos.forEach(video => videoObs.observe(video));
+    } else {
+      window.addEventListener('scroll', playVisibleLoopVideos, { passive: true });
+    }
+
+    window.addEventListener('load', playVisibleLoopVideos);
+    window.addEventListener('pageshow', playVisibleLoopVideos);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) playVisibleLoopVideos();
+    });
+    ['touchstart', 'click'].forEach(eventName => {
+      document.addEventListener(eventName, playVisibleLoopVideos, { passive: true });
+    });
 
     // ── Nav ──
     function toggleNav() {
