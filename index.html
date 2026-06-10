@@ -1082,32 +1082,37 @@
       <div class="video-grid">
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/9n52h3N9vTI" title="ZR Ctl field video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/9n52h3N9vTI" title="ZR Ctl field video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/LcS3AC8731M" title="False Color, Anamorphic Desqueeze, Traffic Lights and More in Nikon ZR" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/1yu-0u911w4" title="Cheap Upgrades for Content Creators on a Budget - $50 BUILD" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/eBtMKzhka58?start=2057" title="Nikon ZR Control App section" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/LcS3AC8731M" title="False Color, Anamorphic Desqueeze, Traffic Lights and More in Nikon ZR" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/V2cIB4bvzNM" title="ZR Ctl Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/eBtMKzhka58?start=2057" title="Nikon ZR Control App section" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/m-3EqPhjzUY" title="ZR Ctl Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/V2cIB4bvzNM" title="ZR Ctl Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/bzKogCm9bfg" title="Тест приложения ZR Control для Nikon" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/m-3EqPhjzUY" title="ZR Ctl Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/bzKogCm9bfg" title="Тест приложения ZR Control для Nikon" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>
@@ -1350,6 +1355,7 @@
         preview.src = source;
         preview.title = media.title || 'Video preview';
         preview.allow = media.getAttribute('allow') || '';
+        preview.referrerPolicy = media.referrerPolicy || 'strict-origin-when-cross-origin';
         preview.allowFullscreen = true;
         setMediaLightboxAspect(16, 9);
       } else {
