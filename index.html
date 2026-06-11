@@ -532,7 +532,8 @@
       .shot.portrait { width:min(44vw, 240px); }
       .plats { flex-direction:column; align-items:center; }
       .plat { width:100%; max-width:340px; }
-      .hud-rec { bottom:14px; right:26px; font-size:11px; padding:5px 10px; }
+      .strip .corners,
+      .strip .hud-rec { display:none; }
       .strip-caption { justify-content:center; }
     }
   </style>
@@ -1105,30 +1106,36 @@
     // ── Loop video autoplay resilience (mobile) ──
     const loopVideos = Array.from(document.querySelectorAll('.loop-video'));
     function prepareLoopVideo(video) {
-      video.muted = true; video.defaultMuted = true; video.playsInline = true;
+      video.muted = true; video.defaultMuted = true; video.playsInline = true; video.autoplay = true;
       video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('webkit-playsinline', '');
     }
-    function videoIsInViewport(video) {
+    function videoIsNearViewport(video) {
       const r = video.getBoundingClientRect();
-      return r.width > 0 && r.height > 0 && r.bottom > 0 && r.right > 0 && r.top < innerHeight && r.left < innerWidth;
+      const margin = Math.min(320, Math.max(120, innerHeight * 0.35));
+      return r.width > 0 && r.height > 0 && r.bottom > -margin && r.right > 0 && r.top < innerHeight + margin && r.left < innerWidth;
     }
     function playLoopVideo(video) {
       prepareLoopVideo(video);
       const p = video.play();
       if (p && typeof p.catch === 'function') p.catch(() => {});
     }
-    function playVisibleLoopVideos() { loopVideos.forEach(v => { if (videoIsInViewport(v)) playLoopVideo(v); }); }
+    function playVisibleLoopVideos() { loopVideos.forEach(v => { if (videoIsNearViewport(v)) playLoopVideo(v); }); }
     loopVideos.forEach(prepareLoopVideo);
     if ('IntersectionObserver' in window) {
       const vObs = new IntersectionObserver(es => es.forEach(e => {
-        if (e.isIntersecting) playLoopVideo(e.target); else e.target.pause();
-      }), { threshold: 0.25 });
+        if (e.isIntersecting || videoIsNearViewport(e.target)) playLoopVideo(e.target); else e.target.pause();
+      }), { rootMargin: '220px 0px', threshold: 0.01 });
       loopVideos.forEach(v => vObs.observe(v));
     } else {
       addEventListener('scroll', playVisibleLoopVideos, { passive: true });
     }
+    requestAnimationFrame(playVisibleLoopVideos);
+    [250, 900, 1800].forEach(delay => setTimeout(playVisibleLoopVideos, delay));
     addEventListener('load', playVisibleLoopVideos);
     addEventListener('pageshow', playVisibleLoopVideos);
+    loopVideos.forEach(v => ['loadedmetadata', 'canplay'].forEach(ev => v.addEventListener(ev, () => {
+      if (videoIsNearViewport(v)) playLoopVideo(v);
+    }, { once: true })));
     document.addEventListener('visibilitychange', () => { if (!document.hidden) playVisibleLoopVideos(); });
     ['touchstart', 'click'].forEach(ev => document.addEventListener(ev, playVisibleLoopVideos, { passive: true }));
 
