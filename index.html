@@ -6,7 +6,7 @@
   <title>ZR Control (ZR Ctl) | Nikon ZR Remote Camera App</title>
   <meta name="description" content="ZR Control, also known as ZR Ctl, is an independent remote camera control app for Nikon ZR and Z-series shooters, with live view, exposure tools, focus control, LUT preview, framing guides, and playback.">
   <meta name="title" content="ZR Control (ZR Ctl) | Nikon ZR Remote Camera App">
-  <meta name="keywords" content="ZR Ctl, ZR Control, ZRCTL, Nikon ZR remote app, Nikon ZR camera control, Nikon Z camera remote, iOS camera control, iPad camera control, Android camera control, shutter angle, dual base ISO, anamorphic, false color, traffic lights">
+  <meta name="keywords" content="ZR Ctl, ZR Control, ZRCTL, Nikon ZR remote app, Nikon ZR camera control, Nikon Z camera remote, Nikon Z8 remote app, Nikon Z6III remote, Nikon remote monitor, iOS camera control, iPad camera control, Android camera control, shutter angle, dual base ISO, anamorphic, false color, traffic lights">
   <meta name="author" content="ZR Ctl">
   <meta name="application-name" content="ZR Ctl">
   <meta name="theme-color" content="#09090b">
@@ -78,7 +78,9 @@
       "Audio meters",
       "Custom frame guides",
       "Shutter angle control",
-      "Dual base ISO"
+      "Dual base ISO",
+      "Stills photo mode",
+      "Ultra low-latency USB monitoring"
     ],
     "screenshot": "https://themdla.github.io/zrctl/og-logo-simple-v1.jpg",
     "image": "https://themdla.github.io/zrctl/og-logo-simple-v1.jpg",
@@ -101,9 +103,58 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I control a Nikon ZR remotely?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Install ZR Ctl on your iPhone, iPad, or Android device and connect to the camera over USB, your phone's hotspot, a shared WiFi network, or the camera's own access point. You get live view with scopes, full camera settings, focus control, audio, and camera-card playback — no extra hardware required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does ZR Ctl work with the Nikon Z8 and Z6III?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. ZR Ctl is built for the Nikon ZR first, and Z8 and Z6III shooters have confirmed it working as a remote monitor and control surface on their bodies. Other Z-series cameras may work too."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is ZR Ctl free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — ZR Ctl is currently a free open beta on iOS, iPadOS, and Android. No account required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I shoot stills with ZR Ctl, or is it video-only?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ZR Ctl has a full photo mode: dedicated stills control pages for exposure, capture, storage, and focus, a remote shutter from live view, and instant photo review over WiFi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What monitoring tools are included in ZR Ctl?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Waveform, histogram, false color with legend, channel-aware traffic lights and goal posts, zebras, focus peaking (including R3D NE workflows), anamorphic desqueeze, custom frame guides, LUT preview with .cube import, and real-time audio meters — with ultra low-latency monitoring over USB."
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <script>
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
@@ -116,534 +167,393 @@
   </script>
 
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
     :root {
-      --bg: #09090b;
-      --bg-elevated: #111113;
-      --bg-card: #18181b;
-      --bg-card-hover: #1f1f23;
-      --border: #27272a;
-      --border-subtle: #1e1e21;
-      --text: #fafafa;
-      --text-2: #a1a1aa;
-      --text-3: #71717a;
-      --accent: #ffd200;
-      --accent-dim: rgba(255, 210, 0, 0.10);
-      --accent-glow: rgba(255, 210, 0, 0.18);
-      --blue: #60a5fa;
-      --blue-dim: rgba(96, 165, 250, 0.10);
-      --green: #4ade80;
-      --green-dim: rgba(74, 222, 128, 0.10);
-      --red: #f87171;
-      --red-dim: rgba(248, 113, 113, 0.10);
-      --radius: 14px;
-      --radius-sm: 8px;
-      --update-banner-height: 42px;
+      --accent:#ffd200; --bg:#09090b; --bg-2:#0e0e11; --card:#141417;
+      --border:#222226; --text-2:#a1a1aa; --text-3:#71717a; --red:#ff4d4d;
+      --ubh:44px;
     }
-    html.update-dismissed { --update-banner-height: 0px; }
+    html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    html.update-dismissed { --ubh:0px; }
+    body {
+      font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+      background:var(--bg); color:#fafafa; line-height:1.6; overflow-x:hidden;
+    }
+    a { color:inherit; text-decoration:none; }
+    .mono { font-family:'JetBrains Mono','SF Mono',Menlo,monospace; }
+    .display { font-family:'Bebas Neue','Arial Narrow','Helvetica Narrow',sans-serif; font-weight:400; }
+    .container { max-width:1240px; margin:0 auto; padding:0 32px; }
+    section { scroll-margin-top:calc(var(--ubh) + 86px); }
 
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; padding-top: var(--update-banner-height); }
-    a { color: inherit; text-decoration: none; }
+    /* ── Scroll progress ── */
+    #scroll-progress { position:fixed; top:0; left:0; height:2px; width:0; background:var(--accent); z-index:300; }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 100px 0; scroll-margin-top: calc(var(--update-banner-height) + 76px); }
-
-    .update-banner {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 120; height: var(--update-banner-height);
-      background: linear-gradient(90deg, rgba(255,210,0,0.16), rgba(96,165,250,0.08));
-      border-bottom: 1px solid rgba(255,210,0,0.22);
-      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-    }
-    html.update-dismissed .update-banner { display: none; }
-    .update-banner-inner {
-      height: 100%; display: flex; align-items: center; justify-content: center;
-      gap: 12px; text-align: center; font-size: 0.86rem; color: var(--text);
-    }
-    .update-kicker {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent);
-      white-space: nowrap;
-    }
-    .update-copy { color: var(--text-2); line-height: 1.35; }
-    .update-copy strong { color: var(--text); font-weight: 700; }
-    .update-link {
-      color: var(--bg); background: var(--accent); border-radius: 8px;
-      padding: 5px 10px; font-size: 0.78rem; font-weight: 700; white-space: nowrap;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .update-link:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
-    .update-close {
-      width: 28px; height: 28px; flex-shrink: 0;
-      display: inline-flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(255,255,255,0.14); border-radius: 8px;
-      background: rgba(255,255,255,0.06); color: var(--text-2);
-      cursor: pointer; transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
-    }
-    .update-close:hover { color: var(--text); border-color: rgba(255,255,255,0.24); background: rgba(255,255,255,0.10); transform: translateY(-1px); }
-    .update-close svg { width: 14px; height: 14px; }
+    /* ── Update banner ── */
+    .update-banner { position:fixed; top:0; left:0; right:0; height:var(--ubh); z-index:120;
+      display:flex; align-items:center; justify-content:center; gap:14px; padding:0 18px;
+      background:linear-gradient(90deg, rgba(255,210,0,.14), rgba(255,210,0,.05));
+      border-bottom:1px solid rgba(255,210,0,.28);
+      backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+      font-size:13px; color:var(--text-2); }
+    html.update-dismissed .update-banner { display:none; }
+    .ub-kicker { font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
+    .ub-copy { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .ub-copy strong { color:#fafafa; }
+    .ub-link { background:var(--accent); color:#000; font-weight:700; font-size:11px; letter-spacing:.08em;
+      text-transform:uppercase; padding:6px 13px; border-radius:5px; white-space:nowrap; transition:transform .2s, box-shadow .2s; }
+    .ub-link:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(255,210,0,.3); }
+    .ub-close { width:26px; height:26px; flex-shrink:0; display:grid; place-items:center;
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:5px;
+      color:var(--text-2); font-size:15px; line-height:1; cursor:pointer; transition:all .2s; }
+    .ub-close:hover { color:#fff; border-color:rgba(255,255,255,.3); background:rgba(255,255,255,.1); }
 
     /* ── Nav ── */
-    nav {
-      position: fixed; top: var(--update-banner-height); left: 0; right: 0; z-index: 100; padding: 12px 0;
-      background: rgba(9,9,11,0.82); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-    nav .container { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0; }
-    .logo-img { height: 44px; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { font-size: 0.875rem; color: var(--text-2); transition: color 0.2s; font-weight: 500; }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg) !important;
-      padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: 0.875rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
-    .hamburger { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 8px; }
+    nav { position:fixed; top:var(--ubh); left:0; right:0; z-index:100;
+      background:rgba(9,9,11,.85); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.06); transition:background .3s, box-shadow .3s; }
+    nav.scrolled { background:rgba(9,9,11,.95); box-shadow:0 12px 32px rgba(0,0,0,.4); }
+    nav .container { display:flex; align-items:center; justify-content:space-between; padding-top:14px; padding-bottom:14px; }
+    nav img { height:38px; }
+    .nav-links { display:flex; gap:26px; align-items:center; font-size:12px; letter-spacing:.08em;
+      color:var(--text-2); text-transform:uppercase; list-style:none; }
+    .nav-links a { transition:color .2s; position:relative; }
+    .nav-links a:not(.nav-cta):hover { color:#fff; }
+    .nav-links a:not(.nav-cta)::after {
+      content:''; position:absolute; left:0; right:0; bottom:-5px; height:1px;
+      background:var(--accent); transform:scaleX(0); transform-origin:left;
+      transition:transform .25s cubic-bezier(.16,1,.3,1); }
+    .nav-links a:not(.nav-cta):hover::after { transform:scaleX(1); }
+    .nav-cta { background:var(--accent); color:#000 !important; font-weight:700; padding:9px 20px; border-radius:6px;
+      transition:transform .2s, box-shadow .2s; }
+    .nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px rgba(255,210,0,.3); }
+    .hamburger { display:none; background:none; border:none; color:#fafafa; cursor:pointer; padding:8px; }
 
     /* ── Hero ── */
-    .hero {
-      min-height: calc(100vh - var(--update-banner-height)); display: flex; align-items: center; justify-content: center;
-      text-align: center; padding-top: 80px; position: relative; overflow: hidden;
-    }
+    .hero { position:relative; padding:calc(150px + var(--ubh)) 0 0; text-align:center; overflow:hidden; }
     .hero::before {
-      content: ''; position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 800px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      pointer-events: none; opacity: 0.35;
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px) 0 0 / 100% 90px,
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px) 0 0 / 90px 100%;
+      mask-image:linear-gradient(to bottom, black, transparent 80%);
+      -webkit-mask-image:linear-gradient(to bottom, black, transparent 80%);
     }
-    .hero::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
-      background: linear-gradient(to top, var(--bg), transparent); pointer-events: none;
-    }
-    .hero-content { position: relative; z-index: 1; max-width: 960px; }
+    .hero-wm { position:absolute; right:-40px; top:10px; font-size:420px; line-height:1;
+      color:transparent; -webkit-text-stroke:1px rgba(255,210,0,.06); pointer-events:none; }
+    .kicker { display:inline-flex; align-items:center; gap:14px; font-size:12px; letter-spacing:.3em;
+      color:var(--accent); text-transform:uppercase; margin-bottom:28px; }
+    .kicker::before, .kicker::after { content:''; width:34px; height:1px; background:var(--accent); opacity:.7; }
+    h1 { position:relative; z-index:1; font-weight:400; }
+    .h1-big { display:block; font-size:clamp(72px, 11vw, 170px); line-height:.88; letter-spacing:.012em; text-transform:uppercase; }
+    h1 .y { color:var(--accent); }
+    h1 .line { display:block; overflow:hidden; }
+    h1 .line > span { display:inline-block; transform:translateY(112%); animation:lineUp .9s cubic-bezier(.16,1,.3,1) forwards; }
+    h1 .line:nth-child(2) > span { animation-delay:.14s; }
+    @keyframes lineUp { to { transform:translateY(0); } }
+    .h1-tag { display:block; margin:30px auto 0; max-width:640px;
+      font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+      font-size:19px; line-height:1.55; font-weight:600; color:#e4e4e7;
+      text-transform:none; letter-spacing:0; }
+    .hero-sub { margin:18px auto 38px; max-width:620px; font-size:16.5px; line-height:1.7; color:var(--text-2); position:relative; z-index:1; }
+    .btns { display:flex; gap:16px; justify-content:center; margin-bottom:64px; position:relative; z-index:1; flex-wrap:wrap; }
+    .b1 { background:var(--accent); color:#000; font-weight:700; font-size:15px; letter-spacing:.06em;
+      padding:17px 42px; border-radius:6px; text-transform:uppercase; display:inline-flex; align-items:center; gap:10px;
+      box-shadow:0 10px 44px rgba(255,210,0,.28); transition:transform .2s, box-shadow .2s; }
+    .b1:hover { transform:translateY(-2px); box-shadow:0 14px 54px rgba(255,210,0,.4); }
+    .b2 { border:1px solid #3f3f46; color:#fff; font-weight:600; font-size:15px; letter-spacing:.04em;
+      padding:17px 36px; border-radius:6px; text-transform:uppercase; transition:border-color .2s; }
+    .b2:hover { border-color:#71717a; }
+    .b1:focus-visible, .b2:focus-visible, .nav-cta:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
 
-    .hero-pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 16px; margin-bottom: 32px;
-      background: var(--accent-dim); border: 1px solid rgba(245,158,11,0.18);
-      border-radius: 100px; font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem; font-weight: 500; color: var(--accent);
-    }
-    .hero-pill .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2.4s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    /* ── Letterboxed film strip ── */
+    .strip { position:relative; z-index:1; max-width:1120px; margin:0 auto; padding:0 24px; }
+    .mattes { background:#000; padding:30px 0; box-shadow:0 30px 80px rgba(0,0,0,.55); }
+    .frame { position:relative; aspect-ratio:16/9; overflow:hidden; background:#000; }
+    .frame img, .frame video { width:100%; height:100%; object-fit:contain; display:block; }
+    .frame::after { content:''; position:absolute; inset:0; box-shadow:inset 0 0 120px rgba(0,0,0,.35); pointer-events:none; }
+    .corners i { position:absolute; width:30px; height:30px; border:2px solid var(--accent); opacity:.7; z-index:2; }
+    .corners i:nth-child(1){ top:12px; left:12px; border-right:0; border-bottom:0; }
+    .corners i:nth-child(2){ top:12px; right:12px; border-left:0; border-bottom:0; }
+    .corners i:nth-child(3){ bottom:12px; left:12px; border-right:0; border-top:0; }
+    .corners i:nth-child(4){ bottom:12px; right:12px; border-left:0; border-top:0; }
+    .hud-rec { position:absolute; bottom:22px; right:54px; z-index:2; display:flex; align-items:center; gap:9px;
+      font-size:13px; letter-spacing:.1em; font-weight:500; color:#fff;
+      background:rgba(0,0,0,.5); padding:6px 13px; border-radius:6px; border:1px solid rgba(255,255,255,.12); }
+    .rec-dot { width:9px; height:9px; border-radius:50%; background:var(--red); box-shadow:0 0 10px var(--red); animation:blink 1.4s infinite; }
+    @keyframes blink { 50% { opacity:.25; } }
+    .hud-rec .tc { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .strip-caption { display:flex; justify-content:space-between; gap:12px; padding:14px 8px 0;
+      font-size:11px; letter-spacing:.2em; color:var(--text-3); text-transform:uppercase; flex-wrap:wrap; }
 
-    .hero h1 {
-      font-size: clamp(2.75rem, 6vw, 4.5rem); font-weight: 700;
-      letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 24px;
-    }
-    .hero h1 .hl {
-      background: linear-gradient(135deg, #ffd200, #e8b400);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .hero-sub { font-size: 1.15rem; color: var(--text-2); max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
+    /* ── Stats ── */
+    .stats { max-width:1120px; margin:64px auto 0; display:grid; grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(255,255,255,.09); border-bottom:1px solid rgba(255,255,255,.09); position:relative; z-index:1; }
+    .stat { padding:30px 10px; text-align:center; border-right:1px solid rgba(255,255,255,.07); }
+    .stat:last-child { border-right:0; }
+    .stat b { display:block; font-size:54px; line-height:1; color:var(--accent); font-weight:400; }
+    .stat span { display:block; margin-top:10px; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--text-3); }
 
-    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 32px; background: linear-gradient(135deg, #ffd200, #e8b400);
-      color: var(--bg); border-radius: 12px; font-weight: 600; font-size: 1rem;
-      border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
-    .btn-primary svg { width: 20px; height: 20px; }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 32px; background: var(--bg-card); color: var(--text);
-      border: 1px solid var(--border); border-radius: 12px; font-weight: 600; font-size: 1rem;
-      cursor: pointer; transition: all 0.2s;
-    }
-    .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-3); }
+    /* ── Marquee ── */
+    .marquee { border-top:1px solid #1c1c20; border-bottom:1px solid #1c1c20; margin-top:72px;
+      overflow:hidden; white-space:nowrap; padding:22px 0; background:rgba(17,17,19,.6); }
+    .marquee-track { display:inline-block; animation:slide 44s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state:paused; }
+    @keyframes slide { to { transform:translateX(-50%); } }
+    .q { display:inline-block; margin:0 40px; font-size:15px; color:#d4d4d8; }
+    .q b { color:var(--accent); margin-left:12px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:500; }
 
-    /* ── Testimonials (prominent, right after hero) ── */
-    .testimonials-band {
-      padding: 80px 0; background: var(--bg-elevated);
-      border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
-    }
-    .testimonials-band .section-intro { text-align: center; margin-bottom: 48px; }
-    .testimonials-band .section-intro h2 {
-      font-size: clamp(1.75rem, 3.5vw, 2.25rem); font-weight: 700;
-      letter-spacing: -0.02em; margin-bottom: 12px;
-    }
-    .testimonials-band .section-intro p { font-size: 1rem; color: var(--text-2); max-width: 480px; margin: 0 auto; }
+    /* ── Supported cameras ── */
+    .cams { padding:72px 0; border-bottom:1px solid #18181c; }
+    .cams-label { text-align:center; font-size:11px; letter-spacing:.3em; text-transform:uppercase;
+      color:var(--text-3); margin-bottom:34px; }
+    .cams-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+    .cam { background:var(--bg); padding:34px 20px; text-align:center; transition:background .25s; }
+    .cam:hover { background:var(--card); }
+    .cam b { display:block; font-size:44px; line-height:1; letter-spacing:.02em; font-weight:400; }
+    .cam:hover b { color:var(--accent); }
+    .cam span { display:block; margin-top:10px; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--text-3); }
+    .cams-note { text-align:center; margin-top:22px; font-size:13px; color:var(--text-3); }
+    .cams-note a { color:var(--accent); }
 
-    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .testi-card {
-      padding: 28px 24px; background: var(--bg-card); border: 1px solid var(--border-subtle);
-      border-radius: var(--radius); position: relative; transition: all 0.25s;
-    }
-    .testi-card:hover { border-color: var(--border); transform: translateY(-2px); }
-    .testi-card .quote-mark {
-      font-family: Georgia, serif; font-size: 2.8rem; line-height: 1;
-      color: var(--accent); opacity: 0.25; margin-bottom: 4px;
-    }
-    .testi-card blockquote {
-      font-size: 0.95rem; color: var(--text); line-height: 1.65; margin-bottom: 16px;
-      font-style: italic;
-    }
-    .testi-card .attr {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
-      color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em;
-    }
+    /* ── Feature sections ── */
+    .feat { padding:110px 0; }
+    .feat.alt { background:var(--bg-2); border-top:1px solid #18181c; border-bottom:1px solid #18181c; }
+    .feat-row { display:grid; grid-template-columns:1fr 1.15fr; gap:64px; align-items:center; }
+    .feat-row.rev .feat-text { order:2; } .feat-row.rev .feat-media { order:1; }
+    .feat-num { font-size:100px; line-height:1; color:transparent; -webkit-text-stroke:1px rgba(255,210,0,.35); margin-bottom:8px; }
+    .feat-label { font-size:11px; letter-spacing:.3em; color:var(--accent); text-transform:uppercase; margin-bottom:18px; }
+    .feat h3 { font-size:54px; line-height:.95; text-transform:uppercase; letter-spacing:.01em; margin-bottom:22px; }
+    .feat p { color:var(--text-2); font-size:16px; margin-bottom:14px; }
+    .spec-list { list-style:none; margin-top:24px; border-top:1px solid var(--border); }
+    .spec-list li { display:flex; gap:14px; align-items:center; padding:11px 4px;
+      border-bottom:1px solid var(--border); font-size:13.5px; color:#d4d4d8; letter-spacing:.02em; }
+    .spec-list li::before { content:'▸'; color:var(--accent); font-size:12px; }
+    .feat-media { position:relative; }
+    .feat-media .mattes { padding:18px 0; }
 
-    /* ── Section Shared ── */
-    .sec-label {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 500;
-      text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; color: var(--accent);
-    }
-    .sec-head {
-      font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700;
-      letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 16px;
-    }
-    .sec-sub { font-size: 1.1rem; color: var(--text-2); max-width: 560px; line-height: 1.7; }
-    .sec-sub.center { margin: 0 auto; text-align: center; }
-    .section-header { text-align: center; margin-bottom: 64px; }
+    /* ── Tool cards ── */
+    .tools { padding:110px 0; }
+    .sec-head { text-align:center; margin-bottom:64px; }
+    .sec-head .kicker { margin-bottom:18px; }
+    .sec-head h2 { font-size:clamp(54px,6vw,84px); line-height:.92; text-transform:uppercase; }
+    .sec-head h2 .y { color:var(--accent); }
+    .sec-head p { color:var(--text-2); max-width:560px; margin:18px auto 0; font-size:16px; }
+    .tool-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+    .tool { background:var(--bg); padding:36px 32px; position:relative; transition:background .25s; }
+    .tool:hover { background:var(--card); }
+    .tool:hover .tool-idx { color:var(--accent); -webkit-text-stroke:0; }
+    .tool-idx { font-size:44px; line-height:1; color:transparent; -webkit-text-stroke:1px #3f3f46; margin-bottom:18px; transition:color .25s; }
+    .tool h3 { font-size:24px; text-transform:uppercase; letter-spacing:.03em; margin-bottom:10px; }
+    .tool p { font-size:13.5px; color:var(--text-2); line-height:1.65; }
 
-    /* ── Feature Showcase (big alternating sections) ── */
-    .feat-section { padding: 100px 0; }
-    .feat-section.alt { background: var(--bg-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+    /* ── Gallery carousel ── */
+    .gallery { padding:110px 0; background:var(--bg-2); border-top:1px solid #18181c; border-bottom:1px solid #18181c; overflow:hidden; }
+    .gal-head { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:36px; }
+    .gal-head .sec-head { text-align:left; margin-bottom:0; }
+    .gal-head .sec-head .kicker { justify-content:flex-start; }
+    .gal-head .sec-head p { margin-left:0; }
+    .gal-nav { display:flex; gap:10px; flex-shrink:0; }
+    .gal-btn { width:52px; height:52px; display:grid; place-items:center; cursor:pointer;
+      background:transparent; border:1px solid #3f3f46; color:#fff; font-size:20px; transition:all .2s; }
+    .gal-btn:hover { background:var(--accent); border-color:var(--accent); color:#000; }
+    .gal-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
+    .gal-tab { background:transparent; border:1px solid #3f3f46; color:var(--text-2);
+      font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-size:11px; letter-spacing:.14em;
+      text-transform:uppercase; padding:10px 18px; cursor:pointer; transition:all .2s; }
+    .gal-tab:hover { color:#fff; border-color:#71717a; }
+    .gal-tab.on { background:var(--accent); border-color:var(--accent); color:#000; font-weight:700; }
+    .gal-scroller { display:grid; grid-auto-flow:column; grid-template-rows:repeat(2, 1fr);
+      gap:18px; overflow-x:auto; scroll-snap-type:x mandatory;
+      scrollbar-width:none; -ms-overflow-style:none; padding-bottom:6px; cursor:grab;
+      margin:0 calc(50% - 50vw); padding-left:calc(50vw - 50%); padding-right:calc(50vw - 50%); }
+    .gal-scroller::-webkit-scrollbar { display:none; }
+    .gal-scroller.dragging { cursor:grabbing; scroll-snap-type:none; }
+    .shot { width:clamp(400px, 40vw, 620px); scroll-snap-align:start; position:relative;
+      background:#000; border:1px solid var(--border); overflow:hidden;
+      transition:border-color .25s; display:flex; flex-direction:column; cursor:zoom-in; }
+    .gal-scroller .shot { cursor:grab; }
+    .gal-scroller.dragging .shot { cursor:grabbing; }
+    .shot.hidden { display:none; }
+    .shot.pop { animation:cardIn .45s cubic-bezier(.16,1,.3,1) both; }
+    @keyframes cardIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    .shot:hover { border-color:rgba(255,210,0,.45); }
+    .shot .ph { width:100%; aspect-ratio:16/9; display:grid; place-items:center; overflow:hidden; }
+    .shot.portrait { grid-row:span 2; width:clamp(240px, 21vw, 350px); }
+    .shot.portrait .ph { aspect-ratio:auto; height:100%; min-height:0; flex:1; }
+    .shot img { width:100%; height:100%; object-fit:contain; display:block; transition:transform .35s; pointer-events:none; }
+    .shot:hover img { transform:scale(1.025); }
+    .shot figcaption { display:flex; justify-content:space-between; align-items:center; gap:14px;
+      padding:11px 14px; border-top:1px solid var(--border); margin-top:auto;
+      font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--text-3); white-space:nowrap; }
+    .shot figcaption b { color:var(--accent); font-weight:500; }
+    .gal-progress { height:2px; background:#222226; margin-top:26px; position:relative; }
+    .gal-progress i { position:absolute; left:0; top:0; bottom:0; width:10%; background:var(--accent); transition:width .2s, left .2s; }
 
-    .feat-row {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
-    }
-    .feat-row.reverse .feat-text { order: 2; }
-    .feat-row.reverse .feat-visual { order: 1; }
+    /* ── Manifesto ── */
+    .manifesto { padding:130px 0; text-align:center; position:relative; overflow:hidden; }
+    .manifesto::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      width:800px; height:500px; background:radial-gradient(ellipse, rgba(255,210,0,.07), transparent 65%); pointer-events:none; }
+    .manifesto h2 { font-size:clamp(44px,5.4vw,76px); line-height:1.02; text-transform:uppercase; max-width:980px; margin:0 auto; }
+    .manifesto h2 .y { color:var(--accent); }
+    .manifesto p { margin:26px auto 0; max-width:620px; color:var(--text-2); font-size:17px; }
 
-    .feat-text h3 {
-      font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2;
-    }
-    .feat-text p { font-size: 1.02rem; color: var(--text-2); line-height: 1.75; margin-bottom: 16px; }
-    .feat-text .detail-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-    .feat-text .detail-list li {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.92rem; color: var(--text-2);
-    }
-    .feat-text .detail-list li .ck {
-      width: 18px; height: 18px; flex-shrink: 0; color: var(--accent);
-    }
+    /* ── Videos ── */
+    .videos { padding:110px 0; background:var(--bg-2); border-top:1px solid #18181c; border-bottom:1px solid #18181c; }
+    .vid-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .video-card { background:var(--card); border:1px solid var(--border); overflow:hidden;
+      transition:border-color .25s, transform .25s; }
+    .video-card:hover { border-color:#3f3f46; transform:translateY(-3px); }
+    .video-wrap { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; }
+    .video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+    .video-lightbox-trigger { position:absolute; inset:0; z-index:1; width:100%; height:100%;
+      border:0; background:transparent; cursor:zoom-in; }
+    .video-lightbox-trigger:focus-visible { outline:2px solid var(--accent); outline-offset:-4px; }
 
-    /* Visual panels */
-    .feat-visual-box {
-      aspect-ratio: 4/3; background: var(--bg-card); border: 1px solid var(--border-subtle);
-      border-radius: var(--radius); overflow: hidden; position: relative;
-    }
+    /* ── Coverage ── */
+    .coverage { padding:110px 0; }
+    .cov-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .cov { border:1px solid var(--border); background:var(--card); transition:border-color .25s, transform .25s; position:relative; display:block; }
+    .cov:hover { border-color:rgba(255,210,0,.4); transform:translateY(-3px); }
+    .cov-media { aspect-ratio:16/8; overflow:hidden; background:#0c0c0f; position:relative; }
+    .cov-media img { width:100%; height:100%; object-fit:cover; transition:transform .35s, filter .35s; }
+    .cov:hover .cov-media img { transform:scale(1.035); filter:saturate(1.08); }
+    .cov-logo { position:absolute; left:16px; bottom:14px; font-size:13px; font-weight:800; padding:7px 12px; border-radius:6px; }
+    .cov-logo.cined { background:rgba(8,8,10,.88); color:#fff; border:1px solid rgba(255,255,255,.18); }
+    .cov-logo.nfs { background:rgba(250,250,250,.94); color:#101014; }
+    .cov-body { padding:26px 28px 30px; }
+    .cov-meta { font-size:10px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
+    .cov h3 { font-size:26px; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; margin-bottom:12px; }
+    .cov p { font-size:14px; color:var(--text-2); margin-bottom:16px; }
+    .cov .read { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
 
-    /* (mockup styles removed — using screenshot placeholders) */
-
-    /* ── Feature Cards Grid ── */
-    .cards-section { padding: 100px 0; }
-    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .f-card {
-      padding: 28px; background: var(--bg-card); border: 1px solid var(--border-subtle);
-      border-radius: var(--radius); transition: all 0.3s; position: relative; overflow: hidden;
-    }
-    .f-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .f-card:hover { border-color: var(--border); background: var(--bg-card-hover); transform: translateY(-2px); }
-    .f-card:hover::before { opacity: 1; }
-    .f-card-icon {
-      width: 44px; height: 44px; background: var(--accent-dim); border-radius: 11px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent); margin-bottom: 18px;
-    }
-    .f-card-icon svg { width: 22px; height: 22px; }
-    .f-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em; }
-    .f-card p { font-size: 0.9rem; color: var(--text-2); line-height: 1.65; }
-
-    /* ── Comparison ── */
-    .comp-section { background: var(--bg-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
-    .comp-card {
-      max-width: 720px; margin: 0 auto; padding: 40px;
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); text-align: center;
-    }
-    .comp-card p { font-size: 1.05rem; color: var(--text-2); line-height: 1.8; }
-    .comp-card p strong { color: var(--text); font-weight: 600; }
+    /* ── FAQ ── */
+    .faq { padding:110px 0; background:var(--bg-2); border-top:1px solid #18181c; border-bottom:1px solid #18181c; }
+    .faq-list { max-width:840px; margin:0 auto; border-top:1px solid var(--border); }
+    .faq-list details { border-bottom:1px solid var(--border); }
+    .faq-list summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center;
+      gap:20px; padding:22px 6px; font-size:17px; font-weight:600; transition:color .2s; }
+    .faq-list summary::-webkit-details-marker { display:none; }
+    .faq-list summary::after { content:'+'; font-family:'JetBrains Mono',monospace; font-size:22px;
+      color:var(--accent); transition:transform .25s; flex-shrink:0; }
+    .faq-list details[open] summary::after { transform:rotate(45deg); }
+    .faq-list summary:hover { color:var(--accent); }
+    .faq-list .a { padding:0 6px 24px; color:var(--text-2); font-size:15px; line-height:1.7; max-width:720px; }
 
     /* ── CTA ── */
-    .cta-section {
-      text-align: center; padding: 120px 0; position: relative; overflow: hidden;
-    }
-    .cta-section::before {
-      content: ''; position: absolute; bottom: -20%; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
-      opacity: 0.25; pointer-events: none;
-    }
-    .cta-content { position: relative; z-index: 1; }
-    .cta-content h2 {
-      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
-      letter-spacing: -0.03em; margin-bottom: 16px;
-    }
-    .cta-content p { font-size: 1.1rem; color: var(--text-2); max-width: 500px; margin: 0 auto 36px; }
-
-    .cta-platforms { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .plat-card {
-      padding: 24px 32px; background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); text-align: center; min-width: 220px; transition: all 0.2s;
-    }
-    .plat-card:hover { border-color: var(--accent); }
-    .plat-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
-    .plat-card p { font-size: 0.82rem; color: var(--text-3); margin-bottom: 14px; }
-    .plat-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 9px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
-      border: none; cursor: pointer; transition: all 0.2s;
-    }
-    .plat-btn.ios,
-    .plat-btn.android { background: linear-gradient(135deg, #ffd200, #e8b400); color: var(--bg); }
-    .plat-btn.ios:hover,
-    .plat-btn.android:hover { box-shadow: 0 4px 16px var(--accent-glow); }
+    .cta { padding:140px 0 120px; text-align:center; position:relative; overflow:hidden; }
+    .cta::before { content:''; position:absolute; bottom:-30%; left:50%; transform:translateX(-50%);
+      width:900px; height:600px; background:radial-gradient(ellipse, rgba(255,210,0,.1), transparent 65%); pointer-events:none; }
+    .cta h2 { font-size:clamp(64px,9vw,130px); line-height:.9; text-transform:uppercase; position:relative; }
+    .cta h2 .y { color:var(--accent); }
+    .cta > .container > p { margin:24px auto 44px; max-width:540px; color:var(--text-2); font-size:17px; position:relative; }
+    .plats { display:flex; gap:18px; justify-content:center; position:relative; flex-wrap:wrap; }
+    .plat { border:1px solid var(--border); background:var(--card); padding:28px 40px; min-width:250px; transition:border-color .25s; }
+    .plat:hover { border-color:rgba(255,210,0,.5); }
+    .plat h3 { font-size:26px; text-transform:uppercase; margin-bottom:2px; }
+    .plat p { font-size:12px; color:var(--text-3); margin-bottom:16px; }
+    .plat a { display:inline-block; background:var(--accent); color:#000; font-weight:700; font-size:13px;
+      letter-spacing:.06em; text-transform:uppercase; padding:12px 26px; border-radius:6px;
+      transition:transform .2s, box-shadow .2s; }
+    .plat a:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(255,210,0,.3); }
 
     /* ── Footer ── */
-    footer { padding: 40px 0; border-top: 1px solid var(--border-subtle); }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-left { font-size: 0.85rem; color: var(--text-3); }
-    .footer-links { display: flex; gap: 24px; list-style: none; }
-    .footer-links a { font-size: 0.85rem; color: var(--text-3); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text); }
-    .footer-legal {
-      width: 100%; margin-top: 24px; padding-top: 24px;
-      border-top: 1px solid var(--border-subtle);
-      font-size: 0.72rem; color: var(--text-3); text-align: center; line-height: 1.6;
+    footer { border-top:1px solid #18181c; padding:44px 0 36px; }
+    .foot-row { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .foot-row .links { display:flex; gap:24px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3); flex-wrap:wrap; }
+    .foot-row .links a:hover { color:#fff; }
+    .foot-tc { font-size:12px; color:var(--text-3); letter-spacing:.1em; }
+    .foot-tc span { color:var(--accent); }
+    .legal { margin-top:28px; padding-top:24px; border-top:1px solid #18181c;
+      font-size:11px; color:#52525b; text-align:center; line-height:1.7; }
+
+    /* ── Lightbox ── */
+    .lb { position:fixed; inset:0; margin:0; padding:0; width:100vw; height:100vh; max-width:none; max-height:none;
+      border:0; background:rgba(0,0,0,.92); display:none; place-items:center; z-index:400; }
+    .lb[open] { display:grid; }
+    .lb::backdrop { background:transparent; }
+    .lb-media { max-width:94vw; max-height:92vh; display:grid; place-items:center; }
+    .lb-media img, .lb-media video { max-width:94vw; max-height:92vh; width:auto; height:auto;
+      object-fit:contain; display:block; box-shadow:0 30px 120px rgba(0,0,0,.8); }
+    .lb-media iframe { width:min(94vw, 1600px, calc(92vh * 1.7778)); height:min(92vh, calc(94vw / 1.7778)); border:0; background:#000; }
+    .lb-close { position:fixed; top:22px; right:26px; width:48px; height:48px; display:grid; place-items:center;
+      background:rgba(20,20,23,.8); border:1px solid #3f3f46; color:#fff; font-size:26px; cursor:pointer; z-index:401; }
+    .lb-close:hover { background:var(--accent); color:#000; border-color:var(--accent); }
+    .lb-cap { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); max-width:90vw;
+      font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--text-2);
+      background:rgba(9,9,11,.7); padding:7px 16px; border:1px solid #27272a; text-align:center; }
+    .zoomable { cursor:zoom-in; }
+    .zoomable:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+
+    /* ── Reveal ── */
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+    .reveal.vis { opacity:1; transform:translateY(0); }
+    .tool-grid.vis .tool, .vid-grid.vis .video-card { }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      .reveal { opacity:1; transform:none; transition:none; }
+      h1 .line > span { transform:none; animation:none; }
+      .marquee-track { animation:none; }
+      .rec-dot { animation:none; }
+      .hero-wm { transform:none !important; }
+      #scroll-progress { display:none; }
+      .shot.pop { animation:none; }
     }
 
     /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .feat-row { grid-template-columns: 1fr; gap: 36px; }
-      .feat-row.reverse .feat-text { order: 1; }
-      .feat-row.reverse .feat-visual { order: 2; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .cards-grid { grid-template-columns: 1fr; }
+    @media (max-width:1000px) {
+      .feat-row, .feat-row.rev { grid-template-columns:1fr; gap:40px; }
+      .feat-row.rev .feat-text { order:1; } .feat-row.rev .feat-media { order:2; }
+      .tool-grid { grid-template-columns:1fr 1fr; }
+      .cams-row { grid-template-columns:1fr; }
     }
-    @media (max-width: 768px) {
-      :root { --update-banner-height: 72px; }
-      section { padding: 72px 0; }
-      .update-banner-inner { flex-wrap: wrap; gap: 5px 10px; align-content: center; font-size: 0.8rem; padding: 7px 20px; }
-      .update-kicker, .update-link { font-size: 0.68rem; }
-      .update-close { width: 28px; height: 28px; }
-      .update-copy { flex-basis: 100%; order: -1; }
-      .nav-links { display: none; }
-      .hamburger { display: block; }
-      .hero h1 { font-size: 2.4rem; }
-      .hero-btns { flex-direction: column; align-items: center; }
-      .btn-primary, .btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
-      .cta-platforms { flex-direction: column; align-items: center; }
-      .plat-card { width: 100%; max-width: 320px; }
+    @media (max-width:768px) {
+      :root { --ubh:66px; }
+      html.update-dismissed { --ubh:0px; }
+      .update-banner { flex-wrap:wrap; gap:4px 10px; align-content:center; font-size:11.5px; }
+      .ub-copy { flex-basis:100%; text-align:center; order:-1; }
+      .nav-links { display:none; position:absolute; top:100%; left:0; right:0;
+        flex-direction:column; padding:20px 24px; gap:16px;
+        background:rgba(9,9,11,.97); border-bottom:1px solid #1c1c20; }
+      .nav-links.open { display:flex; }
+      .hamburger { display:block; }
+      .hero { padding-top:calc(120px + var(--ubh)); }
+      .h1-big { font-size:clamp(48px, 17vw, 72px); }
+      .h1-tag { font-size:16px; padding:0 12px; }
+      .stats { grid-template-columns:repeat(2,1fr); }
+      .stat:nth-child(2) { border-right:0; }
+      .feat h3 { font-size:40px; }
+      .feat-num { font-size:72px; }
+      .tool-grid { grid-template-columns:1fr; }
+      .vid-grid, .cov-grid { grid-template-columns:1fr; }
+      .gal-head { flex-direction:column; align-items:flex-start; }
+      .shot { width:min(78vw, 420px); }
+      .shot.portrait { width:min(44vw, 240px); }
+      .plats { flex-direction:column; align-items:center; }
+      .plat { width:100%; max-width:340px; }
+      .hud-rec { bottom:14px; right:26px; font-size:11px; padding:5px 10px; }
+      .strip-caption { justify-content:center; }
     }
-
-    /* ── Screenshots ── */
-    .feat-screenshot {
-      width: 100%; border-radius: var(--radius); border: 0;
-      display: block;
-    }
-    .media-lightbox-trigger {
-      cursor: zoom-in;
-    }
-    .media-lightbox-trigger:focus-visible {
-      outline: 2px solid var(--accent); outline-offset: 4px;
-    }
-    .loop-video {
-      height: auto; background: #000; object-fit: cover;
-      border: 0; border-radius: 0;
-    }
-    .feat-screenshot.loop-video {
-      border: 0; border-radius: 0;
-    }
-    .hero-video {
-      width: min(900px, 90vw); margin: 48px auto 0; position: relative; z-index: 2;
-    }
-
-    /* ── Video Section ── */
-    .video-section { padding: 100px 0; }
-    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .video-card {
-      background: var(--bg-card); border: 1px solid var(--border-subtle);
-      border-radius: var(--radius); overflow: hidden; transition: all 0.3s;
-    }
-    .video-card:hover { border-color: var(--border); transform: translateY(-2px); }
-    .video-wrap {
-      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-    }
-    .video-wrap iframe {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
-    }
-    .video-lightbox-trigger {
-      position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%;
-      border: 0; background: transparent; cursor: zoom-in;
-    }
-    .video-lightbox-trigger:focus-visible {
-      outline: 2px solid var(--accent); outline-offset: -4px;
-    }
-
-    /* ── Coverage ── */
-    .coverage-section {
-      padding: 100px 0; background: var(--bg-elevated);
-      border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
-    }
-    .coverage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .coverage-card {
-      display: block; min-height: 100%;
-      background: var(--bg-card); border: 1px solid var(--border-subtle);
-      border-radius: var(--radius); transition: all 0.25s; position: relative; overflow: hidden;
-    }
-    .coverage-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; transition: opacity 0.25s;
-    }
-    .coverage-card:hover { border-color: var(--border); background: var(--bg-card-hover); transform: translateY(-2px); }
-    .coverage-card:hover::before { opacity: 1; }
-    .coverage-media {
-      position: relative; aspect-ratio: 16 / 9; overflow: hidden;
-      background: #0f0f12; border-bottom: 1px solid var(--border-subtle);
-    }
-    .coverage-media::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(9,9,11,0.74), rgba(9,9,11,0.08) 58%, transparent);
-      pointer-events: none;
-    }
-    .coverage-media img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transform: scale(1.01); transition: transform 0.35s, filter 0.35s;
-    }
-    .coverage-card:hover .coverage-media img { transform: scale(1.045); filter: saturate(1.08); }
-    .coverage-logo {
-      position: absolute; left: 16px; bottom: 16px; z-index: 1;
-      display: inline-flex; align-items: center; min-height: 34px;
-      padding: 8px 12px; border-radius: 8px; font-weight: 800;
-      letter-spacing: 0; line-height: 1; box-shadow: 0 12px 32px rgba(0,0,0,0.34);
-    }
-    .coverage-logo.cined { background: rgba(8,8,10,0.86); color: #fff; border: 1px solid rgba(255,255,255,0.16); }
-    .coverage-logo.nfs { background: rgba(250,250,250,0.93); color: #101014; border: 1px solid rgba(0,0,0,0.14); }
-    .coverage-body { padding: 24px 28px 28px; }
-    .coverage-card .coverage-meta {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 600;
-      color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px;
-    }
-    .coverage-card h3 {
-      font-size: 1.25rem; line-height: 1.35; letter-spacing: -0.015em; margin-bottom: 12px;
-    }
-    .coverage-copy { color: var(--text-2); font-size: 0.94rem; line-height: 1.7; margin-bottom: 18px; }
-    .coverage-link { color: var(--text); font-weight: 700; font-size: 0.9rem; }
-
-    /* ── Gallery ── */
-    .gallery-section { padding: 100px 0; background: var(--bg-elevated); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
-    .gallery-groups {
-      display: grid; gap: 58px;
-    }
-    .gallery-page {
-      display: grid; gap: 18px;
-    }
-    .gallery-page-header {
-      display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
-      padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);
-    }
-    .gallery-page-title {
-      font-size: clamp(1.4rem, 2vw, 2rem); line-height: 1.1; letter-spacing: -0.02em;
-    }
-    .gallery-page-copy {
-      max-width: 460px; color: var(--text-2); font-size: 0.94rem; line-height: 1.6;
-      text-align: right;
-    }
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
-      align-items: start;
-    }
-    .gallery-item {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: var(--radius); overflow: hidden; border: 0; background: #000;
-      transition: all 0.3s;
-    }
-    .gallery-item.portrait {
-      aspect-ratio: 9 / 16;
-      width: min(100%, 420px);
-      justify-self: center;
-    }
-    .gallery-item:hover { transform: translateY(-2px); }
-    .gallery-item img { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; border-radius: 0; border: none; }
-    .gallery-grid > .gallery-item:only-child {
-      grid-column: 1 / -1;
-      justify-self: center;
-    }
-
-    /* ── Media Lightbox ── */
-    .media-lightbox {
-      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: fit-content; height: fit-content; max-width: none; max-height: none;
-      max-inline-size: none; max-block-size: none; margin: 0; padding: 0; border: 0;
-      background: transparent; color: var(--text); overflow: visible;
-    }
-    .media-lightbox::backdrop { background: rgba(0,0,0,0.82); }
-    .media-lightbox-inner {
-      position: relative; display: grid; place-items: center;
-    }
-    .media-lightbox-content {
-      --media-aspect: 1.7777777778;
-      display: grid; place-items: center;
-      width: min(94vw, 1600px, calc(92vh * var(--media-aspect)));
-      height: min(92vh, calc(94vw / var(--media-aspect)), calc(1600px / var(--media-aspect)));
-      aspect-ratio: var(--media-aspect);
-      background: #000;
-    }
-    .media-lightbox-inner img,
-    .media-lightbox-inner video,
-    .media-lightbox-inner iframe {
-      display: block; width: 100%; height: 100%; object-fit: contain;
-      margin: 0; max-width: none; position: static; z-index: auto;
-      background: #000;
-    }
-    .media-lightbox-inner iframe { border: 0; }
-    .media-lightbox-close {
-      position: absolute; top: -18px; right: -18px; z-index: 2;
-      display: grid; place-items: center; width: 40px; height: 40px;
-      border-radius: 999px; border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(9,9,11,0.72); color: var(--text); font-size: 28px; line-height: 1;
-      cursor: pointer;
-    }
-    .media-lightbox-close:hover { background: rgba(42,42,46,0.86); }
-
-    @media (max-width: 900px) {
-      .video-grid { grid-template-columns: 1fr; }
-      .coverage-grid { grid-template-columns: 1fr; }
-      .gallery-page-header { display: grid; gap: 8px; }
-      .gallery-page-copy { max-width: none; text-align: left; }
-      .gallery-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ── Animations ── */
-    .reveal {
-      opacity: 0; transform: translateY(18px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-    .reveal.vis { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
   <aside class="update-banner" aria-label="ZR Ctl beta update">
-    <div class="container update-banner-inner">
-      <span class="update-kicker">Update now</span>
-      <span class="update-copy">Latest beta: iOS <strong>0.2.0 (17)</strong> &middot; Android <strong>0.3.2</strong>. Please update now.</span>
-      <a href="/#download" class="update-link">Get the update</a>
-      <button class="update-close" type="button" aria-label="Dismiss update notice">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
+    <span class="ub-kicker mono">Update now</span>
+    <span class="ub-copy">Latest beta: iOS <strong>0.2.0 (17)</strong> &middot; Android <strong>0.3.2</strong>. Please update now.</span>
+    <a href="/#download" class="ub-link update-link">Get the update</a>
+    <button class="ub-close update-close" type="button" aria-label="Dismiss update notice">&times;</button>
   </aside>
 
   <nav>
     <div class="container">
-      <a href="#" class="logo">
-        <img src="zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      <a href="#" class="logo" aria-label="ZR Ctl home">
+        <img src="zrctl-logo-cropped.png" alt="ZR Ctl">
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links mono" id="navLinks">
         <li><a href="#features">Features</a></li>
         <li><a href="/how-to/">How-to</a></li>
         <li><a href="#gallery">Gallery</a></li>
@@ -651,407 +561,113 @@
         <li><a href="#coverage">Coverage</a></li>
         <li><a href="#download" class="nav-cta">Try Free</a></li>
       </ul>
-      <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
       </button>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-content reveal">
-      <img src="zrctl-logo-cropped.png" alt="ZR Ctl" style="width:min(500px, 70vw); height:auto; display:block; margin:0 auto 36px;">
-      <div class="hero-pill">
-        <span class="dot"></span>
-        Beta now available
-      </div>
-      <h1>ZR Control for<br><span class="hl">Nikon ZR</span> and Z-series cameras.</h1>
-      <p class="hero-sub">
-        ZR Ctl gives iPhone, iPad, and Android shooters a fast camera-control surface with live view, exposure tools, LUT preview, tap focus, framing guides, and camera-card playback.
-      </p>
-      <div class="hero-btns">
-        <a href="#download" class="btn-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Try ZR Ctl Free
-        </a>
-        <a href="#features" class="btn-secondary">
-          See the features
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
-      </div>
-      <video class="feat-screenshot loop-video hero-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-main-poster.jpg" aria-label="ZR Ctl live view monitoring a Nikon Z camera">
-        <source src="videos/ZRCTL-Main-web.mp4" type="video/mp4">
-      </video>
+  <!-- ───────── HERO ───────── -->
+  <header class="hero">
+    <div class="hero-wm display" aria-hidden="true">ZR</div>
+    <p class="kicker mono">ZR Control &middot; Beta now available</p>
+    <h1>
+      <span class="display h1-big"><span class="line"><span>Take full</span></span><span class="line"><span class="y">control.</span></span></span>
+      <span class="h1-tag">The ultimate remote monitor &amp; control app for Nikon ZR, Z8, Z6III &amp; Z-series cameras.</span>
+    </h1>
+    <p class="hero-sub">Scopes, LUTs, focus pulls, framing, audio, playback — and a full stills mode — from the phone or tablet already on your rig.</p>
+    <div class="btns">
+      <a class="b1" href="#download">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Try it free
+      </a>
+      <a class="b2" href="#features">See the features</a>
     </div>
-  </section>
 
-  <section class="testimonials-band">
-    <div class="container">
-      <div class="section-intro reveal">
-        <h2>Trusted by Z shooters.</h2>
-        <p>Real feedback from real filmmakers already using ZR Ctl on set.</p>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card reveal">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>Even in beta, this feels beyond what the camera companies ship themselves.</blockquote>
-          <div class="attr">Nikon Filmmaker</div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>So many advantages over the Nikon built-in monitor.</blockquote>
-          <div class="attr">ZR Shooter</div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>Connected instantly with my Z8 and immediately felt like a win for horizontal shooting.</blockquote>
-          <div class="attr">Z8 User</div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>No issues to speak of at all — so far it's simply ideal.</blockquote>
-          <div class="attr">Z6III Android Tester</div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>Nikon dev team needs to hire you!</blockquote>
-          <div class="attr">r/NikonFilmmakers</div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>Whoever hasn't tried it yet — do it!</blockquote>
-          <div class="attr">Nikon Z Community</div>
-        </div>
-      </div>
-      <div class="testi-grid" style="margin-top:16px;">
-        <div class="testi-card reveal">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>This is a brilliant project.</blockquote>
-          <div class="attr">r/NikonFilmmakers</div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>The latest version of ZR CTL is incredible.</blockquote>
-          <div class="attr">Nikon Z Cinema Group</div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>You are a godsend.</blockquote>
-          <div class="attr">r/NikonFilmmakers</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="feat-section" id="features">
-    <div class="container">
-      <div class="feat-row reveal">
-        <div class="feat-text">
-          <p class="sec-label" style="color: var(--red);">Exposure Confidence</p>
-          <h3>Traffic lights, goal posts, and scopes tuned for your signal.</h3>
-          <p>Channel-aware traffic lights give you a fast read on highlight and shadow pressure before a take goes sideways. Pair them with waveform and histogram scopes tuned for confident exposure decisions.</p>
-          <p>Signal-aware calibration for Log3G10, N-Log, and SDR monitoring workflows - built around how the Nikon ZR is actually shot.</p>
-          <ul class="detail-list">
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Traffic lights &amp; goal posts</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>False color with legend</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Waveform with exposure guidelines</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Zebras: highlights, shadows, mid-gray, all</li>
-          </ul>
-        </div>
-        <div class="feat-visual">
-          <video class="feat-screenshot loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-2nd-poster.jpg" aria-label="ZR Ctl waveform scope and traffic light exposure tools on Nikon Z live view">
-            <source src="videos/ZRCTL-2nd-web.mp4" type="video/mp4">
+    <div class="strip">
+      <div class="mattes">
+        <div class="frame">
+          <div class="corners"><i></i><i></i><i></i><i></i></div>
+          <div class="hud-rec mono"><span class="rec-dot"></span>REC <span class="tc" id="heroTimecode">00:00:00:00</span></div>
+          <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-main-poster.jpg" aria-label="ZR Ctl live view monitoring a Nikon Z camera">
+            <source src="videos/ZRCTL-Main-web.mp4" type="video/mp4">
           </video>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="feat-section alt" id="monitoring">
-    <div class="container">
-      <div class="feat-row reverse reveal">
-        <div class="feat-text">
-          <p class="sec-label" style="color: var(--green);">Focus Control</p>
-          <h3>Manual focus, pull moves, and cinematic AF from live view.</h3>
-          <p>Use ZR Ctl as a dedicated focus surface: tap to set focus, nudge manual focus in fine or coarse steps, and keep focus controls available without touching the camera body.</p>
-          <p>The pull tool helps you rehearse repeatable moves and execute them cleanly, while cinematic AF controls make focus transitions feel more intentional from the phone or tablet.</p>
-          <ul class="detail-list">
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Fine and coarse manual focus controls</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pull tool for repeatable focus moves</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cinematic AF trigger from live view</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AF area, subject area, and focus-box feedback</li>
-          </ul>
-        </div>
-        <div class="feat-visual">
-          <video class="feat-screenshot loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-focus-poster.jpg" aria-label="ZR Ctl manual focus, focus pull, and cinematic autofocus controls on Nikon Z live view">
-            <source src="videos/ZRCTL-focus-web.mp4" type="video/mp4">
-          </video>
-        </div>
+      <div class="strip-caption mono">
+        <span>Live view &middot; Actual app footage</span>
+        <span>R3D NE &middot; LOG3G10 &middot; 23.976</span>
+        <span>Shot on Nikon ZR — monitored on ZR Ctl</span>
       </div>
     </div>
-  </section>
 
-  <section class="feat-section">
-    <div class="container">
-      <div class="feat-row reveal">
-        <div class="feat-text">
-          <p class="sec-label" style="color: var(--green);">Focus Peaking</p>
-          <h3>Peaking that stays available in demanding ZR recording modes.</h3>
-          <p>For manual lenses, macro work, and R3D NE or RAW setups, ZR Ctl keeps edge peaking visible directly over live view so you can see what is actually biting.</p>
-          <p>Dial sensitivity and color to match the scene, then pair peaking with scopes, LUT preview, and framing tools without losing your focus reference.</p>
-          <ul class="detail-list">
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Peaking for Nikon ZR R3D NE workflows</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Adjustable sensitivity and color</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Fine calibration for busy or low-contrast scenes</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Works alongside scopes, LUT preview, and frame guides</li>
-          </ul>
-        </div>
-        <div class="feat-visual">
-          <img src="images/focus-peaking.png" alt="ZR Ctl focus peaking overlay on Nikon Z live view" class="feat-screenshot" loading="lazy">
-        </div>
+    <div class="stats mono">
+      <div class="stat"><b class="display" data-count="40" data-suffix="+">40+</b><span>Camera controls</span></div>
+      <div class="stat"><b class="display" data-count="4">4</b><span>Ways to connect &middot; USB &middot; Hotspot &middot; WiFi &middot; AP</span></div>
+      <div class="stat"><b class="display" data-count="5">5</b><span>Platforms &middot; iOS &middot; iPad &middot; Android &middot; Quest 3 &middot; Accsoon</span></div>
+      <div class="stat"><b class="display">Free</b><span>Open beta &middot; no account</span></div>
+    </div>
+  </header>
+
+  <!-- ───────── MARQUEE ───────── -->
+  <div class="marquee mono" aria-label="What filmmakers say about ZR Ctl">
+    <div class="marquee-track">
+      <span class="q">"Even in beta, this feels beyond what the camera companies ship themselves."<b>Nikon Filmmaker</b></span>
+      <span class="q">"Nikon dev team needs to hire you!"<b>r/NikonFilmmakers</b></span>
+      <span class="q">"So many advantages over the Nikon built-in monitor."<b>ZR Shooter</b></span>
+      <span class="q">"You are a godsend."<b>r/NikonFilmmakers</b></span>
+      <span class="q">"The latest version of ZR CTL is incredible."<b>Nikon Z Cinema Group</b></span>
+      <span class="q">"Connected instantly with my Z8."<b>Z8 User</b></span>
+      <span class="q">"No issues to speak of at all — so far it's simply ideal."<b>Z6III Android Tester</b></span>
+      <span class="q">"This is a brilliant project."<b>r/NikonFilmmakers</b></span>
+      <span class="q">"Whoever hasn't tried it yet — do it!"<b>Nikon Z Community</b></span>
+      <span class="q">"Even in beta, this feels beyond what the camera companies ship themselves."<b>Nikon Filmmaker</b></span>
+      <span class="q">"Nikon dev team needs to hire you!"<b>r/NikonFilmmakers</b></span>
+      <span class="q">"So many advantages over the Nikon built-in monitor."<b>ZR Shooter</b></span>
+      <span class="q">"You are a godsend."<b>r/NikonFilmmakers</b></span>
+      <span class="q">"The latest version of ZR CTL is incredible."<b>Nikon Z Cinema Group</b></span>
+      <span class="q">"Connected instantly with my Z8."<b>Z8 User</b></span>
+      <span class="q">"No issues to speak of at all — so far it's simply ideal."<b>Z6III Android Tester</b></span>
+      <span class="q">"This is a brilliant project."<b>r/NikonFilmmakers</b></span>
+      <span class="q">"Whoever hasn't tried it yet — do it!"<b>Nikon Z Community</b></span>
+    </div>
+  </div>
+
+  <!-- ───────── SUPPORTED CAMERAS ───────── -->
+  <section class="cams" id="cameras">
+    <div class="container reveal">
+      <p class="cams-label mono">Supported Nikon cameras</p>
+      <div class="cams-row">
+        <div class="cam"><b class="display">Nikon ZR</b><span class="mono">Primary &middot; cinema &amp; stills</span></div>
+        <div class="cam"><b class="display">Nikon Z8</b><span class="mono">Confirmed by shooters</span></div>
+        <div class="cam"><b class="display">Nikon Z6III</b><span class="mono">Confirmed by shooters</span></div>
       </div>
+      <p class="cams-note">Running ZR Ctl on another Z-series body? <a href="mailto:mike@itsmadcreative.com">Tell us how it goes</a> — compatibility grows with every report.</p>
     </div>
   </section>
 
-  <section class="feat-section alt">
-    <div class="container">
-      <div class="feat-row reverse reveal">
-        <div class="feat-text">
-          <p class="sec-label" style="color: var(--blue);">Framing &amp; Desqueeze</p>
-          <h3>Anamorphic desqueeze with custom ratios. Frame guides for every delivery.</h3>
-          <p>Desqueeze 1.33x, 1.5x, 1.8x, 2x, or enter a custom ratio — right in live view. Stack multiple frame guides with dashed comparison lines for multi-delivery shoots.</p>
-          <p>Built-in cinema, vertical, and social ratios. Golden ratio, thirds, center cross, safe areas. Full control over matte and guide opacity.</p>
-          <ul class="detail-list">
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom anamorphic desqueeze input</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Multiple simultaneous frame guides</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>9:16, 4:5, 1:1, 2.39, custom ratios</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Matte &amp; guide opacity controls</li>
-          </ul>
-        </div>
-        <div class="feat-visual">
-          <img src="images/frame-guides.png" alt="ZR Ctl frame guides with multiple aspect ratio overlays on Nikon Z live view" class="feat-screenshot" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="feat-section" id="playback">
+  <!-- ───────── FEATURES ───────── -->
+  <section class="feat" id="features">
     <div class="container">
       <div class="feat-row reveal">
         <div class="feat-text">
-          <p class="sec-label" style="color: var(--accent);">Playback</p>
-          <h3>Review takes over WiFi without leaving the app.</h3>
-          <p>Scan the camera card, see thumbnails, stream playable MP4/MOV clips, jump between takes, scrub, check audio, and preview with your monitoring LUT — all over WiFi, without touching the camera.</p>
-          <p>No more crowding around the body to check a take. Review instantly, keep moving.</p>
-          <ul class="detail-list">
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Camera-card scan with thumbnails</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full-screen playback &amp; scrubber</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>LUT preview during playback</li>
-            <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Volume, clip navigation, audio check</li>
+          <div class="feat-num display">01</div>
+          <p class="feat-label mono">Exposure confidence</p>
+          <h3 class="display">Scopes tuned<br>for your signal.</h3>
+          <p>Channel-aware traffic lights give you a fast read on highlight and shadow pressure before a take goes sideways. Waveform and histogram scopes calibrated for Log3G10 (R3D), N-Log, and SDR.</p>
+          <ul class="spec-list mono">
+            <li>Traffic lights &amp; goal posts</li>
+            <li>False color with legend</li>
+            <li>Waveform with exposure guidelines</li>
+            <li>Zebras: highlights, shadows, mid-gray</li>
           </ul>
         </div>
-        <div class="feat-visual">
-          <img src="images/gallery-playback-overview.png" alt="ZR Ctl camera card playback gallery with thumbnails and media filters" class="feat-screenshot" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cards-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="sec-label">And That's Not All</p>
-        <h2 class="sec-head">Every control, every tool.</h2>
-        <p class="sec-sub center">23+ camera controls, a fully customizable interface, full audio monitoring, and LUT workflows designed for how the ZR is actually being shot.</p>
-      </div>
-      <div class="cards-grid">
-        <div class="f-card reveal">
-          <div class="f-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
-          <h3>Fully Customizable Interface</h3>
-          <p>Presets, customizable status chips, tool pills, modern/monitor/classic HUD styles. Landscape toolbar placement, rotation lock, and home-indicator-safe controls.</p>
-        </div>
-        <div class="f-card reveal">
-          <div class="f-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-          </div>
-          <h3>Full Audio Controls</h3>
-          <p>Real-time audio level meters, input sensitivity and gain adjustment, all controllable from live view. Monitor audio without a separate mixer.</p>
-        </div>
-        <div class="f-card reveal">
-          <div class="f-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3>LUTs Without Losing Exposure</h3>
-          <p>Preview your LUT while exposure tools read the pre-LUT signal. A monitoring look should never hide clipped channels. Bundled Rec.709 conversion profiles plus custom .cube import.</p>
-        </div>
-        <div class="f-card reveal">
-          <div class="f-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-          </div>
-          <h3>Deep Cinema Controls</h3>
-          <p>Shutter angle, dual base ISO, extended ISO, codec, resolution, frame rate, Kelvin, timecode, card slot, record start/stop — controls Nikon hasn't exposed anywhere else.</p>
-        </div>
-        <div class="f-card reveal">
-          <div class="f-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <h3>Near Zero Latency USB-C Monitoring</h3>
-          <p>Direct USB connection for near-latency-free monitoring with all tools active. Waveform, false color, peaking, and LUTs over a simple cable.</p>
-        </div>
-        <div class="f-card reveal">
-          <div class="f-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
-          </div>
-          <h3>Built for the Field</h3>
-          <p>Bonjour discovery, direct AP connection, quick reconnect, transport switching, and support log capture. Designed for the messy parts of real camera days.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="gallery-section" id="gallery">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="sec-label">Gallery</p>
-        <h2 class="sec-head">The app, up close.</h2>
-        <p class="sec-sub center">Screenshots from ZR Ctl organized by the app pages operators use during a shoot.</p>
-      </div>
-      <div class="gallery-groups">
-        <div class="gallery-page reveal">
-          <div class="gallery-page-header">
-            <h3 class="gallery-page-title">Connect Page</h3>
-            <p class="gallery-page-copy">Transport selection and reconnect flows in landscape and portrait.</p>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item reveal">
-              <img src="images/gallery-connect-landscape.png" alt="ZR Ctl connect page in landscape" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal portrait">
-              <img src="images/gallery-connect-portrait.png" alt="ZR Ctl connect page in portrait" class="feat-screenshot" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-page reveal">
-          <div class="gallery-page-header">
-            <h3 class="gallery-page-title">Live View Page</h3>
-            <p class="gallery-page-copy">LUT looks, scopes, frame guides, false color, recording overlays, and live-view scenes.</p>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item reveal">
-              <img src="images/gallery-liveview-look.png" alt="ZR Ctl live view with monitoring LUT controls" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-liveview-scopes-audio.png" alt="ZR Ctl live view with scopes and audio meters" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-liveview-false-color.png" alt="ZR Ctl live view false color overlay" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-monitor-frame-guides.png" alt="ZR Ctl frame guide monitoring overlay" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-liveview-recording.png" alt="ZR Ctl live view recording overlay" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-liveview-band.png" alt="ZR Ctl live view monitoring a stage performance" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-liveview-elin.png" alt="ZR Ctl live view monitoring a portrait scene" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-liveview-rome.png" alt="ZR Ctl live view monitoring a cinematic statue shot" class="feat-screenshot" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-page reveal">
-          <div class="gallery-page-header">
-            <h3 class="gallery-page-title">Photo Controls Page</h3>
-            <p class="gallery-page-copy">Still photo status, exposure, capture, storage, and focus controls.</p>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item reveal">
-              <img src="images/gallery-photo-controls.png" alt="ZR Ctl photo controls page" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-photo-capture.png" alt="ZR Ctl photo capture controls page" class="feat-screenshot" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-page reveal">
-          <div class="gallery-page-header">
-            <h3 class="gallery-page-title">Video Controls Page</h3>
-            <p class="gallery-page-copy">Video exposure, codec, resolution, timecode, and focus pages.</p>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item reveal">
-              <img src="images/gallery-video-exposure.png" alt="ZR Ctl video exposure controls page" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-video-focus.png" alt="ZR Ctl video focus controls page" class="feat-screenshot" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-page reveal">
-          <div class="gallery-page-header">
-            <h3 class="gallery-page-title">Audio / TC Page</h3>
-            <p class="gallery-page-copy">Audio, input, timecode, and card status controls for video work.</p>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item reveal">
-              <img src="images/gallery-audio-timecode.png" alt="ZR Ctl audio and timecode controls page" class="feat-screenshot" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-page reveal">
-          <div class="gallery-page-header">
-            <h3 class="gallery-page-title">Playback Page</h3>
-            <p class="gallery-page-copy">Camera-card browsing, filters, photo review, video playback, and portrait browsing.</p>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item reveal">
-              <img src="images/gallery-playback-overview.png" alt="ZR Ctl playback gallery overview" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-playback-filter-menu.png" alt="ZR Ctl playback type filter menu" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-playback-photo-viewer.png" alt="ZR Ctl playback photo viewer" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal">
-              <img src="images/gallery-playback-video-player.png" alt="ZR Ctl playback video player" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal portrait">
-              <img src="images/gallery-playback-portrait-grid.png" alt="ZR Ctl portrait playback gallery" class="feat-screenshot" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-page reveal">
-          <div class="gallery-page-header">
-            <h3 class="gallery-page-title">Advanced Page</h3>
-            <p class="gallery-page-copy">Advanced layout, monitoring, framing, playback, and camera preferences.</p>
-          </div>
-          <div class="gallery-grid">
-            <div class="gallery-item reveal portrait">
-              <img src="images/gallery-advanced-live-view.png" alt="ZR Ctl advanced live view layout settings" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal portrait">
-              <img src="images/gallery-advanced-monitoring.png" alt="ZR Ctl advanced monitoring settings" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal portrait">
-              <img src="images/gallery-advanced-framing.png" alt="ZR Ctl advanced framing settings" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal portrait">
-              <img src="images/gallery-advanced-playback.png" alt="ZR Ctl advanced playback settings" class="feat-screenshot" loading="lazy">
-            </div>
-            <div class="gallery-item reveal portrait">
-              <img src="images/gallery-advanced-camera.png" alt="ZR Ctl advanced camera settings" class="feat-screenshot" loading="lazy">
+        <div class="feat-media">
+          <div class="mattes">
+            <div class="frame">
+              <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-2nd-poster.jpg" aria-label="ZR Ctl waveform scope and traffic light exposure tools on Nikon Z live view">
+                <source src="videos/ZRCTL-2nd-web.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
         </div>
@@ -1059,30 +675,206 @@
     </div>
   </section>
 
-  <section class="comp-section">
+  <section class="feat alt" id="monitoring">
     <div class="container">
-      <div class="reveal" style="text-align:center; margin-bottom:32px;">
-        <p class="sec-label">How ZR Ctl Is Different</p>
-        <h2 class="sec-head">Built for the person actually<br>operating the camera.</h2>
-      </div>
-      <div class="comp-card reveal">
-        <p><strong>ZR Ctl is built to be the operator's control surface</strong> - camera settings, exposure confidence, framing, focus, LUTs, audio, and playback in one native workflow.</p>
-        <p style="margin-top:16px;">Every section is shaped around what Z shooters do during a real take: <strong>adjust quickly, judge exposure, frame confidently, focus cleanly, and review without breaking flow</strong>.</p>
+      <div class="feat-row rev reveal">
+        <div class="feat-text">
+          <div class="feat-num display">02</div>
+          <p class="feat-label mono">Focus control</p>
+          <h3 class="display">Pull focus from<br>the palm of your hand.</h3>
+          <p>Tap to set focus, nudge manual focus in fine or coarse steps, rehearse repeatable pull moves, and trigger cinematic AF — without touching the camera body.</p>
+          <ul class="spec-list mono">
+            <li>Fine &amp; coarse manual focus</li>
+            <li>Pull tool for repeatable moves</li>
+            <li>Cinematic AF trigger</li>
+            <li>Focus peaking in R3D NE &amp; RAW</li>
+          </ul>
+        </div>
+        <div class="feat-media">
+          <div class="mattes">
+            <div class="frame">
+              <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-focus-poster.jpg" aria-label="ZR Ctl manual focus, focus pull, and cinematic autofocus controls on Nikon Z live view">
+                <source src="videos/ZRCTL-focus-web.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="video-section" id="videos">
+  <section class="feat">
     <div class="container">
-      <div class="section-header reveal">
-        <p class="sec-label">See It In Action</p>
-        <h2 class="sec-head">Watch ZR Ctl in the field.</h2>
-        <p class="sec-sub center">Real reviews from real filmmakers putting ZR Ctl through its paces.</p>
+      <div class="feat-row reveal">
+        <div class="feat-text">
+          <div class="feat-num display">03</div>
+          <p class="feat-label mono">Framing &amp; desqueeze</p>
+          <h3 class="display">Frame for every<br>delivery at once.</h3>
+          <p>Anamorphic desqueeze at 1.33x, 1.5x, 1.8x, 2x, or any custom ratio — live. Stack multiple frame guides with dashed comparison lines for multi-delivery shoots.</p>
+          <ul class="spec-list mono">
+            <li>Custom anamorphic desqueeze</li>
+            <li>Multiple simultaneous frame guides</li>
+            <li>9:16 &middot; 4:5 &middot; 1:1 &middot; 2.39 &middot; custom</li>
+            <li>Matte &amp; guide opacity controls</li>
+          </ul>
+        </div>
+        <div class="feat-media">
+          <div class="mattes">
+            <div class="frame">
+              <img src="images/frame-guides.png" alt="ZR Ctl frame guides with multiple aspect ratio overlays on Nikon Z live view" loading="lazy">
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="video-grid">
+    </div>
+  </section>
+
+  <section class="feat alt" id="playback">
+    <div class="container">
+      <div class="feat-row rev reveal">
+        <div class="feat-text">
+          <div class="feat-num display">04</div>
+          <p class="feat-label mono">Playback</p>
+          <h3 class="display">Review takes.<br>Keep moving.</h3>
+          <p>Scan the camera card, stream clips, scrub, check audio, and preview with your monitoring LUT — all over WiFi, without crowding around the camera body.</p>
+          <ul class="spec-list mono">
+            <li>Camera-card scan with thumbnails</li>
+            <li>Full-screen playback &amp; scrubber</li>
+            <li>LUT preview during playback</li>
+            <li>Volume, clip navigation, audio check</li>
+          </ul>
+        </div>
+        <div class="feat-media">
+          <div class="mattes">
+            <div class="frame">
+              <img src="images/gallery-playback-overview.png" alt="ZR Ctl camera card playback gallery with thumbnails and media filters" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat" id="stills">
+    <div class="container">
+      <div class="feat-row reveal">
+        <div class="feat-text">
+          <div class="feat-num display">05</div>
+          <p class="feat-label mono">Stills / Photo mode</p>
+          <h3 class="display">Not just cinema.<br>A full stills rig.</h3>
+          <p>Flip ZR Ctl into photo mode and your phone becomes a complete stills command surface — exposure, capture, storage, and focus pages built for photography, not borrowed from video.</p>
+          <p>Fire the shutter from live view, then review every frame instantly over WiFi without touching the camera.</p>
+          <ul class="spec-list mono">
+            <li>Dedicated photo control pages</li>
+            <li>Remote shutter from live view</li>
+            <li>Exposure &middot; capture &middot; storage &middot; focus</li>
+            <li>Instant photo review over WiFi</li>
+          </ul>
+        </div>
+        <div class="feat-media">
+          <div class="mattes">
+            <div class="frame">
+              <img src="images/gallery-photo-controls.png" alt="ZR Ctl photo mode stills controls for Nikon Z cameras" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── TOOLS ───────── -->
+  <section class="tools">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="kicker mono">And that's not all</p>
+        <h2 class="display">Every control.<br><span class="y">Every tool.</span></h2>
+        <p>40+ camera controls, a fully customizable interface, full audio monitoring, and LUT workflows designed for how the ZR is actually shot.</p>
+      </div>
+      <div class="tool-grid reveal">
+        <div class="tool"><div class="tool-idx display">06</div><h3 class="display">Custom interface</h3><p>Presets, status chips, tool pills, modern/monitor/classic HUD styles. Landscape toolbar placement and rotation lock.</p></div>
+        <div class="tool"><div class="tool-idx display">07</div><h3 class="display">Full audio</h3><p>Real-time level meters, input sensitivity and gain adjustment, all controllable from live view. No separate mixer.</p></div>
+        <div class="tool"><div class="tool-idx display">08</div><h3 class="display">LUTs done right</h3><p>Preview your LUT while exposure tools read the pre-LUT signal. Bundled Rec.709 profiles plus custom .cube import.</p></div>
+        <div class="tool"><div class="tool-idx display">09</div><h3 class="display">Deep cinema controls</h3><p>Shutter angle, dual base ISO, codec, resolution, frame rate, Kelvin, timecode, card slot — controls Nikon hasn't exposed anywhere else.</p></div>
+        <div class="tool"><div class="tool-idx display">10</div><h3 class="display">Ultra low-latency USB</h3><p>Ultra low-latency USB monitoring with every tool active — waveform, false color, peaking, and LUTs over a single cable.</p></div>
+        <div class="tool"><div class="tool-idx display">11</div><h3 class="display">Built for the field</h3><p>Bonjour discovery, direct AP connection, quick reconnect, transport switching, and support log capture.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── GALLERY ───────── -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gal-head reveal">
+        <div class="sec-head">
+          <p class="kicker mono">Gallery</p>
+          <h2 class="display">The app, <span class="y">up close.</span></h2>
+          <p>Straight off the devices operators are running on set. Drag, scroll, or use the arrows — click any shot to inspect it.</p>
+        </div>
+        <div class="gal-nav">
+          <button class="gal-btn" id="galPrev" type="button" aria-label="Previous screenshots">&larr;</button>
+          <button class="gal-btn" id="galNext" type="button" aria-label="Next screenshots">&rarr;</button>
+        </div>
+      </div>
+      <div class="gal-tabs reveal" id="galTabs" role="tablist" aria-label="Gallery categories">
+        <button class="gal-tab on" data-cat="all" type="button">All</button>
+        <button class="gal-tab" data-cat="liveview" type="button">Live view</button>
+        <button class="gal-tab" data-cat="controls" type="button">Controls</button>
+        <button class="gal-tab" data-cat="playback" type="button">Playback</button>
+        <button class="gal-tab" data-cat="connect" type="button">Connect</button>
+        <button class="gal-tab" data-cat="advanced" type="button">Advanced</button>
+      </div>
+      <div class="gal-scroller reveal" id="galScroller">
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-band.png" alt="ZR Ctl live view monitoring a stage performance on a Nikon Z camera" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>LUT look</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-rome.png" alt="ZR Ctl live view monitoring a cinematic statue shot in R3D NE" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>R3D NE monitoring</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-scopes-audio.png" alt="ZR Ctl live view with waveform scopes and audio meters" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>WFM + audio</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-false-color.png" alt="ZR Ctl false color exposure overlay on Nikon Z live view" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>False color</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-monitor-frame-guides.png" alt="ZR Ctl frame guide monitoring overlay" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Frame guides</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-recording.png" alt="ZR Ctl live view recording overlay" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Recording</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-elin.png" alt="ZR Ctl live view monitoring a portrait scene" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Portrait session</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-look.png" alt="ZR Ctl live view with monitoring LUT controls" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>LUT preview</span></figcaption></figure>
+        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-video-exposure.png" alt="ZR Ctl video exposure controls page" loading="lazy"></div><figcaption class="mono"><b>Video</b><span>Exposure</span></figcaption></figure>
+        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-video-focus.png" alt="ZR Ctl video focus controls page" loading="lazy"></div><figcaption class="mono"><b>Video</b><span>Focus</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="controls"><div class="ph"><img src="images/gallery-video-portrait.png" alt="ZR Ctl video controls in portrait orientation" loading="lazy"></div><figcaption class="mono"><b>Video</b><span>Portrait</span></figcaption></figure>
+        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-audio-timecode.png" alt="ZR Ctl audio and timecode controls page" loading="lazy"></div><figcaption class="mono"><b>Audio / TC</b><span>Input &middot; TC &middot; card</span></figcaption></figure>
+        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-photo-controls.png" alt="ZR Ctl photo controls page with status and exposure" loading="lazy"></div><figcaption class="mono"><b>Photo</b><span>Status &middot; exposure</span></figcaption></figure>
+        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-photo-capture.png" alt="ZR Ctl photo capture and storage controls page" loading="lazy"></div><figcaption class="mono"><b>Photo</b><span>Capture &middot; storage</span></figcaption></figure>
+        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-overview.png" alt="ZR Ctl playback gallery overview with camera card thumbnails" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Camera card &middot; WiFi</span></figcaption></figure>
+        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-filter-menu.png" alt="ZR Ctl playback type filter menu" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Type filters</span></figcaption></figure>
+        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-photo-viewer.png" alt="ZR Ctl playback photo viewer" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Photo viewer</span></figcaption></figure>
+        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-video-player.png" alt="ZR Ctl playback video player with scrubber" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Video player</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="playback"><div class="ph"><img src="images/gallery-playback-portrait-grid.png" alt="ZR Ctl portrait playback gallery grid" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Portrait grid</span></figcaption></figure>
+        <figure class="shot" data-cat="connect"><div class="ph"><img src="images/gallery-connect-landscape.png" alt="ZR Ctl connect page with transport selection in landscape" loading="lazy"></div><figcaption class="mono"><b>Connect</b><span>Transports</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="connect"><div class="ph"><img src="images/gallery-connect-portrait.png" alt="ZR Ctl connect page in portrait" loading="lazy"></div><figcaption class="mono"><b>Connect</b><span>Portrait</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-live-view.png" alt="ZR Ctl advanced live view layout settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Live view</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-monitoring.png" alt="ZR Ctl advanced monitoring settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Monitoring</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-framing.png" alt="ZR Ctl advanced framing settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Framing</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-playback.png" alt="ZR Ctl advanced playback settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Playback</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-camera.png" alt="ZR Ctl advanced camera settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Camera</span></figcaption></figure>
+      </div>
+      <div class="gal-progress"><i id="galBar"></i></div>
+    </div>
+  </section>
+
+  <!-- ───────── MANIFESTO ───────── -->
+  <section class="manifesto">
+    <div class="container reveal">
+      <h2 class="display">Built for the person<br>actually <span class="y">operating</span> the camera.</h2>
+      <p>Camera settings, exposure confidence, framing, focus, LUTs, audio, and playback in one native workflow — shaped around what Z shooters do during a real take.</p>
+    </div>
+  </section>
+
+  <!-- ───────── VIDEOS ───────── -->
+  <section class="videos" id="videos">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="kicker mono">See it in action</p>
+        <h2 class="display">Watch ZR Ctl <span class="y">in the field.</span></h2>
+        <p>Real reviews from real filmmakers putting ZR Ctl through its paces.</p>
+      </div>
+      <div class="vid-grid">
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/9n52h3N9vTI" title="ZR Ctl field video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/9n52h3N9vTI" title="How to properly expose your Nikon ZR with ZR Ctl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="video-card reveal">
@@ -1119,358 +911,379 @@
     </div>
   </section>
 
-  <section class="coverage-section" id="coverage">
+  <!-- ───────── COVERAGE ───────── -->
+  <section class="coverage" id="coverage">
     <div class="container">
-      <div class="section-header reveal">
-        <p class="sec-label">Coverage</p>
-        <h2 class="sec-head">Read what filmmakers are noticing.</h2>
-        <p class="sec-sub center">Independent coverage of ZR Ctl for Nikon ZR shooters.</p>
+      <div class="sec-head reveal">
+        <p class="kicker mono">Coverage</p>
+        <h2 class="display">The press <span class="y">noticed.</span></h2>
+        <p>Independent coverage of ZR Ctl for Nikon ZR shooters.</p>
       </div>
-      <div class="coverage-grid">
-        <a class="coverage-card reveal" href="https://www.cined.com/zr-ctl-beta-control-app-available-now-for-nikon-zr/" target="_blank" rel="noopener">
-          <div class="coverage-media">
+      <div class="cov-grid">
+        <a class="cov reveal" href="https://www.cined.com/zr-ctl-beta-control-app-available-now-for-nikon-zr/" target="_blank" rel="noopener">
+          <div class="cov-media">
             <img src="https://www.cined.com/content/uploads/2026/05/Nikon-ZR-CTL-App-featured.jpeg" alt="CineD article cover for ZR Ctl on Nikon ZR" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-            <span class="coverage-logo cined">CineD</span>
+            <span class="cov-logo cined">CineD</span>
           </div>
-          <div class="coverage-body">
-            <p class="coverage-meta">Software News</p>
-            <h3>ZR CTL Beta Control App Available Now for Nikon ZR</h3>
-            <p class="coverage-copy">CineD covers ZR Ctl's camera control, live feed, playback, focus, exposure, and framing tools for Nikon ZR users.</p>
-            <span class="coverage-link">Read article</span>
+          <div class="cov-body">
+            <p class="cov-meta mono">Software news</p>
+            <h3 class="display">ZR CTL Beta Control App Available Now for Nikon ZR</h3>
+            <p>CineD covers ZR Ctl's camera control, live feed, playback, focus, exposure, and framing tools for Nikon ZR users.</p>
+            <span class="read mono">Read article &rarr;</span>
           </div>
         </a>
-        <a class="coverage-card reveal" href="https://nofilmschool.com/nikon-zr-ctl-app" target="_blank" rel="noopener">
-          <div class="coverage-media">
+        <a class="cov reveal" href="https://nofilmschool.com/nikon-zr-ctl-app" target="_blank" rel="noopener">
+          <div class="cov-media">
             <img src="https://nofilmschool.com/media-library/image.png?id=66847122&amp;width=1200&amp;height=600&amp;coordinates=278%2C0%2C278%2C0" alt="No Film School article cover for the Nikon ZR Ctl app" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-            <span class="coverage-logo nfs">No Film School</span>
+            <span class="cov-logo nfs">No Film School</span>
           </div>
-          <div class="coverage-body">
-            <p class="coverage-meta">Cinematography &amp; Cameras</p>
-            <h3>Level Up Your Nikon ZR Shooting Experience With This New ZR CTL Smartphone App</h3>
-            <p class="coverage-copy">No Film School looks at using ZR Ctl as a smartphone control monitor with live view, LUT preview, framing guides, and camera-card playback.</p>
-            <span class="coverage-link">Read article</span>
+          <div class="cov-body">
+            <p class="cov-meta mono">Cinematography &amp; cameras</p>
+            <h3 class="display">Level Up Your Nikon ZR Shooting Experience</h3>
+            <p>No Film School looks at ZR Ctl as a smartphone control monitor with live view, LUT preview, framing guides, and camera-card playback.</p>
+            <span class="read mono">Read article &rarr;</span>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="cta-section" id="download">
-    <div class="cta-content reveal">
-      <h2>Ready to take control?</h2>
-      <p>Download ZR Ctl and turn your iPhone, iPad, or Android device into a professional camera control surface.</p>
-      <div class="cta-platforms">
-        <div class="plat-card">
-          <h3>iOS &amp; iPadOS</h3>
-          <p>iPhone, iPad &amp; Vision Pro</p>
-          <a href="https://testflight.apple.com/join/de1e3Nbr" target="_blank" rel="noopener" class="plat-btn ios">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Try ZR Ctl Free
-          </a>
+  <!-- ───────── FAQ ───────── -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="kicker mono">FAQ</p>
+        <h2 class="display">Questions, <span class="y">answered.</span></h2>
+      </div>
+      <div class="faq-list reveal">
+        <details>
+          <summary>How do I control a Nikon ZR remotely?</summary>
+          <p class="a">Install ZR Ctl on your iPhone, iPad, or Android device and connect to the camera over USB, your phone's hotspot, a shared WiFi network, or the camera's own access point. You get live view with scopes, full camera settings, focus control, audio, and camera-card playback — no extra hardware required.</p>
+        </details>
+        <details>
+          <summary>Does ZR Ctl work with the Nikon Z8 and Z6III?</summary>
+          <p class="a">Yes. ZR Ctl is built for the Nikon ZR first, and Z8 and Z6III shooters have confirmed it working as a remote monitor and control surface on their bodies. Other Z-series cameras may work too — we'd love to hear your results.</p>
+        </details>
+        <details>
+          <summary>Is ZR Ctl free?</summary>
+          <p class="a">Yes — ZR Ctl is currently a free open beta on iOS, iPadOS, and Android. No account required.</p>
+        </details>
+        <details>
+          <summary>Can I shoot stills with ZR Ctl, or is it video-only?</summary>
+          <p class="a">ZR Ctl has a full photo mode: dedicated stills control pages for exposure, capture, storage, and focus, a remote shutter from live view, and instant photo review over WiFi.</p>
+        </details>
+        <details>
+          <summary>What monitoring tools are included?</summary>
+          <p class="a">Waveform, histogram, false color with legend, channel-aware traffic lights and goal posts, zebras, focus peaking (including R3D NE workflows), anamorphic desqueeze, custom frame guides, LUT preview with .cube import, and real-time audio meters — with ultra low-latency monitoring over USB.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── CTA ───────── -->
+  <section class="cta" id="download">
+    <div class="container reveal">
+      <h2 class="display">Ready to take<br><span class="y">control?</span></h2>
+      <p>Free beta. Your iPhone, iPad, or Android becomes the ultimate remote monitor and control surface for your Nikon.</p>
+      <div class="plats">
+        <div class="plat">
+          <h3 class="display">iOS &amp; iPadOS</h3>
+          <p class="mono">iPhone &middot; iPad &middot; Vision Pro</p>
+          <a href="https://testflight.apple.com/join/de1e3Nbr" target="_blank" rel="noopener">Try ZR Ctl free</a>
         </div>
-        <div class="plat-card">
-          <h3>Android</h3>
-          <p>Google Play beta</p>
-          <a href="https://play.google.com/apps/testing/com.mikeaguado.nikonctl.android" class="plat-btn android">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.05-.82.23l-1.88 3.24A11.2 11.2 0 0 0 12 8c-1.58 0-3.1.33-4.48.92L5.64 5.68a.62.62 0 0 0-.82-.23.64.64 0 0 0-.26.85L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
-            Join Android Beta
-          </a>
+        <div class="plat">
+          <h3 class="display">Android</h3>
+          <p class="mono">Google Play beta</p>
+          <a href="https://play.google.com/apps/testing/com.mikeaguado.nikonctl.android" target="_blank" rel="noopener">Join Android beta</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ───────── FOOTER ───────── -->
   <footer>
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
-        <ul class="footer-links">
-          <li><a href="/how-to/">How-to</a></li>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
-          <li><a href="mailto:mike@itsmadcreative.com">Contact</a></li>
-        </ul>
-        <p class="footer-legal">
-          ZR Ctl is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or any other camera manufacturer or trademark owner mentioned on this site. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
-        </p>
+      <div class="foot-row">
+        <span class="foot-tc mono"><span>&#9679;</span> ZR CTL &middot; &copy; 2026 &middot; TC <span id="footTimecode">00:00:00:00</span></span>
+        <div class="links mono">
+          <a href="/how-to/">How-to</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="mailto:mike@itsmadcreative.com">Support</a>
+          <a href="mailto:mike@itsmadcreative.com">Contact</a>
+        </div>
       </div>
+      <p class="legal">
+        ZR Ctl is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or any other camera manufacturer or trademark owner mentioned on this site. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
+      </p>
     </div>
   </footer>
 
-  <dialog class="media-lightbox" id="mediaLightbox" aria-label="Media preview">
-    <div class="media-lightbox-inner">
-      <button class="media-lightbox-close" type="button" aria-label="Close media preview">&times;</button>
-      <div class="media-lightbox-content"></div>
-    </div>
+  <!-- ───────── LIGHTBOX ───────── -->
+  <dialog class="lb" id="lightbox" aria-label="Media preview">
+    <button class="lb-close" id="lbClose" type="button" aria-label="Close preview">&times;</button>
+    <div class="lb-media" id="lbMedia"></div>
+    <p class="lb-cap mono" id="lbCap"></p>
   </dialog>
 
   <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ── Update banner dismiss ──
+    document.querySelectorAll('.update-close').forEach(button => {
+      button.addEventListener('click', () => {
+        document.documentElement.classList.add('update-dismissed');
+        try { localStorage.setItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY, window.ZRCTL_UPDATE_BANNER_VERSION); } catch (_) {}
+      });
+    });
+
+    // ── Mobile nav ──
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // ── Nav scroll state ──
+    const navEl = document.querySelector('nav');
+    function updateNavState() { navEl.classList.toggle('scrolled', window.scrollY > 12); }
+
+    // ── Scroll progress + watermark parallax ──
+    const progressBar = document.getElementById('scroll-progress');
+    const wm = document.querySelector('.hero-wm');
+    function onScroll() {
+      updateNavState();
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (progressBar) progressBar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+      if (wm && !reduceMotion) wm.style.transform = `translateY(${scrollY * 0.16}px)`;
+    }
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    // ── Timecode tickers (24 fps) ──
+    (function () {
+      const els = [document.getElementById('heroTimecode'), document.getElementById('footTimecode')].filter(Boolean);
+      if (!els.length || reduceMotion) return;
+      const pad = n => String(n).padStart(2, '0');
+      const t0 = performance.now();
+      let last = -1;
+      function tick(now) {
+        const f = Math.floor((now - t0) / 1000 * 24);
+        if (f !== last) {
+          last = f;
+          const s = `${pad(Math.floor(f/86400)%24)}:${pad(Math.floor(f/1440)%60)}:${pad(Math.floor(f/24)%60)}:${pad(f%24)}`;
+          els.forEach(el => el.textContent = s);
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+
     // ── Scroll reveal ──
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-    // ── Mobile video autoplay ──
+    // ── Stat count-up ──
+    function countUp(el) {
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      if (reduceMotion || !target) { el.textContent = target + suffix; return; }
+      const t0c = performance.now(), dur = 1200;
+      (function step(n) {
+        const k = Math.min((n - t0c) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3))) + suffix;
+        if (k < 1) requestAnimationFrame(step);
+      })(t0c);
+    }
+    const statObs = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { countUp(e.target); statObs.unobserve(e.target); }
+    }), { threshold: .6 });
+    document.querySelectorAll('[data-count]').forEach(el => statObs.observe(el));
+
+    // ── Loop video autoplay resilience (mobile) ──
     const loopVideos = Array.from(document.querySelectorAll('.loop-video'));
-
     function prepareLoopVideo(video) {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
-      video.setAttribute('muted', '');
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
+      video.muted = true; video.defaultMuted = true; video.playsInline = true;
+      video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('webkit-playsinline', '');
     }
-
     function videoIsInViewport(video) {
-      const rect = video.getBoundingClientRect();
-      return rect.width > 0 && rect.height > 0 &&
-        rect.bottom > 0 && rect.right > 0 &&
-        rect.top < window.innerHeight && rect.left < window.innerWidth;
+      const r = video.getBoundingClientRect();
+      return r.width > 0 && r.height > 0 && r.bottom > 0 && r.right > 0 && r.top < innerHeight && r.left < innerWidth;
     }
-
     function playLoopVideo(video) {
       prepareLoopVideo(video);
-      const playPromise = video.play();
-      if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(() => { video.dataset.autoplayBlocked = 'true'; });
-      }
+      const p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
     }
-
-    function playVisibleLoopVideos() {
-      loopVideos.forEach(video => {
-        if (videoIsInViewport(video)) playLoopVideo(video);
-      });
-    }
-
+    function playVisibleLoopVideos() { loopVideos.forEach(v => { if (videoIsInViewport(v)) playLoopVideo(v); }); }
     loopVideos.forEach(prepareLoopVideo);
-
     if ('IntersectionObserver' in window) {
-      const videoObs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) playLoopVideo(entry.target);
-          else entry.target.pause();
-        });
-      }, { threshold: 0.25 });
-      loopVideos.forEach(video => videoObs.observe(video));
+      const vObs = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) playLoopVideo(e.target); else e.target.pause();
+      }), { threshold: 0.25 });
+      loopVideos.forEach(v => vObs.observe(v));
     } else {
-      window.addEventListener('scroll', playVisibleLoopVideos, { passive: true });
+      addEventListener('scroll', playVisibleLoopVideos, { passive: true });
     }
+    addEventListener('load', playVisibleLoopVideos);
+    addEventListener('pageshow', playVisibleLoopVideos);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) playVisibleLoopVideos(); });
+    ['touchstart', 'click'].forEach(ev => document.addEventListener(ev, playVisibleLoopVideos, { passive: true }));
 
-    window.addEventListener('load', playVisibleLoopVideos);
-    window.addEventListener('pageshow', playVisibleLoopVideos);
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) playVisibleLoopVideos();
-    });
-    ['touchstart', 'click'].forEach(eventName => {
-      document.addEventListener(eventName, playVisibleLoopVideos, { passive: true });
-    });
-
-    // ── Media lightbox ──
-    const mediaLightbox = document.getElementById('mediaLightbox');
-    const mediaLightboxContent = mediaLightbox.querySelector('.media-lightbox-content');
-    const mediaLightboxClose = mediaLightbox.querySelector('.media-lightbox-close');
-    let movedLightboxVideo = null;
-
-    function restoreMovedLightboxVideo() {
-      if (!movedLightboxVideo) return;
-      const { video, parent, nextSibling, state } = movedLightboxVideo;
-      video.pause();
-      video.controls = state.controls;
-      video.muted = state.muted;
-      video.defaultMuted = state.defaultMuted;
-      video.loop = state.loop;
-      video.autoplay = state.autoplay;
-      if (state.role === null) video.removeAttribute('role');
-      else video.setAttribute('role', state.role);
-      if (state.ariaLabel === null) video.removeAttribute('aria-label');
-      else video.setAttribute('aria-label', state.ariaLabel);
-      if (state.tabIndex === null) video.removeAttribute('tabindex');
-      else video.tabIndex = state.tabIndex;
-      if (nextSibling && nextSibling.parentNode === parent) parent.insertBefore(video, nextSibling);
-      else parent.append(video);
-      movedLightboxVideo = null;
-      if (video.classList.contains('loop-video')) {
-        prepareLoopVideo(video);
-        if (!state.paused && videoIsInViewport(video)) playLoopVideo(video);
-      }
-    }
-
-    function clearMediaLightbox() {
-      restoreMovedLightboxVideo();
-      mediaLightboxContent.querySelectorAll('video').forEach(video => {
-        video.pause();
-        video.removeAttribute('src');
-        video.load();
-      });
-      mediaLightboxContent.style.removeProperty('--media-aspect');
-      mediaLightboxContent.replaceChildren();
-    }
-
-    function setMediaLightboxAspect(width, height) {
-      if (!width || !height) return;
-      mediaLightboxContent.style.setProperty('--media-aspect', String(width / height));
-    }
-
-    function openMediaLightbox(media) {
-      if (mediaLightbox.contains(media)) return;
-      clearMediaLightbox();
-      let preview;
-      if (media.tagName.toLowerCase() === 'video') {
-        const source = media.currentSrc || media.querySelector('source')?.src;
-        if (!source) return;
-        setMediaLightboxAspect(media.videoWidth || 16, media.videoHeight || 9);
-        movedLightboxVideo = {
-          video: media,
-          parent: media.parentNode,
-          nextSibling: media.nextSibling,
-          state: {
-            controls: media.controls,
-            muted: media.muted,
-            defaultMuted: media.defaultMuted,
-            loop: media.loop,
-            autoplay: media.autoplay,
-            paused: media.paused,
-            role: media.getAttribute('role'),
-            ariaLabel: media.getAttribute('aria-label'),
-            tabIndex: media.hasAttribute('tabindex') ? media.tabIndex : null
-          }
-        };
-        preview = media;
-        preview.controls = true;
-        preview.loop = false;
-        preview.autoplay = false;
-        preview.playsInline = true;
-        preview.removeAttribute('role');
-        preview.removeAttribute('aria-label');
-        preview.removeAttribute('tabindex');
-        if (preview.readyState < 1) preview.addEventListener('loadedmetadata', () => {
-          setMediaLightboxAspect(preview.videoWidth, preview.videoHeight);
-        }, { once: true });
-      } else if (media.tagName.toLowerCase() === 'iframe') {
-        const source = media.src;
-        if (!source) return;
-        preview = document.createElement('iframe');
-        preview.src = source;
-        preview.title = media.title || 'Video preview';
-        preview.allow = media.getAttribute('allow') || '';
-        preview.referrerPolicy = media.referrerPolicy || 'strict-origin-when-cross-origin';
-        preview.allowFullscreen = true;
-        setMediaLightboxAspect(16, 9);
+    // ── Lightbox ──
+    const lb = document.getElementById('lightbox');
+    const lbMedia = document.getElementById('lbMedia');
+    const lbCap = document.getElementById('lbCap');
+    function openLightbox(kind, src, alt, caption) {
+      lbMedia.replaceChildren();
+      let el;
+      if (kind === 'video') {
+        el = document.createElement('video');
+        el.src = src; el.controls = true; el.autoplay = true; el.playsInline = true;
+      } else if (kind === 'iframe') {
+        el = document.createElement('iframe');
+        el.src = src; el.title = caption || 'Video preview';
+        el.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        el.referrerPolicy = 'strict-origin-when-cross-origin';
+        el.allowFullscreen = true;
       } else {
-        const source = media.currentSrc || media.src;
-        if (!source) return;
-        preview = document.createElement('img');
-        preview.alt = media.alt || '';
-        preview.addEventListener('load', () => {
-          setMediaLightboxAspect(preview.naturalWidth, preview.naturalHeight);
-        }, { once: true });
-        preview.src = source;
+        el = document.createElement('img');
+        el.src = src; el.alt = alt || '';
       }
-      mediaLightboxContent.append(preview);
-      if (typeof mediaLightbox.showModal === 'function') mediaLightbox.showModal();
-      else mediaLightbox.setAttribute('open', '');
-      if (preview.tagName.toLowerCase() === 'video') {
-        const playPromise = preview.play();
-        if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
-      }
+      lbMedia.append(el);
+      lbCap.textContent = caption || alt || '';
+      lbCap.style.display = lbCap.textContent ? '' : 'none';
+      if (typeof lb.showModal === 'function') lb.showModal(); else lb.setAttribute('open', '');
     }
+    function closeLightbox() {
+      lbMedia.querySelectorAll('video').forEach(v => { v.pause(); v.removeAttribute('src'); v.load(); });
+      lbMedia.replaceChildren();
+      lb.close();
+    }
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    lb.addEventListener('cancel', e => { e.preventDefault(); closeLightbox(); });
 
-    document.querySelectorAll('img.feat-screenshot, video.feat-screenshot').forEach(media => {
-      media.classList.add('media-lightbox-trigger');
-      media.tabIndex = 0;
-      media.setAttribute('role', 'button');
-      media.setAttribute('aria-label', `Open larger preview${media.alt ? `: ${media.alt}` : ''}`);
-      media.addEventListener('click', () => {
-        if (!media.closest('.media-lightbox')) openMediaLightbox(media);
-      });
-      media.addEventListener('keydown', event => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          if (!media.closest('.media-lightbox')) openMediaLightbox(media);
+    // Feature/hero media → lightbox
+    document.querySelectorAll('.frame video, .frame img').forEach(m => {
+      const frame = m.closest('.frame');
+      frame.classList.add('zoomable');
+      frame.tabIndex = 0;
+      frame.setAttribute('role', 'button');
+      frame.setAttribute('aria-label', `Open larger preview${(m.getAttribute('aria-label') || m.alt) ? `: ${m.getAttribute('aria-label') || m.alt}` : ''}`);
+      function open() {
+        if (m.tagName === 'VIDEO') {
+          const src = m.currentSrc || m.querySelector('source')?.src;
+          if (src) openLightbox('video', src, m.getAttribute('aria-label') || '', m.getAttribute('aria-label') || '');
+        } else {
+          openLightbox('img', m.currentSrc || m.src, m.alt, m.alt);
         }
+      }
+      frame.addEventListener('click', open);
+      frame.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
       });
     });
 
+    // YouTube embeds → lightbox overlay triggers
     document.querySelectorAll('.video-wrap iframe').forEach(iframe => {
       const button = document.createElement('button');
       button.className = 'video-lightbox-trigger';
       button.type = 'button';
       button.setAttribute('aria-label', `Open larger preview${iframe.title ? `: ${iframe.title}` : ''}`);
-      button.addEventListener('click', () => openMediaLightbox(iframe));
+      button.addEventListener('click', () => openLightbox('iframe', iframe.src, '', iframe.title || ''));
       iframe.parentElement.append(button);
     });
 
-    mediaLightboxClose.addEventListener('click', () => mediaLightbox.close());
-    mediaLightbox.addEventListener('click', event => {
-      if (event.target === mediaLightbox) mediaLightbox.close();
-    });
-    mediaLightbox.addEventListener('close', clearMediaLightbox);
+    // ── Gallery carousel ──
+    const sc = document.getElementById('galScroller');
+    const galBar = document.getElementById('galBar');
+    if (sc) {
+      const cardW = () => (sc.querySelector('.shot:not(.hidden)')?.getBoundingClientRect().width || 560) + 18;
+      document.getElementById('galPrev').addEventListener('click', () => sc.scrollBy({ left: -cardW() * 2, behavior: 'smooth' }));
+      document.getElementById('galNext').addEventListener('click', () => sc.scrollBy({ left: cardW() * 2, behavior: 'smooth' }));
+      function updateBar() {
+        const max = sc.scrollWidth - sc.clientWidth;
+        const frac = sc.clientWidth / sc.scrollWidth;
+        galBar.style.width = (frac * 100) + '%';
+        galBar.style.left = (max > 0 ? (sc.scrollLeft / max) * (1 - frac) * 100 : 0) + '%';
+      }
+      sc.addEventListener('scroll', updateBar, { passive: true }); updateBar();
+      addEventListener('resize', updateBar);
 
-    // ── Nav ──
-    function toggleNav() {
-      const ul = document.querySelector('.nav-links');
-      if (ul.style.display === 'flex') { ul.style.display = 'none'; return; }
-      ul.style.display = 'flex';
-      ul.style.position = 'absolute'; ul.style.top = '60px'; ul.style.left = '0'; ul.style.right = '0';
-      ul.style.flexDirection = 'column'; ul.style.padding = '20px 24px';
-      ul.style.background = 'rgba(9,9,11,0.97)'; ul.style.borderBottom = '1px solid var(--border-subtle)';
-      ul.style.gap = '14px';
+      // pointer drag (suppresses lightbox when dragging)
+      let down = false, startX = 0, startL = 0, dragDist = 0;
+      sc.addEventListener('pointerdown', e => { down = true; dragDist = 0; startX = e.clientX; startL = sc.scrollLeft; sc.setPointerCapture(e.pointerId); });
+      sc.addEventListener('pointermove', e => {
+        if (!down) return;
+        dragDist = Math.max(dragDist, Math.abs(e.clientX - startX));
+        if (dragDist > 6) { sc.classList.add('dragging'); sc.scrollLeft = startL - (e.clientX - startX); }
+      });
+      ['pointerup', 'pointercancel'].forEach(ev => sc.addEventListener(ev, () => { down = false; setTimeout(() => sc.classList.remove('dragging'), 0); }));
+
+      // keyboard
+      sc.tabIndex = 0;
+      sc.setAttribute('aria-label', 'ZR Ctl screenshot gallery');
+      sc.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); sc.scrollBy({ left: cardW(), behavior: 'smooth' }); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); sc.scrollBy({ left: -cardW(), behavior: 'smooth' }); }
+      });
+
+      // category tabs
+      const tabs = document.querySelectorAll('.gal-tab');
+      tabs.forEach(tab => tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.toggle('on', t === tab));
+        const cat = tab.dataset.cat;
+        sc.querySelectorAll('.shot').forEach(s => {
+          const show = cat === 'all' || s.dataset.cat === cat;
+          s.classList.toggle('hidden', !show);
+          s.classList.remove('pop');
+          if (show && !reduceMotion) { void s.offsetWidth; s.classList.add('pop'); }
+        });
+        sc.scrollTo({ left: 0 });
+        updateBar();
+      }));
+
+      // lightbox on click (pointer capture redirects clicks to the scroller)
+      sc.addEventListener('pointerup', e => {
+        if (dragDist > 6) return;
+        const s = document.elementFromPoint(e.clientX, e.clientY)?.closest('.shot');
+        if (!s || !sc.contains(s)) return;
+        const img = s.querySelector('img');
+        const capEl = s.querySelector('figcaption');
+        openLightbox('img', img.currentSrc || img.src, img.alt, capEl ? capEl.textContent.trim() : '');
+      });
     }
 
-    // ── Smooth scroll ──
+    // ── Smooth scroll for anchors ──
     function scrollToAnchoredTarget(selector, behavior = 'smooth') {
       const target = document.querySelector(selector);
       if (!target) return;
       target.scrollIntoView({ behavior, block: 'start' });
     }
-
-    function reinforceAnchorScroll(selector) {
-      [500, 1400, 2600].forEach(delay => {
-        window.setTimeout(() => scrollToAnchoredTarget(selector, 'auto'), delay);
-      });
-    }
-
     document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e) {
-        const targetSelector = this.getAttribute('href');
-        const t = document.querySelector(targetSelector);
-        if (t) { e.preventDefault(); scrollToAnchoredTarget(targetSelector);
-          reinforceAnchorScroll(targetSelector);
-          if (window.innerWidth <= 768) document.querySelector('.nav-links').style.display = 'none';
-        }
+      a.addEventListener('click', function (e) {
+        const sel = this.getAttribute('href');
+        if (sel.length < 2) return;
+        const t = document.querySelector(sel);
+        if (t) { e.preventDefault(); scrollToAnchoredTarget(sel); history.replaceState(null, '', sel); }
       });
     });
-
     document.querySelectorAll('.update-link').forEach(a => {
-      a.addEventListener('click', function(e) {
+      a.addEventListener('click', function (e) {
         const url = new URL(this.href);
         if (url.pathname === window.location.pathname && url.hash) {
           e.preventDefault();
           scrollToAnchoredTarget(url.hash);
-          reinforceAnchorScroll(url.hash);
           history.replaceState(null, '', url.hash);
         }
       });
     });
-
-    document.querySelectorAll('.update-close').forEach(button => {
-      button.addEventListener('click', function() {
-        document.documentElement.classList.add('update-dismissed');
-        try {
-          localStorage.setItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY, window.ZRCTL_UPDATE_BANNER_VERSION);
-        } catch (_) {}
-      });
+    addEventListener('load', () => {
+      if (window.location.hash) scrollToAnchoredTarget(window.location.hash, 'auto');
     });
-
-    window.addEventListener('load', () => {
-      if (window.location.hash) {
-        scrollToAnchoredTarget(window.location.hash, 'auto');
-        reinforceAnchorScroll(window.location.hash);
-      }
-    });
-
   </script>
 </body>
 </html>
