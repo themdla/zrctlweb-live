@@ -27,7 +27,7 @@
 
   <script>
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
-    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-0.2.0-21_android-prerelease-0.3.4';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'beta-applications-2026-07-02';
     try {
       if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
         document.documentElement.classList.add('update-dismissed');
@@ -276,11 +276,11 @@
   </style>
 </head>
 <body>
-  <aside class="update-banner" aria-label="ZR Ctl beta update">
+  <aside class="update-banner" aria-label="ZR Ctl beta tester applications">
     <div class="container update-banner-inner">
-      <span class="update-kicker">Update now</span>
-      <span class="update-copy">Latest builds: iOS <strong>0.2.0 (21)</strong> &middot; Android pre-release <strong>0.3.4</strong>. Please update now.</span>
-      <a href="/#download" class="update-link">Get the update</a>
+      <span class="update-kicker">Beta testing</span>
+      <span class="update-copy">Apply to test upcoming Parallax Monitor and ZR Ctl builds on your own Nikon setup.</span>
+      <a href="/beta/" class="update-link">Apply</a>
       <button class="update-close" type="button" aria-label="Dismiss update notice">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>

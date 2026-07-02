@@ -36,7 +36,7 @@
 
   <script>
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
-    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-0.2.0-21_android-prerelease-0.3.4';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'beta-applications-2026-07-02';
     try {
       if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
         document.documentElement.classList.add('update-dismissed');
@@ -445,11 +445,11 @@
   </style>
 </head>
 <body>
-  <aside class="update-banner" aria-label="ZR Ctl beta update">
+  <aside class="update-banner" aria-label="ZR Ctl beta tester applications">
     <div class="container update-banner-inner">
-      <span class="update-kicker">Update now</span>
-      <span class="update-copy">Latest builds: iOS <strong>0.2.0 (21)</strong> &middot; Android pre-release <strong>0.3.4</strong>. Please update now.</span>
-      <a href="/#download" class="update-link">Get the update</a>
+      <span class="update-kicker">Beta testing</span>
+      <span class="update-copy">Apply to test upcoming Parallax Monitor and ZR Ctl builds on your own Nikon setup.</span>
+      <a href="/beta/" class="update-link">Apply</a>
       <button class="update-close" type="button" aria-label="Dismiss update notice">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
@@ -466,7 +466,7 @@
         <li><a href="/how-to/" aria-current="page">How-to</a></li>
         <li><a href="/#gallery">Gallery</a></li>
         <li><a href="/#videos">Reviews</a></li>
-        <li><a href="/#download" class="nav-cta">Try Free</a></li>
+        <li><a href="/beta/" class="nav-cta">Apply to beta</a></li>
       </ul>
       <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -489,8 +489,8 @@
               Start setup
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
             </a>
-            <a href="/#download" class="btn-secondary">
-              Get the beta
+            <a href="/beta/" class="btn-secondary">
+              Apply to beta
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </a>
           </div>

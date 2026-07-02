@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parallax Monitor for iOS & ZR Ctl for Android | Nikon Z Camera Apps</title>
-  <meta name="description" content="Choose the Nikon Z remote camera app for your platform: Parallax Monitor for iPhone and iPad, or ZR Ctl for Android pre-release. Paid purchases include a 30-day full refund promise.">
+  <meta name="description" content="Choose the Nikon Z remote camera app for your platform: Parallax Monitor for iPhone and iPad, ZR Ctl for Android, or apply to test upcoming iOS and Android builds.">
   <meta name="title" content="Parallax Monitor for iOS & ZR Ctl for Android | Nikon Z Camera Apps">
   <meta name="keywords" content="Parallax Monitor, ZR Ctl, ZR Control, ZRCTL, Nikon ZR remote app, Nikon ZR camera control, Nikon Z camera remote, Nikon Z8 remote app, Nikon Z6III remote, Nikon remote monitor, iOS camera control, iPad camera control, Android camera control, shutter angle, dual base ISO, anamorphic, false color, traffic lights">
   <meta name="author" content="ZR Ctl">
@@ -19,7 +19,7 @@
   <link rel="image_src" href="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
 
   <meta property="og:title" content="Parallax Monitor for iOS & ZR Ctl for Android | Nikon Z Camera Apps">
-  <meta property="og:description" content="Choose Parallax Monitor for iPhone and iPad or ZR Ctl for Android pre-release. Live view, exposure tools, focus control, LUT preview, framing guides, playback, and a 30-day refund promise for paid purchases.">
+  <meta property="og:description" content="Choose Parallax Monitor for iPhone and iPad, ZR Ctl for Android, or apply to test upcoming iOS and Android builds. Live view, exposure tools, focus control, LUT preview, framing guides, and playback.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.zrctl.com/">
   <meta property="og:site_name" content="ZR Ctl">
@@ -35,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.zrctl.com/">
   <meta name="twitter:title" content="Parallax Monitor for iOS & ZR Ctl for Android | Nikon Z Camera Apps">
-  <meta name="twitter:description" content="Choose Parallax Monitor for iPhone and iPad or ZR Ctl for Android pre-release. Independent Nikon Z camera control, monitoring, playback, and a 30-day refund promise for paid purchases.">
+  <meta name="twitter:description" content="Choose Parallax Monitor for iPhone and iPad, ZR Ctl for Android, or apply to test upcoming iOS and Android builds. Independent Nikon Z camera control, monitoring, and playback.">
   <meta name="twitter:image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
   <meta name="twitter:image:alt" content="ZR Ctl logo on a black background">
 
@@ -120,10 +120,10 @@
       },
       {
         "@type": "Question",
-        "name": "Where can I get the Android app?",
+        "name": "How do I apply to test upcoming builds?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ZR Ctl for Android is currently available as a paid Google Play pre-release. Join the pre-release from the Android page."
+          "text": "Use the beta tester application page to share your platform, cameras, test device, shooting background, and email address. Beta access is reviewed from those applications."
         }
       },
       {
@@ -167,7 +167,7 @@
     }
 
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
-    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-1.0_android-prerelease-0.3.7';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'beta-applications-2026-07-02';
     try {
       if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
         document.documentElement.classList.add('update-dismissed');
@@ -451,7 +451,7 @@
 
     /* ── Coverage ── */
     .coverage { padding:110px 0; }
-    .cov-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .cov-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:20px; }
     .cov { border:1px solid var(--border); background:var(--card); transition:border-color .25s, transform .25s; position:relative; display:block; }
     .cov:hover { border-color:rgba(255,210,0,.4); transform:translateY(-3px); }
     .cov-media { aspect-ratio:16/8; overflow:hidden; background:#0c0c0f; position:relative; }
@@ -460,6 +460,7 @@
     .cov-logo { position:absolute; left:16px; bottom:14px; font-size:13px; font-weight:800; padding:7px 12px; border-radius:6px; }
     .cov-logo.cined { background:rgba(8,8,10,.88); color:#fff; border:1px solid rgba(255,255,255,.18); }
     .cov-logo.nfs { background:rgba(250,250,250,.94); color:#101014; }
+    .cov-logo.newsshooter { background:#e11d2e; color:#fff; border:1px solid rgba(255,255,255,.2); }
     .cov-body { padding:26px 28px 30px; }
     .cov-meta { font-size:10px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
     .cov h3 { font-size:26px; line-height:1.05; text-transform:uppercase; letter-spacing:.02em; margin-bottom:12px; }
@@ -552,6 +553,7 @@
       .feat-row.rev .feat-text { order:1; } .feat-row.rev .feat-media { order:2; }
       .tool-grid { grid-template-columns:1fr 1fr; }
       .cams-row { grid-template-columns:1fr; }
+      .cov-grid { grid-template-columns:1fr 1fr; }
     }
     @media (max-width:768px) {
       :root { --ubh:66px; }
@@ -635,8 +637,8 @@
 
   <aside class="update-banner" aria-label="Choose your platform">
     <span class="ub-kicker mono">Choose platform</span>
-    <span class="ub-copy">Get Parallax Monitor <strong>1.0</strong> on the App Store, or join the paid ZR Ctl Android pre-release <strong>0.3.7</strong>.</span>
-    <a href="/?choose=1" class="ub-link update-link">Choose now</a>
+    <span class="ub-copy">Apply to test upcoming Parallax Monitor and ZR Ctl builds on your own Nikon setup.</span>
+    <a href="/beta/" class="ub-link update-link">Apply</a>
     <button class="ub-close update-close" type="button" aria-label="Dismiss update notice">&times;</button>
   </aside>
 
@@ -651,7 +653,7 @@
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#videos">Reviews</a></li>
         <li><a href="#coverage">Coverage</a></li>
-        <li><a href="#download" class="nav-cta">Join the pre-release</a></li>
+        <li><a href="/beta/" class="nav-cta">Apply to beta</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -662,16 +664,16 @@
   <!-- ───────── HERO ───────── -->
   <header class="hero">
     <div class="hero-wm display" aria-hidden="true">ZR</div>
-    <p class="kicker mono">ZR Control &middot; Pre-release now available</p>
+    <p class="kicker mono">ZR Control &middot; Nikon Z remote monitor</p>
     <h1>
       <span class="display h1-big"><span class="line"><span>Take full</span></span><span class="line"><span class="y">control.</span></span></span>
       <span class="h1-tag">The ultimate remote monitor &amp; control app for Nikon ZR, Z8, Z6III &amp; Z-series cameras.</span>
     </h1>
     <p class="hero-sub">Scopes, LUTs, focus pulls, framing, audio, playback — and a full stills mode — from the phone or tablet already on your rig.</p>
     <div class="btns">
-      <a class="b1" href="#download">
+      <a class="b1" href="/beta/">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Join the pre-release
+        Apply to beta
       </a>
       <a class="b2" href="#features">See the features</a>
     </div>
@@ -1024,6 +1026,18 @@
             <span class="read mono">Read article &rarr;</span>
           </div>
         </a>
+        <a class="cov reveal" href="https://www.newsshooter.com/2026/07/01/parallax-monitor-external-monitoring-solution-for-nikon-cameras-update/" target="_blank" rel="noopener">
+          <div class="cov-media">
+            <img src="https://www.newsshooter.com/wp-content/uploads/2026/07/ZR-740x416.jpg" alt="Newsshooter article cover for Parallax Monitor on Nikon cameras" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            <span class="cov-logo newsshooter">Newsshooter</span>
+          </div>
+          <div class="cov-body">
+            <p class="cov-meta mono">App update</p>
+            <h3 class="display">Parallax Monitor External Monitoring Solution for Nikon Cameras Update</h3>
+            <p>Newsshooter covers the Parallax Monitor update with multicam, stills mode, multi-screen casting, X-zone false color, and playback file management.</p>
+            <span class="read mono">Read article &rarr;</span>
+          </div>
+        </a>
         <a class="cov reveal" href="https://nofilmschool.com/nikon-zr-ctl-app" target="_blank" rel="noopener">
           <div class="cov-media">
             <img src="https://nofilmschool.com/media-library/image.png?id=66847122&amp;width=1200&amp;height=600&amp;coordinates=278%2C0%2C278%2C0" alt="No Film School article cover for the Nikon ZR Ctl app" loading="lazy" decoding="async" referrerpolicy="no-referrer">
@@ -1057,8 +1071,8 @@
           <p class="a">The iPhone and iPad app is now called Parallax Monitor. If you are looking for ZR Ctl on iOS or iPadOS, download Parallax Monitor from the App Store.</p>
         </details>
         <details>
-          <summary>Where can I get the Android app?</summary>
-          <p class="a">ZR Ctl for Android is currently available as a paid Google Play pre-release. Join the pre-release from the Android page.</p>
+          <summary>How do I apply to test upcoming builds?</summary>
+          <p class="a">Use the <a href="/beta/">beta tester application</a> to share your platform, cameras, test device, shooting background, and email address. Beta access is reviewed from those applications.</p>
         </details>
         <details>
           <summary>Do you offer refunds for paid app purchases?</summary>
@@ -1080,7 +1094,7 @@
   <section class="cta" id="download">
     <div class="container reveal">
       <h2 class="display">Ready to take<br><span class="y">control?</span></h2>
-      <p>Get Parallax Monitor on the App Store for iPhone and iPad, or join the paid ZR Ctl pre-release for Android. Both are backed by a 30-day full refund promise.</p>
+      <p>Get Parallax Monitor on the App Store for iPhone and iPad, or apply to test upcoming iOS and Android builds on your own Nikon setup.</p>
       <div class="plats">
         <div class="plat">
           <h3 class="display">Parallax Monitor</h3>
@@ -1093,16 +1107,11 @@
         </div>
         <div class="plat">
           <h3 class="display">Android</h3>
-          <p class="mono">Paid Google Play pre-release &middot; Version 0.3.7</p>
-          <a href="https://play.google.com/apps/testing/com.mikeaguado.nikonctl.android" target="_blank" rel="noopener">Join the pre-release</a>
+          <p class="mono">Beta testing applications</p>
+          <a href="/beta/">Apply to beta test</a>
           <div class="purchase-note">
-            <span class="note-kicker mono">30-day full refund</span>
-            <p>Join the paid pre-release and test it on your own Android setup. It is covered by the same no-questions-asked full refund promise.</p>
-          </div>
-          <div class="android-note">
-            <span class="note-kicker mono">Paid private Android pre-release</span>
-            <p>Get production releases about two weeks before public rollout. Open beta stops at 0.3.3; 0.3.7 and future Android updates land here first.</p>
-            <a class="pre-link" href="mailto:mike@itsmadcreative.com?subject=ZR%20Ctl%20Android%20pre-release%20access&amp;body=Hi%2C%0A%0APlease%20add%20my%20Google%20Play%20email%20to%20the%20ZR%20Ctl%20Android%20private%20pre-release%20group%20for%20early%20production%20release%20access.%0A%0AGoogle%20Play%20email%3A%20%0A%0AThanks!">Send Google Play email</a>
+            <span class="note-kicker mono">Tester access</span>
+            <p>Apply with your cameras, Android device, and shooting background so beta access can be matched to useful field coverage.</p>
           </div>
         </div>
       </div>

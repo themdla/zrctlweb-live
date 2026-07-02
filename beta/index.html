@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply to Be a Beta Tester | Parallax Monitor &amp; ZR Ctl</title>
+  <meta name="description" content="Apply to beta test Parallax Monitor for iOS or ZR Ctl for Android with your Nikon Z camera setup.">
+  <meta name="title" content="Apply to Be a Beta Tester | Parallax Monitor &amp; ZR Ctl">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/beta/">
+
+  <meta property="og:title" content="Apply to Be a Beta Tester">
+  <meta property="og:description" content="Share your platform, cameras, device, and shooting background to apply for Parallax Monitor or ZR Ctl beta testing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.zrctl.com/beta/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
+  <meta property="og:image:alt" content="ZR Ctl logo on a black background">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Apply to Be a Beta Tester">
+  <meta name="twitter:description" content="Apply to test upcoming Parallax Monitor and ZR Ctl builds on your Nikon Z camera setup.">
+  <meta name="twitter:image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 96x96 192x192">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Apply to Be a Beta Tester",
+    "url": "https://www.zrctl.com/beta/",
+    "description": "Application form for Parallax Monitor and ZR Ctl beta testers.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MAD Creative",
+      "url": "https://itsmadcreative.com"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #09090b;
+      --bg-2: #111113;
+      --card: #18181b;
+      --card-2: #1f1f23;
+      --border: #27272a;
+      --border-2: #3f3f46;
+      --text: #fafafa;
+      --text-2: #b7b7c0;
+      --text-3: #85858f;
+      --accent: #ffd200;
+      --accent-2: #24d7ff;
+      --danger: #ff4d5d;
+      --shadow: rgba(0, 0, 0, 0.36);
+    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px) 0 0 / 100% 88px,
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px) 0 0 / 88px 100%,
+        #09090b;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(9,9,11,.18), #09090b 82%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .display { font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; letter-spacing: .02em; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .container { width: min(100% - 48px, 1180px); margin: 0 auto; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(9,9,11,.86);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; }
+    .logo img { width: 38px; height: 38px; object-fit: contain; }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 22px; color: var(--text-2); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--text); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 9px 14px;
+      border-radius: 6px;
+      background: var(--accent);
+      color: #09090b;
+      font-weight: 800;
+    }
+
+    main { padding: 64px 0 92px; }
+    .application-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap: 34px;
+      align-items: start;
+    }
+    .form-panel, .side-panel {
+      border: 1px solid var(--border);
+      background: rgba(24,24,27,.9);
+      box-shadow: 0 28px 70px var(--shadow);
+    }
+    .form-panel { border-radius: 8px; padding: 34px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255,210,0,.3);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(56px, 8vw, 104px);
+      line-height: .9;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .intro {
+      max-width: 760px;
+      color: var(--text-2);
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+    form { display: grid; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .field { display: grid; gap: 8px; }
+    label, legend {
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+    }
+    .hint { color: var(--text-3); font-size: 13px; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #101013;
+      color: var(--text);
+      font: inherit;
+      min-height: 48px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    textarea { min-height: 118px; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(255,210,0,.72);
+      box-shadow: 0 0 0 3px rgba(255,210,0,.11);
+      background: #131318;
+    }
+    fieldset {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+    .check-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-2);
+      font-size: 14px;
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 600;
+    }
+    .check input {
+      width: 18px;
+      height: 18px;
+      min-height: 18px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+    button[type="submit"] {
+      min-height: 52px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--accent);
+      color: #08080a;
+      padding: 15px 24px;
+      font: 800 13px/1 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    button[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(255,210,0,.22); }
+    .status { min-height: 22px; color: var(--accent-2); font-size: 13px; }
+
+    .side-panel {
+      border-radius: 8px;
+      overflow: hidden;
+      position: sticky;
+      top: 98px;
+    }
+    .side-media { aspect-ratio: 4 / 3; background: #000; border-bottom: 1px solid var(--border); }
+    .side-media img { width: 100%; height: 100%; object-fit: cover; }
+    .side-content { padding: 26px; display: grid; gap: 20px; }
+    .side-content h2 { font-size: 34px; line-height: 1; text-transform: uppercase; }
+    .side-content p { color: var(--text-2); font-size: 15px; }
+    .fact-list { list-style: none; display: grid; border-top: 1px solid var(--border); }
+    .fact-list li {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 16px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-2);
+      font-size: 14px;
+    }
+    .fact-list strong {
+      color: var(--accent);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+    }
+    .privacy-note {
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      color: var(--text-3);
+      font-size: 13px;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: var(--text-3);
+      font-size: 12px;
+    }
+    .footer-row { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-row a { color: var(--text-2); }
+
+    @media (max-width: 980px) {
+      .application-grid { grid-template-columns: 1fr; }
+      .side-panel { position: static; }
+      .nav-inner { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+      .nav-links { flex-wrap: wrap; gap: 14px; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 28px, 1180px); }
+      main { padding: 36px 0 64px; }
+      .form-panel { padding: 24px; }
+      .form-row, .check-grid { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(44px, 15vw, 64px); }
+      .intro { font-size: 15px; }
+      .fact-list li { grid-template-columns: 1fr; gap: 4px; }
+      .actions { align-items: stretch; }
+      button[type="submit"] { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="/" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl">
+        <span>ZR Ctl</span>
+      </a>
+      <ul class="nav-links mono">
+        <li><a href="/">Home</a></li>
+        <li><a href="/ios/">iOS</a></li>
+        <li><a href="/android/">Android</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a class="nav-cta" href="/beta/" aria-current="page">Apply</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container application-grid">
+      <section class="form-panel" aria-labelledby="application-title">
+        <p class="eyebrow mono">Beta tester application</p>
+        <h1 class="display" id="application-title">Apply to be a beta tester.</h1>
+        <p class="intro">Tell us what you shoot with, what device you will test on, and where your experience can help. The form opens your email app with the application ready to send.</p>
+
+        <form id="betaForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="platform">Platform</label>
+              <select id="platform" name="platform" required>
+                <option value="">Choose one</option>
+                <option value="iOS">iOS</option>
+                <option value="Android">Android</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="device">Device</label>
+              <input id="device" name="device" type="text" placeholder="iPhone, iPad, Pixel, Galaxy..." required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="os_version">OS version</label>
+              <input id="os_version" name="os_version" type="text" placeholder="iOS 26, Android 16...">
+            </div>
+            <div class="field">
+              <label for="store_email">Store account email</label>
+              <input id="store_email" name="store_email" type="email" placeholder="If different from contact email">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="cameras">Cameras owned</label>
+            <textarea id="cameras" name="cameras" placeholder="Nikon ZR, Z8, Z6III, lenses or rig notes..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="background">Background</label>
+            <textarea id="background" name="background" placeholder="Short paragraph about your shooting experience, workflows, and why you want to test." required></textarea>
+          </div>
+
+          <fieldset>
+            <legend>Testing focus</legend>
+            <p class="hint">Pick any areas where you can give useful feedback.</p>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="testing_focus" value="Live view monitoring"> Live view monitoring</label>
+              <label class="check"><input type="checkbox" name="testing_focus" value="USB connection"> USB connection</label>
+              <label class="check"><input type="checkbox" name="testing_focus" value="Wi-Fi / hotspot"> Wi-Fi / hotspot</label>
+              <label class="check"><input type="checkbox" name="testing_focus" value="Stills mode"> Stills mode</label>
+              <label class="check"><input type="checkbox" name="testing_focus" value="Playback"> Playback</label>
+              <label class="check"><input type="checkbox" name="testing_focus" value="Scopes and exposure"> Scopes and exposure</label>
+            </div>
+          </fieldset>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="availability">Availability</label>
+              <select id="availability" name="availability" required>
+                <option value="">Choose one</option>
+                <option value="Can test this week">Can test this week</option>
+                <option value="Can test within two weeks">Can test within two weeks</option>
+                <option value="Occasional feedback only">Occasional feedback only</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="region">Region / timezone</label>
+              <input id="region" name="region" type="text" placeholder="Los Angeles, Pacific Time...">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Anything else</label>
+            <textarea id="notes" name="notes" placeholder="Accessories, production type, bugs you want to help chase, or anything unusual about your setup."></textarea>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" name="consent" value="Yes" required>
+            I can send useful feedback, screenshots, screen recordings, or support logs if needed.
+          </label>
+
+          <div class="actions">
+            <button type="submit">Send application</button>
+            <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+
+      <aside class="side-panel" aria-label="Beta program details">
+        <div class="side-media">
+          <img src="/images/gallery-liveview-false-color.png" alt="Parallax Monitor false color live view on a Nikon Z camera">
+        </div>
+        <div class="side-content">
+          <h2 class="display">Field feedback matters.</h2>
+          <p>Great beta notes come from real camera bodies, real phones and tablets, and repeatable reports from the kind of shoots people actually do.</p>
+          <ul class="fact-list">
+            <li><strong class="mono">Platforms</strong><span>iOS and Android testers are both useful.</span></li>
+            <li><strong class="mono">Cameras</strong><span>Nikon ZR, Z8, Z6III, and other Z-series bodies are welcome.</span></li>
+            <li><strong class="mono">Best fit</strong><span>People who can test connection, monitoring, controls, playback, and stills workflows.</span></li>
+          </ul>
+          <p class="privacy-note">No Netlify forms or third-party form backend here. Your application is sent from your own email app.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-row mono">
+      <span>ZR CTL &middot; &copy; 2026</span>
+      <span><a href="/privacy/">Privacy</a> &middot; <a href="mailto:mike@itsmadcreative.com">Contact</a></span>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('betaForm');
+    const status = document.getElementById('formStatus');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const value = (name) => String(data.get(name) || '').trim() || 'Not provided';
+      const focus = data.getAll('testing_focus');
+      const lines = [
+        'Beta tester application',
+        '',
+        `Name: ${value('name')}`,
+        `Email: ${value('email')}`,
+        `Platform: ${value('platform')}`,
+        `Device: ${value('device')}`,
+        `OS version: ${value('os_version')}`,
+        `Store account email: ${value('store_email')}`,
+        `Cameras owned: ${value('cameras')}`,
+        '',
+        'Background:',
+        value('background'),
+        '',
+        `Testing focus: ${focus.length ? focus.join(', ') : 'Not provided'}`,
+        `Availability: ${value('availability')}`,
+        `Region / timezone: ${value('region')}`,
+        '',
+        'Anything else:',
+        value('notes'),
+        '',
+        `Can send feedback/logs: ${data.get('consent') ? 'Yes' : 'No'}`
+      ];
+
+      const subject = `Beta tester application - ${value('platform')} - ${value('name')}`;
+      const mailto = `mailto:mike@itsmadcreative.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      status.textContent = 'Opening your email app...';
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
