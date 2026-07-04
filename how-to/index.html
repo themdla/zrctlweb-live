@@ -36,7 +36,7 @@
 
   <script>
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
-    window.ZRCTL_UPDATE_BANNER_VERSION = 'beta-applications-2026-07-02';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'android-play-release-2026-07-04';
     try {
       if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
         document.documentElement.classList.add('update-dismissed');
@@ -445,11 +445,11 @@
   </style>
 </head>
 <body>
-  <aside class="update-banner" aria-label="ZR Ctl beta tester applications">
+  <aside class="update-banner" aria-label="ZR Ctl Google Play release">
     <div class="container update-banner-inner">
-      <span class="update-kicker">Beta testing</span>
-      <span class="update-copy">Apply to test upcoming Parallax Monitor and ZR Ctl builds on your own Nikon setup.</span>
-      <a href="/beta/" class="update-link">Apply</a>
+      <span class="update-kicker">Android release</span>
+      <span class="update-copy">ZR Ctl for Android is now live on Google Play.</span>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Get it now</a>
       <button class="update-close" type="button" aria-label="Dismiss update notice">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
@@ -464,9 +464,10 @@
       <ul class="nav-links">
         <li><a href="/#features">Features</a></li>
         <li><a href="/how-to/" aria-current="page">How-to</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
         <li><a href="/#gallery">Gallery</a></li>
         <li><a href="/#videos">Reviews</a></li>
-        <li><a href="/beta/" class="nav-cta">Apply to beta</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
       </ul>
       <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -489,8 +490,8 @@
               Start setup
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
             </a>
-            <a href="/beta/" class="btn-secondary">
-              Apply to beta
+            <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="btn-secondary">
+              Get Android app
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </a>
           </div>
@@ -1166,6 +1167,7 @@
         <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
         <ul class="footer-links">
           <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
           <li><a href="/privacy/">Privacy Policy</a></li>
           <li><a href="/compliance/">Compliance</a></li>
           <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>

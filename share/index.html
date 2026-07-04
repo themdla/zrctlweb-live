@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZR Control (ZR Ctl) | Nikon ZR Remote Camera App</title>
-  <meta name="description" content="ZR Control, also known as ZR Ctl, is an independent remote camera control app for Nikon ZR and Z-series shooters, with live view, exposure tools, focus control, LUT preview, framing guides, and playback.">
+  <meta name="description" content="ZR Control, also known as ZR Ctl, is an independent remote camera control app for Nikon ZR and Z-series shooters, available for iPhone and iPad on the App Store and Android on Google Play.">
   <meta name="title" content="ZR Control (ZR Ctl) | Nikon ZR Remote Camera App">
   <meta name="keywords" content="ZR Ctl, ZR Control, ZRCTL, Nikon ZR remote app, Nikon ZR camera control, Nikon Z camera remote, iOS camera control, iPad camera control, Android camera control, shutter angle, dual base ISO, anamorphic, false color, traffic lights">
   <meta name="author" content="ZR Ctl">
@@ -12,14 +12,14 @@
   <meta name="theme-color" content="#09090b">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta itemprop="name" content="ZR Control (ZR Ctl) | Nikon ZR Remote Camera App">
-  <meta itemprop="description" content="Independent remote camera control for Nikon ZR and Z-series shooters with live view, exposure tools, focus control, LUT preview, framing guides, and playback.">
+  <meta itemprop="description" content="Independent remote camera control for Nikon ZR and Z-series shooters, available for iPhone and iPad on the App Store and Android on Google Play.">
   <meta itemprop="image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
 
   <link rel="canonical" href="https://www.zrctl.com/share/">
   <link rel="image_src" href="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
 
   <meta property="og:title" content="ZR Control (ZR Ctl) | Nikon ZR Remote Camera App">
-  <meta property="og:description" content="Independent remote camera control for Nikon ZR and Z-series shooters. Live view, exposure tools, focus control, LUT preview, framing guides, and playback for iOS, iPadOS, and Android.">
+  <meta property="og:description" content="Independent remote camera control for Nikon ZR and Z-series shooters. Live view, exposure tools, focus control, LUT preview, framing guides, and playback on the App Store and Google Play.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.zrctl.com/share/">
   <meta property="og:site_name" content="ZR Ctl">
@@ -56,13 +56,27 @@
     "applicationCategory": "MultimediaApplication",
     "applicationSubCategory": "Camera remote control app",
     "operatingSystem": ["iOS", "iPadOS", "Android"],
-    "downloadUrl": "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
+    "downloadUrl": [
+      "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
+      "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share"
+    ],
     "isAccessibleForFree": false,
-    "offers": {
-      "@type": "Offer",
-      "url": "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
-      "availability": "https://schema.org/InStock"
-    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "url": "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "url": "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "sameAs": [
+      "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
+      "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share"
+    ],
     "featureList": [
       "Nikon ZR remote camera control",
       "Live view",
@@ -107,7 +121,7 @@
 
   <script>
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
-    window.ZRCTL_UPDATE_BANNER_VERSION = 'beta-applications-2026-07-02';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'android-play-release-2026-07-04';
     try {
       if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
         document.documentElement.classList.add('update-dismissed');
@@ -533,6 +547,7 @@
     .coverage-logo.cined { background: rgba(8,8,10,0.86); color: #fff; border: 1px solid rgba(255,255,255,0.16); }
     .coverage-logo.nfs { background: rgba(250,250,250,0.93); color: #101014; border: 1px solid rgba(0,0,0,0.14); }
     .coverage-logo.newsshooter { background: #e11d2e; color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+    .coverage-logo.podcastvideos { background: #111827; color: #fff; border: 1px solid rgba(255,255,255,0.18); }
     .coverage-body { padding: 24px 28px 28px; }
     .coverage-card .coverage-meta {
       font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 600;
@@ -642,11 +657,11 @@
   </style>
 </head>
 <body>
-  <aside class="update-banner" aria-label="ZR Ctl beta tester applications">
+  <aside class="update-banner" aria-label="ZR Ctl Google Play release">
     <div class="container update-banner-inner">
-      <span class="update-kicker">Beta testing</span>
-      <span class="update-copy">Apply to test upcoming Parallax Monitor and ZR Ctl builds on your own Nikon setup.</span>
-      <a href="/beta/" class="update-link">Apply</a>
+      <span class="update-kicker">Android release</span>
+      <span class="update-copy">ZR Ctl for Android is now live on Google Play.</span>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Get it now</a>
       <button class="update-close" type="button" aria-label="Dismiss update notice">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
@@ -660,9 +675,10 @@
       </a>
       <ul class="nav-links">
         <li><a href="#features">Features</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#videos">Reviews</a></li>
-        <li><a href="/beta/" class="nav-cta">Apply to beta</a></li>
+        <li><a href="#download" class="nav-cta">Download</a></li>
       </ul>
       <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -675,16 +691,16 @@
       <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" style="width:min(500px, 70vw); height:auto; display:block; margin:0 auto 36px;">
       <div class="hero-pill">
         <span class="dot"></span>
-        Beta applications open
+        Available on App Store and Google Play
       </div>
       <h1>ZR Control for<br><span class="hl">Nikon ZR</span> and Z-series cameras.</h1>
       <p class="hero-sub">
         ZR Ctl gives iPhone, iPad, and Android shooters a fast camera-control surface with live view, exposure tools, LUT preview, tap focus, framing guides, and camera-card playback.
       </p>
       <div class="hero-btns">
-        <a href="/beta/" class="btn-primary">
+        <a href="#download" class="btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Apply to beta
+          Download now
         </a>
         <a href="#features" class="btn-secondary">
           See the features
@@ -1095,6 +1111,11 @@
       <div class="video-grid">
         <div class="video-card reveal">
           <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/EQdh922NleM?start=4914" title="Nikon ZR &amp; ZR CTL - EPIC Creation Tool For Z - Meet the Creator Ask Question Live MAMPOD 48" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/V2cIB4bvzNM" title="ZR Ctl Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
@@ -1156,6 +1177,18 @@
             <span class="coverage-link">Read article</span>
           </div>
         </a>
+        <a class="coverage-card reveal" href="https://www.podcastvideos.com/nikon-zr-ctl-app-remote-camera-control/" target="_blank" rel="noopener">
+          <div class="coverage-media">
+            <img src="https://images.unsplash.com/photo-1625372459105-10faf58d4e0b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=webp&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE0fHxBJTIwc21hcnRwaG9uZSUyMG1vdW50ZWQlMjB0byUyMHRoZSUyMHRvcCUyMG9mJTIwYSUyMHByb2Zlc3Npb25hbCUyMGNpbmVtYSUyMGNhbWVyYSUyQyUyMGRpc3BsYXlpbmclMjByZWFsLXRpbWUlMjB3YXZlZm9ybSUyMG1vbml0b3JzJTIwYW5kJTIwdmlkZW8lMjBmb2N1cyUyMHBlYWtpbmclMjBncmlkcy58ZW58MHx8fHwxNzgwMzM3MzUxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1304" alt="PodcastVideos.com article cover showing a smartphone monitor mounted on a camera rig" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            <span class="coverage-logo podcastvideos">PodcastVideos.com</span>
+          </div>
+          <div class="coverage-body">
+            <p class="coverage-meta">Video Software</p>
+            <h3>New ZR CTL App Unlocks Advanced Remote Monitoring for Nikon ZR Filmmakers</h3>
+            <p class="coverage-copy">PodcastVideos.com covers ZR Ctl's remote monitoring, exposure tools, wireless control, focus peaking, framing guides, and small-crew camera workflows.</p>
+            <span class="coverage-link">Read article</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -1175,14 +1208,14 @@
         </div>
         <div class="plat-card">
           <h3>Android</h3>
-          <p>Beta testing applications</p>
-          <a href="/beta/" class="plat-btn android">
+          <p>Google Play</p>
+          <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="plat-btn android">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.05-.82.23l-1.88 3.24A11.2 11.2 0 0 0 12 8c-1.58 0-3.1.33-4.48.92L5.64 5.68a.62.62 0 0 0-.82-.23.64.64 0 0 0-.26.85L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
-            Apply to beta
+            Get ZR Ctl
           </a>
           <div class="android-note">
-            <span class="note-kicker">Tester access</span>
-            <p>Apply with your cameras, device, and shooting background so beta access can be matched to useful field coverage.</p>
+            <span class="note-kicker">30-day full refund</span>
+            <p>Try it on your own Nikon setup with no pressure. Paid purchases are covered by a no-questions-asked full refund promise.</p>
           </div>
         </div>
       </div>
@@ -1195,6 +1228,7 @@
         <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
         <ul class="footer-links">
           <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
           <li><a href="/compliance/">Compliance</a></li>
           <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
           <li><a href="mailto:mike@itsmadcreative.com">Contact</a></li>

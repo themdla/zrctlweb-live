@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorials | Parallax Monitor &amp; ZR Ctl</title>
+  <meta name="description" content="Watch the Parallax Monitor and ZR Ctl tutorial series for general tools, exposure tools, customization, and advanced Nikon Z camera control workflows.">
+  <meta name="title" content="Tutorials | Parallax Monitor &amp; ZR Ctl">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/tutorial/">
+
+  <meta property="og:title" content="Parallax Monitor &amp; ZR Ctl Tutorials">
+  <meta property="og:description" content="Step through the Parallax Monitor and ZR Ctl tutorial series: general tools, exposure tools, customization, and advanced workflows.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.zrctl.com/tutorial/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
+  <meta property="og:image:alt" content="ZR Ctl logo on a black background">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Parallax Monitor &amp; ZR Ctl Tutorials">
+  <meta name="twitter:description" content="Watch guided tutorials for general tools, exposure tools, customization, and advanced workflows.">
+  <meta name="twitter:image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 96x96 192x192">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Parallax Monitor and ZR Ctl Tutorials",
+    "url": "https://www.zrctl.com/tutorial/",
+    "description": "Tutorial videos for Parallax Monitor and ZR Ctl general tools, exposure tools, customization, and advanced workflows.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MAD Creative",
+      "url": "https://itsmadcreative.com"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Parallax Monitor and ZR Ctl tutorial videos",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Parallax Monitor | ZR Ctl Tutorial Series: General Tools",
+          "url": "https://youtu.be/f8U2XGORzIg"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Parallax Monitor | ZR Ctl Tutorial Series: Exposure Tools",
+          "url": "https://youtu.be/zkK9sWBgyR8"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Parallax Monitor | ZR Ctl Tutorial Series: Customization & Advanced",
+          "url": "https://youtu.be/deyFVZIhbuE"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'android-play-release-2026-07-04';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #ffd200;
+      --bg: #09090b;
+      --bg-2: #0e0e11;
+      --card: #141417;
+      --border: #27272a;
+      --text: #fafafa;
+      --text-2: #a1a1aa;
+      --text-3: #71717a;
+      --ubh: 44px;
+    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    html.update-dismissed { --ubh: 0px; }
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px) 0 0 / 100% 92px,
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px) 0 0 / 92px 100%,
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .mono { font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace; }
+    .display { font-family: 'Bebas Neue', 'Arial Narrow', sans-serif; font-weight: 400; letter-spacing: .012em; }
+    .container { width: min(100% - 48px, 1180px); margin: 0 auto; }
+
+    .update-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--ubh);
+      z-index: 120;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 0 18px;
+      background: linear-gradient(90deg, rgba(255,210,0,.14), rgba(255,210,0,.05));
+      border-bottom: 1px solid rgba(255,210,0,.28);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      font-size: 13px;
+      color: var(--text-2);
+    }
+    html.update-dismissed .update-banner { display: none; }
+    .ub-kicker { font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+    .ub-copy { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ub-link {
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 13px;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+    .ub-close {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 5px;
+      color: var(--text-2);
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    nav {
+      position: fixed;
+      top: var(--ubh);
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(9,9,11,.88);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+    .logo { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; }
+    .logo img { height: 38px; width: auto; }
+    .nav-links { display: flex; gap: 26px; align-items: center; list-style: none; font-size: 12px; letter-spacing: .08em; color: var(--text-2); text-transform: uppercase; }
+    .nav-links a { transition: color .2s; position: relative; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: #fff; }
+    .nav-cta { background: var(--accent); color: #000 !important; font-weight: 700; padding: 9px 20px; border-radius: 6px; }
+    .hamburger { display: none; background: none; border: 0; color: var(--text); padding: 8px; cursor: pointer; }
+
+    main { padding-top: calc(var(--ubh) + 88px); }
+    .hero { padding: 82px 0 44px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); gap: 42px; align-items: end; }
+    .eyebrow { margin-bottom: 18px; color: var(--accent); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; font-weight: 700; }
+    h1 { max-width: 760px; font-size: clamp(74px, 11vw, 150px); line-height: .9; text-transform: uppercase; }
+    h1 span { color: var(--accent); }
+    .intro { max-width: 680px; margin-top: 24px; color: var(--text-2); font-size: 18px; line-height: 1.72; }
+    .hero-panel {
+      border: 1px solid var(--border);
+      background: rgba(20,20,23,.82);
+      padding: 26px;
+      border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.32);
+    }
+    .hero-panel h2 { font-size: 40px; line-height: 1; text-transform: uppercase; margin-bottom: 14px; }
+    .hero-panel p { color: var(--text-2); font-size: 14px; }
+    .quick-list { list-style: none; display: grid; gap: 12px; margin-top: 22px; }
+    .quick-list li { display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: center; padding-top: 12px; border-top: 1px solid var(--border); }
+    .quick-list b { color: var(--accent); font-size: 12px; letter-spacing: .16em; }
+    .quick-list span { color: var(--text); font-weight: 700; }
+
+    .tutorials { padding: 54px 0 96px; }
+    .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .tutorial-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 0;
+      transition: border-color .2s, transform .2s;
+    }
+    .tutorial-card:hover { border-color: #3f3f46; transform: translateY(-2px); }
+    .video-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; }
+    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .card-body { padding: 24px; display: grid; gap: 12px; }
+    .card-kicker { color: var(--accent); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; }
+    .card-body h2 { font-size: 34px; line-height: 1; text-transform: uppercase; }
+    .card-body p { color: var(--text-2); font-size: 14px; }
+    .watch-link { justify-self: start; margin-top: 4px; color: var(--accent); font-weight: 800; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+
+    footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text-3); font-size: 12px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; list-style: none; }
+    .footer-links a { color: var(--text-2); }
+
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; align-items: start; }
+      .video-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 820px) {
+      .container { width: min(100% - 32px, 1180px); }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+        background: rgba(9,9,11,.98);
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-top: 1px solid rgba(255,255,255,.06); }
+      .nav-links a { display: block; padding: 16px 24px; }
+      .nav-cta { margin: 12px 24px 18px; text-align: center; }
+      .hamburger { display: block; }
+      .ub-copy { flex-basis: 100%; text-align: center; order: -1; }
+      .update-banner { height: auto; min-height: var(--ubh); flex-wrap: wrap; padding: 8px 14px; }
+      main { padding-top: calc(var(--ubh) + 84px); }
+      .hero { padding-top: 52px; }
+      h1 { font-size: clamp(58px, 18vw, 92px); }
+      .intro { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="update-banner" aria-label="ZR Ctl Google Play release">
+    <span class="ub-kicker mono">Android release</span>
+    <span class="ub-copy">ZR Ctl for Android is now live on Google Play.</span>
+    <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="ub-link update-link">Get it now</a>
+    <button class="ub-close update-close" type="button" aria-label="Dismiss update notice">&times;</button>
+  </aside>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="logo" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl">
+      </a>
+      <ul class="nav-links mono" id="navLinks">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/tutorial/" aria-current="page">Tutorials</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow mono">Tutorial series</p>
+          <h1 class="display">Learn the <span>control surface.</span></h1>
+          <p class="intro">Watch the core Parallax Monitor and ZR Ctl tutorials for general controls, exposure tools, customization, and advanced camera workflows.</p>
+        </div>
+        <aside class="hero-panel" aria-label="Tutorial sequence">
+          <h2 class="display">Start here.</h2>
+          <p>The series is arranged from everyday controls to deeper monitoring and customization work.</p>
+          <ol class="quick-list">
+            <li><b class="mono">01</b><span>General Tools</span></li>
+            <li><b class="mono">02</b><span>Exposure Tools</span></li>
+            <li><b class="mono">03</b><span>Customization &amp; Advanced</span></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="tutorials" aria-label="Tutorial videos">
+      <div class="container">
+        <div class="video-grid">
+          <article class="tutorial-card">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/f8U2XGORzIg" title="Parallax Monitor | ZR Ctl Tutorial Series: General Tools" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="card-body">
+              <p class="card-kicker mono">Tutorial 01</p>
+              <h2 class="display">General Tools</h2>
+              <p>A guided pass through the everyday controls and operator surface.</p>
+              <a class="watch-link mono" href="https://youtu.be/f8U2XGORzIg" target="_blank" rel="noopener">Watch on YouTube</a>
+            </div>
+          </article>
+
+          <article class="tutorial-card">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/zkK9sWBgyR8" title="Parallax Monitor | ZR Ctl Tutorial Series: Exposure Tools" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="card-body">
+              <p class="card-kicker mono">Tutorial 02</p>
+              <h2 class="display">Exposure Tools</h2>
+              <p>Waveform, false color, traffic lights, and the tools that make exposure decisions faster.</p>
+              <a class="watch-link mono" href="https://youtu.be/zkK9sWBgyR8" target="_blank" rel="noopener">Watch on YouTube</a>
+            </div>
+          </article>
+
+          <article class="tutorial-card">
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/deyFVZIhbuE" title="Parallax Monitor | ZR Ctl Tutorial Series: Customization &amp; Advanced" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="card-body">
+              <p class="card-kicker mono">Tutorial 03</p>
+              <h2 class="display">Customization &amp; Advanced</h2>
+              <p>Deeper setup options for tailoring the app to your camera, rig, and shooting habits.</p>
+              <a class="watch-link mono" href="https://youtu.be/deyFVZIhbuE" target="_blank" rel="noopener">Watch on YouTube</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row mono">
+      <span>ZR CTL &middot; &copy; 2026</span>
+      <ul class="footer-links">
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/compliance/">Compliance</a></li>
+        <li><a href="mailto:mike@itsmadcreative.com">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.update-close').forEach(button => {
+      button.addEventListener('click', function() {
+        document.documentElement.classList.add('update-dismissed');
+        try {
+          localStorage.setItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY, window.ZRCTL_UPDATE_BANNER_VERSION);
+        } catch (_) {}
+      });
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
+</body>
+</html>
