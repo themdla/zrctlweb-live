@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZR Ctl Android Tutorials | Nikon Z Camera Control</title>
+  <meta name="description" content="Watch ZR Ctl tutorials for Android: general tools, exposure tools, customization, and advanced Nikon Z camera workflows.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/android/tutorial/">
+
+  <meta property="og:title" content="ZR Ctl Android Tutorials">
+  <meta property="og:description" content="Guided Android tutorials for ZR Ctl general tools, exposure tools, customization, and advanced Nikon Z workflows.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.zrctl.com/android/tutorial/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ZR Ctl Android Tutorials">
+  <meta name="twitter:description" content="Watch guided ZR Ctl tutorials for Android and Nikon Z camera workflows.">
+  <meta name="twitter:image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 96x96 192x192">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ZR Ctl Android Tutorials",
+    "url": "https://www.zrctl.com/android/tutorial/",
+    "description": "Tutorial videos for ZR Ctl on Android.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MAD Creative",
+      "url": "https://itsmadcreative.com"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --accent:#ffd200; --bg:#09090b; --card:#141417; --border:#27272a; --text:#fafafa; --text-2:#a1a1aa; --text-3:#71717a; }
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px) 0 0 / 100% 92px,
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px) 0 0 / 92px 100%,
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .display { font-family: 'Bebas Neue', 'Arial Narrow', sans-serif; font-weight: 400; letter-spacing: .012em; }
+    .container { width: min(100% - 48px, 1180px); margin: 0 auto; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(9,9,11,.88);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    nav .container { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; }
+    .brand img { height: 38px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; color: var(--text-2); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #000 !important; font-weight: 800; padding: 9px 18px; border-radius: 6px; }
+    main { padding: 86px 0 96px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); gap: 42px; align-items: end; margin-bottom: 54px; }
+    .eyebrow { margin-bottom: 18px; color: var(--accent); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; font-weight: 700; }
+    h1 { max-width: 760px; font-size: clamp(68px, 10vw, 140px); line-height: .9; text-transform: uppercase; }
+    h1 span { color: var(--accent); }
+    .intro { max-width: 680px; margin-top: 24px; color: var(--text-2); font-size: 18px; line-height: 1.72; }
+    .panel { border: 1px solid var(--border); background: rgba(20,20,23,.82); padding: 26px; border-radius: 8px; }
+    .panel h2 { font-size: 38px; line-height: 1; text-transform: uppercase; margin-bottom: 14px; }
+    .panel p { color: var(--text-2); font-size: 14px; }
+    .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .card { border: 1px solid var(--border); background: var(--card); border-radius: 8px; overflow: hidden; }
+    .video-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; }
+    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .card-body { padding: 24px; display: grid; gap: 12px; }
+    .card-kicker { color: var(--accent); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; }
+    .card h2 { font-size: 34px; line-height: 1; text-transform: uppercase; }
+    .card p { color: var(--text-2); font-size: 14px; }
+    .watch-link { justify-self: start; color: var(--accent); font-weight: 800; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+    footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text-3); font-size: 12px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; list-style: none; }
+    .footer-links a { color: var(--text-2); }
+    @media (max-width: 980px) { .hero, .video-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 32px, 1180px); }
+      nav .container { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+      .nav-links { flex-wrap: wrap; gap: 14px; }
+      h1 { font-size: clamp(58px, 18vw, 92px); }
+      main { padding-top: 52px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/android/" class="brand" aria-label="ZR Ctl Android home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl">
+      </a>
+      <ul class="nav-links mono">
+        <li><a href="/android/">Android Site</a></li>
+        <li><a href="/android/tutorial/" aria-current="page">Tutorials</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/ios/">iOS</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="nav-cta">Get It Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div>
+          <p class="eyebrow mono">Android tutorials</p>
+          <h1 class="display">Learn <span>ZR Ctl.</span></h1>
+          <p class="intro">Watch the tutorial series for general controls, exposure tools, customization, and advanced Nikon Z camera workflows on Android.</p>
+        </div>
+        <aside class="panel" aria-label="Tutorial sequence">
+          <h2 class="display">Start here.</h2>
+          <p>Move from everyday controls into exposure confidence, then customize the app for your camera and shooting style.</p>
+        </aside>
+      </section>
+
+      <section class="video-grid" aria-label="ZR Ctl Android tutorial videos">
+        <article class="card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/f8U2XGORzIg" title="Parallax Monitor | ZR Ctl Tutorial Series: General Tools" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="card-body">
+            <p class="card-kicker mono">Tutorial 01</p>
+            <h2 class="display">General Tools</h2>
+            <p>A guided pass through the everyday operator controls.</p>
+            <a class="watch-link mono" href="https://youtu.be/f8U2XGORzIg" target="_blank" rel="noopener">Watch on YouTube</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/zkK9sWBgyR8" title="Parallax Monitor | ZR Ctl Tutorial Series: Exposure Tools" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="card-body">
+            <p class="card-kicker mono">Tutorial 02</p>
+            <h2 class="display">Exposure Tools</h2>
+            <p>Waveform, false color, traffic lights, and exposure tools for faster decisions.</p>
+            <a class="watch-link mono" href="https://youtu.be/zkK9sWBgyR8" target="_blank" rel="noopener">Watch on YouTube</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/deyFVZIhbuE" title="Parallax Monitor | ZR Ctl Tutorial Series: Customization &amp; Advanced" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="card-body">
+            <p class="card-kicker mono">Tutorial 03</p>
+            <h2 class="display">Customization &amp; Advanced</h2>
+            <p>Tailor ZR Ctl to your camera, rig, and shooting habits.</p>
+            <a class="watch-link mono" href="https://youtu.be/deyFVZIhbuE" target="_blank" rel="noopener">Watch on YouTube</a>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-row mono">
+      <span>ZR CTL &middot; &copy; 2026</span>
+      <ul class="footer-links">
+        <li><a href="/android/">Android Site</a></li>
+        <li><a href="/android/tutorial/">Tutorials</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/compliance/">Compliance</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
