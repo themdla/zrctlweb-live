@@ -88,6 +88,24 @@
     .panel { border: 1px solid var(--border); background: rgba(20,20,23,.82); padding: 26px; border-radius: 8px; }
     .panel h2 { font-size: 38px; line-height: 1; text-transform: uppercase; margin-bottom: 14px; }
     .panel p { color: var(--text-2); font-size: 14px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .home-link, .secondary-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+    .home-link { background: var(--accent); color: #fff; }
+    .secondary-link { border: 1px solid var(--border); background: rgba(255,255,255,.045); color: var(--text); }
+    .home-link:hover, .secondary-link:hover { transform: translateY(-1px); }
+    .secondary-link:hover { border-color: #3f3f46; background: rgba(255,255,255,.075); }
     .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
     .card { border: 1px solid var(--border); background: var(--card); border-radius: 8px; overflow: hidden; }
     .video-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; }
@@ -106,6 +124,7 @@
       .container { width: min(100% - 32px, 1180px); }
       nav .container { align-items: flex-start; flex-direction: column; padding: 16px 0; }
       .nav-links { flex-wrap: wrap; gap: 14px; }
+      .hero-actions a { width: 100%; }
       h1 { font-size: clamp(58px, 18vw, 92px); }
       main { padding-top: 52px; }
     }
@@ -119,9 +138,10 @@
         <span class="display">Parallax Monitor</span>
       </a>
       <ul class="nav-links mono">
-        <li><a href="/ios/">iOS Site</a></li>
+        <li><a href="/ios/">iOS Home</a></li>
         <li><a href="/ios/tutorial/" aria-current="page">Tutorials</a></li>
         <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/">Main Page</a></li>
         <li><a href="/android/">Android</a></li>
         <li><a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="nav-cta">Get It Now</a></li>
       </ul>
@@ -135,6 +155,10 @@
           <p class="eyebrow mono">iPhone and iPad tutorials</p>
           <h1 class="display">Learn <span>Parallax Monitor.</span></h1>
           <p class="intro">Watch the tutorial series for general controls, exposure tools, customization, and advanced Nikon Z camera workflows on iPhone and iPad.</p>
+          <div class="hero-actions mono" aria-label="Return navigation">
+            <a class="home-link" href="/ios/">Back to iOS main page</a>
+            <a class="secondary-link" href="/">All apps</a>
+          </div>
         </div>
         <aside class="panel" aria-label="Tutorial sequence">
           <h2 class="display">Start here.</h2>
@@ -184,7 +208,8 @@
     <div class="container footer-row mono">
       <span>PARALLAX MONITOR &middot; &copy; 2026</span>
       <ul class="footer-links">
-        <li><a href="/ios/">iOS Site</a></li>
+        <li><a href="/ios/">iOS Home</a></li>
+        <li><a href="/">Main Page</a></li>
         <li><a href="/ios/tutorial/">Tutorials</a></li>
         <li><a href="/privacy/">Privacy</a></li>
         <li><a href="/compliance/">Compliance</a></li>

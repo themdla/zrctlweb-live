@@ -196,6 +196,24 @@
     }
     .hero-panel h2 { font-size: 40px; line-height: 1; text-transform: uppercase; margin-bottom: 14px; }
     .hero-panel p { color: var(--text-2); font-size: 14px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .home-link, .platform-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+    .home-link { background: var(--accent); color: #000; }
+    .platform-link { border: 1px solid var(--border); background: rgba(255,255,255,.045); color: var(--text); }
+    .home-link:hover, .platform-link:hover { transform: translateY(-1px); }
+    .platform-link:hover { border-color: #3f3f46; background: rgba(255,255,255,.075); }
     .quick-list { list-style: none; display: grid; gap: 12px; margin-top: 22px; }
     .quick-list li { display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: center; padding-top: 12px; border-top: 1px solid var(--border); }
     .quick-list b { color: var(--accent); font-size: 12px; letter-spacing: .16em; }
@@ -248,6 +266,7 @@
       .nav-links a { display: block; padding: 16px 24px; }
       .nav-cta { margin: 12px 24px 18px; text-align: center; }
       .hamburger { display: block; }
+      .hero-actions a { width: 100%; }
       .ub-copy { flex-basis: 100%; text-align: center; order: -1; }
       .update-banner { height: auto; min-height: var(--ubh); flex-wrap: wrap; padding: 8px 14px; }
       main { padding-top: calc(var(--ubh) + 84px); }
@@ -271,6 +290,7 @@
         <img src="/zrctl-logo-cropped.png" alt="ZR Ctl">
       </a>
       <ul class="nav-links mono" id="navLinks">
+        <li><a href="/">Main Page</a></li>
         <li><a href="/#features">Features</a></li>
         <li><a href="/how-to/">How-to</a></li>
         <li><a href="/tutorial/" aria-current="page">Tutorials</a></li>
@@ -290,6 +310,11 @@
           <p class="eyebrow mono">Tutorial series</p>
           <h1 class="display">Learn the <span>control surface.</span></h1>
           <p class="intro">Watch the core Parallax Monitor and ZR Ctl tutorials for general controls, exposure tools, customization, and advanced camera workflows.</p>
+          <div class="hero-actions mono" aria-label="Return navigation">
+            <a class="home-link" href="/">Back to main page</a>
+            <a class="platform-link" href="/ios/">iOS home</a>
+            <a class="platform-link" href="/android/">Android home</a>
+          </div>
         </div>
         <aside class="hero-panel" aria-label="Tutorial sequence">
           <h2 class="display">Start here.</h2>
@@ -350,6 +375,9 @@
     <div class="container footer-row mono">
       <span>ZR CTL &middot; &copy; 2026</span>
       <ul class="footer-links">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/ios/">iOS Home</a></li>
+        <li><a href="/android/">Android Home</a></li>
         <li><a href="/how-to/">How-to</a></li>
         <li><a href="/tutorial/">Tutorials</a></li>
         <li><a href="/privacy/">Privacy</a></li>
