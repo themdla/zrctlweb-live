@@ -255,6 +255,9 @@
       background:var(--accent); transform:scaleX(0); transform-origin:left;
       transition:transform .25s cubic-bezier(.16,1,.3,1); }
     .nav-links a:not(.nav-cta):hover::after { transform:scaleX(1); }
+    .nav-feedback { color:var(--accent) !important; border:1px solid rgba(var(--accent-rgb),.42); padding:7px 11px; border-radius:6px; font-weight:700; }
+    .nav-links .nav-feedback::after { display:none; }
+    .nav-feedback:hover { color:#fff !important; border-color:var(--accent); background:rgba(var(--accent-rgb),.08); }
     .nav-cta { background:var(--accent); color:#000 !important; font-weight:700; padding:9px 20px; border-radius:6px;
       transition:transform .2s, box-shadow .2s; }
     .nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px rgba(var(--accent-rgb),.3); }
@@ -670,6 +673,7 @@
         <li><a href="/ios/#coverage">Coverage</a></li>
         <li><a href="/android/">Android</a></li>
         <li><a href="/beta/">Beta</a></li>
+        <li><a href="/feedback/" class="nav-feedback">Feedback</a></li>
         <li><a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="nav-cta">Get It Now</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
@@ -1229,7 +1233,8 @@
           <a href="/ios/tutorial/">Tutorials</a>
           <a href="/privacy/">Privacy</a>
           <a href="/compliance/">Compliance</a>
-          <a href="mailto:mike@itsmadcreative.com">Support</a>
+          <a href="/feedback/">Report a bug</a>
+          <a href="/feedback/?type=feature">Request a feature</a>
           <a href="mailto:mike@itsmadcreative.com">Contact</a>
         </div>
       </div>
