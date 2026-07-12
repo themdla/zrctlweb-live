@@ -211,6 +211,7 @@
     .mono { font-family:'JetBrains Mono','SF Mono',Menlo,monospace; }
     .display { font-family:'Bebas Neue','Arial Narrow','Helvetica Narrow',sans-serif; font-weight:400; }
     .container { max-width:1240px; margin:0 auto; padding:0 32px; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
     section { scroll-margin-top:calc(var(--ubh) + 86px); }
 
     /* ── Scroll progress ── */
@@ -286,6 +287,13 @@
       font-size:19px; line-height:1.55; font-weight:600; color:#e4e4e7;
       text-transform:none; letter-spacing:0; }
     .hero-sub { margin:18px auto 38px; max-width:620px; font-size:16.5px; line-height:1.7; color:var(--text-2); position:relative; z-index:1; }
+    .hero-rating { display:inline-flex; align-items:center; justify-content:center; gap:10px; max-width:calc(100% - 48px);
+      margin:0 auto 28px; padding:9px 14px; border:1px solid rgba(255,255,255,.14); border-radius:6px;
+      background:rgba(255,255,255,.06); color:var(--text-2); font-size:11px; letter-spacing:.12em;
+      text-transform:uppercase; position:relative; z-index:1; transition:border-color .2s, background .2s; }
+    .hero-rating:hover { border-color:rgba(var(--accent-rgb),.45); background:rgba(var(--accent-rgb),.08); }
+    .hero-rating strong { color:#fff; font-weight:700; }
+    .hero-rating .stars { font-size:13px; letter-spacing:.02em; }
     .btns { display:flex; gap:16px; justify-content:center; margin-bottom:64px; position:relative; z-index:1; flex-wrap:wrap; }
     .b1 { background:var(--accent); color:#000; font-weight:700; font-size:15px; letter-spacing:.06em;
       padding:17px 42px; border-radius:6px; text-transform:uppercase; display:inline-flex; align-items:center; gap:10px;
@@ -323,6 +331,56 @@
     .stat:last-child { border-right:0; }
     .stat b { display:block; font-size:54px; line-height:1; color:var(--accent); font-weight:400; }
     .stat span { display:block; margin-top:10px; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--text-3); }
+
+    /* ── App Store reviews ── */
+    .store-reviews { padding:86px 0 18px; }
+    .reviews-panel { display:grid; grid-template-columns:minmax(240px, .82fr) minmax(0, 2fr); gap:22px; align-items:stretch; }
+    .rating-card, .review-card {
+      border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius:8px; box-shadow:0 24px 60px rgba(0,0,0,.22); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    }
+    .rating-card { padding:30px; display:flex; flex-direction:column; justify-content:space-between; min-height:270px; }
+    .rating-source { display:flex; align-items:center; gap:12px; margin-bottom:22px; }
+    .rating-source img { width:48px; height:48px; border-radius:8px; object-fit:cover; box-shadow:0 10px 28px rgba(0,0,0,.32); }
+    .rating-source span { display:block; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--text-3); }
+    .rating-source strong { display:block; font-size:17px; line-height:1.2; color:#fff; }
+    .rating-card .kicker { display:block; margin-bottom:20px; font-size:10px; letter-spacing:.16em; }
+    .rating-card .kicker::before, .rating-card .kicker::after { display:none; }
+    .rating-score { display:flex; align-items:flex-end; gap:14px; margin-bottom:12px; }
+    .rating-score b { font-size:74px; line-height:.86; color:#f5f5f7; letter-spacing:0; }
+    .stars { color:#ffcc00; letter-spacing:.08em; line-height:1; }
+    .rating-score .stars { font-size:20px; padding-bottom:7px; }
+    .rating-meta { font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-3); }
+    .rating-link { display:inline-flex; align-items:center; justify-content:center; margin-top:22px; width:max-content;
+      border:1px solid rgba(255,255,255,.18); color:#fff; border-radius:6px; padding:10px 14px;
+      font-size:11px; letter-spacing:.12em; text-transform:uppercase; transition:all .2s; }
+    .rating-link:hover { border-color:var(--accent); color:#000; background:var(--accent); }
+    .reviews-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+    .reviews-browser { display:flex; flex-direction:column; gap:16px; min-width:0; }
+    .review-card { padding:24px; min-height:318px; display:flex; flex-direction:column; transition:transform .25s, border-color .25s; }
+    .review-card:hover { transform:translateY(-3px); border-color:rgba(var(--accent-rgb),.38); }
+    .review-top { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:15px; }
+    .review-author { min-width:0; }
+    .review-author strong { display:block; font-size:13px; line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .review-author span { display:block; margin-top:4px; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); }
+    .review-top .stars { flex-shrink:0; font-size:13px; }
+    .review-title { font-size:18px; line-height:1.2; color:#f5f5f7; margin-bottom:12px; font-weight:700; letter-spacing:0; }
+    .review-card blockquote { margin:0; color:#d4d4d8; font-size:14px; line-height:1.62; }
+    .review-foot { margin-top:auto; padding-top:18px; font-size:10px; letter-spacing:.16em; color:var(--text-3); text-transform:uppercase; }
+    .review-pager { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .review-range { color:var(--text-3); font-size:10px; letter-spacing:.16em; text-transform:uppercase; }
+    .pager-controls { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .pager-button, .page-dot {
+      height:36px; min-width:36px; display:inline-grid; place-items:center; border:1px solid rgba(255,255,255,.16);
+      border-radius:6px; background:rgba(255,255,255,.04); color:#fff; cursor:pointer;
+      font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+      transition:background .2s, border-color .2s, color .2s, transform .2s;
+    }
+    .pager-button { padding:0 13px; }
+    .pager-button:hover, .page-dot:hover { border-color:rgba(var(--accent-rgb),.45); background:rgba(var(--accent-rgb),.08); }
+    .pager-button:disabled { opacity:.38; cursor:not-allowed; transform:none; }
+    .page-dot[aria-current="page"] { background:var(--accent); border-color:var(--accent); color:#000; font-weight:700; }
+    .review-feed-note { color:var(--text-3); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
 
     /* ── Marquee ── */
     .marquee { border-top:1px solid #1c1c20; border-bottom:1px solid #1c1c20; margin-top:72px;
@@ -545,6 +603,7 @@
       .feat-row.rev .feat-text { order:1; } .feat-row.rev .feat-media { order:2; }
       .tool-grid { grid-template-columns:1fr 1fr; }
       .cams-row { grid-template-columns:1fr; }
+      .reviews-panel { grid-template-columns:1fr; }
       .cov-grid { grid-template-columns:1fr 1fr; }
     }
     @media (max-width:768px) {
@@ -560,11 +619,19 @@
       .hero { padding-top:calc(120px + var(--ubh)); }
       .h1-big { font-size:clamp(48px, 17vw, 72px); }
       .h1-tag { font-size:16px; padding:0 12px; }
+      .hero-rating { flex-wrap:wrap; row-gap:4px; }
       .stats { grid-template-columns:repeat(2,1fr); }
       .stat:nth-child(2) { border-right:0; }
       .feat h3 { font-size:40px; }
       .feat-num { font-size:72px; }
       .tool-grid { grid-template-columns:1fr; }
+      .store-reviews { padding-top:64px; }
+      .rating-card { min-height:0; padding:24px; }
+      .rating-score b { font-size:62px; }
+      .reviews-grid { grid-template-columns:1fr; }
+      .review-card { min-height:0; }
+      .review-pager { justify-content:center; text-align:center; }
+      .review-range, .review-feed-note { flex-basis:100%; }
       .vid-grid, .cov-grid { grid-template-columns:1fr; }
       .gal-head { flex-direction:column; align-items:flex-start; }
       .shot { width:min(78vw, 420px); }
@@ -599,7 +666,7 @@
         <li><a href="/how-to/">How-to</a></li>
         <li><a href="/ios/tutorial/">Tutorials</a></li>
         <li><a href="/ios/#gallery">Gallery</a></li>
-        <li><a href="/ios/#videos">Reviews</a></li>
+        <li><a href="/ios/#reviews">Reviews</a></li>
         <li><a href="/ios/#coverage">Coverage</a></li>
         <li><a href="/android/">Android</a></li>
         <li><a href="/beta/">Beta</a></li>
@@ -620,6 +687,11 @@
       <span class="h1-tag">The ultimate remote monitor &amp; control app for Nikon ZR, Z8, Z6III &amp; Z-series cameras.</span>
     </h1>
     <p class="hero-sub">Scopes, LUTs, focus pulls, framing, audio, playback — and a full stills mode — from the iPhone or iPad already on your rig.</p>
+    <a class="hero-rating mono" href="#reviews" aria-label="Jump to App Store reviews">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <strong>5.0 App Store rating</strong>
+      <span>16 US ratings</span>
+    </a>
     <div class="btns">
       <a class="b1" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -653,6 +725,45 @@
       <div class="stat"><b class="display" data-count="30">30</b><span>Day full refund promise</span></div>
     </div>
   </header>
+
+  <!-- ───────── APP STORE REVIEWS ───────── -->
+  <section class="store-reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews-panel reveal">
+        <div class="rating-card">
+          <div>
+            <div class="rating-source">
+              <img src="/parallax-icon.png" alt="">
+              <div>
+                <span class="mono">App Store</span>
+                <strong>Ratings &amp; Reviews</strong>
+              </div>
+            </div>
+            <p class="kicker mono">Early release response</p>
+            <h2 class="display sr-only" id="reviews-title">Parallax Monitor App Store reviews</h2>
+            <div class="rating-score">
+              <b class="display">5.0</b>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            </div>
+            <p class="rating-meta mono">16 US ratings · 12 public reviews · Version 1.1</p>
+          </div>
+          <a class="rating-link mono" href="https://apps.apple.com/us/app/6762336561?platform=iphone&amp;see-all=reviews" target="_blank" rel="noopener">See all reviews</a>
+        </div>
+        <div class="reviews-browser">
+          <div class="reviews-grid" id="reviewsGrid" aria-live="polite"></div>
+          <div class="review-pager" aria-label="App Store review pages">
+            <p class="review-range mono" id="reviewRange">Loading reviews</p>
+            <div class="pager-controls">
+              <button class="pager-button" id="reviewPrev" type="button">Prev</button>
+              <div class="pager-controls" id="reviewPages" aria-label="Review page numbers"></div>
+              <button class="pager-button" id="reviewNext" type="button">Next</button>
+            </div>
+            <p class="review-feed-note mono" id="reviewFeedNote">Public US App Store reviews</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ───────── MARQUEE ───────── -->
   <div class="marquee mono" aria-label="What filmmakers say about Parallax Monitor">
@@ -919,6 +1030,11 @@
       <div class="vid-grid">
         <div class="video-card reveal">
           <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/KElQmK-cOnE" title="la ZR devient IMBATTABLE grâce à ça ! ( Parallax Monitor )" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/EQdh922NleM?start=4914" title="Nikon ZR &amp; ZR CTL - EPIC Creation Tool For Z - Meet the Creator Ask Question Live MAMPOD 48" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
@@ -1132,6 +1248,248 @@
 
   <script>
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const APP_STORE_REVIEWS_URL = 'https://itunes.apple.com/us/rss/customerreviews/id=6762336561/sortBy=mostRecent/json';
+    const fallbackReviews = [
+      {
+        updated: '2026-07-09T18:08:06-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'agitprops',
+        title: 'The cure for my fat sausage fingers.',
+        content: 'This APP is intuitive and extremely useful. Packed with features to speed up and streamline my ZR workflow. A lifesaver in preventing my fingers from fumbling with tiny buttons and scrolling through menus. Highly recommended. Tip: for those using a lighting connection, you do not need a dongle - a straight up OTG cable will work perfectly.'
+      },
+      {
+        updated: '2026-07-09T15:53:05-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Neosinner',
+        title: 'You don’t understand',
+        content: 'I could go on about this app. They’re really truly are no words for it. The man who took the time to create this. I hope this is something that truly changes your life, and I mean that from a financial standpoint of view. The fact that I literally just filmed a very high-end video in my studio from my chair and then was able to not only film it in raw, but download the MP4 directly to my phone, cut edits and post it without ever having to go to my computer and color grade or do anything in Davinci resolve or my other apps? Dude this is game over territory unbelievable thank you'
+      },
+      {
+        updated: '2026-07-06T05:48:49-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'ksennett',
+        title: '10 Stars',
+        content: 'Spread. The. Word. This is the most beautifully-implemented Nikon app out there right now. It’s sophisticated but easy to use, incredibly feature-rich, and extremely responsive. For Video and Photo alike, if you shoot Nikon, get this and dump all the other apps/monitors/etc that you’ve been so frustrated with. This is the one!! Well done!'
+      },
+      {
+        updated: '2026-07-04T21:33:36-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Phil_B 123',
+        title: 'Excellent app excellent support',
+        content: 'The developer responded quickly to questions like within a few minutes. I get the feeling he really wants to build one of best apps out there. The current functionality is excellent and a great value'
+      },
+      {
+        updated: '2026-07-03T23:20:36-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Cameronlazzari',
+        title: 'Doing what Nikon has not…thank you!!!',
+        content: 'Using this app allows for the proper exposure tools needed. Now the Nikon ZR has traffic lights. I really love that you added multi camera support. Thank you for making an app that Nikon should have put out!!'
+      },
+      {
+        updated: '2026-07-03T15:48:18-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Dustin York',
+        title: 'Better than Nikon’s App',
+        content: 'Works flawlessly with the Nikon Z8! It’s definitely worth more than $20 bucks, so get it at this price while you can. I would have gladly paid North of $50 for this feature set. Looking forward to seeing how the app evolves in the future! Great work to the developer.'
+      },
+      {
+        updated: '2026-07-03T15:43:13-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Ricky Bloodmoon',
+        title: 'A MUST HAVE!',
+        content: 'I was one of the beta testers for this app and I’m so happy it finally hit the App Store. If you own a Nikon ZR, this app is a total no brainer. The designer is a real life wizard who is so passionate about giving filmmakers one of the best tools you can own for your new camera. The software, reliability, functionality are all TOP TIER!! You won’t regret it. Also, I can’t believe he’s only charging $20. I would have easily paid $100 for this thing. It’s that great!'
+      },
+      {
+        updated: '2026-07-02T14:59:23-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Samurotek',
+        title: 'Best app for your NIKON',
+        content: 'La probé durante el testing y definitivamente la compré tan pronto salió a la venta! VALE CADA CENTAVO'
+      },
+      {
+        updated: '2026-07-02T14:18:59-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'dubuj',
+        title: 'What I have Been Looking For',
+        content: 'I shoot still images exclusively and have been frustrated with Nikon’s SnapBridge. I learned about this app during its pre release and simply love that it connects every time, as well as, the feature set already available. It does everything thing I need it to do and more. I plan on spreading the word to fellow photographers.'
+      },
+      {
+        updated: '2026-07-02T04:02:26-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'kurashenko',
+        title: 'Good job',
+        content: 'I’ve been waiting for an app like this for a long time. Thank you! There’s still a lot that could be improved :) But most importantly, please add proper support for the Nikon Zf. It’s an excellent camera too.'
+      },
+      {
+        updated: '2026-06-30T22:43:40-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'dbaileyire',
+        title: 'It just works',
+        content: 'It’s not often a piece of software just has almost every feature you could need right out of the gate. Parallax monitor hits all the bases and the some. The developer is very responsive to feedback and adding new features. A+++'
+      },
+      {
+        updated: '2026-06-30T13:42:47-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Whippdog78',
+        title: 'Does Everything!',
+        content: 'I’ve been using this app during testing for over a month. It has so many features, and now that it’s live there are even more. I bought a second Nikon ZR and iPad mini just because of this app. If you have any Nikon camera this just became the must have app, for video or photo.'
+      }
+    ];
+    const reviewState = { reviews: fallbackReviews, page: 0, source: 'Snapshot of public US App Store reviews' };
+
+    function reviewPageSize() {
+      return matchMedia('(max-width:768px)').matches ? 1 : 3;
+    }
+
+    function formatReviewDate(value) {
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value || '';
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function normalizeReview(entry) {
+      return {
+        updated: entry.updated?.label || entry.updated || '',
+        rating: Number(entry['im:rating']?.label || entry.rating || 5),
+        version: entry['im:version']?.label || entry.version || '',
+        author: entry.author?.name?.label || entry.author || 'App Store reviewer',
+        title: entry.title?.label || entry.title || 'App Store review',
+        content: entry.content?.label || entry.content || ''
+      };
+    }
+
+    function createReviewCard(review) {
+      const card = document.createElement('article');
+      card.className = 'review-card';
+
+      const top = document.createElement('div');
+      top.className = 'review-top';
+
+      const author = document.createElement('div');
+      author.className = 'review-author';
+      const authorName = document.createElement('strong');
+      authorName.textContent = review.author;
+      const date = document.createElement('span');
+      date.className = 'mono';
+      date.textContent = formatReviewDate(review.updated);
+      author.append(authorName, date);
+
+      const stars = document.createElement('span');
+      stars.className = 'stars';
+      stars.setAttribute('aria-label', `${review.rating} out of 5 stars`);
+      stars.textContent = '★'.repeat(Math.max(0, Math.min(review.rating || 5, 5)));
+
+      const title = document.createElement('h3');
+      title.className = 'review-title';
+      title.textContent = review.title;
+
+      const quote = document.createElement('blockquote');
+      quote.textContent = `“${review.content}”`;
+
+      const foot = document.createElement('p');
+      foot.className = 'review-foot mono';
+      foot.textContent = review.version ? `Version ${review.version} · App Store review` : 'App Store review';
+
+      top.append(author, stars);
+      card.append(top, title, quote, foot);
+      return card;
+    }
+
+    function renderReviews() {
+      const grid = document.getElementById('reviewsGrid');
+      const range = document.getElementById('reviewRange');
+      const pages = document.getElementById('reviewPages');
+      const prev = document.getElementById('reviewPrev');
+      const next = document.getElementById('reviewNext');
+      const note = document.getElementById('reviewFeedNote');
+      if (!grid || !range || !pages || !prev || !next || !note) return;
+
+      const pageSize = reviewPageSize();
+      const total = reviewState.reviews.length;
+      const totalPages = Math.max(1, Math.ceil(total / pageSize));
+      reviewState.page = Math.min(reviewState.page, totalPages - 1);
+      const start = reviewState.page * pageSize;
+      const visible = reviewState.reviews.slice(start, start + pageSize);
+
+      grid.replaceChildren(...visible.map(createReviewCard));
+      range.textContent = total
+        ? `${start + 1}-${Math.min(start + pageSize, total)} of ${total} public reviews`
+        : 'No public reviews found';
+      note.textContent = reviewState.source;
+      prev.disabled = reviewState.page === 0;
+      next.disabled = reviewState.page >= totalPages - 1;
+      prev.setAttribute('aria-label', `Previous review page, page ${Math.max(1, reviewState.page)} of ${totalPages}`);
+      next.setAttribute('aria-label', `Next review page, page ${Math.min(totalPages, reviewState.page + 2)} of ${totalPages}`);
+
+      pages.replaceChildren();
+      for (let i = 0; i < totalPages; i += 1) {
+        const button = document.createElement('button');
+        button.className = 'page-dot';
+        button.type = 'button';
+        button.textContent = i + 1;
+        button.setAttribute('aria-label', `Show review page ${i + 1} of ${totalPages}`);
+        if (i === reviewState.page) button.setAttribute('aria-current', 'page');
+        button.addEventListener('click', () => {
+          reviewState.page = i;
+          renderReviews();
+        });
+        pages.append(button);
+      }
+    }
+
+    function bindReviewPager() {
+      document.getElementById('reviewPrev')?.addEventListener('click', () => {
+        reviewState.page = Math.max(0, reviewState.page - 1);
+        renderReviews();
+      });
+      document.getElementById('reviewNext')?.addEventListener('click', () => {
+        reviewState.page += 1;
+        renderReviews();
+      });
+      let currentPageSize = reviewPageSize();
+      addEventListener('resize', () => {
+        const nextPageSize = reviewPageSize();
+        if (nextPageSize === currentPageSize) return;
+        const firstVisible = reviewState.page * currentPageSize;
+        currentPageSize = nextPageSize;
+        reviewState.page = Math.floor(firstVisible / nextPageSize);
+        renderReviews();
+      });
+    }
+
+    async function refreshReviewsFromAppStore() {
+      try {
+        const response = await fetch(APP_STORE_REVIEWS_URL, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`App Store reviews returned ${response.status}`);
+        const data = await response.json();
+        const entries = Array.isArray(data.feed?.entry) ? data.feed.entry : data.feed?.entry ? [data.feed.entry] : [];
+        const reviews = entries.map(normalizeReview).filter(review => review.content);
+        if (!reviews.length) return;
+        reviewState.reviews = reviews;
+        reviewState.page = 0;
+        reviewState.source = 'Live public US App Store reviews';
+        renderReviews();
+      } catch (_) {
+        reviewState.source = 'Snapshot of public US App Store reviews';
+        renderReviews();
+      }
+    }
+
+    bindReviewPager();
+    renderReviews();
+    refreshReviewsFromAppStore();
 
     // ── Update banner dismiss ──
     document.querySelectorAll('.update-close').forEach(button => {
