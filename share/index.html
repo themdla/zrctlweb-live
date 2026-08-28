@@ -121,7 +121,7 @@
 
   <script>
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
-    window.ZRCTL_UPDATE_BANNER_VERSION = 'android-play-release-2026-07-04';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-1.2_android-1.4';
     try {
       if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
         document.documentElement.classList.add('update-dismissed');
@@ -657,11 +657,11 @@
   </style>
 </head>
 <body>
-  <aside class="update-banner" aria-label="ZR Ctl Google Play release">
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
     <div class="container update-banner-inner">
-      <span class="update-kicker">Android release</span>
-      <span class="update-copy">ZR Ctl for Android is now live on Google Play.</span>
-      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Get it now</a>
+      <span class="update-copy">Parallax Monitor <strong>1.2</strong> for iOS and ZR Ctl <strong>1.4</strong> for Android are now available.</span>
+      <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
       <button class="update-close" type="button" aria-label="Dismiss update notice">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>

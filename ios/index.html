@@ -186,7 +186,7 @@
 
   <script>
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
-    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-1.1_android-prerelease-0.3.7';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-1.2_android-1.4';
     try {
       if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
         document.documentElement.classList.add('update-dismissed');
@@ -651,10 +651,10 @@
 
   <div id="scroll-progress" aria-hidden="true"></div>
 
-  <aside class="update-banner" aria-label="Parallax Monitor App Store release">
-    <span class="ub-kicker mono">Available now</span>
-    <span class="ub-copy">Parallax Monitor <strong>1.1</strong> is now live on the App Store for iPhone and iPad.</span>
-    <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="ub-link update-link">Get it now</a>
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+    <span class="ub-copy">Parallax Monitor <strong>1.2</strong> for iOS and ZR Ctl <strong>1.4</strong> for Android are now available.</span>
+    <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="ub-link update-link">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="ub-link update-link">Google Play</a>
     <button class="ub-close update-close" type="button" aria-label="Dismiss update notice">&times;</button>
   </aside>
 
@@ -694,7 +694,7 @@
     <a class="hero-rating mono" href="#reviews" aria-label="Jump to App Store reviews">
       <span class="stars" aria-hidden="true">★★★★★</span>
       <strong>5.0 App Store rating</strong>
-      <span>16 US ratings</span>
+      <span>18 US ratings</span>
     </a>
     <div class="btns">
       <a class="b1" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">
@@ -749,7 +749,7 @@
               <b class="display">5.0</b>
               <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
             </div>
-            <p class="rating-meta mono">16 US ratings · 12 public reviews · Version 1.1</p>
+            <p class="rating-meta mono">18 US ratings · 15 public reviews · Version 1.2</p>
           </div>
           <a class="rating-link mono" href="https://apps.apple.com/us/app/6762336561?platform=iphone&amp;see-all=reviews" target="_blank" rel="noopener">See all reviews</a>
         </div>
@@ -1255,6 +1255,30 @@
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const APP_STORE_REVIEWS_URL = 'https://itunes.apple.com/us/rss/customerreviews/id=6762336561/sortBy=mostRecent/json';
     const fallbackReviews = [
+      {
+        updated: '2026-08-24T15:38:28-07:00',
+        rating: 5,
+        version: '1.2',
+        author: 'Myron Hill',
+        title: 'Game Changer',
+        content: 'This app is such a game changer.'
+      },
+      {
+        updated: '2026-08-12T16:47:43-07:00',
+        rating: 5,
+        version: '1.2',
+        author: 'Midnight Film Club',
+        title: 'Powerful stable app',
+        content: 'This is the killer app for Nikon ZR and all latest generation Nikon Z cameras. Gives all the functionality and tools that Nikon left out and also can playback footage. And it doesn’t stop there, the app is also a fantastic photo app. You no longer lose the ability to look through your viewfinder or LCD when using the app like with SnapBridge. You can keep shooting and look through the viewfinder and have a client holding an iPad and they can see the shots as they pop up one by one. Then you can quickly review the photos in the app. This is a dream app. And can’t wait for all the future updates coming. The developer doesn’t stop, every week it’s new  updates with more powerful tools.  One more thing, that app can monitor multiple camera feeds at same time. Bam!!'
+      },
+      {
+        updated: '2026-07-31T20:01:37-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Alexander Sikes aka Lx Luthor',
+        title: 'Thank You from the Sikes family',
+        content: 'Just wanted to say thanks. Keep changing things'
+      },
       {
         updated: '2026-07-09T18:08:06-07:00',
         rating: 5,
