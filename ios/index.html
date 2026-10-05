@@ -57,7 +57,7 @@
     "applicationCategory": "MultimediaApplication",
     "applicationSubCategory": "Camera remote control app",
     "operatingSystem": ["iOS", "iPadOS"],
-    "softwareVersion": "1.1",
+    "softwareVersion": "2.1",
     "downloadUrl": "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
     "offers": {
       "@type": "Offer",
@@ -186,7 +186,7 @@
 
   <script>
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
-    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-1.2_android-1.4';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.1_android-2.1.7_accsoon';
     try {
       if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
         document.documentElement.classList.add('update-dismissed');
@@ -646,13 +646,14 @@
       .strip-caption { justify-content:center; }
     }
   </style>
+  <link rel="stylesheet" href="/accsoon/announcement.css">
 </head>
 <body>
 
   <div id="scroll-progress" aria-hidden="true"></div>
 
   <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
-    <span class="ub-copy">Parallax Monitor <strong>1.2</strong> for iOS and ZR Ctl <strong>1.4</strong> for Android are now available.</span>
+    <span class="ub-copy">Parallax Monitor <strong>2.1</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
     <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="ub-link update-link">App Store</a>
     <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="ub-link update-link">Google Play</a>
     <button class="ub-close update-close" type="button" aria-label="Dismiss update notice">&times;</button>
@@ -665,13 +666,15 @@
         <span class="display">Parallax Monitor</span>
       </a>
       <ul class="nav-links mono" id="navLinks">
+        <li><a href="/ios/" aria-current="page">iOS</a></li>
+        <li><a href="/android/">Android</a></li>
+        <li><a href="/accsoon/">Accsoon</a></li>
         <li><a href="/ios/#features">Features</a></li>
         <li><a href="/how-to/">How-to</a></li>
         <li><a href="/ios/tutorial/">Tutorials</a></li>
         <li><a href="/ios/#gallery">Gallery</a></li>
         <li><a href="/ios/#reviews">Reviews</a></li>
         <li><a href="/ios/#coverage">Coverage</a></li>
-        <li><a href="/android/">Android</a></li>
         <li><a href="/beta/">Beta</a></li>
         <li><a href="/feedback/" class="nav-feedback">Feedback</a></li>
         <li><a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="nav-cta">Get It Now</a></li>
@@ -688,7 +691,7 @@
     <p class="kicker mono">Parallax Monitor &middot; Now on the App Store</p>
     <h1>
       <span class="display h1-big"><span class="line"><span>Take full</span></span><span class="line"><span class="y">control.</span></span></span>
-      <span class="h1-tag">The ultimate remote monitor &amp; control app for Nikon ZR, Z8, Z6III &amp; Z-series cameras.</span>
+      <span class="h1-tag">Remote monitoring and camera control for Nikon Z-series and RED cameras.</span>
     </h1>
     <p class="hero-sub">Scopes, LUTs, focus pulls, framing, audio, playback — and a full stills mode — from the iPhone or iPad already on your rig.</p>
     <a class="hero-rating mono" href="#reviews" aria-label="Jump to App Store reviews">
@@ -749,7 +752,7 @@
               <b class="display">5.0</b>
               <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
             </div>
-            <p class="rating-meta mono">18 US ratings · 15 public reviews · Version 1.2</p>
+            <p class="rating-meta mono">18 US ratings · 15 public reviews · Reviews from earlier releases</p>
           </div>
           <a class="rating-link mono" href="https://apps.apple.com/us/app/6762336561?platform=iphone&amp;see-all=reviews" target="_blank" rel="noopener">See all reviews</a>
         </div>
@@ -767,6 +770,11 @@
         </div>
       </div>
     </div>
+  </section>
+
+
+  <section class="accsoon-announcement" id="accsoon-partnership" aria-label="Accsoon partnership">
+    <div class="container"><div class="accsoon-announcement-brand"><p class="mono">IN PARTNERSHIP WITH</p><img src="/accsoon/assets/accsoon-wordmark-white.svg?v=2" alt="Accsoon" width="140" height="31" loading="lazy"></div><div><h2 class="display">HDMI monitoring. Meet Parallax.</h2><p>SeeMo brings your camera’s HDMI picture into Parallax Monitor 2.1. Keep your LUTs, scopes and exposure tools, with camera control over Wi-Fi.</p><a href="/accsoon/#seemo">Explore SeeMo for iOS <span aria-hidden="true">↗</span></a></div></div>
   </section>
 
   <!-- ───────── MARQUEE ───────── -->
@@ -1194,7 +1202,7 @@
       <div class="plats">
         <div class="plat">
           <h3 class="display">iOS &amp; iPadOS</h3>
-          <p class="mono">iPhone &middot; iPad &middot; Version 1.1</p>
+          <p class="mono">iPhone &middot; iPad &middot; Version 2.1</p>
           <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">Get it now</a>
           <div class="purchase-note">
             <span class="note-kicker mono">30-day full refund</span>
@@ -1229,6 +1237,8 @@
       <div class="foot-row">
         <span class="foot-tc mono"><span>&#9679;</span> PARALLAX MONITOR &middot; &copy; 2026 &middot; TC <span id="footTimecode">00:00:00:00</span></span>
         <div class="links mono">
+          <a href="/accsoon/">Accsoon</a>
+          <a href="/portal/">My purchases</a>
           <a href="/how-to/">How-to</a>
           <a href="/ios/tutorial/">Tutorials</a>
           <a href="/privacy/">Privacy</a>
@@ -1239,7 +1249,7 @@
         </div>
       </div>
       <p class="legal">
-        Parallax Monitor is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or any other camera manufacturer or trademark owner mentioned on this site. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
+        Parallax Monitor is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation or Nikon Inc. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
       </p>
     </div>
   </footer>

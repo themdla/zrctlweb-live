@@ -58,7 +58,7 @@
     "applicationSubCategory": "Camera remote control app",
     "operatingSystem": ["Android"],
     "downloadUrl": "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share",
-    "softwareVersion": "0.3.7",
+    "softwareVersion": "2.1.7",
     "isAccessibleForFree": false,
     "offers": {
       "@type": "Offer",
@@ -169,7 +169,7 @@
 
   <script>
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
-    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-1.2_android-1.4';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.1_android-2.1.7_accsoon';
     try {
       if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
         document.documentElement.classList.add('update-dismissed');
@@ -559,13 +559,14 @@
       .strip-caption { justify-content:center; }
     }
   </style>
+  <link rel="stylesheet" href="/accsoon/announcement.css">
 </head>
 <body>
 
   <div id="scroll-progress" aria-hidden="true"></div>
 
   <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
-    <span class="ub-copy">Parallax Monitor <strong>1.2</strong> for iOS and ZR Ctl <strong>1.4</strong> for Android are now available.</span>
+    <span class="ub-copy">Parallax Monitor <strong>2.1</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
     <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="ub-link update-link">App Store</a>
     <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="ub-link update-link">Google Play</a>
     <button class="ub-close update-close" type="button" aria-label="Dismiss update notice">&times;</button>
@@ -577,13 +578,15 @@
         <img src="zrctl-logo-cropped.png" alt="ZR Ctl">
       </a>
       <ul class="nav-links mono" id="navLinks">
+        <li><a href="/ios/">iOS</a></li>
+        <li><a href="/android/" aria-current="page">Android</a></li>
+        <li><a href="/accsoon/">Accsoon</a></li>
         <li><a href="/android/#features">Features</a></li>
         <li><a href="/how-to/">How-to</a></li>
         <li><a href="/android/tutorial/">Tutorials</a></li>
         <li><a href="/android/#gallery">Gallery</a></li>
         <li><a href="/android/#videos">Reviews</a></li>
         <li><a href="/android/#coverage">Coverage</a></li>
-        <li><a href="/ios/">iOS</a></li>
         <li><a href="/beta/">Beta</a></li>
         <li><a href="/feedback/" class="nav-feedback">Feedback</a></li>
         <li><a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="nav-cta">Get It Now</a></li>
@@ -635,6 +638,11 @@
       <div class="stat"><b class="display" data-count="30">30</b><span>Day full refund promise</span></div>
     </div>
   </header>
+
+
+  <section class="accsoon-announcement" id="accsoon-partnership" aria-label="Accsoon partnership">
+    <div class="container"><div class="accsoon-announcement-brand"><p class="mono">IN PARTNERSHIP WITH</p><img src="/accsoon/assets/accsoon-wordmark-white.svg?v=2" alt="Accsoon" width="140" height="31" loading="lazy"></div><div><h2 class="display">Your tools. On your Accsoon monitor.</h2><p>Meet the dedicated ZR Ctl edition for CineView M7: a native app for your Accsoon monitor, with HDMI monitoring and camera control.</p><a href="/accsoon/#m7">Explore the Accsoon edition <span aria-hidden="true">↗</span></a></div></div>
+  </section>
 
   <!-- ───────── MARQUEE ───────── -->
   <div class="marquee mono" aria-label="What filmmakers say about ZR Ctl">
@@ -1079,6 +1087,8 @@
       <div class="foot-row">
         <span class="foot-tc mono"><span>&#9679;</span> ZR CTL &middot; &copy; 2026 &middot; TC <span id="footTimecode">00:00:00:00</span></span>
         <div class="links mono">
+          <a href="/accsoon/">Accsoon</a>
+          <a href="/portal/">My purchases</a>
           <a href="/how-to/">How-to</a>
           <a href="/android/tutorial/">Tutorials</a>
           <a href="/privacy/">Privacy</a>
@@ -1089,7 +1099,7 @@
         </div>
       </div>
       <p class="legal">
-        ZR Ctl is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or any other camera manufacturer or trademark owner mentioned on this site. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
+        ZR Ctl is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation or Nikon Inc. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
       </p>
     </div>
   </footer>

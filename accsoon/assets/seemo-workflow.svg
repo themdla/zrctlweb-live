@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="300" viewBox="0 0 1120 300" role="img" aria-labelledby="title desc">
+  <title id="title">SeeMo and Parallax Monitor connection paths</title>
+  <desc id="desc">HDMI carries the picture from camera to SeeMo. A cable connects SeeMo to the iPhone or iPad. A separate Wi-Fi connection carries camera controls.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0 8 4 0 8" fill="none" stroke="#b8f2d8"/></marker></defs>
+  <g font-family="Arial,sans-serif" fill="#f5f5f0" text-anchor="middle">
+    <g stroke="#3b5145" fill="#141e19"><rect x="40" y="58" width="240" height="112" rx="8"/><rect x="440" y="58" width="240" height="112" rx="8"/><rect x="840" y="58" width="240" height="112" rx="8"/></g>
+    <text x="160" y="109" font-size="23">Your camera</text><text x="160" y="139" font-size="13" fill="#aebdb4">HDMI output + Wi-Fi control</text>
+    <text x="560" y="109" font-size="23">Accsoon SeeMo</text><text x="560" y="139" font-size="13" fill="#aebdb4">HDMI to iOS</text>
+    <text x="960" y="109" font-size="23">Parallax Monitor</text><text x="960" y="139" font-size="13" fill="#aebdb4">iPhone / iPad</text>
+    <g stroke="#b8f2d8" stroke-width="2" fill="none" marker-end="url(#arrow)"><path d="M280 114H426"/><path d="M680 114H826"/><path d="M160 170V238H960V184" stroke-dasharray="6 6" marker-start="url(#arrow)"/></g>
+    <text x="355" y="94" font-size="13" fill="#b8f2d8">HDMI picture</text><text x="755" y="94" font-size="13" fill="#b8f2d8">Cable</text>
+    <rect x="412" y="223" width="296" height="30" fill="#101514"/><text x="560" y="243" font-size="14" fill="#b8f2d8">Wi-Fi · Camera controls</text>
+  </g>
+</svg>

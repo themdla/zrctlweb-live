@@ -1,0 +1,32 @@
+.accsoon-announcement { background:#0d1a14; border-top:1px solid #254333; border-bottom:1px solid #254333; padding:48px 0; }
+.accsoon-announcement>.container { display:grid; grid-template-columns:240px 1fr; align-items:center; gap:42px; }
+.accsoon-announcement-brand { display:flex; flex-direction:column; align-items:flex-start; gap:18px; padding:0 28px; }
+.accsoon-announcement-brand p { color:#b8f2d8; font-size:9px; letter-spacing:.14em; margin:0; }
+.accsoon-announcement-brand img { display:block; width:140px; height:auto; margin:0; }
+.accsoon-announcement h2 { font-size:clamp(32px,3.5vw,46px); line-height:1.1; margin-bottom:12px; }
+.accsoon-announcement p { color:#b8c2bc; max-width:700px; }
+.accsoon-announcement a { display:inline-block; color:#b8f2d8; font-weight:600; margin-top:20px; text-decoration:underline; text-underline-offset:5px; }
+.accsoon-announcement a:focus-visible { outline:2px solid #b8f2d8; outline-offset:6px; }
+.platform-chooser { overflow-y:auto; }
+.platform-dialog { max-height:calc(100dvh - 48px); overflow-y:auto; }
+.platform-card.accsoon-platform { grid-column:1/-1; grid-template-columns:190px 1fr; background:#0d1a14; border-color:#254333; }
+.accsoon-platform img { width:140px; height:auto; margin:16px 20px; }
+.accsoon-platform strong { background:#b8f2d8; }
+#exploreSite { font:inherit; color:var(--accent); background:none; border:0; text-decoration:underline; cursor:pointer; }
+@media(min-width:769px) { .nav-links { gap:16px; font-size:11px; } }
+@media(max-width:1050px) and (min-width:769px) { .nav-links { gap:10px; font-size:10px; } .nav-cta { padding:9px 12px; } }
+@media(max-width:768px) {
+  .accsoon-announcement>.container { grid-template-columns:1fr; gap:16px; }
+  .accsoon-announcement-brand { padding:0; }
+  .platform-card.accsoon-platform { grid-template-columns:1fr; gap:0; }
+  .accsoon-platform img { margin:16px 0; }
+}
+
+/* Keep platform navigation consistent across all four landing pages. */
+.nav-links a[aria-current="page"] { color:var(--accent); }
+.nav-links a[aria-current="page"]::after { transform:scaleX(1); }
+@media(max-width:1100px) {
+  .nav-links { display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; padding:20px 24px; gap:16px; background:rgba(9,9,11,.97); border-bottom:1px solid #1c1c20; max-height:70vh; overflow-y:auto; }
+  .nav-links.open { display:flex; }
+  .hamburger { display:block; }
+}
