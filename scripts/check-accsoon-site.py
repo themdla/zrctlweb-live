@@ -13,7 +13,7 @@ class Page(HTMLParser):
         if self.current is not None:self.current+=data
     def handle_endtag(self,tag):
         if tag=='script' and self.current is not None:self.ld.append(json.loads(self.current));self.current=None
-files=['index.html','ios/index.html','android/index.html','accsoon/index.html','privacy/index.html','how-to/index.html','tutorial/index.html','share/index.html']
+files=['index.html','ios/index.html','android/index.html','accsoon/index.html','privacy/index.html','how-to/index.html','tutorial/index.html','share/index.html','portal/index.html']
 for name in files:
     p=root/name;data=Page(p.read_text());ids=[a['id'] for t,a in data.tags if 'id' in a]
     assert len(ids)==len(set(ids)),('duplicate IDs',name)
@@ -43,4 +43,4 @@ for name in ['index.html','ios/index.html','android/index.html']:
 ET.parse(root/'sitemap.xml')
 for f in (root/'accsoon/assets').glob('*.svg'):ET.parse(f)
 subprocess.run(['git','diff','--check'],check=True)
-print('PASS: 8 pages, local assets/links, anchors, unique IDs, structured data, checkout target and fallback, favicon retention, SVG/XML and whitespace.')
+print('PASS: 9 pages, local assets/links, anchors, unique IDs, structured data, checkout target and fallback, favicon retention, SVG/XML and whitespace.')

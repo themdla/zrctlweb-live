@@ -155,3 +155,28 @@ html.update-dismissed { --ubh:0px; }
   .container { padding-left:18px; padding-right:18px; }
   .brand-pair { gap:18px; }
 }
+
+.brand-logo { display:flex; align-items:center; gap:12px; }
+.brand-logo img { width:42px; height:42px; border-radius:10px; object-fit:cover; }
+.brand-logo span { font-size:21px; line-height:1; letter-spacing:.04em; text-transform:uppercase; }
+
+/* Polar 0.1 sets viewport dimensions inline; constrain its payment frame only. */
+body.polar-no-scroll::after {
+  content:''; position:fixed; inset:0; z-index:2147483646;
+  background:rgba(0,0,0,.5); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+body.polar-no-scroll > iframe[src^="https://buy.polar.sh/"] {
+  top:50% !important; left:50% !important; transform:translate(-50%,-50%);
+  width:min(560px,calc(100% - 48px)) !important;
+  height:min(820px,calc(100dvh - 64px)) !important;
+  border:1px solid #ffffff26 !important; border-radius:18px;
+  box-shadow:0 28px 100px #0009;
+}
+body.polar-no-scroll > div:has(> .polar-loader-spinner) { position:fixed !important; }
+@media(max-width:600px) {
+  body.polar-no-scroll > iframe[src^="https://buy.polar.sh/"] {
+    width:calc(100% - 24px) !important;
+    height:min(820px,calc(100dvh - 24px)) !important;
+    border-radius:12px;
+  }
+}
