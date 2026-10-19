@@ -1,0 +1,140 @@
+<!--
+title: Connection
+description: The Connection page of Parallax Monitor and ZR Ctl: Simple and Pro modes, USB, hotspot, router and camera Wi-Fi routes, the setup guide, pairing, permissions, failure messages, advanced tools and sending logs.
+kicker: Chapter 05
+-->
+      <p class="chapter-kicker">Chapter 05</p>
+      <h1>Connecting a <span class="hl">camera.</span></h1>
+      <p class="lede">The Connection page is where the phone and the camera meet. It offers four ways to connect a Nikon and one for RED, a setup guide that walks through the camera menus, and the tools for when something goes wrong. For camera-menu screenshots see the <a class="inl" href="/how-to/">How-to</a> page.</p>
+
+      <h2 id="routes">The five routes</h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Route</th><th>Best for</th><th>Camera side</th><th>Trade-offs</th></tr></thead>
+        <tbody>
+          <tr><td>USB cable</td><td>Everything. The app ranks it Best.</td><td>Menu › Network › USB › MTP/PTP, and a USB-C data cable</td><td>The camera turns its own Wi-Fi off while on USB. Can draw power from the phone unless USB power delivery is off on the camera.</td></tr>
+          <tr><td>iPhone hotspot</td><td>Wireless anywhere, phone keeps internet. The app suggests it when no cable is found.</td><td>Connect to computer › Create profile › Search for Wi-Fi network › pick the iPhone</td><td>Keep Maximize Compatibility off so the hotspot stays on 5 GHz.</td></tr>
+          <tr><td>Wi-Fi router</td><td>A studio or home network both devices can join.</td><td>Same as hotspot, but join the router's network</td><td>Crowded 2.4 GHz networks give a poor preview; prefer 5 GHz.</td></tr>
+          <tr><td>Camera's own Wi-Fi (AP)</td><td>When nothing else is available.</td><td>Connect to computer › Create profile › Direct connection to computer; the phone joins the camera's network</td><td>Slowest preview and no internet on the phone.</td></tr>
+          <tr><td>RED (USB-C or Wi-Fi)</td><td>KOMODO, KOMODO-X, V-RAPTOR</td><td>USB-C tether, or the RED on the same Wi-Fi</td><td>The original KOMODO needs the Link Adapter for USB-C. See <a class="inl" href="/manual/red/">RED cameras</a>.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout tip"><strong>Which to pick</strong><p>USB when the phone can live on the cage. Hotspot when you need to move. Router only when a good 5 GHz network already exists. Camera Wi-Fi last.</p></div>
+
+      <h2 id="simple">Simple mode</h2>
+      <p>The page opens in <strong>Simple</strong> mode: a drawing of the camera and the phone, one status line, and one button. The button picks the best route for what it can see, in this order: a camera on the USB cable, a Nikon found by a running Wi-Fi search, a RED found on the network, then the camera's own Wi-Fi if the phone is on a 192.168.1.x network. If none applies, the button reads <strong>Search Wi-Fi</strong> or <strong>Set up a camera</strong>.</p>
+      <ul>
+        <li>The title reads <strong>Camera found</strong> when there is something to connect to, <strong>Connect a camera</strong> when there is not, and <strong>One thing to fix first</strong> when a permission is missing. In that case a pre-flight checklist shows the failed row with a Settings button.</li>
+        <li><strong>Reconnect to ‹camera›</strong> appears under the button when a Wi-Fi camera connected here before.</li>
+        <li><strong>Your cameras</strong> lists up to three cameras you have connected, with the route and when. Tap one to reconnect over the same route.</li>
+        <li><strong>New camera</strong> opens the setup guide; <strong>Quick connect</strong> switches to Pro mode.</li>
+        <li>A Wi-Fi search stops by itself after 20 seconds with no result.</li>
+      </ul>
+      <p>Once connected the page shows <strong>Connected.</strong> with the camera name and transport, and the buttons <strong>Open Live View</strong>, <strong>Controls</strong>, <strong>Disconnect</strong> and <strong>Send logs</strong>. The page you land on after connecting is set in Advanced › UI › Navigation.</p>
+
+      <h2 id="pro">Pro mode</h2>
+      <p><strong>Pro</strong> mode shows one row per route so you choose. A status strip at the top reads READY, CONNECTING or CHECK with what the phone can see: camera on USB, hotspot on, the Wi-Fi name, cellular only, local network off.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Row</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>Quick Reconnect USB / Wi-Fi / AP / IP</td><td>Reconnects over the last successful route to the last camera. For Wi-Fi it searches and connects when the same camera appears.</td></tr>
+          <tr><td>Nikon USB</td><td>Connects to the camera on the cable. The status line says whether a camera is present, reminds you of MTP/PTP and a data cable, and on Lightning devices names the adapter needed.</td></tr>
+          <tr><td>iPhone hotspot</td><td>With the hotspot on, searches for or connects to the camera on it. With the hotspot off, opens the setup guide at the hotspot step.</td></tr>
+          <tr><td>Wi-Fi router</td><td>Searches the current network. When a camera is found the row takes its name; tap to connect. If more than one is found the others are listed under Other cameras.</td></tr>
+          <tr><td>RED · USB-C / Wi-Fi</td><td>Searches USB-C tethers and the current Wi-Fi for a RED and connects to it.</td></tr>
+          <tr><td>Remote Viewer</td><td>Opens the Remote page to watch another phone's Live View.</td></tr>
+          <tr><td>Multicam</td><td>Opens the Multicam page with its own setup guide.</td></tr>
+          <tr><td>Camera Wi-Fi (AP)</td><td>Connects to the camera's own network at 192.168.1.1 once the phone has joined it.</td></tr>
+          <tr><td>Manual IP</td><td>Expands the Advanced area where you can type the camera's address.</td></tr>
+        </tbody>
+      </table></div>
+      <p>The three Wi-Fi rows are disabled while a camera is on the USB cable, because a Nikon on USB turns its Wi-Fi off. The footer has <strong>Send logs</strong> and <strong>Advanced</strong>.</p>
+
+      <h2 id="guide">The setup guide</h2>
+      <p>The guide opens from the <strong>Guide</strong> pill, from New camera or Set up a camera, and by itself the first time the app opens without a camera connected (the <strong>Show setup when the app opens</strong> switch on its first step turns itself off once a camera connects). It has five steps.</p>
+      <ol class="steps">
+        <li><strong>Which camera?</strong><p>Nikon, RED, or Several cameras (which hands over to the Multicam guide).</p></li>
+        <li><strong>How will the camera connect?</strong><p>USB cable (marked Best), iPhone hotspot (marked Suggested when no cable is found), your Wi-Fi router, and under "If none of those work", the camera's own Wi-Fi. The guide pre-selects USB when a camera is on the cable and the camera's Wi-Fi when the phone is already on a 192.168.1.x network.</p></li>
+        <li><strong>Prepare</strong><p>The camera menu steps for the route, written against the Nikon ZR's menu names, and for hotspot and router the phone-side steps. The hotspot step ticks itself when the hotspot comes on; the router step when the phone joins Wi-Fi. Each step links to the matching section of zrctl.com/how-to.</p></li>
+        <li><strong>Connect</strong><p>A live checklist: permission, camera on the cable or on the network, then "Camera answers". The guide connects by itself as soon as the route's condition is met and shows the pairing prompt if the camera needs it. After a failure, Try again repeats the attempt and It's not working sends logs.</p></li>
+        <li><strong>Connected.</strong><p>Confirms the transport and offers Open Live View. Quick Reconnect remembers the path from here on.</p></li>
+      </ol>
+
+      <h2 id="pairing">Pairing</h2>
+      <p>The first time a Nikon connects over Wi-Fi or its own network, the camera asks to pair. The app shows a <strong>PAIR CAMERA</strong> card with the camera's name and a code; the camera shows the same code on its screen. Confirm the prompt on the camera, check the codes match, and tap <strong>Accept</strong>. The camera then restarts its Wi-Fi service, so the app shows "Camera restarting Wi-Fi…" and retries for up to about thirty seconds before it connects. Later connections authenticate without asking.</p>
+      <p>If the camera later refuses the pairing ("The camera refused the pairing"), delete this device's connection profile on the camera, create it again, and pair afresh. USB connections do not pair.</p>
+
+      <h2 id="permissions">Permissions the app asks for</h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Permission</th><th>Why</th><th>If denied</th></tr></thead>
+        <tbody>
+          <tr><td>Camera</td><td>iOS requires it for USB camera control; the app does not use the phone's camera for Nikon work.</td><td>USB cannot connect. The pre-flight checklist shows a Settings button.</td></tr>
+          <tr><td>Local Network</td><td>Finding and talking to cameras on Wi-Fi, RED control, Remote Viewer.</td><td>Every Wi-Fi route fails. Settings › Privacy › Local Network › Parallax Monitor.</td></tr>
+          <tr><td>Location (while using)</td><td>Only to show the name of the Wi-Fi network so you can tell a router, your hotspot and the camera's network apart. Nothing is recorded.</td><td>The network name is not shown; connections still work.</td></tr>
+          <tr><td>Photos (add only)</td><td>Saving clips and photos from the camera to the Photos library.</td><td>Save to Photos fails.</td></tr>
+          <tr><td>Bluetooth, Microphone</td><td>Declared for camera remotes and the parked built-in-camera feature.</td><td>Not needed for Nikon or RED work.</td></tr>
+        </tbody>
+      </table></div>
+      <p>On iOS 18 and later a <strong>Wired Accessories</strong> prompt may also appear when a camera is plugged in; approve it, or allow it under Settings › Privacy &amp; Security › Wired Accessories.</p>
+
+      <h2 id="failures">When a connection fails</h2>
+      <p>A red card gives a headline, a suggested fix and a button that retries the last route (Reconnect USB, Find Camera, Reconnect AP, Quick Reconnect or Open Setup), plus Send logs. The headlines and what they mean:</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Headline</th><th>Meaning and fix</th></tr></thead>
+        <tbody>
+          <tr><td>USB access needs attention</td><td>Camera permission is off. Settings › Privacy &amp; Security › Camera › Parallax Monitor, then tap Nikon USB.</td></tr>
+          <tr><td>iOS hasn't detected the camera</td><td>Nothing appeared on the cable. Unlock the phone, approve any Wired Accessories prompt, wake the camera, confirm MTP/PTP, try another data cable. If it persists, use Reset USB Permissions (below).</td></tr>
+          <tr><td>The camera didn't open over USB</td><td>iOS saw something but could not open it. Set Network › USB › MTP/PTP, half-press the shutter to clear any pop-up, unplug and replug.</td></tr>
+          <tr><td>The camera didn't answer over USB</td><td>iOS opened the camera but it did not respond. Make sure it is in MTP/PTP, not iPhone or UVC streaming mode, and clear any pop-up.</td></tr>
+          <tr><td>The camera dropped off USB</td><td>Reconnect the cable directly without a hub and wait a few seconds.</td></tr>
+          <tr><td>The camera refused the pairing</td><td>Delete this device's profile on the camera and pair again.</td></tr>
+          <tr><td>This phone isn't on the camera's Wi-Fi / network</td><td>Join the camera's network (for AP, the one shown on the camera) or put both devices on the same Wi-Fi or hotspot.</td></tr>
+          <tr><td>The camera isn't accepting the connection / didn't answer</td><td>The route exists but the camera refused or timed out. Keep it in Direct connection mode, wake it, reconnect.</td></tr>
+          <tr><td>The camera stopped responding</td><td>The link dropped after it was ready. Wake the camera, check the network has not changed, reconnect.</td></tr>
+          <tr><td>Couldn't reach the camera</td><td>Search found nothing. Keep both on the same network, or connect by IP from Advanced.</td></tr>
+        </tbody>
+      </table></div>
+      <p>Two notes are appended where they apply. The <strong>USB power delivery tip</strong>: if USB keeps failing, turn off USB power delivery in the camera's Setup menu; several cameras fail to enumerate while drawing power from the phone. The <strong>Lightning note</strong>: an iPhone or iPad with a Lightning port needs Apple's Lightning to USB 3 Camera Adapter with its power input connected and a data cable from the adapter to the camera; a USB-C to Lightning cable alone never shows the camera.</p>
+
+      <h3 id="reset-usb">Reset USB Permissions <span class="tag new">New in 2.1</span></h3>
+      <p>When a USB attempt fails because iOS never surfaced the camera, the failure card offers <strong>Reset USB Permissions</strong> inline. iOS can hold a stale permission for a camera it has seen before; the reset clears it and may show the permission prompts again. It is also available from the USB PERMISSIONS card under Advanced. Disconnect cameras first.</p>
+
+      <h2 id="recording">Recording and reconnecting</h2>
+      <div class="callout warn"><strong>A recording camera will not accept a new connection</strong><p>If the link drops while the camera is recording, the app does not try to reconnect, because the camera refuses until the recording stops. You will see "Connection Lost While Recording". The camera keeps recording on its own. Stop it on the camera, then tap the route again. This is why the app treats a session that is recording as precious: it never restarts the connection on its own while rolling.</p></div>
+      <ul>
+        <li>Over USB, if iOS suspends the app while recording, the session is left alone and resumes when you return. When not recording, a camera that was unplugged reconnects once on return to the foreground.</li>
+        <li>Over Wi-Fi, if Live View loses its link the app retries twice ("NO LINK — reconnecting 1/2") and then pauses so it does not hammer the camera. Four drops in two minutes also pause automatic recovery. Reconnect from the Connection page.</li>
+        <li>A USB connect that finds no camera for ten minutes after a drop during recording is explained by the recording: stop it on the camera.</li>
+      </ul>
+
+      <h2 id="advanced">Advanced area</h2>
+      <p>Tap <strong>Advanced</strong> in the Pro footer (or the Connected footer in Pro mode) to reveal three cards.</p>
+      <div class="setting">
+        <h3 id="usb-permissions">USB PERMISSIONS</h3>
+        <p>Three rows: <strong>Camera access</strong> (the iOS Camera permission), <strong>USB camera control</strong> and <strong>USB media access</strong> (two separate iOS permissions for a USB camera), each marked Granted, Denied, Restricted, Not requested or Not verified. Tap a row for help and the buttons Allow Camera Access, Reset USB Permissions and Open Settings. Granted permissions do not prove iOS has detected a camera; they only rule the permissions out.</p>
+      </div>
+      <div class="setting">
+        <h3 id="support">SUPPORT</h3>
+        <ul>
+          <li><strong>Upload Diagnostics</strong> sends the same report as Send logs straight to the app's private diagnostics backend and shows a short reference you can quote in an email.</li>
+          <li><strong>Send diagnostics automatically</strong> (off by default) uploads a focused report whenever a connection failure is detected. Local network details are kept because they are what diagnoses connectivity; credentials are never included. The same switch is in Advanced › System.</li>
+        </ul>
+      </div>
+      <div class="setting">
+        <h3 id="advanced-tools">ADVANCED TOOLS</h3>
+        <ul>
+          <li><strong>Manual IP</strong>: type the camera's address and tap Connect by IP. Use it on a router network where search finds nothing, for example when the router blocks Bonjour. The camera shows its address in Connect to computer › Network settings.</li>
+          <li><strong>Zf Remote-Only Controls</strong> (off by default): the same switch as the Remote Mode tile on Controls. On, the Zf or Zfc takes exposure from the app and ignores its dials. Applies immediately to a connected camera and persists.</li>
+          <li><strong>Auto USB Connect</strong> (off by default): connects by itself when exactly one camera appears on USB and the app is idle. Skipped while recording, during a RED or Multicam session and in the background; pauses after two failed attempts until you tap Nikon USB. Leave it off when the cable is only for power, because a USB session turns the camera's Wi-Fi off.</li>
+        </ul>
+      </div>
+
+      <h2 id="send-logs">Sending logs</h2>
+      <p><strong>Send logs</strong> builds a support report with the app version, device, iOS version, transport, camera and the recent connection log, copies it to the clipboard and opens an email to support with the report attached as a text file. If no mail app is set up it offers the share sheet or leaves the report on the clipboard. It contains no photos or video. Send it right after the failure, before reconnecting, so the log still holds the failed attempt. If nothing useful has happened yet the app says so and asks you to reproduce the problem first.</p>
+
+      <h2 id="transport-notes">Good to know</h2>
+      <ul>
+        <li>Only one brand is active at a time outside Multicam: connecting a RED disconnects the Nikon and the reverse.</li>
+        <li>The first connection over each transport seeds the Live View preview: VGA and Normal+ on Wi-Fi and camera AP, XGA and Fine+ on USB. Change them in Advanced › Monitoring › Preview.</li>
+        <li>A list of cameras left over from a stopped search is never dialled; the app searches again, so you only ever connect to a camera that is really there.</li>
+        <li>The hotspot address is detected automatically. The camera's own network is always 192.168.1.1.</li>
+      </ul>

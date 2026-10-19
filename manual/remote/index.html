@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remote Viewer and HDMI | Parallax Monitor &amp; ZR Ctl User Manual</title>
+  <meta name="description" content="Cast the Live View picture to other iPhones, iPads and Android devices as read-only monitors; use an HDMI capture card or the Accsoon SeeMo as the picture source; and the Live Activities on the Lock Screen and Dynamic Island.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/manual/remote/">
+
+  <meta property="og:title" content="Remote Viewer and HDMI | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta property="og:description" content="Cast the Live View picture to other iPhones, iPads and Android devices as read-only monitors; use an HDMI capture card or the Accsoon SeeMo as the picture source; and the Live Activities on the Lock Screen and Dynamic Island.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zrctl.com/manual/remote/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Remote Viewer and HDMI | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta name="twitter:description" content="Cast the Live View picture to other iPhones, iPads and Android devices as read-only monitors; use an HDMI capture card or the Accsoon SeeMo as the picture source; and the Live Activities on the Lock Screen and Dynamic Island.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/manual/manual.css">
+
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.0_android-2.1.7_accsoon-coming';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+    <div class="container update-banner-inner">
+      <span class="update-copy">Parallax Monitor <strong>2.0</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
+      <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
+      <button class="update-close" type="button" aria-label="Dismiss update notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/manual/" aria-current="page">Manual</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container manual-shell">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="false" aria-controls="manualSidebar">
+      <span>Manual contents</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <aside class="manual-sidebar" id="manualSidebar" aria-label="Manual navigation">
+      <p class="sidebar-title">User Manual</p>
+      <div class="sidebar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="manualSearch" placeholder="Search the manual" aria-label="Search the manual" autocomplete="off">
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+      <ul class="chapter-list" id="chapterList"></ul>
+      <div>
+        <p class="sidebar-title">On this page</p>
+        <ul class="page-toc" id="pageToc"></ul>
+      </div>
+    </aside>
+
+    <main class="manual-article" id="main">
+      <p class="chapter-kicker">Chapter 15</p>
+      <h1>Remote Viewer, HDMI and <span class="hl">Live Activities.</span></h1>
+      <p class="lede">Three features extend the monitor beyond the phone on the cage. Remote Viewer turns other phones and tablets into client or director screens. An HDMI capture card or Accsoon SeeMo gives a full-quality HDMI picture while the app keeps controlling the camera over Wi-Fi. Live Activities put the recording timer on the Lock Screen.</p>
+
+      <h2 id="cast">Remote Viewer (CAST)</h2>
+      <p>One device is the <strong>host</strong>: it is connected to the camera and running Live View. Other devices on the same Wi-Fi are <strong>viewers</strong>: they receive the picture and the host's look, and cannot touch the camera.</p>
+      <h3 id="host">Host side</h3>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Pill</dt><dd>CAST in the Live View toolbar; tap to start or stop broadcasting</dd>
+          <dt>Long-press</dt><dd>Cast Stream: JPEG Fast, JPEG HQ, JPEG VBR (default JPEG Fast)</dd>
+          <dt>Viewers</dt><dd>Up to 16 on an iOS host, 4 on an Android host</dd>
+          <dt>Sends</dt><dd>The Nikon Live View picture (or the HDMI picture when that is the source), the host's LUT state and match values, and photo-review images. RED pictures are not cast</dd>
+        </dl>
+        <ul>
+          <li><strong>JPEG Fast</strong> sends a reduced frame (up to 640 px on the long edge) at moderate quality: lowest latency and least Wi-Fi load, right for several viewers.</li>
+          <li><strong>JPEG HQ</strong> passes the camera's own preview frames through untouched: best picture, heaviest on the network.</li>
+          <li><strong>JPEG VBR</strong> adapts quality and size to each viewer's connection and backs off when a viewer falls behind: the safest choice on a busy network.</li>
+        </ul>
+        <p>The Connection page's Remote Viewer row reads "Broadcast active" while casting.</p>
+      </div>
+      <h3 id="viewer">Viewer side (the Remote page)</h3>
+      <ul>
+        <li>Open the <strong>Remote</strong> page. The viewer searches for hosts by itself; <strong>Search hosts</strong> opens the list, with a tick on the connected host. The status line shows Connecting, Connected or Receiving.</li>
+        <li><strong>Monitor Tools</strong>: LOOK follows the <strong>Host</strong> LUT, turns the look <strong>Off</strong>, or applies a <strong>LUT</strong> chosen on the viewer; GRID offers Off, 3rds, Cross, Safe; FRAME offers Off, 16:9, 1.85, 2.39, 1:1, 9:16. These choices affect only the viewing device.</li>
+        <li><strong>Hide remote interface</strong> gives a clean full-screen picture; an info button brings the controls back.</li>
+        <li>Photo reviews from the host appear as an overlay on the viewer too.</li>
+      </ul>
+      <div class="callout warn"><strong>A trusted network only</strong><p>There is no pairing, password or encryption on the viewer link. Anyone on the same Wi-Fi who runs the app can watch. Use it on a production network or your own hotspot, not on venue Wi-Fi.</p></div>
+      <div class="use"><strong>When to use it</strong><p>A director or client monitor without video transmitters, a focus puller's screen on a second phone, or an iPad on a stand for the crew. Works between iOS and Android ZR Ctl in both directions. The host and viewers must be on the same Wi-Fi; a phone hotspot run by the host works.</p></div>
+
+      <h2 id="hdmi">HDMI capture card <span class="tag ipad">iPad</span></h2>
+      <p>The camera's Live View stream over Wi-Fi is a modest JPEG preview. For a full-quality picture, plug an HDMI to USB-C capture card into a USB-C iPad (or a Mac) and feed it from the camera's HDMI output. The app uses the card as the picture while the camera stays connected over Wi-Fi or its own network for control, timecode, AF boxes, audio levels and the record state.</p>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Pill</dt><dd>HDMI in Live View, reading OFF, STARTING or ON; tap to switch the picture source, long-press for settings</dd>
+          <dt>Appears when</dt><dd>A Nikon is connected over Wi-Fi or camera AP and a capture card is plugged in. On iPhone there is no capture-card support in iOS, so the pill does not appear there</dd>
+          <dt>Settings</dt><dd>Resolution and frame rate plans per card, and a Picture Source row when more than one device is attached</dd>
+          <dt>Not available with</dt><dd>USB camera control (the port is taken), RED cameras, WIPE</dd>
+        </dl>
+        <ul>
+          <li><strong>Automatic colour match</strong> <span class="tag new">New in 2.1</span>: capture cards shift colour and levels (the common green or magenta cast). For a few seconds after the source starts, the app compares the card's picture with the camera's own Live View and fits a correction, showing <strong>AUTO-CALIBRATING</strong>. The correction is remembered per card.</li>
+          <li><strong>Cadence</strong> <span class="tag new">New in 2.1</span>: only complete frames are shown at 24, 25 and 30p, repeated frames are skipped, and the real source rate is measured.</li>
+          <li>If the HDMI signal drops, capture restarts by itself once the signal returns.</li>
+          <li>Every monitoring tool and the LUT run on the HDMI picture. The exposure tools stay calibrated to the camera's log curve from the control link.</li>
+        </ul>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Pulling focus or judging a client monitor on an iPad where the Wi-Fi preview is not sharp enough. Set the camera's HDMI output to the clean log signal (no camera LUT) so the app's LUT and tools see the recorded image.</p></div>
+
+      <h2 id="seemo">Accsoon SeeMo <span class="tag">iPhone and iPad</span> <span class="tag new">New in 2.1</span></h2>
+      <p>The Accsoon SeeMo is an HDMI adapter made for iPhone and iPad. It delivers a 1080p HDMI picture over the Lightning or USB-C port, which is the only way to get an HDMI picture on an iPhone. The app treats it like a capture card: a <strong>SEEMO</strong> pill appears when the adapter is connected and a Nikon is linked over Wi-Fi; tap to switch between the SeeMo picture and the camera's own preview. The session is kept warm so switching is instant. The SeeMo has no resolution settings; its format follows the HDMI input.</p>
+
+      <h2 id="live-activities">Live Activities <span class="tag">iPhone</span></h2>
+      <p>While the camera records, the Lock Screen and the Dynamic Island show a live card so you can check the rig without unlocking the phone.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Mode</th><th>Shows</th></tr></thead>
+        <tbody>
+          <tr><td>Video recording</td><td>REC, the elapsed timer, the camera name, and the card time left from the camera's remaining-record estimate <span class="tag new">New in 2.1</span>. The expanded island adds the camera battery.</td></tr>
+          <tr><td>Long exposure</td><td>PHOTO with the open-shutter timer during a Bulb or Time exposure.</td></tr>
+          <tr><td>Timelapse</td><td>TIME with the phase, shots taken of total, and the countdown to the next exposure, or Paused.</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>The card is status only; there is no stop button in it. Stop from the app or the camera.</li>
+        <li>If the app has had no fresh word from the camera for 30 seconds the card turns orange with a "?" and "Open Parallax to check camera status". A lost connection shows "Connection lost — camera state unknown" and the card ends a minute later.</li>
+        <li>The activity starts only while the app is in the foreground and is Nikon only.</li>
+      </ul>
+      <nav class="chapter-nav" id="chapterNav" aria-label="Previous and next chapter"></nav>
+      <p class="feedback-strip">Something missing or wrong on this page? Email <a href="mailto:mike@itsmadcreative.com?subject=Manual%20feedback%3A%20Remote%20Viewer%20and%20HDMI">mike@itsmadcreative.com</a> with the page name and what you expected to find.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/">Main Page</a></li>
+          <li><a href="/ios/">iOS Site</a></li>
+          <li><a href="/android/">Android Site</a></li>
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/manual/">Manual</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/compliance/">Compliance</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl and Parallax Monitor are independent projects and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/manual/manual.js"></script>
+</body>
+</html>

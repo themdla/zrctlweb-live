@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exposure tools | Parallax Monitor &amp; ZR Ctl User Manual</title>
+  <meta name="description" content="Scopes (histogram, waveform, RGB parade, vectorscope), false color styles, zebras, X-Lights and X-Posts, and the photo exposure meter in Parallax Monitor and ZR Ctl, with when to use each.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/manual/exposure-tools/">
+
+  <meta property="og:title" content="Exposure tools | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta property="og:description" content="Scopes (histogram, waveform, RGB parade, vectorscope), false color styles, zebras, X-Lights and X-Posts, and the photo exposure meter in Parallax Monitor and ZR Ctl, with when to use each.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zrctl.com/manual/exposure-tools/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Exposure tools | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta name="twitter:description" content="Scopes (histogram, waveform, RGB parade, vectorscope), false color styles, zebras, X-Lights and X-Posts, and the photo exposure meter in Parallax Monitor and ZR Ctl, with when to use each.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/manual/manual.css">
+
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.0_android-2.1.7_accsoon-coming';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+    <div class="container update-banner-inner">
+      <span class="update-copy">Parallax Monitor <strong>2.0</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
+      <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
+      <button class="update-close" type="button" aria-label="Dismiss update notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/manual/" aria-current="page">Manual</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container manual-shell">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="false" aria-controls="manualSidebar">
+      <span>Manual contents</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <aside class="manual-sidebar" id="manualSidebar" aria-label="Manual navigation">
+      <p class="sidebar-title">User Manual</p>
+      <div class="sidebar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="manualSearch" placeholder="Search the manual" aria-label="Search the manual" autocomplete="off">
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+      <ul class="chapter-list" id="chapterList"></ul>
+      <div>
+        <p class="sidebar-title">On this page</p>
+        <ul class="page-toc" id="pageToc"></ul>
+      </div>
+    </aside>
+
+    <main class="manual-article" id="main">
+      <p class="chapter-kicker">Chapter 07</p>
+      <h1>Exposure <span class="hl">tools.</span></h1>
+      <p class="lede">Five tools read the exposure of the picture: SCOPE, FALSE, ZEBRA, EXPO and, in photo mode, EXP. They share one idea: they measure the signal the camera records, before the LUT, and they know which log curve the camera is using. This chapter explains each tool, every option, and which one to reach for.</p>
+
+      <h2 id="calibration">How the tools are calibrated</h2>
+      <p>The thresholds for "clipped", "highlight warning", "middle grey" and "crushed shadow" are not fixed numbers. They depend on the recording profile:</p>
+      <ul>
+        <li><strong>R3D / Log3G10</strong> on the Nikon ZR and RED bodies. The highlight thresholds follow the ISO and the active base ISO.</li>
+        <li><strong>N-Log</strong> on Nikon bodies, using Nikon's published curve: black near 12%, middle grey near 35 IRE, clip at the top of the range. N-Log is assumed whenever the codec reports it or the selected LUT's name contains "N-Log".</li>
+        <li><strong>SDR</strong> (Rec.709 and similar) when neither applies.</li>
+      </ul>
+      <p>The calibration is refreshed when you change the codec, the ISO, the base ISO or the LUT, and frozen while recording so a mid-take change cannot move the guides. With <strong>Analyze Pre-LUT</strong> on (the default, in Advanced › Monitoring › Scopes), every tool reads the log signal under the LUT; turn it off and they read the LUT output instead.</p>
+      <div class="callout tip"><strong>Why this matters</strong><p>A contrasty LUT makes an overexposed sky look fine. Because the tools read the recorded signal, zebras and false color still show the clip. Trust the tools, not the look.</p></div>
+
+      <h2 id="scopes">SCOPE: histogram, waveform, parade, vectorscope</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Scope on or off, using the last type (Waveform by default)</dd>
+          <dt>Long-press</dt><dd>Histogram, Waveform, RGB Parade, Vectorscope; tap the active one to turn the scope off. Opacity: 100%, 75%, 50%, 35% (default 100%)</dd>
+          <dt>Size</dt><dd>Drag the ↔ handle or pinch the panel, 0.85x to 2.4x (default 1.35x). Double-tap the panel to reset. Also Scope Size in Advanced</dd>
+          <dt>Mode</dt><dd>Video and photo</dd>
+        </dl>
+        <p>The scope floats over the picture and can be long-pressed and dragged anywhere. The waveform and parade draw dashed guide lines with their 8-bit code values on the right: <strong>C</strong> (red) is the highlight clip point, <strong>H</strong> (yellow) the highlight warning, <strong>M</strong> (green) middle grey, <strong>S</strong> (red) the shadow clip point, with an orange shadow-warning line. In N-Log pre-LUT mode S is pinned to code 32 and C to 255; in other profiles the lines move with ISO and base ISO.</p>
+      </div>
+      <h3 id="histogram">Histogram</h3>
+      <p>Red, green, blue and luma counts of how many pixels sit at each brightness, with the calibration bands shaded. A pile-up at the right edge is clipping; at the left edge, crushed shadows.</p>
+      <div class="use"><strong>When to use it</strong><p>A quick overall check, especially for stills. It does not tell you where in the frame the problem is; use the waveform or false color for that.</p></div>
+      <h3 id="waveform">Waveform</h3>
+      <p>Brightness plotted against horizontal position, so the scope lines up with the picture left to right. Read the level of a face or a wall by finding its column.</p>
+      <div class="use"><strong>When to use it</strong><p>The default for video exposure. Put faces around the M line plus one stop (the gap between M and H is roughly two stops in log), keep the brightest thing you care about below C, and keep important shadows above S.</p></div>
+      <h3 id="parade">RGB Parade</h3>
+      <p>Three waveforms side by side for red, green and blue. For a neutral object the three traces should sit at the same height.</p>
+      <div class="use"><strong>When to use it</strong><p>White balance and camera matching. If blue sits higher than red on a grey wall, the image is too cool: raise the Kelvin. If green sits apart from the other two, adjust tint. In Multicam, put a grey card in front of each camera and match the parades.</p></div>
+      <h3 id="vectorscope">Vectorscope</h3>
+      <p>Hue and saturation only, on a BT.709 graticule with 75% targets for red, yellow, green, cyan, blue and magenta, a skin-tone line, and a gain note (the display is amplified so small saturations are visible).</p>
+      <div class="use"><strong>When to use it</strong><p>Skin tones and colour balance. A face should fall on the skin line whatever the ethnicity; if it sits to one side, white balance or tint is off. A grey card should sit dead centre. Log footage is low in saturation, so the trace looks small; that is normal.</p></div>
+
+      <h2 id="false-color">FALSE: false color</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>False color on or off, using the style chosen in settings</dd>
+          <dt>Long-press</dt><dd>Off, ZR Calibrated, IRE Spectrum, Cine Classic, Clip Guard, X-Zone</dd>
+          <dt>Default style</dt><dd>X-Zone</dd>
+          <dt>Legend</dt><dd>Shown by default (False Color Legend in Advanced); drag it anywhere</dd>
+          <dt>Exclusive with</dt><dd>Focus peaking and zebras. Turning false color on turns peaking off, and the reverse</dd>
+        </dl>
+        <p>False color replaces the picture with a colour per exposure band. Each style has its own set of bands; the legend lists them top to bottom from brightest to darkest.</p>
+      </div>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Style</th><th>Bands (top to bottom)</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr><td>X-Zone</td><td>Thirteen one-stop bands from +6 through 0 (middle grey) to −6, scaled to the active log curve</td><td>Lighting and ratio work: you can read how many stops a face is above a wall at a glance. The default.</td></tr>
+          <tr><td>ZR Calibrated</td><td>Clip, Warn Hi, Near Hi, Upper Mid, Mid Gray, Low Mid, Shadow, Deep Shadow</td><td>Everyday exposure on the ZR with the thresholds tuned to its log.</td></tr>
+          <tr><td>IRE Spectrum</td><td>Clip, Warn Hi, Near Hi, Upper Hi, Skin Hi, Mid Gray, Low Mid, Shadow, Deep Shadow</td><td>The familiar rainbow palette with a dedicated skin band, if you come from other monitors.</td></tr>
+          <tr><td>Cine Classic</td><td>Clip, Near Hi, Skin +1, Mid Gray, Shadow, Deep Shadow</td><td>A six-band palette that stays calm: most of the frame keeps its colour and only the landmarks are painted.</td></tr>
+          <tr><td>Clip Guard</td><td>Over, Mid Gray, Under</td><td>The simplest check: three colours for clipped, correct and crushed. Good for fast run-and-gun.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="use"><strong>When to use it</strong><p>Setting up a shot or lighting a scene, when you want to see the exposure of everything at once. It is less useful while rolling because the picture itself disappears; switch to zebras or X-Lights once exposure is set. The style can also be changed in Advanced › Monitoring › Scopes.</p></div>
+
+      <h2 id="zebras">ZEBRA: zebras</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Zebras on or off</dd>
+          <dt>Long-press</dt><dd>Highlights, Shadows, Mid Gray, All (default All). Picking a mode does not itself turn zebras on</dd>
+          <dt>Exclusive with</dt><dd>False color</dd>
+        </dl>
+        <p>Stripes are painted where the picture reaches a calibrated level. The colours are fixed: <strong>red</strong> for clipped highlights, <strong>yellow</strong> for the highlight warning, <strong>magenta</strong> for crushed shadows, <strong>blue</strong> for the shadow warning, <strong>green</strong> for the middle-grey band. There are no threshold sliders; the levels come from the profile, ISO and LUT calibration, which is the same calibration the scope guides use.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>While rolling. Zebras leave the picture intact and only paint the problem areas. Use Highlights to protect skies and windows, Mid Gray to put a grey card or a face at the reference level, Shadows to catch important darks falling into noise, and All for everything at once.</p></div>
+
+      <h2 id="exposure-assist">EXPO: X-Lights and X-Posts</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>On or off, using the last mode (X-Lights + X-Posts by default)</dd>
+          <dt>Long-press</dt><dd>X-Lights + X-Posts, X-Lights Only, X-Posts Only; tap the active one to turn off</dd>
+          <dt>Needs</dt><dd>A connected camera (Nikon, RED or an HDMI source)</dd>
+        </dl>
+        <p><strong>X-Lights</strong> are three columns, one each for red, green and blue. Each column has an upper lamp for highlight pressure, a segmented bar, and a lower lamp for shadow pressure. A lamp lights as that channel approaches its limit in the pre-LUT signal. Because they are per channel, a saturated red light that clips only the red channel is caught before the luma waveform would show it.</p>
+        <p><strong>X-Posts</strong> are two sixteen-segment meters: <strong>CLIP</strong> (red) for how much of the frame is at or near the clip point and <strong>NOISE</strong> (orange) for how much is down in the noise floor.</p>
+        <p>The panel floats over the picture and can be dragged.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>The "traffic lights" for shooting: glance at the lamps while watching the picture. Keep all lamps off or amber; a red upper lamp means close the aperture or add ND; a red lower lamp means open up or add light. Pair it with zebras to find where the problem is.</p></div>
+
+      <h2 id="exposure-meter">EXP: the camera's exposure meter <span class="tag photo">Photo</span></h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Meter overlay on or off (on by default)</dd>
+          <dt>Range</dt><dd>−3 to +3 EV, with arrows beyond</dd>
+        </dl>
+        <p>A draggable <strong>METER</strong> panel showing the camera's own light meter: a green marker when balanced within half a stop, orange when over, blue when under, with the value in EV. In manual mode it shows the meter reading; in P, S and A it shows the exposure compensation.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Stills in manual mode, when you want the camera's opinion of the scene without looking at the camera. For video, use the scopes instead; the meter does not know about log.</p></div>
+
+      <h2 id="which">Which tool when</h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Situation</th><th>Tool</th></tr></thead>
+        <tbody>
+          <tr><td>Lighting a scene, setting ratios</td><td>False color (X-Zone) to read stops across the frame.</td></tr>
+          <tr><td>Setting exposure for a take</td><td>Waveform with the C/H/M/S guides; place faces one stop above M.</td></tr>
+          <tr><td>Protecting a bright sky or window</td><td>Zebras on Highlights, or Clip Guard false color.</td></tr>
+          <tr><td>Rolling</td><td>Zebras plus X-Lights, so the picture stays visible.</td></tr>
+          <tr><td>White balance and matching cameras</td><td>RGB parade on a grey card; vectorscope for skin.</td></tr>
+          <tr><td>Checking a LUT is not hiding anything</td><td>Any tool with Analyze Pre-LUT on (the default), or WIPE to see the raw log beside the look.</td></tr>
+          <tr><td>Stills, manual mode</td><td>Histogram plus the EXP meter.</td></tr>
+        </tbody>
+      </table></div>
+      <nav class="chapter-nav" id="chapterNav" aria-label="Previous and next chapter"></nav>
+      <p class="feedback-strip">Something missing or wrong on this page? Email <a href="mailto:mike@itsmadcreative.com?subject=Manual%20feedback%3A%20Exposure%20tools">mike@itsmadcreative.com</a> with the page name and what you expected to find.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/">Main Page</a></li>
+          <li><a href="/ios/">iOS Site</a></li>
+          <li><a href="/android/">Android Site</a></li>
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/manual/">Manual</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/compliance/">Compliance</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl and Parallax Monitor are independent projects and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/manual/manual.js"></script>
+</body>
+</html>

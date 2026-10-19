@@ -1,0 +1,139 @@
+<!--
+title: Troubleshooting and FAQ
+description: Answers to the questions Parallax Monitor and ZR Ctl support hears most: USB not detected, Wi-Fi search finds nothing, pairing refused, Zf exposure refused, slow Live View, LUT looks wrong, recording refused, RAW clips won't play, no audio, timecode, Multicam and Remote Viewer.
+kicker: Chapter 18
+-->
+      <p class="chapter-kicker">Chapter 18</p>
+      <h1>Troubleshooting and <span class="hl">FAQ.</span></h1>
+      <p class="lede">The questions support answers most often, with the fix for each. If yours is not here, send logs from the Connection page right after the problem happens and describe what you expected.</p>
+
+      <h2 id="connection">Connecting</h2>
+      <details class="qa"><summary>The app says iOS hasn't detected the camera over USB</summary><div class="qa-body">
+        <p>Nothing appeared on the cable. In order: unlock the phone and approve any Wired Accessories prompt; set the camera to Menu › Network › USB › MTP/PTP (not iPhone, not UVC/UAC streaming); use a cable that carries data, since charge-only cables power the camera but never show it; wake the camera and half-press the shutter to clear any pop-up; unplug and replug. If it keeps happening, turn off USB power delivery in the camera's Setup menu, and tap <strong>Reset USB Permissions</strong> on the failure card. On a Lightning iPhone you need Apple's powered Lightning to USB 3 Camera Adapter.</p>
+      </div></details>
+      <details class="qa"><summary>Wi-Fi search finds nothing</summary><div class="qa-body">
+        <p>Both devices must be on the same network, and the camera must have a Connect to computer profile with Camera control as the connection type, connected (shown green on the camera). End any current camera connection and start the profile again. Check Settings › Privacy › Local Network › Parallax Monitor is on. If a router blocks discovery, type the camera's address under Connection › Advanced › Manual IP. A search stops after 20 seconds; tap again to retry.</p>
+      </div></details>
+      <details class="qa"><summary>The camera cannot see my iPhone hotspot</summary><div class="qa-body">
+        <p>Keep the iPhone on the Personal Hotspot screen so it stays discoverable, with Allow Others to Join on. Leave Maximize Compatibility off; turn it on only if the camera cannot see the network at all, since it drops the hotspot to 2.4 GHz. Simplify the hotspot name and password if the camera's keyboard struggles with them, then run the camera's Search for Wi-Fi network step again.</p>
+      </div></details>
+      <details class="qa"><summary>The camera asks for a pairing code, or refuses the pairing</summary><div class="qa-body">
+        <p>A code on first connection is normal. Confirm on the camera, check it matches the app and tap Accept; then wait while the camera restarts its Wi-Fi. If the camera refuses the pairing later, delete this device's connection profile on the camera, create it again and pair afresh.</p>
+      </div></details>
+      <details class="qa"><summary>I switched from USB to Wi-Fi and the Wi-Fi options are greyed out</summary><div class="qa-body">
+        <p>A Nikon on USB turns its own Wi-Fi off, and the app disables the Wi-Fi rows while a camera is on the cable. Unplug the cable, then connect over Wi-Fi.</p>
+      </div></details>
+      <details class="qa"><summary>The app will not reconnect after the link dropped mid-recording</summary><div class="qa-body">
+        <p>A Nikon that is recording refuses new connections, so the app does not try. The camera is still recording on its own. Stop it on the camera, then tap the route again. See <a class="inl" href="/manual/connect/#recording">Connection</a>.</p>
+      </div></details>
+      <details class="qa"><summary>The Zf (or Zfc) ignores ISO and shutter changes from the app</summary><div class="qa-body">
+        <p>Those bodies take exposure from their dials unless the camera is in Remote Mode. Tap the <strong>Remote Mode</strong> tile on Controls, or accept the "Turn On Remote Mode?" prompt. While it is on, the camera's dials are ignored.</p>
+      </div></details>
+      <details class="qa"><summary>The app opened the Files or Photos import screen when I plugged in</summary><div class="qa-body">
+        <p>iOS offers a photo import for any camera. Back out and return to the app. If the camera shows an upload-priority screen, half-press the shutter to leave it.</p>
+      </div></details>
+
+      <h2 id="live-view">Live View</h2>
+      <details class="qa"><summary>Live View is slow, stutters or lags</summary><div class="qa-body">
+        <p>Over Wi-Fi, lower the preview: Advanced › Monitoring › Preview, set VGA and Normal or lower. Prefer 5 GHz; move closer to the camera on its own network. Over USB, set USB Preview Rate to Standard if Maximum stutters. If the phone is hot or in Low Power Mode, the overlays slow down deliberately so the picture does not. For the best picture use USB, or an HDMI capture card on an iPad.</p>
+      </div></details>
+      <details class="qa"><summary>Live View goes black or freezes with "No link"</summary><div class="qa-body">
+        <p>The connection dropped. Over Wi-Fi the app retries twice, then pauses. Tap Back to Connection and reconnect. If this happens repeatedly on a router, turn off Adaptive Wi-Fi Heartbeat in Advanced › Monitoring › Preview to test, and send logs either way.</p>
+      </div></details>
+      <details class="qa"><summary>The picture looks flat and grey</summary><div class="qa-body">
+        <p>The camera is recording log (N-Log or R3D) and the LUT is off. Tap the LUT pill, and pick a LUT from the right folder in LOOK: N-Log for N-Log, IPP2 for R3D. See <a class="inl" href="/manual/basics/#log">Why log looks flat</a>.</p>
+      </div></details>
+      <details class="qa"><summary>The LUT looks wrong: green, magenta or far too contrasty</summary><div class="qa-body">
+        <p>The LUT does not match the log curve. An IPP2 or RED Creative LUT on N-Log footage, or an N-Log LUT on R3D, gives exactly this. Choose from the matching folder. If the camera also applies a look on its HDMI output or (RED) in its live stream, that doubles up; set the camera to output log.</p>
+      </div></details>
+      <details class="qa"><summary>The LUT disappears in photo mode</summary><div class="qa-body">
+        <p>By design. The LUT preview is video only; it returns when the camera goes back to video.</p>
+      </div></details>
+      <details class="qa"><summary>I cannot turn on false color and peaking at the same time</summary><div class="qa-body">
+        <p>False color, peaking and zebras share one overlay, so one replaces the other. Use zebras plus peaking while rolling, and false color on its own while lighting.</p>
+      </div></details>
+      <details class="qa"><summary>The zebras or false color seem to be at the wrong level</summary><div class="qa-body">
+        <p>Check the calibration: the tools follow the codec, the ISO and the base ISO, and read the signal under the LUT when Analyze Pre-LUT is on (the default). If you are recording a baked Rec.709 picture, turn Analyze Pre-LUT off. If the LUT name contains "N-Log" the tools assume N-Log, so a mis-named LUT can mislead them.</p>
+      </div></details>
+      <details class="qa"><summary>Focus Punch says "not during RAW"</summary><div class="qa-body">
+        <p>The camera will not magnify while recording N-RAW, ProRes RAW or R3D. Use Monitor Punch (LOCAL) instead while rolling, or check focus before you record.</p>
+      </div></details>
+      <details class="qa"><summary>Recording will not start</summary><div class="qa-body">
+        <p>Read the red line under the clock on Controls, or the badge in Live View: no card, card full, format the card, write-protected, switch the camera to video mode, exit zoom on the camera, camera still writing, or a running TIME sequence. The full list is in <a class="inl" href="/manual/controls/#refused">Controls</a>. On first-generation bodies the app switches the camera into application mode on the first attempt; try again after the tip.</p>
+      </div></details>
+      <details class="qa"><summary>The top bar is cut off or scrolls in landscape</summary><div class="qa-body">
+        <p>Too many chips for the width. In Advanced › UI › Top Toolbar remove a readout, move one across the GAP, turn on Hide Labels or lower the scale. The fit meter there shows when each group fits.</p>
+      </div></details>
+      <details class="qa"><summary>How do I get the layout back to normal?</summary><div class="qa-body">
+        <p>Tap SAVE in Live View and apply the Full HUD preset. Reset On-Screen Tool Positions in Advanced › UI returns the floating tools to their anchors.</p>
+      </div></details>
+      <details class="qa"><summary>Tools got dimmer or update slowly while shooting</summary><div class="qa-body">
+        <p>The phone is hot or in Low Power Mode. The app slows the analysis overlays to keep the picture and the recording going. Get the phone out of the sun or plug it in.</p>
+      </div></details>
+
+      <h2 id="controls-faq">Controls</h2>
+      <details class="qa"><summary>A tile is grey and I cannot change it</summary><div class="qa-body">
+        <p>Tap it: the notice tells you why. "Controlled by the camera" means a dial or the exposure mode owns it (aperture in P mode, shutter in A mode). "Set on camera dial" is the mode dial on Z6III, Zf and Z7II. "Not reported" means the body does not expose it over the control link. Many settings lock while recording.</p>
+      </div></details>
+      <details class="qa"><summary>The ISO list is missing values I know the camera has</summary><div class="qa-body">
+        <p>The list is what the camera allows in the current codec and base ISO. N-Log, HLG and RAW narrow it. Change the base ISO or codec and the list changes.</p>
+      </div></details>
+      <details class="qa"><summary>Can the app set N-Log or HLG for video?</summary><div class="qa-body">
+        <p>No. The camera does not expose the video tone mode over the control link, so set it on the camera. The app detects N-Log from the codec and calibrates the tools accordingly.</p>
+      </div></details>
+      <details class="qa"><summary>Where is the photo/video switch?</summary><div class="qa-body">
+        <p>On the camera. The app follows the camera's selector and cannot change it.</p>
+      </div></details>
+      <details class="qa"><summary>Why is there no tint in photo mode?</summary><div class="qa-body">
+        <p>The tint grid is a movie control. For stills use the camera's white balance fine-tune menu.</p>
+      </div></details>
+
+      <h2 id="playback-faq">Playback</h2>
+      <details class="qa"><summary>N-RAW or R3D clips do not play</summary><div class="qa-body">
+        <p>The phone has no decoder for them, so they are listed only when Show RAW video is on and cannot be played. Record a proxy, or review in the editor. Playback handles H.264, H.265 and ProRes.</p>
+      </div></details>
+      <details class="qa"><summary>A clip takes a long time to start</summary><div class="qa-body">
+        <p>It is streaming into the cache. Large H.265 clips over Wi-Fi buffer for a while; USB 3 is several times faster. Run Test Link Speed in Advanced › Playback: a USB-C cable that classifies as USB 2 is slowing you down. Recently opened clips start instantly from the cache.</p>
+      </div></details>
+      <details class="qa"><summary>Where did my star ratings go in Lightroom?</summary><div class="qa-body">
+        <p>Ratings, picks and colours are kept on the phone and are not written to the camera files. Use them to narrow the selection and then download the picks.</p>
+      </div></details>
+      <details class="qa"><summary>Save to Photos saved a MOV instead of the original</summary><div class="qa-body">
+        <p>With the LUT on or a playback speed other than Source, the app renders a copy with those applied. Turn the LUT off and set the speed to Source to save the original file.</p>
+      </div></details>
+
+      <h2 id="audio-tc">Audio and timecode</h2>
+      <details class="qa"><summary>I cannot hear the camera's audio in headphones</summary><div class="qa-body">
+        <p>The app shows levels, not sound. Live monitoring of the camera's audio is not available over the control link; monitor on the camera. Clip audio plays back in the player.</p>
+      </div></details>
+      <details class="qa"><summary>Timecode shows --:--:--:--</summary><div class="qa-body">
+        <p>Rec TC is off, or the camera has not sent the value yet. Turn Rec TC on in Controls › Audio / TC; the value is read from the Live View stream and appears after a moment.</p>
+      </div></details>
+      <details class="qa"><summary>How do I set the timecode to time of day?</summary><div class="qa-body">
+        <p>Use Timecode Jam-Sync on the Multicam page with Start set to Current; it works with a single camera too. The Controls page can only reset to zero.</p>
+      </div></details>
+
+      <h2 id="rigs">Multicam and Remote Viewer</h2>
+      <details class="qa"><summary>How many cameras can Multicam show?</summary><div class="qa-body">
+        <p>Layouts go up to eight visible tiles. Over USB, how many bodies a hub can run on an iPhone or iPad is something to test with your hub; two USB bodies have been verified on a Mac.</p>
+      </div></details>
+      <details class="qa"><summary>Remote Viewer cannot find the host</summary><div class="qa-body">
+        <p>Host and viewers must be on the same Wi-Fi with Local Network permission allowed on both. Tap CAST on the host and check it reads Broadcasting. A venue network that isolates clients will block it; use your own hotspot or router.</p>
+      </div></details>
+      <details class="qa"><summary>Is the timecode jam frame-accurate?</summary><div class="qa-body">
+        <p>Between Nikon bodies it lines clips up to within a frame or two. Across RED and Nikon the accuracy is not verified. It is a one-time preset over the control link, not genlock.</p>
+      </div></details>
+
+      <h2 id="general">General</h2>
+      <details class="qa"><summary>The phone battery drains fast on USB</summary><div class="qa-body">
+        <p>The camera is charging from the phone. Turn off USB power delivery in the camera's Setup menu, or power the camera from its own battery or a hub.</p>
+      </div></details>
+      <details class="qa"><summary>How do I change the language?</summary><div class="qa-body">
+        <p>Advanced › UI › Language. System Default follows the phone. If a translation reads oddly, send feedback with the exact wording.</p>
+      </div></details>
+      <details class="qa"><summary>What is the difference between Parallax Monitor and ZR Ctl?</summary><div class="qa-body">
+        <p>Parallax Monitor is the iPhone and iPad app; ZR Ctl is the Android app. They share the same tools and layout. Remote Viewer works between them.</p>
+      </div></details>
+      <details class="qa"><summary>What should I include when I send logs?</summary><div class="qa-body">
+        <p>Send them right after the problem, before reconnecting. Add which camera and firmware, which route (USB, hotspot, router, camera Wi-Fi), what you did and what you expected. The report has no photos or video in it.</p>
+      </div></details>

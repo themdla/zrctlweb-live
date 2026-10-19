@@ -1,0 +1,67 @@
+<!--
+title: RED cameras
+description: Connecting RED KOMODO, KOMODO-X and V-RAPTOR to Parallax Monitor and ZR Ctl over Wi-Fi or USB-C, the RED control tiles, autofocus box, LUT handling with Log View, audio meters, timecode, playback remote and what is not supported.
+kicker: Chapter 16
+-->
+      <p class="chapter-kicker">Chapter 16</p>
+      <h1>RED <span class="hl">cameras.</span></h1>
+      <p class="lede">The app controls RED KOMODO, KOMODO-X and V-RAPTOR bodies over RED's RCP2 protocol and monitors their live picture with every tool. This chapter covers what is different from a Nikon.</p>
+
+      <div class="key-grid">
+        <div class="key-item"><span>Bodies</span><strong>KOMODO, KOMODO-X, V-RAPTOR and V-RAPTOR XL families. Not DSMC2 or older</strong></div>
+        <div class="key-item"><span>Link</span><strong>Wi-Fi, or a USB-C network tether (the original KOMODO needs the KOMODO Link Adapter)</strong></div>
+        <div class="key-item"><span>Evidence</span><strong>Built against RED's protocol; field reports are from KOMODO-X on Wi-Fi. Test your body before a shoot</strong></div>
+      </div>
+
+      <h2 id="connect">Connecting</h2>
+      <ol class="steps">
+        <li><strong>Put the RED on the network</strong><p>Either join the RED's Wi-Fi (or put the RED on the same network as the phone), or plug the USB-C tether in. The app prefers the wired path when both exist.</p></li>
+        <li><strong>Search</strong><p>On the Connection page tap <strong>RED · USB-C / Wi-Fi</strong> (Pro mode) or let Simple mode find it. The app probes the local subnet for RED's control port; no address is typed.</p></li>
+        <li><strong>Connect</strong><p>The row takes the camera's name; tap it. Connecting a RED disconnects any Nikon, and the reverse, outside Multicam.</p></li>
+      </ol>
+      <p>The Connection page then shows the RED section with <strong>Open RED Controls</strong> and <strong>Disconnect</strong>. There is no manual IP entry for RED, and only one RED session at a time.</p>
+
+      <h2 id="controls">Controls</h2>
+      <p>The Controls page shows RED tiles whose option lists come from the camera's own firmware, so they match what the camera menu offers. A tile is read only when the camera reports no list, and shows "Waiting for RED camera confirmation" while a change is pending.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Tile</th><th>Sets</th></tr></thead>
+        <tbody>
+          <tr><td>Aperture</td><td>Lens iris on electronic lenses.</td></tr>
+          <tr><td>Angle / Shutter</td><td>Shutter angle, or integration time, whichever the body reports first.</td></tr>
+          <tr><td>ISO</td><td>ISO.</td></tr>
+          <tr><td>ND</td><td>The built-in ND filter.</td></tr>
+          <tr><td>Kelvin, Tint</td><td>White balance.</td></tr>
+          <tr><td>Sensor FPS, Project FPS</td><td>Capture rate and timeline rate.</td></tr>
+          <tr><td>Format, Codec, R3D Quality</td><td>Record format, codec and R3D compression.</td></tr>
+          <tr><td>Live Stream</td><td>The JPEG quality of the live-stream picture the camera sends the phone.</td></tr>
+        </tbody>
+      </table></div>
+      <p>The record card shows READY or RECORDING, the camera's timecode and <strong>MEDIA n% REMAINING</strong>. The status strip shows the battery percentage. The Focus section and the Audio / TC group are not shown for RED.</p>
+
+      <h2 id="live-view">Live View</h2>
+      <ul>
+        <li>The top chips (battery, aperture, shutter, ISO, Kelvin, tint, format, codec) open the same RED pickers.</li>
+        <li>Every monitoring tool works on the RED picture: LUT, scopes, false color, zebras, X-Lights, peaking, guides, desqueeze. The exposure tools calibrate to Log3G10 and follow the ISO.</li>
+        <li><strong>Autofocus</strong>: an <strong>AF</strong> capsule shows Single, Continuous or Off; tap it to change. The camera's own focus and face boxes are drawn; with Touch AF on, tap or drag to move the user box. Single mode runs one autofocus; Continuous keeps tracking. The box size is set by the camera, because the protocol has no command to change it.</li>
+        <li><strong>Audio meters</strong> come from the camera's VU data.</li>
+        <li>Not shown for RED: TIME, PULL, MF, LENS, the REMAIN chip, and the Nikon Mode and EV chips.</li>
+      </ul>
+
+      <h2 id="lut">LUTs and Log View</h2>
+      <p>RED cameras can apply their own look to the live stream. To avoid applying two looks, turning on an app LUT saves the camera's state, enables <strong>Log View</strong> and turns the camera's LUT off, so the app's LUT and tools see the log picture. Turning the app LUT off, or disconnecting, restores the camera's settings. The bundled IPP2 Rec709 and RED Creative folders are built for RED's Log3G10. See <a class="inl" href="/manual/luts/">LUTs and looks</a>.</p>
+
+      <h2 id="multicam">Multicam</h2>
+      <p>A connected RED appears as a tile beside the Nikon bodies, joins group record, takes ISO, shutter, aperture, Kelvin and tint from the shared rail, and receives the timecode jam as a manual internal value. The RED's REC RUN or FREE RUN mode cannot be set over the protocol; set it on the camera. See <a class="inl" href="/manual/multicam/">Multicam</a>.</p>
+
+      <h2 id="playback">Playback remote</h2>
+      <p>With a RED connected, the Playback page lists the camera's clips (name, duration, format, compression, start timecode) and plays them through the camera's own decoder, streaming the result to the phone. Controls: previous clip, back 24 frames, play/pause, forward 24 frames, next clip, refresh. Nothing is downloaded and R3D files cannot be transferred, deleted or exported from the phone. If the firmware does not expose playback control the page says so.</p>
+
+      <h2 id="limits">Not supported for RED</h2>
+      <ul>
+        <li>Still capture, subject detection, audio input settings, card slot selection, the camera level.</li>
+        <li>Focus Pull and Manual Focus Drive; resizing the AF box.</li>
+        <li>Downloading, deleting, rating or exporting R3D clips; thumbnails.</li>
+        <li>Casting the RED picture to Remote Viewers; HDMI capture as the picture source.</li>
+        <li>Live Activities.</li>
+        <li>More than one RED at a time, and older DSMC or DSMC2 bodies.</li>
+      </ul>

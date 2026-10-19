@@ -1,0 +1,118 @@
+<!--
+title: Playback
+description: The Playback page of Parallax Monitor and ZR Ctl: card gallery, filters and sorting, culling with stars, picks and colour labels, the video player with LUT A/B, speed conform and desqueeze, saving to Photos, deleting, the cache and tether sessions.
+kicker: Chapter 13
+-->
+      <p class="chapter-kicker">Chapter 13</p>
+      <h1>Playback.</h1>
+      <p class="lede">Playback browses the camera card over the same connection you monitor with. Review takes, play clips through a LUT, judge slow motion at the delivery frame rate, cull stills, and save originals or graded copies to Photos without pulling the card.</p>
+
+      <figure class="shot"><img src="/images/gallery-playback-overview.png" alt="The Playback gallery showing thumbnails from the camera card with filter tabs" loading="lazy"><figcaption><strong>The gallery.</strong> Thumbnails from the card with the filter tabs along the top.</figcaption></figure>
+
+      <h2 id="gallery">The gallery</h2>
+      <p>On arrival the app reads the card listing and fills in thumbnails progressively. The status line in the header tells you what it is doing ("Scanning card…", "Loaded 240 of 512 card files", "Playback cache ready"). The gallery is kept per camera body and per card, so switching cameras loads that camera's library, and the last library stays browsable offline for anything that was cached.</p>
+      <h3 id="tabs">Tabs</h3>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Tab</th><th>Shows</th></tr></thead>
+        <tbody>
+          <tr><td>All</td><td>Everything on the card.</td></tr>
+          <tr><td>Photos</td><td>Stills, with RAW+JPEG pairs merged into one card.</td></tr>
+          <tr><td>Videos</td><td>Playable clips, plus N-RAW and R3D clips when Show RAW video is on.</td></tr>
+          <tr><td>Timelapses</td><td>Sequences captured with the TIME tool, stored on this device.</td></tr>
+          <tr><td>Session</td><td>Photos saved to this device by a tether session.</td></tr>
+          <tr><td>Favorites</td><td>Starred items.</td></tr>
+        </tbody>
+      </table></div>
+      <h3 id="filters">Filters</h3>
+      <p>The <strong>Filters</strong> button opens a panel; active filters show as chips you can tap to remove.</p>
+      <ul>
+        <li><strong>Type</strong>: one entry per file format on the card (JPG, NEF, MOV, MP4, HEIF and so on).</li>
+        <li><strong>Show RAW video</strong>: lists N-RAW and R3D clips. They cannot play on the phone, so they are hidden by default and the status line says how many are hidden.</li>
+        <li><strong>Date</strong>: one entry per capture date.</li>
+        <li><strong>Card</strong>: slot 1 or slot 2.</li>
+        <li><strong>Shape</strong>: Wide, Tall, Square or Unknown.</li>
+        <li><strong>Review</strong>: Pick (Unmarked, Approved, Rejected), Rating (1+ to 5+ stars), Color (None, Red, Yellow, Green, Blue, Purple).</li>
+      </ul>
+      <p>The sort button toggles <strong>Newest</strong> and <strong>Oldest</strong>. Filters and sort order are remembered.</p>
+      <h3 id="header">Header buttons</h3>
+      <p><strong>Refresh</strong> re-reads the card (use it after shooting more, or when the camera denied access). <strong>Load thumbnails</strong> fetches previews for what is on screen. The <strong>info</strong> button toggles the filename and format overlay on each card. <strong>Select media</strong> enters selection mode. The <strong>camera</strong> button starts or ends a tether session.</p>
+      <h3 id="cards">Cards</h3>
+      <p>Tap a card to open it. A star in the corner marks a favourite. A number chip at the top left means a <strong>burst</strong> (consecutive photos less than a second apart) stacked into one card; tap the chip to expand it. A <strong>RAW+JPEG</strong> badge means both files exist and are treated as one capture. A coloured stripe and a capsule show the colour label, pick state and star rating.</p>
+
+      <h2 id="culling">Culling: favourites, stars, picks, colours</h2>
+      <p>Both viewers have a review strip: <strong>Reject</strong> and <strong>Pick</strong>, a row of one to five <strong>stars</strong>, and a <strong>colour tag</strong> (Red, Yellow, Green, Blue, Purple). Tap the current value again to clear it. Favourites apply to the whole RAW+JPEG pair.</p>
+      <div class="callout info"><strong>Stored in the app, not on the card</strong><p>Ratings, picks, colours and favourites live on the phone. They are not written to the camera and do not travel with the files into Lightroom. Use them to narrow a selection on set, then use Download selected originals to hand the picks over.</p></div>
+
+      <h2 id="selection">Selection, download and delete</h2>
+      <p>In selection mode, tap cards to select them (a card selects its whole RAW+JPEG capture), or <strong>Select all visible</strong>. Then:</p>
+      <ul>
+        <li><strong>Download selected originals</strong> pulls the full files to the device and opens the share sheet, so you can AirDrop or save them. A progress card shows the file in flight and can be cancelled.</li>
+        <li><strong>Delete selected media</strong> removes the files from the card after a confirmation that counts captures and files. If a selected MP4 proxy has a paired R3D, a second button <strong>Delete Selected + Paired RAW</strong> removes both. Session items are only removed from the app, never from the card.</li>
+      </ul>
+      <p>Single items can be deleted from their viewer. The camera must support deletion over the control link; most Z bodies do.</p>
+
+      <h2 id="player">The video player</h2>
+      <figure class="shot"><img src="/images/gallery-playback-video-player.png" alt="The clip player with transport controls and the LUT A/B button" loading="lazy"><figcaption><strong>The clip player.</strong> Scrubber with the cached range, LUT A/B, speed and desqueeze.</figcaption></figure>
+      <ul>
+        <li><strong>Transport</strong>: skip back 10 s, play/pause, skip forward 10 s. The scrubber shows elapsed and remaining time; a thin second bar shows how much of the clip has been cached. Seeking past the cached part waits for the download.</li>
+        <li><strong>Swipe</strong> left or right on the picture for the previous or next clip. Tap to hide or show the controls; the eye button pins them.</li>
+        <li><strong>Side rail</strong>: close, pin HUD, filmstrip (iPad), mute, favourite, save to Photos, delete, clip details. A vertical volume slider sits on the rail; the app plays clip audio through the phone speaker, AirPlay or Bluetooth.</li>
+        <li><strong>Clip details</strong>: format, codec, resolution, frame rate, bit rate and size.</li>
+      </ul>
+      <div class="setting">
+        <h3 id="speed">Playback speed (conform)</h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Source, 24p, 25p, 30p, 50p, 60p, 120p</dd></dl>
+        <p>Plays the clip as if it were on a timeline of the chosen rate. A 120 fps clip at 24p plays at 0.2x, which is exactly the slow motion you will get in the edit. The badge shows the resulting speed.</p>
+        <div class="use"><strong>When to use it</strong><p>Checking a slow-motion take on set before moving on. Does the action still read at one fifth speed? Is there enough handle at the ends?</p></div>
+      </div>
+      <div class="setting">
+        <h3 id="desqueeze">Desqueeze</h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Off, 1.25x, 1.33x, 1.50x, 1.60x, 1.80x, 2.00x, Custom</dd></dl>
+        <p>Stretches anamorphic clips for review. Shares its value with the Live View DSQ tool. In the photo viewer the same menu squeezes stills vertically.</p>
+      </div>
+      <div class="setting">
+        <h3 id="lut">LUT A/B</h3>
+        <p>The <strong>LUT</strong> button turns the look on or off and the <strong>A/B</strong> button switches between two slots. <strong>A</strong> is whatever Live View is using; <strong>B</strong> is a saved look, by default the N-Log to Rec.709 conversion. Hold the A/B button to see both assignments and <strong>Change</strong> either from the LUT catalog. Changing A also changes the Live View LUT. Advanced › Playback chooses which slot the player starts on. Match settings (exposure, gamma, contrast) carry over from Live View.</p>
+        <div class="use"><strong>When to use it</strong><p>Keep B as a neutral technical conversion. Flip to it when a creative look in A makes you doubt the exposure or the skin tones.</p></div>
+      </div>
+      <div class="setting">
+        <h3 id="save">Save clip to Photos</h3>
+        <p>One button, two outcomes. With the LUT off and speed on Source, the <strong>original camera file</strong> is saved as-is. With the LUT on, or a speed other than Source, a <strong>rendered MOV copy</strong> is exported with the LUT baked in and the timeline conformed to the chosen rate. The source timecode track is kept in a rendered copy only when the speed is Source; a conformed copy has no timecode.</p>
+        <div class="use"><strong>When to use it</strong><p>Send a client a graded selects reel from set, or hand an editor a conformed slow-motion preview. For the real edit, keep working from the card.</p></div>
+      </div>
+      <h3 id="large">Large clips, proxies and what cannot play</h3>
+      <ul>
+        <li>Clips over 4 GB play on bodies that support Nikon's 64-bit transfer (every modern Z body). Older bodies show a message that the size cannot be resolved.</li>
+        <li>For a large MOV master that has a same-name MP4 proxy on the card, the proxy is played instead and the player shows <strong>PROXY PLAYBACK</strong>. Favourite and delete still apply to the master.</li>
+        <li>Clips stream progressively into a local cache; H.265 up to 6K plays, tuned separately for USB and Wi-Fi. Over Wi-Fi a 6K clip may buffer for a while; USB is several times faster.</li>
+        <li><strong>N-RAW and R3D cannot play</strong> on the phone. There is no decoder for them. They are listed with Show RAW video so you can delete or count them.</li>
+      </ul>
+
+      <h2 id="photo-viewer">The photo viewer</h2>
+      <ul>
+        <li>Pinch to zoom from 1x to 8x and drag to pan; pinch back to reset. Swipe for the previous or next photo.</li>
+        <li>The <strong>info</strong> button shows the EXIF panel (camera, lens, ISO, shutter, aperture, exposure bias, focal length) and a histogram.</li>
+        <li><strong>View RAW / View JPEG</strong> switches between the two files of a pair. RAW files are shown from their embedded preview.</li>
+        <li><strong>Save photo to Photos</strong> adds the original file with its name and type; a RAW is added as the original RAW resource, not converted.</li>
+        <li><strong>Following Latest</strong> appears during a tether session and keeps the viewer on the newest capture.</li>
+      </ul>
+
+      <h2 id="tether">Tether session</h2>
+      <p>A tether session watches the card for new photos and shows each one as it is taken, like tethered shooting without a computer. Start it with the camera button in the gallery header.</p>
+      <ul>
+        <li>The app records what is on the card now, creates a session named by date and time, switches the scope to <strong>Current Session</strong> and turns on Follow Latest. New photos appear within a few seconds of capture; RAW+JPEG pairs are grouped.</li>
+        <li>The scope row switches between <strong>Current Session</strong> and <strong>All Card Media</strong>. Only photos are imported; clips are skipped.</li>
+        <li>Leaving the Playback page pauses the session and returning resumes it. A disconnect leaves the session waiting; reconnecting the same camera and card resumes it after the app verifies the card is the same.</li>
+        <li><strong>End</strong> stops watching. <strong>Delete</strong> (available once ended) removes the session's previews and downloaded files from the phone. Nothing is ever deleted from the card by a session.</li>
+        <li>The most recent session is restored on launch so you can keep culling later.</li>
+      </ul>
+      <div class="use"><strong>When to use it</strong><p>Client reviews during a stills shoot, and any time an art director wants to see frames as they land. Rate and pick as you go, then Download selected originals at the end.</p></div>
+
+      <h2 id="timelapses">Timelapses</h2>
+      <p>Sequences captured with the TIME tool appear under the Timelapses tab with their shot and clip counts. Open one to <strong>Create video</strong> (quick stitch from camera previews, from original JPEGs, or from RAW originals), <strong>Export all originals</strong> for Lightroom, and share the saved files. Originals stay on the camera until you download them. See <a class="inl" href="/manual/stills/#time">Stills, timelapse, stacking</a>.</p>
+
+      <h2 id="cache">Cache and link speed</h2>
+      <p>Playback keeps streamed clip ranges, downloaded clips, photos and thumbnails in a cache so recently opened items start instantly, offline too. The limit is 20, 30, 40 or 50 GB (default 40) in Advanced › Playback, where you can also clear it. The same card shows the measured <strong>card read speed</strong> and a <strong>Test Link Speed</strong> button that classifies the connection: USB 3, USB 2, or fast, typical or constrained Wi-Fi. If a USB-C cable classifies as USB 2, try another cable; a USB 3 cable reads several times faster. See <a class="inl" href="/manual/advanced/#playback-settings">Advanced settings</a>.</p>
+
+      <h2 id="red-playback">RED playback</h2>
+      <p>With a RED connected, the Playback page becomes a remote for the camera's own playback: clip list, play and pause, previous and next clip, 24-frame steps, with the camera's decoded output streamed to the phone. Nothing is downloaded. See <a class="inl" href="/manual/red/">RED cameras</a>.</p>

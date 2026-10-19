@@ -1,0 +1,155 @@
+<!--
+title: Live View page
+description: The Live View monitor in Parallax Monitor and ZR Ctl: top bar readouts, bottom toolbar, hot corners, HUD, record button, gestures, presets, rotation and iPad layouts.
+kicker: Chapter 06
+-->
+      <p class="chapter-kicker">Chapter 06</p>
+      <h1>The Live View <span class="hl">page.</span></h1>
+      <p class="lede">Live View is the monitor. It shows the camera picture with your readouts along the top, your tools along the bottom, the record button at your thumb, and every monitoring overlay drawn over the image. This chapter explains the layout and the controls that frame the picture. The tools themselves have their own chapters.</p>
+
+      <figure class="shot"><img src="/images/gallery-liveview-scopes-audio.png" alt="Live View in landscape with the waveform scope and audio meters over the picture" loading="lazy"><figcaption><strong>Live View in landscape.</strong> Readouts across the top, tools along the bottom, the waveform and audio meters floating over the picture.</figcaption></figure>
+
+      <h2 id="rule">Tap and long-press</h2>
+      <p>Every tool pill in the bottom toolbar and every hot corner works the same way. <strong>Tap</strong> turns the tool on or off, using its last mode. <strong>Long-press</strong> (hold for about a third of a second) opens the tool's options. If you would rather have a tap open the options, switch <strong>Tool buttons</strong> to Tool Menu in Advanced › UI › Bottom Toolbar. Most top-bar readouts are tappable too: tap the ISO chip and an ISO picker opens.</p>
+
+      <h2 id="interfaces">Two interfaces: Modern and Classic</h2>
+      <p>Advanced › UI › Live View Layout › <strong>Interface</strong> picks between two layouts. Both have the same tools, menus and gestures.</p>
+      <ul>
+        <li><strong>Classic</strong> (the default) is the original layout: a top chip strip, a bottom tool strip that ends with page shortcuts (CONN, CTRL, PLAY, ADV, MULTI), and a side rail with HUD/PLAY, the record button, AF and LOCK. On iPad the rail is a dock you can move to the other edge with the "Move Record Toolbar" button.</li>
+        <li><strong>Modern</strong> adds <strong>hot corners</strong>: up to two tools in each corner of the picture, with the record button in the side gutter on the side away from the camera housing and a <strong>Menu</strong> button at the bottom left for page navigation. Tools assigned to a corner leave the scrolling toolbar so they do not take up two slots.</li>
+      </ul>
+      <div class="use"><strong>Which to choose</strong><p>Modern is faster once the app is on a cage or handle, because the four tools you toggle most sit under your thumbs. Classic is easier to learn and keeps everything in one place. The choice is not stored in presets, so a preset works in both.</p></div>
+
+      <h2 id="top-bar">The top bar</h2>
+      <p>The top bar is a row of readouts (chips). In landscape they split into a left group and a right group around a gap; in portrait they scroll horizontally. You choose which chips appear and their order in Advanced › UI › Top Toolbar (see <a class="inl" href="/manual/advanced/#top-toolbar">Advanced settings</a>). The default order is Mode, Aperture, Shutter, ISO, Exposure Compensation on the left, then Dual Base ISO, WB, Kelvin, Tint and the camera battery on the right.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Chip</th><th>Label</th><th>Shows</th><th>Tap</th></tr></thead>
+        <tbody>
+          <tr><td>Mode</td><td>MODE</td><td>Exposure program (P, S, A, M, or U1 to U4 with the underlying mode). Hidden in video while the codec is R3D.</td><td>Opens the Mode picker on bodies that let the app set it; dial-based bodies show it read only.</td></tr>
+          <tr><td>Aperture</td><td>IRIS</td><td>f-number</td><td>Opens the aperture panel with the camera's own steps.</td></tr>
+          <tr><td>Shutter</td><td>SHUTTER</td><td>Shutter speed, or angle when the camera is in angle mode</td><td>Opens the speed or angle panel. In video the panel has an Angle / Speed switch on bodies that support shutter angle.</td></tr>
+          <tr><td>ISO</td><td>ISO</td><td>ISO</td><td>Opens the ISO panel. In video on a dual-base body the panel has a Base ISO switch. While movie ISO is locked during recording, a single locked row is shown instead.</td></tr>
+          <tr><td>Exposure Compensation</td><td>EV</td><td>Exposure compensation</td><td>Opens the Exp Comp picker. Hidden in R3D.</td></tr>
+          <tr><td>Res / FPS</td><td>REZ</td><td>Frame size and rate (video)</td><td>Opens the Res/FPS picker. Lives in the bottom-left strip by default; Advanced can move it to the top bar or hide it.</td></tr>
+          <tr><td>Codec</td><td>CODEC</td><td>Recording codec (video)</td><td>Opens the Codec picker. Same placement rule.</td></tr>
+          <tr><td>Dual Base ISO</td><td>BASE ISO</td><td>The active base ISO</td><td>Tap toggles the base directly. Shown as its own chip only when the ISO chip is hidden; otherwise it lives inside the ISO panel.</td></tr>
+          <tr><td>WB</td><td>WB</td><td>White balance mode</td><td>Opens the WB picker.</td></tr>
+          <tr><td>Kelvin</td><td>KELVIN</td><td>Colour temperature, only when WB is set to Kelvin</td><td>Opens the Kelvin panel with Fine −10 / +10 buttons.</td></tr>
+          <tr><td>WB Tint</td><td>TINT</td><td>Green–magenta tint, only when WB is Kelvin</td><td>Opens the tint grid (amber–blue by green–magenta) with Reset.</td></tr>
+          <tr><td>Battery</td><td>—</td><td>Camera battery percentage and icon</td><td>No action. In Modern landscape it sits in the gutter beside the record button.</td></tr>
+          <tr><td>iPhone / iPad Battery</td><td>—</td><td>This device's battery (off by default)</td><td>No action.</td></tr>
+          <tr><td>REMAIN</td><td>REMAIN</td><td>Camera-reported remaining card time as <code>REM h:mm:ss</code>. Video only; needs Remaining Time on in Advanced.</td><td>No action. Dropped first when the landscape bar is full.</td></tr>
+        </tbody>
+      </table></div>
+      <p>In landscape on the Modern interface the centre of the bar shows <strong>STBY</strong>, <strong>REC</strong> (with a red dot) or <strong>PHOTO</strong>, and the timecode row, which reads <code>--:--:--:--</code> until the camera reports timecode. The <strong>FPS Counter</strong> badge beside the batteries shows the frame rate the phone is displaying, which is a measure of the connection, not the camera's recording rate. <strong>Hide Labels</strong> in Advanced drops the small descriptors above each value.</p>
+      <div class="callout info"><strong>Bar too wide?</strong><p>On iPhone, chips that do not fit a landscape group are dropped rather than squeezed. The fit meter in Advanced › UI › Top Toolbar shows how full each group is. Remove a chip, move one across the gap, hide labels, or lower the Top Toolbar Scale.</p></div>
+
+      <h2 id="bottom-bar">The bottom bar</h2>
+      <p>The bottom bar has two parts. On the left, in video, sit the <strong>REZ</strong> and <strong>CODEC</strong> readouts; in photo mode the stills readouts <strong>TIMER</strong>, <strong>RELEASE</strong>, <strong>QUALITY</strong>, <strong>AREA</strong> and <strong>PIC</strong> take their place. On the right is the horizontally scrolling <strong>tool strip</strong>. Every pill can be hidden in Advanced › UI › Bottom Toolbar, and a pill is coloured by family: cyan for scopes, zoom, focus and utility tools, orange for exposure tools, green for audio, blue for desqueeze, white for LUT, peaking, level, guides and presets.</p>
+      <p>The default order, left to right, with the chapter that covers each:</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Pill</th><th>Mode</th><th>What it is</th><th>Chapter</th></tr></thead>
+        <tbody>
+          <tr><td>TIME</td><td>Photo</td><td>Timelapse and intervalometer</td><td><a class="inl" href="/manual/stills/#time">Stills</a></td></tr>
+          <tr><td>REV</td><td>Photo</td><td>Photo review after each capture</td><td><a class="inl" href="/manual/stills/#photo-review">Stills</a></td></tr>
+          <tr><td>STACK</td><td>Photo</td><td>Focus stacking</td><td><a class="inl" href="/manual/stills/#focus-stack">Stills</a></td></tr>
+          <tr><td>EXP</td><td>Photo</td><td>The camera's exposure meter</td><td><a class="inl" href="/manual/exposure-tools/#exposure-meter">Exposure tools</a></td></tr>
+          <tr><td>LUT</td><td>Video</td><td>LUT preview on/off; long-press for Quick LUTs A to D</td><td><a class="inl" href="/manual/luts/">LUTs</a></td></tr>
+          <tr><td>LOOK</td><td>Video</td><td>The LUT browser</td><td><a class="inl" href="/manual/luts/">LUTs</a></td></tr>
+          <tr><td>MATCH</td><td>Video</td><td>Exposure, gamma and contrast around the LUT</td><td><a class="inl" href="/manual/luts/#match">LUTs</a></td></tr>
+          <tr><td>WIPE</td><td>Video</td><td>Split-screen LUT comparison</td><td><a class="inl" href="/manual/luts/#wipe">LUTs</a></td></tr>
+          <tr><td>SLOW</td><td>Video</td><td>One-tap slow-motion format</td><td><a class="inl" href="/manual/controls/#slow-motion">Controls</a></td></tr>
+          <tr><td>SCOPE</td><td>Both</td><td>Histogram, waveform, RGB parade, vectorscope</td><td><a class="inl" href="/manual/exposure-tools/#scopes">Exposure tools</a></td></tr>
+          <tr><td>FALSE</td><td>Both</td><td>False color</td><td><a class="inl" href="/manual/exposure-tools/#false-color">Exposure tools</a></td></tr>
+          <tr><td>PEAK</td><td>Both</td><td>Focus peaking</td><td><a class="inl" href="/manual/focus-tools/#peaking">Focus tools</a></td></tr>
+          <tr><td>ZEBRA</td><td>Both</td><td>Zebras</td><td><a class="inl" href="/manual/exposure-tools/#zebras">Exposure tools</a></td></tr>
+          <tr><td>EXPO</td><td>Both</td><td>X-Lights and X-Posts</td><td><a class="inl" href="/manual/exposure-tools/#exposure-assist">Exposure tools</a></td></tr>
+          <tr><td>PULL</td><td>Video</td><td>Focus pull between AF points</td><td><a class="inl" href="/manual/focus-tools/#focus-pull">Focus tools</a></td></tr>
+          <tr><td>MF</td><td>Video</td><td>Manual focus drive</td><td><a class="inl" href="/manual/focus-tools/#mf-drive">Focus tools</a></td></tr>
+          <tr><td>LOCAL / PUNCH / PZ / HI-RES</td><td>Both</td><td>Punch and zoom; the label follows the chosen mode</td><td><a class="inl" href="/manual/focus-tools/#zoom">Focus tools</a></td></tr>
+          <tr><td>LVL</td><td>Both</td><td>Camera level</td><td><a class="inl" href="/manual/framing/#level">Framing</a></td></tr>
+          <tr><td>AUD</td><td>Video</td><td>Audio meters and input gain</td><td><a class="inl" href="/manual/controls/#audio-meters">Controls</a></td></tr>
+          <tr><td>CAST</td><td>Both</td><td>Remote Viewer broadcast</td><td><a class="inl" href="/manual/remote/">Remote Viewer</a></td></tr>
+          <tr><td>LENS</td><td>Both</td><td>Non-CPU lens profiles; only on bodies that expose lens data</td><td><a class="inl" href="/manual/focus-tools/#lens">Focus tools</a></td></tr>
+          <tr><td>REF</td><td>Both</td><td>Reference frame overlay</td><td><a class="inl" href="/manual/framing/#reference">Framing</a></td></tr>
+          <tr><td>COMP</td><td>Both</td><td>Composition guides</td><td><a class="inl" href="/manual/framing/#composition">Framing</a></td></tr>
+          <tr><td>FRME</td><td>Both</td><td>Frame guides and matte</td><td><a class="inl" href="/manual/framing/#frame-guides">Framing</a></td></tr>
+          <tr><td>DSQ</td><td>Both</td><td>Anamorphic desqueeze</td><td><a class="inl" href="/manual/framing/#desqueeze">Framing</a></td></tr>
+          <tr><td>SAVE</td><td>Both</td><td>Presets</td><td><a class="inl" href="#presets">below</a></td></tr>
+        </tbody>
+      </table></div>
+      <p>On RED cameras the TIME, PULL, MF and LENS pills and the REMAIN, Mode and EV chips are hidden, because RED's control protocol does not offer them. Everything else runs on the RED picture.</p>
+
+      <h2 id="hot-corners">Hot corners <span class="tag">Modern</span></h2>
+      <p>Each corner of the picture holds up to two buttons: a primary and a secondary. They behave exactly like the toolbar pill they mirror, including the long-press menu. In landscape the clusters stand vertically on the left and right edges with the record button between the right-hand pair; in portrait they sit above and below the picture. The defaults:</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Corner</th><th>Primary</th><th>Secondary</th></tr></thead>
+        <tbody>
+          <tr><td>Upper left</td><td>LUT</td><td>Focus Peaking</td></tr>
+          <tr><td>Lower left</td><td>Scope</td><td>False Color</td></tr>
+          <tr><td>Upper right</td><td>HUD / Play</td><td>Touch AF</td></tr>
+          <tr><td>Lower right</td><td>Zebras</td><td>Rotation Lock</td></tr>
+        </tbody>
+      </table></div>
+      <p>Three tools exist only as corner or rail buttons:</p>
+      <ul>
+        <li><strong>HUD / Play</strong>: reads HUD in video and toggles the HUD. In photo mode it reads PLAY by default and opens QuickPlay, a still viewer with favourites, ratings, picks, colour tags, save and delete. Long-press opens the Stills Button menu to choose Play or HUD for photo mode.</li>
+        <li><strong>Touch AF</strong> (AF): turns tap-to-focus on or off. See <a class="inl" href="/manual/focus-tools/#touch-af">Focus tools</a>.</li>
+        <li><strong>Rotation Lock</strong> (LOCK): locks the interface orientation so the layout stops rotating when the rig tilts.</li>
+      </ul>
+      <p>Assign tools, turn corners on or off and scale them in Advanced › UI › Hot Corners.</p>
+
+      <h2 id="hud">Hiding the HUD</h2>
+      <p><strong>Double-tap</strong> the picture, the top bar or the bottom bar to hide or show the HUD. The hot corners, the record button and the HUD/Play button stay so you can always get it back. By default the floating tools (scopes, audio meters, legends, X-Lights, the recording timer badge and FLIP) hide with the HUD; turn on <strong>Tools Stay On</strong> in Advanced › UI › Live View Layout to keep them while the chrome is hidden.</p>
+      <div class="use"><strong>When to hide it</strong><p>Hide the HUD to show a client the frame, or when you have set exposure and only need peaking and the recording border. With Tools Stay On you can run a clean picture with just a waveform in the corner.</p></div>
+
+      <h2 id="record">The record button</h2>
+      <p>The round button is red in video and white with a camera glyph in photo mode, and becomes a white square while recording. It sits in the side rail (Classic) or in the landscape gutter on the side away from the notch (Modern).</p>
+      <ul>
+        <li><strong>Video:</strong> tap to start, tap to stop. One tap sends exactly one start command.</li>
+        <li><strong>Photo:</strong> tap to capture. With an app timer set, the countdown runs first and a second tap cancels it. During a Bulb or Time exposure a tap closes the shutter. Holding the button drives continuous release on bodies that support it.</li>
+        <li>The button is disabled while a record or capture command is in flight, during the refresh after a stop, while the camera is busy with another command and while a focus stack runs. While a TIME sequence runs, the button stops the sequence.</li>
+        <li>The phone's volume buttons, the iPhone Camera Control button and a Bluetooth shutter remote trigger the same action when no panel is open. See <a class="inl" href="/manual/controls/#hardware-triggers">Controls</a>.</li>
+      </ul>
+      <p>While recording, the <strong>Recording Border</strong> draws a red frame around the picture and the <strong>Recording Timer</strong> badge shows elapsed time or the camera's timecode. Both can be turned off in Advanced. If a recording fails to start, a yellow or red notice near the top of the picture says why; the reasons are listed in <a class="inl" href="/manual/controls/#refused">Controls</a>.</p>
+
+      <h2 id="gestures">Gestures</h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Gesture</th><th>Where</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td>Tap</td><td>Picture</td><td>Touch AF at that point. In Focus Pull's Add Points mode a tap adds a point instead. Ignored while Focus Punch is active.</td></tr>
+          <tr><td>Double-tap</td><td>Picture, top bar, bottom bar</td><td>Hide or show the HUD.</td></tr>
+          <tr><td>Drag</td><td>Picture</td><td>Pans Monitor Punch or Focus Punch while a zoom tool is on.</td></tr>
+          <tr><td>Pinch</td><td>Picture</td><td>Nothing on Nikon or RED pictures. Use the ZOOM tool to magnify.</td></tr>
+          <tr><td>Drag</td><td>WIPE divider</td><td>Moves the split.</td></tr>
+          <tr><td>Drag handle / pinch</td><td>Scope panel</td><td>Resizes the scope between 0.85x and 2.4x. Double-tap the scope resets it to 1x.</td></tr>
+          <tr><td>Drag</td><td>Focus Pull point markers</td><td>Moves a point when the pull is not running.</td></tr>
+          <tr><td>Drag</td><td>MF tape</td><td>Drives focus; faster drags take bigger steps.</td></tr>
+          <tr><td>Long-press then drag</td><td>Any floating tool</td><td>Moves it. Positions are saved per interface and orientation.</td></tr>
+          <tr><td>Hold</td><td>Power Zoom W / T</td><td>Zooms while held.</td></tr>
+        </tbody>
+      </table></div>
+      <p>The movable floating tools are the scope, the false color legend, the audio meters, the exposure meter, X-Lights and X-Posts, the recording timer badge, FLIP, the reference opacity panel, the Multicam return button and the HDMI/SEEMO chip. <strong>Reset On-Screen Tool Positions</strong> in Advanced returns them all to their anchors.</p>
+
+      <h2 id="orientation">Orientation, FLIP and fill</h2>
+      <ul>
+        <li>The picture follows the camera's own orientation: grip up, grip down or upside down, read from the Live View metadata, so a vertical rig shows a vertical picture.</li>
+        <li>In portrait a draggable <strong>FLIP</strong> button rotates the portrait-filled feed by 180 degrees for rigs where the camera is mounted the other way up.</li>
+        <li><strong>Fill</strong> in the FRME menu fills the landscape screen with the picture. It is on by default on iPad and on 4.7-inch iPhones.</li>
+        <li><strong>LOCK</strong> (rotation lock) freezes the interface orientation. It is cleared when the active preset is deleted.</li>
+        <li>On iPhone the Modern layout keeps a 140-point keep-out around the notch or Dynamic Island and places the record button on the opposite side. iPad has no keep-outs; in portrait the hot corners move into the side gutters when there is room.</li>
+      </ul>
+
+      <h2 id="photo-mode">Photo mode differences</h2>
+      <p>The app follows the camera's photo/video selector; there is no switch in the app. In photo mode the LUT preview is turned off (and restored when you return to video), the audio meters are hidden, the top centre reads PHOTO, and the bottom-left strip shows the stills readouts. The photo tools (TIME, REV, STACK, EXP) appear at the start of the toolbar. See <a class="inl" href="/manual/stills/">Stills, timelapse, stacking</a>.</p>
+
+      <h2 id="presets">Presets (SAVE)</h2>
+      <p>The <strong>SAVE</strong> pill opens the Presets panel. <strong>Save New Preset…</strong> stores the current layout under a name you choose. When a preset is active, <strong>Save to Preset</strong> overwrites it with the current state. Each saved preset is a row: tap to apply, long-press for Rename or Delete. Three presets are created on first launch: <strong>Full HUD</strong>, <strong>Clean</strong> (icons only, labels hidden) and <strong>Minimal</strong> (a seven-tool toolbar and a short top bar).</p>
+      <p>A preset stores the whole Live View setup: tools and their modes, LUT and Match values, guides, scope and peaking settings, toolbar and top-bar visibility and order, scales, floating positions, hot corners, rotation lock and optionally the recording format. The full list is in <a class="inl" href="/manual/advanced/#presets">Advanced settings</a>.</p>
+      <div class="use"><strong>How to use presets</strong><p>Make one per job type: a "Gimbal" preset with the level, a small scope and icons only; an "Interview" preset with the waveform, audio meters and skin-line vectorscope; a "Client" preset with a clean picture and the LUT on. If a preset includes a recording format, applying it also sets that format on the camera.</p></div>
+
+      <h2 id="status">Status notices and link loss</h2>
+      <p>Notices appear as badges near the top of the picture: a yellow badge for a refused camera setting, a red one for a failed record start, and a short yellow chip when a zoom mode cannot be enabled. If the connection drops, the last frame freezes with a <strong>No link</strong> message and a <strong>Back to Connection</strong> button. The app never reconnects by itself while the camera is recording; see <a class="inl" href="/manual/connect/#recording">Connection</a> for why.</p>
+
+      <h2 id="performance">Performance, heat and battery</h2>
+      <p>The picture and recording always come first. When the phone gets hot or Low Power Mode is on, the analysis overlays (scopes, false color, peaking) update less often so the preview and the recording keep running. The preview resolution, quality, USB frame-rate cap and GPU display setting are in Advanced › Monitoring › Preview, with advice on which to lower for a weak Wi-Fi link.</p>

@@ -1,0 +1,89 @@
+<!--
+title: Framing and guides
+description: Composition guides, frame guides with mattes and custom ratios, anamorphic desqueeze, reference frames with A/B blink, and the camera level in Parallax Monitor and ZR Ctl.
+kicker: Chapter 10
+-->
+      <p class="chapter-kicker">Chapter 10</p>
+      <h1>Framing and <span class="hl">guides.</span></h1>
+      <p class="lede">Five tools help you compose: COMP draws composition grids, FRME draws delivery frames with a matte, DSQ stretches anamorphic pictures, REF ghosts a reference frame over the live image, and LVL shows the camera's level.</p>
+
+      <figure class="shot"><img src="/images/frame-guides.png" alt="Live View with a 2.39 frame guide and matte over the picture" loading="lazy"><figcaption><strong>A 2.39:1 frame guide with the matte darkening the unused area.</strong></figcaption></figure>
+
+      <h2 id="composition">COMP: composition guides</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Toggles between none and the last guide (3rds by default)</dd>
+          <dt>Long-press</dt><dd>3rds, 4x4, Golden, Tri, Diag, Cross, Safe; Multi; Opacity</dd>
+          <dt>Opacity</dt><dd>100%, 75%, 50%, 25% (default 100%)</dd>
+        </dl>
+        <div class="tbl-wrap"><table class="tbl">
+          <thead><tr><th>Guide</th><th>Draws</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr><td>3rds</td><td>Two horizontal and two vertical lines at thirds</td><td>The rule of thirds: subjects and horizons on the lines.</td></tr>
+            <tr><td>4x4</td><td>A four-by-four grid</td><td>Levelling and aligning architecture; centring without a cross.</td></tr>
+            <tr><td>Golden</td><td>Lines at the golden ratio (about 38% and 62%)</td><td>A tighter-to-centre version of thirds.</td></tr>
+            <tr><td>Tri</td><td>Golden triangles: a diagonal and two perpendiculars</td><td>Dynamic, diagonal compositions.</td></tr>
+            <tr><td>Diag</td><td>Corner-to-corner diagonals</td><td>Leading lines and symmetry checks.</td></tr>
+            <tr><td>Cross</td><td>A centre cross</td><td>Centred framing, product shots, lens tests.</td></tr>
+            <tr><td>Safe</td><td>Action-safe (3.5% inset) and title-safe (5% inset) boxes</td><td>Broadcast and anything that will be cropped or overlaid.</td></tr>
+          </tbody>
+        </table></div>
+        <p>Normally one guide shows at a time and tapping the active one clears it. With <strong>Multi</strong> on, each row toggles independently so you can stack, for example, 3rds and Safe.</p>
+      </div>
+
+      <h2 id="frame-guides">FRME: frame guides and matte</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Toggles between none and the last frame guide (2.39 by default)</dd>
+          <dt>Ratios</dt><dd>16:9, 3:2, 1.85, 2.00, 2.39, 4:3, 1:1, 9:16, 4:5, and Custom</dd>
+          <dt>Custom</dt><dd>Enter <code>w:h</code> or a decimal; accepted from 0.25 to 4.0 (default 2.39)</dd>
+          <dt>Multi</dt><dd>Off or On: show several guides at once</dd>
+          <dt>Scale</dt><dd>100%, 95%, 90%, 85%, 80%, 75%, 70% (default 100%)</dd>
+          <dt>Mask</dt><dd>100%, 75%, 50%, 25% matte opacity (default 34%)</dd>
+          <dt>Fill</dt><dd>Fills the landscape screen with the picture</dd>
+        </dl>
+        <p>A frame guide outlines the delivery shape over the picture with a chip showing its ratio (a custom guide reads <code>CUST 2.35</code>). With a single guide, the <strong>matte</strong> darkens everything outside it and the floating tools lay out inside it. <strong>Scale</strong> shrinks the guide inside the picture, which is useful when you plan to stabilise or reframe in post and want to compose with margin. <strong>Multi</strong> shows several ratios as dashed comparison guides, for example 16:9 and 9:16 together when one shoot must deliver both.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Any time the delivery shape differs from the sensor shape: 2.39 for widescreen, 9:16 and 4:5 for social cuts from a horizontal frame, 1:1 for square. Raise the mask to 75% or 100% when the client is watching so they only see the delivery frame.</p></div>
+
+      <h2 id="desqueeze">DSQ: anamorphic desqueeze</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Toggles between off and the last ratio (1.33x by default)</dd>
+          <dt>Ratios</dt><dd>1.25x, 1.33x, 1.50x, 1.60x, 1.80x, 2.00x, and Custom from 0.25 to 4.0</dd>
+        </dl>
+        <p>Stretches the picture horizontally by the lens's squeeze factor so you see the real frame. The camera file stays squeezed; the editor desqueezes it again. Frame guides and the other overlays follow the desqueezed picture. The same ratios are available in the clip player.</p>
+      </div>
+      <div class="use"><strong>Which ratio</strong><p>Use the factor printed on the lens: 1.33x for most "anamorphic for 16:9" lenses, 1.5x and 1.8x for several modern cine lenses, 2x for classic anamorphic. If the camera has its own desqueeze set, leave the app's off or you will stretch twice.</p></div>
+
+      <h2 id="reference">REF: reference frame</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>First use captures the current picture as a reference; afterwards shows or hides the overlay</dd>
+          <dt>Long-press</dt><dd>Capture New Reference; one row per saved reference (long-press a row to delete it); Show or Hide Overlay; Opacity; A/B Blink; Clear All References</dd>
+          <dt>Opacity</dt><dd>0 to 100% slider (default 50%)</dd>
+          <dt>A/B blink</dt><dd>Tap to blink between the reference at full opacity and the live picture; long-press to set the interval from 0.1 to 10 s (default 1.0 s)</dd>
+        </dl>
+        <p>A reference is a frozen still of the picture drawn as a ghost over the live image. You can keep several and switch between them. References follow portrait fill, camera rotation and Monitor Punch. They last for the session and are not saved.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Matching a shot to an earlier take, a reverse angle, or yesterday's setup: capture the reference, come back, and blink between them until the framing lines up. Also handy for continuity of props and eyelines.</p></div>
+
+      <h2 id="level">LVL: camera level</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Level overlay on or off (off by default)</dd>
+          <dt>Long-press</dt><dd>A Horizon, B Bars, C Bubble (choosing one also turns the level on)</dd>
+          <dt>Threshold</dt><dd>Green when within 0.75 degrees of level, yellow otherwise</dd>
+          <dt>Readout</dt><dd>Roll and tilt in degrees under the meter; Readout On/Off in Advanced › UI › Bottom Toolbar (default on)</dd>
+        </dl>
+        <ul>
+          <li><strong>A Horizon</strong>: a dashed true horizon with a tilted active line, plus a cross-axis offset.</li>
+          <li><strong>B Bars</strong>: a roll bar along the bottom and a tilt bar on the right, each to ±15 degrees.</li>
+          <li><strong>C Bubble</strong>: a bubble in a circle, like a spirit level, to ±15 degrees.</li>
+        </ul>
+        <p>The data comes from the camera's own level sensor through the Live View metadata, so it reports the camera, not the phone.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Locked-off shots, architecture, product tables, and any time the phone is mounted at an angle to the camera so you cannot judge level by eye. Horizon is best for landscapes; Bars for tripod set-ups where you also care about tilt; Bubble for a quick glance.</p></div>
+
+      <h2 id="orientation">Vertical shooting</h2>
+      <p>The picture follows the camera's orientation automatically, so a camera mounted grip-up shows a vertical picture with the guides rotated to match. Use a 9:16 or 4:5 frame guide in Multi mode with 16:9 when you need both deliveries from one setup, and FLIP in portrait if the rig is mounted the other way up. See <a class="inl" href="/manual/live-view/#orientation">Live View</a>.</p>

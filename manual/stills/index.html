@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stills, timelapse, stacking | Parallax Monitor &amp; ZR Ctl User Manual</title>
+  <meta name="description" content="Photo mode in Parallax Monitor and ZR Ctl: the stills readouts, release modes, Bulb and Time, the app timer, photo review, focus stacking, the TIME intervalometer with on-device timelapse video assembly, and QuickPlay.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/manual/stills/">
+
+  <meta property="og:title" content="Stills, timelapse, stacking | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta property="og:description" content="Photo mode in Parallax Monitor and ZR Ctl: the stills readouts, release modes, Bulb and Time, the app timer, photo review, focus stacking, the TIME intervalometer with on-device timelapse video assembly, and QuickPlay.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zrctl.com/manual/stills/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stills, timelapse, stacking | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta name="twitter:description" content="Photo mode in Parallax Monitor and ZR Ctl: the stills readouts, release modes, Bulb and Time, the app timer, photo review, focus stacking, the TIME intervalometer with on-device timelapse video assembly, and QuickPlay.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/manual/manual.css">
+
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.0_android-2.1.7_accsoon-coming';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+    <div class="container update-banner-inner">
+      <span class="update-copy">Parallax Monitor <strong>2.0</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
+      <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
+      <button class="update-close" type="button" aria-label="Dismiss update notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/manual/" aria-current="page">Manual</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container manual-shell">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="false" aria-controls="manualSidebar">
+      <span>Manual contents</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <aside class="manual-sidebar" id="manualSidebar" aria-label="Manual navigation">
+      <p class="sidebar-title">User Manual</p>
+      <div class="sidebar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="manualSearch" placeholder="Search the manual" aria-label="Search the manual" autocomplete="off">
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+      <ul class="chapter-list" id="chapterList"></ul>
+      <div>
+        <p class="sidebar-title">On this page</p>
+        <ul class="page-toc" id="pageToc"></ul>
+      </div>
+    </aside>
+
+    <main class="manual-article" id="main">
+      <p class="chapter-kicker">Chapter 12</p>
+      <h1>Stills, timelapse and <span class="hl">focus stacking.</span></h1>
+      <p class="lede">When the camera's selector is on photo, Live View becomes a stills remote with its own readouts, an instant review of each frame, automated focus stacking and a full intervalometer that builds the timelapse video on the phone.</p>
+
+      <figure class="shot"><img src="/images/gallery-photo-capture.png" alt="Live View in photo mode with the stills readouts and the photo review overlay" loading="lazy"><figcaption><strong>Photo mode.</strong> TIMER, RELEASE, QUALITY, AREA and PIC along the bottom, with the review of the last frame.</figcaption></figure>
+
+      <h2 id="photo-mode">Photo mode basics</h2>
+      <ul>
+        <li>The app follows the camera's photo/video selector. In photo mode the LUT preview is off, the audio meters are hidden, and the top centre reads PHOTO.</li>
+        <li>The <strong>record button</strong> captures. With a timer set, a countdown runs first and a second tap cancels it. Holding the button fires continuous release in CL and CH modes. During Bulb or Time a second tap closes the shutter.</li>
+        <li>The phone's volume buttons, the Camera Control button and Bluetooth shutters fire the shutter too.</li>
+        <li>Photos are written to the camera card. The app does not capture to the phone directly; use Playback or a tether session to bring them over.</li>
+        <li>Exposure, white balance, quality and focus settings are on the <a class="inl" href="/manual/controls/">Controls</a> page. Peaking, scopes and guides keep working in photo mode.</li>
+      </ul>
+
+      <h2 id="readouts">The stills readouts</h2>
+      <p>Five chips in the bottom-left strip, each a tap-to-open picker. Hide the ones you never change in Advanced › UI › Bottom Toolbar.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Chip</th><th>Options</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>TIMER</td><td>Off, 2 s, 5 s, 10 s, Custom 1 to 60 s</td><td>The app's own countdown before the shot, shown as a large digit on screen. Independent of the camera's self-timer.</td></tr>
+          <tr><td>RELEASE</td><td>Single, CL, CH, CH+, Timer, C15, C30, C60, C120</td><td>The camera's release mode. Timer is the camera's self-timer; C15 to C120 are high-speed frame capture on bodies that have it.</td></tr>
+          <tr><td>QUALITY</td><td>Basic to Fine★, RAW, RAW + JPEG combinations</td><td>JPEG quality and RAW.</td></tr>
+          <tr><td>AREA</td><td>FX, DX, 1:1, 16:9</td><td>Sensor crop.</td></tr>
+          <tr><td>PIC</td><td>Picture Controls, including named custom slots</td><td>The in-camera look.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="bulb">Bulb and Time</h2>
+      <p>On bodies that offer them, Bulb and Time appear in the shutter picker (the Speed tile on Controls, or the SHUTTER chip). With <strong>Bulb</strong> the exposure runs while you hold the record button; with <strong>Time</strong> one tap opens the shutter and the next closes it, which is easier for multi-minute exposures. The elapsed time shows on screen and in the Live Activity on the Lock Screen. The TIME tool can run Bulb or Time exposures of a set length automatically.</p>
+      <div class="use"><strong>When to use them</strong><p>Astrophotography, light painting, long water and traffic exposures: anything beyond the camera's 30-second limit. Use Time rather than Bulb so you are not holding the phone.</p></div>
+
+      <h2 id="photo-review">REV: photo review</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Review on or off (on by default)</dd>
+          <dt>Long-press</dt><dd>Review Hold: 1, 2, 3, 5 or 8 seconds (default 3)</dd>
+        </dl>
+        <p>After each capture the camera's JPEG is fetched and shown over the picture with the filename, the exposure (aperture, shutter, ISO), a yellow box at the focus point and a star button to favourite it. Touching the review pauses the timer; a long-press holds it until you let go.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Always, unless you are shooting fast bursts and the review gets in the way. Set a longer hold for product work where you want to study each frame.</p></div>
+
+      <h2 id="quickplay">PLAY: QuickPlay</h2>
+      <p>In photo mode the HUD/Play hot corner reads <strong>PLAY</strong> and opens QuickPlay, a lightweight viewer of the recent JPEGs on the card: swipe between frames, favourite, rate, pick, colour-tag, save to Photos or delete, without leaving Live View. Long-press the corner to switch it back to a HUD button if you prefer.</p>
+
+      <h2 id="focus-stack">STACK: focus stacking <span class="tag nikon">Nikon</span></h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Frames</dt><dd>2 to 100 (default 5)</dd>
+          <dt>Focus step</dt><dd>1, 2, 4, 8, 16, 32 (default 4)</dd>
+          <dt>Direction</dt><dd>Near (towards the camera) or Infinity (away) (default Infinity)</dd>
+          <dt>Needs</dt><dd>A connected camera in photo mode with an autofocus lens; not while a TIME sequence runs</dd>
+        </dl>
+        <p>Focus on the nearest point you want sharp, set the frame count and step, choose the direction and tap <strong>Start Focus Stack</strong>. The app takes a frame, drives the lens one step, and repeats, showing "Capturing frame 3 of 12". Every frame is saved to the card for stacking in Helicon Focus, Zerene, Photoshop or Lightroom. The stack stops by itself at the lens's focus limit, and <strong>Cancel Stack</strong> stops it early.</p>
+      </div>
+      <div class="use"><strong>Choosing the step</strong><p>Smaller steps and more frames for macro at wide apertures, where depth of field is a few millimetres; larger steps for product tables at f/8. Run a short test stack and check for soft bands between frames; if you see any, halve the step.</p></div>
+
+      <h2 id="time">TIME: timelapse and intervalometer <span class="tag nikon">Nikon</span></h2>
+      <p>The TIME tool runs a sequence of exposures on a schedule and, if you want, assembles them into a video on the phone. The app controls the shutter; the camera's own interval timer is not used, so keep the app open for uninterrupted timing. Tap the pill for the Sequence section; long-press for the section list.</p>
+      <h3 id="time-sequence">Sequence</h3>
+      <p>The name (automatic or custom), the status (Ready, Preparing, Next exposure, Exposing, Paused, Finishing, Creating video), the shot count, a countdown to the next exposure, the estimated shooting time and the length of the resulting clip. Buttons: <strong>Start sequence</strong>, <strong>Pause after exposure</strong> / <strong>Resume</strong>, <strong>Stop</strong>. The Live View record button also stops a running sequence.</p>
+      <h3 id="time-capture">Capture</h3>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Setting</th><th>Options</th><th>Default</th></tr></thead>
+        <tbody>
+          <tr><td>Shutter</td><td>The camera's current setting, or any shutter value including Bulb and Time</td><td>Camera setting</td></tr>
+          <tr><td>Bulb / Time duration</td><td>0.1 s to 24 h</td><td>180 s</td></tr>
+          <tr><td>Finish after</td><td>Shot count, Duration, Until stopped</td><td>Shot count</td></tr>
+          <tr><td>Shots</td><td>1 to 1,000,000</td><td>20</td></tr>
+          <tr><td>Sequence duration</td><td>0.1 s to 7 days</td><td>1 hour</td></tr>
+        </tbody>
+      </table></div>
+      <p>Aperture, ISO, white balance, focus and RAW or JPEG quality use the camera settings you have already made.</p>
+      <h3 id="time-timing">Timing</h3>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Setting</th><th>Options</th><th>Default</th></tr></thead>
+        <tbody>
+          <tr><td>Start delay</td><td>0 to 24 h</td><td>0</td></tr>
+          <tr><td>Timing</td><td>Gap after exposure, or Start-to-start interval</td><td>Gap after exposure</td></tr>
+          <tr><td>Gap / Interval</td><td>0 to 24 h</td><td>2 s</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Gap after exposure</strong> waits a fixed time after each exposure ends, which is safe for long exposures of varying length. <strong>Start-to-start interval</strong> fires at a fixed cadence, which is what you want for a steady timelapse; the interval must be longer than the exposure plus the camera's write time. If the camera is late, the app does not fire a burst to catch up; it simply continues.</p>
+      <h3 id="time-video">Video</h3>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Setting</th><th>Options</th><th>Default</th></tr></thead>
+        <tbody>
+          <tr><td>Create video after capture</td><td>On, off</td><td>Off</td></tr>
+          <tr><td>Image source</td><td>Quick stitch (camera previews), Original images (JPEG preferred), RAW originals</td><td>Quick stitch</td></tr>
+          <tr><td>Frame rate</td><td>1 to 120 fps</td><td>24</td></tr>
+          <tr><td>Long edge</td><td>720, 1080, 1920, 3840 px</td><td>1920</td></tr>
+          <tr><td>Aspect ratio</td><td>16:9, 9:16, 1:1</td><td>16:9</td></tr>
+          <tr><td>Framing</td><td>Fit entire image, Fill and crop</td><td>Fill and crop</td></tr>
+          <tr><td>Codec</td><td>H.264, HEVC</td><td>H.264</td></tr>
+          <tr><td>Bitrate</td><td>1 to 200 Mbps</td><td>20</td></tr>
+        </tbody>
+      </table></div>
+      <p>A <strong>quick stitch</strong> uses the small previews the camera already sent, so it is ready almost immediately and is good for checking motion. Rendering from <strong>originals</strong> downloads each full file first and gives a 4K-capable result. Videos can be created or re-created later from the Timelapses tab in Playback.</p>
+      <h3 id="time-display">Display and presets</h3>
+      <p><strong>Show countdown</strong> and <strong>Show sequence progress</strong> control the on-screen status. <strong>Red night display</strong> is intended for astrophotography sessions. <strong>Presets</strong> save a whole TIME configuration under a name for reuse.</p>
+      <h3 id="time-math">Working out a timelapse</h3>
+      <p>Clip length equals shots divided by frame rate. At 24 fps, 240 shots give 10 seconds. Real time equals shots times the interval: 240 shots every 5 seconds is 20 minutes. The Sequence section shows both estimates as you change settings. For a sunset, a 3 to 5 second interval over 30 to 45 minutes is a sensible start; for clouds, 1 to 2 seconds; for stars, use Bulb exposures of 15 to 25 seconds with a short gap.</p>
+      <div class="callout tip"><strong>Keep it running</strong><p>The app owns the schedule, so keep the app open and the phone awake (the app keeps the screen on). The sequence appears in the Live Activity on the Lock Screen with the shot count and countdown. A video recording cannot start while a sequence runs.</p></div>
+
+      <h2 id="tether">Tethered review</h2>
+      <p>To see each shot full size as it lands, run a tether session on the Playback page. It watches the card, groups RAW+JPEG pairs and follows the newest capture. See <a class="inl" href="/manual/playback/#tether">Playback</a>.</p>
+      <nav class="chapter-nav" id="chapterNav" aria-label="Previous and next chapter"></nav>
+      <p class="feedback-strip">Something missing or wrong on this page? Email <a href="mailto:mike@itsmadcreative.com?subject=Manual%20feedback%3A%20Stills,%20timelapse,%20stacking">mike@itsmadcreative.com</a> with the page name and what you expected to find.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/">Main Page</a></li>
+          <li><a href="/ios/">iOS Site</a></li>
+          <li><a href="/android/">Android Site</a></li>
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/manual/">Manual</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/compliance/">Compliance</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl and Parallax Monitor are independent projects and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/manual/manual.js"></script>
+</body>
+</html>

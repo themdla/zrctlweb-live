@@ -1,0 +1,55 @@
+<!--
+title: Supported cameras
+description: Which Nikon Z and RED cameras work with Parallax Monitor and ZR Ctl, over which connections, with the per-body differences in controls, Live View and recording.
+kicker: Chapter 04
+-->
+      <p class="chapter-kicker">Chapter 04</p>
+      <h1>Supported <span class="hl">cameras.</span></h1>
+      <p class="lede">The app speaks Nikon's control protocol and RED's RCP2. Every Nikon Z body connects, but what the camera reports decides which tiles and tools you get, so two bodies can look a little different. This chapter lists the bodies and the differences you will notice.</p>
+
+      <h2 id="nikon">Nikon Z</h2>
+      <p>Bodies fall into three groups by the control set their firmware exposes.</p>
+      <h3 id="modern">Modern bodies</h3>
+      <p>ZR, Z8, Z9, Z6III, Zf, Z5II, Z5IIC and Z50II. These expose the full video control set: codec, frame size and rate, shutter angle where the body has it, movie AF speed and apply, subject detection, audio and timecode tiles, Focus Punch and the other camera-side tools.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Body</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>ZR</td><td>The primary target. The only body with R3D, Dual Base ISO and the extended ISO and audio gain controls. Tested extensively over USB and Wi-Fi. In R3D the automatic white balance modes and Electronic VR are hidden because the camera refuses them, and ISO locks while recording.</td></tr>
+          <tr><td>Z8, Z9</td><td>Shutter angle, 8K and RAW formats. Tested over USB and Wi-Fi (Z8) and USB (Z9). RAW frame sizes are labelled with exact pixel sizes because several share a bucket.</td></tr>
+          <tr><td>Z6III</td><td>Shutter angle. Tested over USB and Wi-Fi. The exposure mode is set on the camera's dial.</td></tr>
+          <tr><td>Zf, Zfc</td><td>Dial-based bodies. In their normal remote mode the camera refuses exposure changes from an app; turn on <strong>Remote Mode</strong> (Controls, or Connection › Advanced) so the app's values win and the dials are ignored. Wi-Fi Live View is slower on these bodies; prefer USB.</td></tr>
+          <tr><td>Z5II, Z5IIC</td><td>Video and photo over USB reported working. The first command after plugging in can take a while; the app waits for it.</td></tr>
+          <tr><td>Z50II</td><td>USB Live View, exposure, tap AF and stills confirmed in the field. One iPhone and Z50II combination never showed the camera over USB until USB permissions were reset; that reset is now offered inline on the failure card.</td></tr>
+        </tbody>
+      </table></div>
+      <h3 id="gen2">Second-generation bodies</h3>
+      <p>Z6II, Z7II, Zfc and Z30 connect over USB, Wi-Fi and the camera's network with a reduced control set: the modern movie tiles (codec, AF speed, audio, timecode) are hidden unless the body reports them. Tint is not accepted on the Z7II. These are best-effort bodies; monitoring and the basic exposure controls work.</p>
+      <h3 id="gen1">First-generation bodies</h3>
+      <p>Z5, Z6, Z7 and Z50 use an older session mode. USB Live View is confirmed on the Z6 and Z50. Recording and playback need the camera in its application mode, which the app now switches on when you first record <span class="tag new">New in 2.1</span>; a one-time tip asks you to set the selector to video. Treat these as monitoring-first bodies.</p>
+
+      <h2 id="red">RED</h2>
+      <p>KOMODO, KOMODO-X, V-RAPTOR and V-RAPTOR XL over Wi-Fi or a USB-C network tether; the original KOMODO needs RED's Link Adapter for the tether. Field evidence so far is from KOMODO-X on Wi-Fi; see <a class="inl" href="/manual/red/">RED cameras</a> for the control set and limits. DSMC2 and older bodies are not supported.</p>
+
+      <h2 id="other">Other brands</h2>
+      <p>Sony, Fujifilm, Canon and Panasonic are not supported. There is no third-party way to control them from this app at present.</p>
+
+      <h2 id="devices">Phones and tablets</h2>
+      <ul>
+        <li><strong>iPhone and iPad</strong> on iOS or iPadOS 17 or later. The Camera Control button needs iOS 17.2.</li>
+        <li><strong>Lightning devices</strong> need Apple's Lightning to USB 3 Camera Adapter with its power input connected, then a data cable to the camera. A USB-C to Lightning cable alone does not work. See <a class="inl" href="/manual/connect/#failures">Connection</a>.</li>
+        <li><strong>USB-C iPads</strong> can use an HDMI capture card as the picture source. iPhones cannot; use the Accsoon SeeMo instead.</li>
+        <li><strong>USB power</strong>: a camera can draw power from the phone over USB-C. Set the camera's USB power delivery off in its Setup menu if the phone's battery drops fast or the camera fails to enumerate.</li>
+        <li><strong>Android</strong> phones and tablets on Android 9 or later run ZR Ctl, with the same features.</li>
+      </ul>
+
+      <h2 id="transports">Which transport for which body</h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Transport</th><th>Works with</th><th>Live View quality</th></tr></thead>
+        <tbody>
+          <tr><td>USB-C</td><td>Every Nikon Z; RED KOMODO-X and V-RAPTOR (KOMODO with adapter)</td><td>Best: up to the full preview rate, XGA frames.</td></tr>
+          <tr><td>iPhone hotspot</td><td>Every Nikon Z with Connect to computer</td><td>Good on 5 GHz; keep Maximize Compatibility off.</td></tr>
+          <tr><td>Wi-Fi router</td><td>Every Nikon Z; RED on the same network</td><td>Depends on the router. 2.4 GHz is poor.</td></tr>
+          <tr><td>Camera's own Wi-Fi</td><td>Every Nikon Z</td><td>Lowest. No internet on the phone.</td></tr>
+        </tbody>
+      </table></div>
+      <p>A Nikon on USB turns its own Wi-Fi off, so the Wi-Fi routes are unavailable while the cable is in.</p>

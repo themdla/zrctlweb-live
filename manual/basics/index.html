@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinematography basics | Parallax Monitor &amp; ZR Ctl User Manual</title>
+  <meta name="description" content="Exposure, shutter angle, log and LUTs, scopes, false color, focus, frame rates, codecs, audio and timecode explained for new shooters, with the Parallax Monitor and ZR Ctl tool for each.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/manual/basics/">
+
+  <meta property="og:title" content="Cinematography basics | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta property="og:description" content="Exposure, shutter angle, log and LUTs, scopes, false color, focus, frame rates, codecs, audio and timecode explained for new shooters, with the Parallax Monitor and ZR Ctl tool for each.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zrctl.com/manual/basics/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cinematography basics | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta name="twitter:description" content="Exposure, shutter angle, log and LUTs, scopes, false color, focus, frame rates, codecs, audio and timecode explained for new shooters, with the Parallax Monitor and ZR Ctl tool for each.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/manual/manual.css">
+
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.0_android-2.1.7_accsoon-coming';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+    <div class="container update-banner-inner">
+      <span class="update-copy">Parallax Monitor <strong>2.0</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
+      <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
+      <button class="update-close" type="button" aria-label="Dismiss update notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/manual/" aria-current="page">Manual</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container manual-shell">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="false" aria-controls="manualSidebar">
+      <span>Manual contents</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <aside class="manual-sidebar" id="manualSidebar" aria-label="Manual navigation">
+      <p class="sidebar-title">User Manual</p>
+      <div class="sidebar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="manualSearch" placeholder="Search the manual" aria-label="Search the manual" autocomplete="off">
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+      <ul class="chapter-list" id="chapterList"></ul>
+      <div>
+        <p class="sidebar-title">On this page</p>
+        <ul class="page-toc" id="pageToc"></ul>
+      </div>
+    </aside>
+
+    <main class="manual-article" id="main">
+      <p class="chapter-kicker">Chapter 03</p>
+      <h1>Cinematography <span class="hl">basics.</span></h1>
+      <p class="lede">A monitoring app is only useful if you know what you are looking at. This chapter explains the ideas behind every tool in the app, in the order you meet them on a shoot. Each section ends with the tool that handles it.</p>
+
+      <h2 id="exposure">Exposure: how much light reaches the sensor</h2>
+      <p>Exposure is the amount of light the sensor records. Too little and the image is dark and noisy. Too much and bright areas <strong>clip</strong>, which means they turn solid white with no detail that can be recovered later. Three camera settings control exposure, and they interact, which is why people call them the exposure triangle.</p>
+
+      <h3 id="aperture">Aperture (f-number)</h3>
+      <p>The aperture is the opening inside the lens. A low f-number such as <code>f/1.8</code> is a wide opening: more light and a shallow depth of field, so the background blurs. A high f-number such as <code>f/11</code> is a small opening: less light and more of the scene in focus. Each full stop (<code>f/1.4, 2, 2.8, 4, 5.6, 8, 11, 16</code>) halves the light. Cinema lenses are often marked in T-stops, which are f-stops corrected for the light the glass actually passes.</p>
+      <p>For video, aperture is mostly a creative choice about depth of field. Use it to decide how much of the frame is sharp, then set exposure with ISO and ND filters rather than constantly changing the aperture mid-shot.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>Aperture</strong> tile on the Controls page, and the aperture chip in the Live View top bar. Tap either to pick a value. See <a class="inl" href="/manual/controls/">Controls</a>.</p></div>
+
+      <h3 id="shutter">Shutter speed and shutter angle</h3>
+      <p>The shutter sets how long each frame is exposed. In video there are two ways to express it. <strong>Shutter speed</strong> is a fraction of a second, such as <code>1/50</code>. <strong>Shutter angle</strong> is borrowed from film cameras, where a rotating disc with an opening of a certain angle exposed each frame. A <code>180°</code> angle means the frame is exposed for half of the frame interval. At 24 fps that is 1/48 s; at 50 fps it is 1/100 s.</p>
+      <p>The reason cinematographers prefer angle is the <strong>180-degree rule</strong>: a 180° shutter gives the amount of motion blur that looks natural to viewers at any frame rate. If you switch from 24 to 60 fps for slow motion, the angle stays 180° and the blur stays right, while a fixed shutter speed would not. Smaller angles (45° to 90°) give crisp, staccato motion for action or sports; larger angles (270° to 360°) give heavy blur and gather more light in low light.</p>
+      <p>Shutter also interacts with artificial light. Lights on mains power flicker at twice the mains frequency. Use 1/50 or 1/100 (180° at 25 or 50 fps) in 50 Hz countries and 1/60 or 1/120 in 60 Hz countries to avoid rolling bands.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>Shutter</strong> tile shows speed or angle, and the <strong>Shutter Mode</strong> toggle switches between them on cameras that support shutter angle (ZR, Z8, Z9, Z6III and RED). Angle mode keeps the blur constant when you change frame rate, so most video shooters leave it on.</p></div>
+
+      <h3 id="iso">ISO, base ISO and dual base ISO</h3>
+      <p>ISO is the sensor's amplification. Raising it brightens the image but also amplifies noise. Every sensor has a <strong>native</strong> (or base) ISO where it delivers its best balance of noise and dynamic range. Many modern cinema sensors have <strong>two</strong> base ISOs, for example a low base around 800 for daylight and a high base around 6400 for low light. At each base the sensor runs a different analog gain and is cleanest there. ISO values between the two bases are digital pushes of the nearer base, so <code>ISO 3200</code> can be noisier than <code>ISO 6400</code> on a dual-base sensor.</p>
+      <p>Rule of thumb: shoot at a base ISO whenever you can and control brightness with aperture, ND filters and lighting. Move to the high base only when the scene is genuinely dark.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>ISO</strong> tile lists only the values the camera accepts in the current codec. On the Nikon ZR in R3D the <strong>Base ISO</strong> tile switches between the Low and High base; the exposure tools recalibrate their thresholds automatically when you change it. See <a class="inl" href="/manual/controls/">Controls</a>.</p></div>
+
+      <h3 id="ev">Exposure compensation and metering</h3>
+      <p>In an automatic exposure mode the camera's meter picks the exposure. <strong>Exposure compensation</strong> nudges that decision brighter or darker in thirds of a stop. <strong>Metering mode</strong> decides which part of the frame the meter trusts: the whole frame (matrix), the centre, a small spot, or the highlights so they are protected. In manual mode (M) the meter only advises; your settings decide.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>Mode</strong>, <strong>Exposure comp</strong> and <strong>Metering</strong> tiles on Controls. Most cinema work is done in M so that exposure does not drift during a shot.</p></div>
+
+      <h2 id="frame-rate">Frame rate and slow motion</h2>
+      <p>Frame rate is how many pictures per second the camera records. <strong>24 fps</strong> is the cinema standard; 25 fps is used for television in 50 Hz countries and 30 fps (29.97) in 60 Hz countries. Recording at <strong>50, 60, 100 or 120 fps</strong> and playing it back in a 24 or 25 fps project gives slow motion: 120 fps played at 24 fps is five times slower than life.</p>
+      <p>Two frame rates matter: the <strong>sensor</strong> (or capture) rate, which is what you record, and the <strong>project</strong> (or timeline) rate, which is what you deliver. RED cameras expose both; Nikon bodies set the sensor rate in the frame size and rate menu and conform in the editor.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>Res/FPS</strong> tile sets the frame size and rate. The <strong>SLOW</strong> pill in Live View jumps to a saved high-frame-rate format and back with one tap. In Playback, the playback speed option plays a 120 fps clip at 24 fps so you can judge the slow motion on set. See <a class="inl" href="/manual/controls/">Controls</a> and <a class="inl" href="/manual/playback/">Playback</a>.</p></div>
+
+      <h2 id="white-balance">White balance, Kelvin and tint</h2>
+      <p>Light sources have a colour. Candlelight is orange, midday sun is neutral, open shade is blue. <strong>White balance</strong> tells the camera what should look white. It is expressed as a colour temperature in <strong>Kelvin</strong>: around 3200 K for tungsten lamps, 5600 K for daylight, 6500 K or more for shade. Setting a lower Kelvin makes the image bluer; a higher Kelvin makes it warmer. <strong>Tint</strong> is the second axis, shifting between green and magenta, and it corrects fluorescent and LED light that no Kelvin value fixes.</p>
+      <p>For video, set white balance manually and keep it fixed inside a scene. Auto white balance drifts as people move or clouds pass, and a drift in the middle of a shot is very hard to fix in post. When shooting RAW the white balance is only metadata and can be changed later, but the monitor still needs a sensible value so you can judge the image.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>WB</strong>, <strong>Kelvin</strong> and <strong>Tint</strong> tiles. The tint tile opens a full-screen amber–blue and green–magenta grid. In Multicam the shared exposure rail sets Kelvin and tint on all cameras so they match. The <strong>vectorscope</strong> shows the colour balance of the frame: a grey card should sit in the centre.</p></div>
+
+      <h2 id="log">Log, Rec.709 and HLG: why the picture looks flat</h2>
+      <p>A sensor captures far more brightness range than a normal screen can show. The camera has to squeeze that range into the file. <strong>Rec.709</strong> (standard video) does it by throwing away the extremes: it looks finished straight out of the camera, but highlights clip early and the shadows are crushed. <strong>Log</strong> profiles instead compress the range with a logarithmic curve that keeps every stop the sensor captured. The result looks grey, flat and low-contrast on a monitor, but it holds detail that you bring back in colour grading.</p>
+      <p>Each manufacturer has its own log curve. Nikon uses <strong>N-Log</strong>, RED uses <strong>Log3G10</strong> inside R3D, Apple uses Apple Log. They place middle grey and the clip point at different code values, so a tool that reads exposure must know which curve it is looking at. <strong>HLG</strong> is a third option, a hybrid curve for HDR delivery that is less flat than log.</p>
+      <p>The practical consequence: when you shoot log you cannot judge exposure by eye from the flat picture, and you cannot judge it from a LUT either, because the LUT changes the brightness. You need scopes or false color that read the recorded signal.</p>
+      <div class="use"><strong>In the app</strong><p>Every exposure tool is calibrated for the profile in use. It detects N-Log and R3D automatically from the codec and LUT, and the thresholds for zebras, false color, the waveform guides and X-Lights follow. The calibration profile is shown in the scope options. See <a class="inl" href="/manual/exposure-tools/">Exposure tools</a>.</p></div>
+
+      <h2 id="luts">LUTs: looking at log through a lens</h2>
+      <p>A <strong>LUT</strong> (look-up table) is a file that maps every input colour to an output colour. A <strong>technical</strong> LUT converts a log image to Rec.709 so it looks normal on a monitor. A <strong>creative</strong> LUT adds a style on top: a film emulation, a bleach bypass, a warm teal-and-orange look. On set a LUT is for <strong>monitoring</strong>: the camera still records the flat log file, and the LUT only changes what you see on the phone. That is the safest workflow, because nothing is baked in and the colourist starts from the full-range original.</p>
+      <p>The important subtlety is that a LUT can hide problems. A contrasty LUT makes a slightly overexposed sky look fine while the log file is clipping. That is why the app analyses the picture <strong>before</strong> the LUT is applied. The LUT changes what you see; the scopes, zebras and false color read what is being recorded.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>LUT</strong> pill switches the look on and off, and <strong>LOOK</strong> opens the browser with bundled N-Log and RED IPP2 conversions, 32 RED creative looks and your own imported .cube files. <strong>WIPE</strong> compares the LUT with the ungraded image on a split screen. See <a class="inl" href="/manual/luts/">LUTs and looks</a>.</p></div>
+
+      <h2 id="reading-exposure">Reading exposure with scopes</h2>
+      <p>Scopes are graphs of the picture. They do not care how the screen is set or how bright the room is, which makes them the only trustworthy way to judge exposure in log. The app offers four, and two overlay tools that paint the result straight onto the image.</p>
+
+      <h3 id="ire">IRE, code values and middle grey</h3>
+      <p>Scopes measure brightness in <strong>IRE</strong>, a 0 to 100 scale where 0 is black and 100 is the brightest value the file can hold. Under the hood the file stores 8- or 10-bit code values (0 to 255 or 0 to 1023). Two landmarks matter. <strong>Middle grey</strong> is an 18% reflectance card, the reference for a correctly exposed scene. In Rec.709 it sits around 40 to 45 IRE; in N-Log around 35 IRE; in Log3G10 around 33 IRE. <strong>Clip</strong> is where the sensor runs out, 100 IRE in Rec.709 but lower in some log curves. Caucasian skin typically sits one to one-and-a-half stops above middle grey.</p>
+
+      <h3 id="histogram">Histogram</h3>
+      <p>A histogram counts how many pixels sit at each brightness, dark on the left, bright on the right. A pile-up against the right edge means clipping; against the left edge, crushed shadows. It is fast to read but it does not tell you <em>where</em> in the frame the problem is.</p>
+
+      <h3 id="waveform">Waveform</h3>
+      <p>A waveform plots brightness vertically against horizontal position in the frame, so a bright window on the right of the picture appears as a bright spike on the right of the scope. It is the cinematographer's standard tool: you can read the level of a face, a sky or a wall directly. The app draws guide lines for clip, highlight, middle grey and shadow at the right levels for the current log curve, so you do not need to remember the numbers.</p>
+
+      <h3 id="parade">RGB parade</h3>
+      <p>Three waveforms side by side, one for red, green and blue. When the three traces line up for a neutral object the white balance is right. If the blue trace sits higher than the others on a grey wall, the image is too cool. The parade is the best tool for matching white balance between cameras.</p>
+
+      <h3 id="vectorscope">Vectorscope</h3>
+      <p>The vectorscope ignores brightness and plots only hue and saturation. The centre is grey; distance from the centre is saturation; the angle is the hue. Six boxes mark the standard colour-bar targets, and a diagonal <strong>skin line</strong> shows where all human skin tones fall regardless of ethnicity. If a face sits off the skin line, the white balance or tint is wrong.</p>
+
+      <h3 id="zebras">Zebras</h3>
+      <p>Zebras paint diagonal stripes on the parts of the picture that reach a chosen level. Classic use: highlight zebras at the clip point, so stripes mean "this is gone". The app also offers zebras for middle grey, so you can put stripes on a grey card or a face and know it is at the right level, and for crushed shadows.</p>
+
+      <h3 id="false-color">False color</h3>
+      <p>False color replaces the whole picture with a colour per exposure band: purple for crushed black, blue for deep shadow, green for middle grey, pink for skin, yellow and orange for highlights, red for clipped. It is the fastest way to see the exposure of everything in the frame at once. Different cameras and apps use different palettes, so a legend is always shown.</p>
+
+      <h3 id="exposure-lights">Exposure lights and posts</h3>
+      <p>When the whole scope is too much, a summary helps. <strong>X-Lights</strong> are three lamps per channel that turn on as highlights or shadows get close to the limit. <strong>X-Posts</strong> are two meters, one for clipping pressure and one for noise, that you can glance at while watching the picture. They are the "traffic lights" of exposure: green means fine, amber means close, red means act.</p>
+      <div class="use"><strong>In the app</strong><p>All of these are in Live View under <strong>SCOPE</strong>, <strong>ZEBRA</strong>, <strong>FALSE</strong> and <strong>EXPO</strong>. See <a class="inl" href="/manual/exposure-tools/">Exposure tools</a> for every option and when to use which.</p></div>
+
+      <h3 id="expose-log">A simple recipe for exposing log</h3>
+      <ol class="steps">
+        <li><strong>Set the base ISO</strong><p>Pick the base nearest to your light. Leave it there and adjust brightness with aperture and ND.</p></li>
+        <li><strong>Protect the highlights</strong><p>Turn on highlight zebras or false color and bring the brightest thing you care about just under clip. Anything above clip is unrecoverable; anything below can be lifted in post.</p></li>
+        <li><strong>Place the subject</strong><p>Read a face or a grey card on the waveform. Faces around one stop above middle grey is the usual target. Many log shooters expose a touch brighter than nominal to keep shadows out of the noise.</p></li>
+        <li><strong>Check the shadows</strong><p>Shadow zebras or the noise post tell you when important dark areas have fallen into the noise floor. Add light or open up if they have.</p></li>
+        <li><strong>Lock it</strong><p>Keep M mode and a fixed white balance for the scene so nothing changes between takes.</p></li>
+      </ol>
+
+      <h2 id="focus">Focus</h2>
+      <p>A small phone screen makes focus hard to judge, and in video a missed focus cannot be fixed later. Two kinds of help exist. <strong>Focus peaking</strong> outlines the sharpest edges in a colour, so you can see what is in focus without zooming. <strong>Punching in</strong> magnifies part of the frame so you can check critical focus on an eye. Peaking is quick and works while rolling; punch-in is precise but you lose the overview.</p>
+      <p><strong>Depth of field</strong> is the zone that looks sharp. It gets shallower with a wider aperture, a longer lens and a closer subject. A shallow depth of field looks cinematic but makes focus pulls unforgiving. A <strong>focus pull</strong> is moving focus from one subject to another during a shot; on a film set a focus puller does it by hand with marks on the lens. Autofocus cameras can do it between two AF points, and the speed of the move is part of the look.</p>
+      <div class="use"><strong>In the app</strong><p><strong>PEAK</strong> for peaking, <strong>ZOOM</strong> for monitor punch and camera focus punch, <strong>PULL</strong> to set and move between AF points, and <strong>MF</strong> to drive a manual-focus-mode lens to saved In and Out points with a timed pull. See <a class="inl" href="/manual/focus-tools/">Focus tools</a>.</p></div>
+
+      <h2 id="framing">Framing, aspect ratios and anamorphic</h2>
+      <p>The sensor records one shape (usually 16:9 or 3:2) but you may deliver another: <code>2.39:1</code> widescreen cinema, <code>1.85:1</code>, <code>4:3</code>, or vertical <code>9:16</code> and <code>4:5</code> for social platforms. <strong>Frame guides</strong> draw the delivery shape over the picture, and a <strong>matte</strong> darkens the area outside it, so you compose for what the audience will see. <strong>Safe areas</strong> are inset borders that keep action and titles away from edges that some screens crop.</p>
+      <p><strong>Composition grids</strong> are aids rather than rules: the rule of thirds puts subjects on the lines; the golden ratio and golden triangles place them slightly tighter to centre; a centre cross helps symmetrical framing.</p>
+      <p><strong>Anamorphic lenses</strong> squeeze a wide field of view onto the sensor; a 2x lens records a picture that is half as wide as it should be. <strong>Desqueeze</strong> stretches the monitor picture back out so you see the real frame. The camera file stays squeezed and is desqueezed again in the edit.</p>
+      <div class="use"><strong>In the app</strong><p><strong>FRME</strong>, <strong>COMP</strong>, <strong>DSQ</strong>, <strong>REF</strong> (a ghosted reference frame for matching shots) and <strong>LVL</strong> (the camera's level sensor). See <a class="inl" href="/manual/framing/">Framing and guides</a>.</p></div>
+
+      <h2 id="codecs">Codecs, RAW and bit depth</h2>
+      <p>The codec is how the camera compresses the video into a file. <strong>H.264</strong> and <strong>H.265 (HEVC)</strong> make small files that play anywhere but tolerate less grading. <strong>ProRes 422 HQ</strong> is lightly compressed, large, and the editing standard. <strong>RAW</strong> formats (<strong>N-RAW</strong>, <strong>ProRes RAW</strong>, <strong>R3D</strong>) store the sensor data before white balance and much of the processing, so those decisions can be changed in post. RAW files need a compatible editor and cannot be played by most phones.</p>
+      <p><strong>Bit depth</strong> is how many brightness steps the file stores. 8-bit has 256 per channel and shows banding in skies when graded hard; 10-bit has 1024 and is the minimum for log. 12-bit and above are RAW territory.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>Codec</strong> tile lists every format the camera reports. The playback page can play H.264, H.265 and ProRes clips from the card; N-RAW and R3D clips are listed but not playable on the phone. See <a class="inl" href="/manual/playback/">Playback</a>.</p></div>
+
+      <h2 id="audio">Audio levels</h2>
+      <p>Digital audio is measured in <strong>dBFS</strong> (decibels relative to full scale), where 0 dBFS is the loudest value the file can hold. Unlike analogue tape, there is nothing above 0: a peak that hits it is clipped and distorts. Dialogue is usually recorded with peaks around −12 to −6 dBFS, leaving <strong>headroom</strong> for surprises. The camera meters show the current level and hold the peak for a moment so you can see what just happened.</p>
+      <p><strong>Input gain</strong> (sensitivity) sets how much the microphone signal is amplified before recording. <strong>Line</strong> input expects a strong signal from a mixer; <strong>mic</strong> input expects a weak one from a microphone. A <strong>wind filter</strong> cuts low rumble; an <strong>attenuator</strong> pads a loud source. <strong>32-bit float</strong> recording stores so much range that clipping becomes almost impossible and levels can be corrected after the fact; where the camera supports it, it is the safe choice for run-and-gun.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>AUD</strong> meters in Live View show left and right levels with a peak hold and let you change the camera's input gain with up and down buttons. The Audio tab on Controls holds the rest. See <a class="inl" href="/manual/controls/">Controls</a>.</p></div>
+
+      <h2 id="timecode">Timecode</h2>
+      <p>Timecode is a clock stamped on every frame, written as <code>HH:MM:SS:FF</code>. Editors use it to line up picture with separately recorded sound and to sync multiple cameras. <strong>Rec Run</strong> timecode only advances while recording, so each clip continues from the last. <strong>Free Run</strong> advances continuously like a clock, usually set to the time of day, so every camera that has the same time produces clips that line up. <strong>Drop frame</strong> is a counting trick for 29.97 and 59.94 fps that keeps the timecode matching real elapsed time.</p>
+      <p>A <strong>jam</strong> is setting one device's timecode from another so they agree. Professional sets use hardware sync boxes; the app can jam all connected cameras to the phone's clock over the control link, which is accurate enough to line clips up and then trim by eye or audio waveform.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>Audio/TC</strong> tab on Controls sets Rec TC, Rec Run or Free Run, drop frame and reset. Multicam has <strong>Timecode Jam-Sync</strong>. See <a class="inl" href="/manual/multicam/">Multicam</a>.</p></div>
+
+      <h2 id="stills">Stills: long exposures, timelapse and stacking</h2>
+      <p><strong>Bulb</strong> keeps the shutter open while you hold the release; <strong>Time</strong> opens on one press and closes on the next. Both are for exposures longer than the camera's longest timed shutter, typically for astrophotography or light painting. A <strong>timelapse</strong> is a sequence of photos taken at a fixed interval and played as video: 300 frames at a 5-second interval is 25 minutes of life compressed into 12.5 seconds at 24 fps. The interval must be longer than the exposure. <strong>Focus stacking</strong> takes several frames at different focus distances and blends them in software for a depth of field no single frame could have; it is a macro and product-photography technique.</p>
+      <div class="use"><strong>In the app</strong><p>The <strong>TIME</strong> tool runs timelapses and builds the video on the phone. <strong>Focus Stack</strong> drives the lens between frames. Both are in photo mode. See <a class="inl" href="/manual/stills/">Stills, timelapse, stacking</a>.</p></div>
+
+      <h2 id="further">Where to go next</h2>
+      <p>With these ideas in place, the tool chapters will make sense. If a term in a chapter is unfamiliar, the <a class="inl" href="/manual/glossary/">glossary</a> defines it in a sentence or two.</p>
+      <nav class="chapter-nav" id="chapterNav" aria-label="Previous and next chapter"></nav>
+      <p class="feedback-strip">Something missing or wrong on this page? Email <a href="mailto:mike@itsmadcreative.com?subject=Manual%20feedback%3A%20Cinematography%20basics">mike@itsmadcreative.com</a> with the page name and what you expected to find.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/">Main Page</a></li>
+          <li><a href="/ios/">iOS Site</a></li>
+          <li><a href="/android/">Android Site</a></li>
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/manual/">Manual</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/compliance/">Compliance</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl and Parallax Monitor are independent projects and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/manual/manual.js"></script>
+</body>
+</html>

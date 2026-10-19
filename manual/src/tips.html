@@ -1,0 +1,84 @@
+<!--
+title: Tips and tricks
+description: Practical tips for getting the most out of Parallax Monitor and ZR Ctl: connection habits, hot corners and presets, exposure under a LUT, focus pulls, Multicam matching, stills workflows, playback and battery.
+kicker: Chapter 01
+-->
+      <p class="chapter-kicker">Chapter 01</p>
+      <h1>Tips and <span class="hl">tricks.</span></h1>
+      <p class="lede">Short, practical habits that make the app faster and more reliable on set. Each one links to the chapter with the full detail. If you read nothing else before a shoot, read this.</p>
+
+      <h2 id="connection">Connection</h2>
+      <ol class="steps">
+        <li><strong>Use USB when the phone lives on the cage.</strong><p>It is the most reliable route, gives the sharpest preview and never fights for Wi-Fi. Put the camera in Menu › Network › USB › MTP/PTP and use a cable that carries data. <a class="inl" href="/manual/connect/">Connection</a>.</p></li>
+        <li><strong>Turn off USB power delivery on the camera.</strong><p>Setup menu › USB power delivery › OFF. Otherwise the camera charges from your phone, which drains the phone and is the single most common cause of "iOS hasn't detected the camera".</p></li>
+        <li><strong>Hotspot for wireless, 5 GHz always.</strong><p>Your iPhone's Personal Hotspot is the easiest wireless route and keeps the phone online. Leave Maximize Compatibility off so the hotspot stays on 5 GHz; 2.4 GHz gives a choppy preview. Stay on the Hotspot screen while the camera joins.</p></li>
+        <li><strong>Pair once, then Quick Reconnect.</strong><p>After the first Wi-Fi pairing the app remembers the camera and the route. The Quick Reconnect row in Pro mode, or the camera's row under Your cameras, gets you back in one tap.</p></li>
+        <li><strong>Never reconnect a recording camera; stop it on the body first.</strong><p>A Nikon refuses new connections while rolling. If the link drops mid-take, the camera keeps recording. Stop it on the camera, then reconnect. <a class="inl" href="/manual/connect/#recording">Why</a>.</p></li>
+        <li><strong>Send logs straight after a failure.</strong><p>Tap Send logs before you reconnect, so the report still holds the failed attempt. Add one line about what you did. It contains no footage.</p></li>
+      </ol>
+
+      <h2 id="layout">Layout and speed</h2>
+      <ol class="steps">
+        <li><strong>Put your four most-used tools in the hot corners.</strong><p>Switch Advanced › UI › Interface to Modern and assign LUT, peaking, false color and zebras to the corners. They stay reachable with the HUD hidden. <a class="inl" href="/manual/live-view/#hot-corners">Hot corners</a>.</p></li>
+        <li><strong>Make a preset per job type.</strong><p>Gimbal (level, small scope, icons only), Interview (waveform, audio meters, skin-line vectorscope), Client (clean picture, LUT on, mask at 100%). Presets store nearly everything, including the recording format if you want it. <a class="inl" href="/manual/live-view/#presets">Presets</a>.</p></li>
+        <li><strong>Tools Stay On for a clean client view.</strong><p>Double-tap hides the HUD; with Tools Stay On in Advanced › UI the waveform and audio meters remain in the corner while the chrome is gone.</p></li>
+        <li><strong>If the top bar scrolls in landscape, hide labels.</strong><p>Advanced › UI › Top Toolbar › Hide Labels frees enough width for most setups. The fit meter there tells you exactly when each group fits.</p></li>
+        <li><strong>Save a slow-motion target once.</strong><p>Advanced › Camera › Slow Motion Target, for example 1080p 120 fps H.265. The SLOW pill then switches to it and back in one tap. The state resets on every launch so you never start a day stuck in 120 fps.</p></li>
+        <li><strong>Lock rotation on a gimbal.</strong><p>The LOCK corner stops the layout flipping when the rig tilts. Turn Touch AF off too, so a knuckle on the screen does not refocus.</p></li>
+        <li><strong>Phone volume buttons are your record trigger.</strong><p>They start and stop recording, and so does a cheap Bluetooth shutter remote or the Camera Control button. <a class="inl" href="/manual/controls/#hardware-triggers">Hardware triggers</a>.</p></li>
+      </ol>
+
+      <h2 id="exposure">Exposure</h2>
+      <ol class="steps">
+        <li><strong>Trust the tools, not the LUT.</strong><p>Scopes, zebras and false color read the recorded signal under the LUT by default. A pretty LUT can hide a clipped sky; the tools cannot. <a class="inl" href="/manual/exposure-tools/#calibration">How they are calibrated</a>.</p></li>
+        <li><strong>Lighting: false color. Rolling: zebras plus X-Lights.</strong><p>Use X-Zone false color to read stops across the frame while you light. Switch to Highlight zebras and the X-Lights lamps for the take, so the picture stays visible.</p></li>
+        <li><strong>Shoot at a base ISO.</strong><p>On the ZR in R3D, pick Low or High base first, then control brightness with aperture and ND. ISO values between the bases are pushes of the nearer base and can be noisier than the higher base. <a class="inl" href="/manual/basics/#iso">Why</a>.</p></li>
+        <li><strong>Exposing N-Log bright? Dial MATCH down.</strong><p>If you deliberately overexpose log by a stop, set MATCH Exposure to −1.00 and the LUT shows what the colourist will see after normalising. <a class="inl" href="/manual/luts/#match">MATCH</a>.</p></li>
+        <li><strong>Set MATCH contrast to 1.00 for a neutral LUT.</strong><p>The MATCH panel's default contrast is 1.12, a slight boost over the raw LUT. If you want the LUT exactly as delivered, drag Contrast to 1.00; Reset returns it to 1.12.</p></li>
+        <li><strong>Match the LUT folder to the codec.</strong><p>N-Log folder for N-Log, IPP2 for R3D. The wrong one turns skin green or magenta. <a class="inl" href="/manual/luts/#look">LOOK</a>.</p></li>
+        <li><strong>Use the RGB parade for white balance.</strong><p>A grey card and the parade beat any auto setting: line the three traces up with Kelvin and the G–M tint and you are done. The same trick matches cameras in Multicam.</p></li>
+        <li><strong>Shutter angle, not speed, for video.</strong><p>Set Shtr Mode to Angle on bodies that support it and leave it at 180°. Motion blur then stays right when you change frame rate for slow motion.</p></li>
+      </ol>
+
+      <h2 id="focus">Focus</h2>
+      <ol class="steps">
+        <li><strong>Peaking while rolling, Focus Punch before.</strong><p>Peaking never interrupts recording. The camera's own magnifier is refused while recording RAW, so check critical focus with PUNCH before you roll, then switch to peaking. Monitor Punch (LOCAL) works any time.</p></li>
+        <li><strong>Cinematic taps for on-camera moves.</strong><p>With the camera in AF-C or AF-F, a tap moves the AF point and the camera racks at the AF Speed you set. Set AF Speed to −3 or lower for a slow, deliberate pull. Instant is for stills and snapping focus before a take. <a class="inl" href="/manual/focus-tools/#touch-af">Touch AF</a>.</p></li>
+        <li><strong>Repeatable pulls: PULL for AF lenses, MF for everything else.</strong><p>Mark up to six points and let the camera rack between them, or save In and Out lens positions and PLAY a timed move. Both give the same move every take. <a class="inl" href="/manual/focus-tools/#focus-pull">Focus Pull</a>.</p></li>
+        <li><strong>Pick a peaking colour that contrasts.</strong><p>Cyan or white in warm interiors, red or yellow outdoors. Lower the sensitivity in noisy low light so grain is not marked; turn on Mono Background when the subject is the same colour as the ridges.</p></li>
+        <li><strong>Manual lenses: import them once.</strong><p>LENS › Import All Lenses pulls every lens the camera already knows. Select a profile when you swap glass and stabilisation and metadata follow.</p></li>
+      </ol>
+
+      <h2 id="multicam">Multicam and crew</h2>
+      <ol class="steps">
+        <li><strong>Jam timecode to the phone clock in FREE RUN.</strong><p>One tap writes the same time of day to every camera and verifies it. Clips then line up by timecode in the edit. Re-jam after a long break. <a class="inl" href="/manual/multicam/#jam">Jam-Sync</a>.</p></li>
+        <li><strong>Match cameras with a grey card and WFM.</strong><p>Put the card in front of each camera, turn on the waveform on the grid, and bring each grey to the same line with ISO or aperture from the shared rail. Then match Kelvin and tint.</p></li>
+        <li><strong>Pause camera search once the rig is up.</strong><p>Tools › Pause Camera Search stops the discovery traffic that competes with previews on a busy network.</p></li>
+        <li><strong>Give the director a phone.</strong><p>CAST from the host and any iPhone, iPad or Android on the same Wi-Fi becomes a read-only monitor with your LUT. Use JPEG VBR for several viewers on a crowded network. <a class="inl" href="/manual/remote/">Remote Viewer</a>.</p></li>
+        <li><strong>Recalibrate record sync after changing the rig.</strong><p>Group record learns each camera's start delay over five starts. New cameras, cables or hub? Tools › Recalibrate Record Sync.</p></li>
+      </ol>
+
+      <h2 id="stills">Stills</h2>
+      <ol class="steps">
+        <li><strong>Time, not Bulb, for long exposures.</strong><p>One tap opens the shutter, the next closes it, and the elapsed time shows on the Lock Screen. No holding the phone.</p></li>
+        <li><strong>Do the timelapse maths in the TIME panel.</strong><p>It shows the estimated shooting time and the clip length as you change shots and interval. 240 shots at 24 fps is ten seconds of video. <a class="inl" href="/manual/stills/#time-math">Timelapse maths</a>.</p></li>
+        <li><strong>Quick stitch first, originals later.</strong><p>A quick stitch from previews is ready in moments and shows whether the motion works. Render from originals for the 4K version when you are back on good Wi-Fi or USB.</p></li>
+        <li><strong>Run a short test stack.</strong><p>Before a 60-frame focus stack, run a 5-frame one and check for soft bands between frames. Halve the step if you see any.</p></li>
+        <li><strong>Tether sessions for client reviews.</strong><p>Start a session in Playback and every new photo appears as it is taken. Rate and pick as you go, then Download selected originals at the end. <a class="inl" href="/manual/playback/#tether">Tether session</a>.</p></li>
+      </ol>
+
+      <h2 id="playback">Playback</h2>
+      <ol class="steps">
+        <li><strong>Judge slow motion at the delivery rate.</strong><p>Set Playback Speed to 24p on a 120 fps clip and you see exactly the slow motion you will cut. <a class="inl" href="/manual/playback/#speed">Playback speed</a>.</p></li>
+        <li><strong>Keep LUT B neutral.</strong><p>Set Advanced › Playback › LUT B to the plain N-Log or IPP2 conversion and flip to it when a creative look in slot A makes you doubt the exposure.</p></li>
+        <li><strong>Test your cable.</strong><p>Advanced › Playback › Test Link Speed classifies the connection. A USB-C cable that reports USB 2 is costing you several times the transfer speed.</p></li>
+        <li><strong>Save originals with the LUT off and speed on Source.</strong><p>Any other combination renders a copy. A conformed copy has no timecode track.</p></li>
+      </ol>
+
+      <h2 id="battery">Battery and heat</h2>
+      <ol class="steps">
+        <li><strong>Lower the preview on Wi-Fi.</strong><p>VGA and Normal quality are plenty for framing and exposure and cut the work the phone does every frame. Raise it only on USB.</p></li>
+        <li><strong>Hide the tools you are not using.</strong><p>Every scope and overlay is analysis per frame. Turn off the vectorscope and false color while you are only framing.</p></li>
+        <li><strong>Keep the phone out of the sun and off the camera's power.</strong><p>Direct sun plus charging the camera over USB is what makes a phone throttle. When it gets hot the app slows the overlays, never the picture or the recording.</p></li>
+        <li><strong>Drop the screen brightness between takes.</strong><p>The display is the biggest draw. Hide the HUD and lower brightness while waiting; the recording border still shows you are rolling.</p></li>
+      </ol>

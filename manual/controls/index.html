@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controls page | Parallax Monitor &amp; ZR Ctl User Manual</title>
+  <meta name="description" content="Every tile on the Controls page of Parallax Monitor and ZR Ctl: exposure, white balance and tint, format and codec, focus, audio, timecode, the record card and its refused-recording reasons, hardware triggers and the slow-motion tool.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/manual/controls/">
+
+  <meta property="og:title" content="Controls page | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta property="og:description" content="Every tile on the Controls page of Parallax Monitor and ZR Ctl: exposure, white balance and tint, format and codec, focus, audio, timecode, the record card and its refused-recording reasons, hardware triggers and the slow-motion tool.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zrctl.com/manual/controls/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Controls page | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta name="twitter:description" content="Every tile on the Controls page of Parallax Monitor and ZR Ctl: exposure, white balance and tint, format and codec, focus, audio, timecode, the record card and its refused-recording reasons, hardware triggers and the slow-motion tool.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/manual/manual.css">
+
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.0_android-2.1.7_accsoon-coming';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+    <div class="container update-banner-inner">
+      <span class="update-copy">Parallax Monitor <strong>2.0</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
+      <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
+      <button class="update-close" type="button" aria-label="Dismiss update notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/manual/" aria-current="page">Manual</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container manual-shell">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="false" aria-controls="manualSidebar">
+      <span>Manual contents</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <aside class="manual-sidebar" id="manualSidebar" aria-label="Manual navigation">
+      <p class="sidebar-title">User Manual</p>
+      <div class="sidebar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="manualSearch" placeholder="Search the manual" aria-label="Search the manual" autocomplete="off">
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+      <ul class="chapter-list" id="chapterList"></ul>
+      <div>
+        <p class="sidebar-title">On this page</p>
+        <ul class="page-toc" id="pageToc"></ul>
+      </div>
+    </aside>
+
+    <main class="manual-article" id="main">
+      <p class="chapter-kicker">Chapter 11</p>
+      <h1>The Controls <span class="hl">page.</span></h1>
+      <p class="lede">Controls is a grid of camera settings with a record card at the top. Every tile reads a setting from the camera and, where the camera allows, writes it back. This chapter lists each tile, its options, when it is greyed out, and what it is for.</p>
+
+      <figure class="shot"><img src="/images/controls-grid.png" alt="The Controls page in portrait with the record card and the setting tiles" loading="lazy"><figcaption><strong>Controls in portrait.</strong> Record card, group tabs, then the Exposure, Capture and Focus sections.</figcaption></figure>
+
+      <h2 id="anatomy">How the page works</h2>
+      <ul>
+        <li><strong>Two groups.</strong> <strong>Shoot</strong> holds the Exposure, Capture and Focus sections. <strong>Audio / TC</strong> holds the Audio and Timecode sections and appears only in video mode on Nikon cameras. RED cameras show their own Exposure and Capture tiles and no Focus or Audio / TC group.</li>
+        <li><strong>Photo or video follows the camera.</strong> The app reads the camera's photo/video selector and swaps the tiles to match. There is no switch in the app. A PHOTO or VIDEO badge in the status strip shows which the camera is in.</li>
+        <li><strong>Pickers list only what the camera allows.</strong> Tap a tile to open a list with the current value ticked. A setting with only two values toggles directly without a list.</li>
+        <li><strong>Grey means the camera owns it.</strong> A grey tile is one the camera reports as read only in its current mode. Tapping it explains why with one of these notices:
+          <ul>
+            <li><em>Not reported by this camera</em>: the body does not expose the setting.</li>
+            <li><em>Controlled by the camera</em>: the setting is fixed by a physical dial or the exposure mode. Check the camera.</li>
+            <li><em>Read-only in the current mode</em>: the camera allows several values but not right now, for example during recording.</li>
+            <li><em>Set on camera dial</em>: the exposure mode is chosen by the mode dial (Z6III, Zf, Z7II).</li>
+            <li><em>Locked while recording</em>: ISO in R3D while rolling.</li>
+          </ul>
+        </li>
+        <li><strong>Refused writes are explained.</strong> If the camera rejects a change, a yellow notice at the bottom of the grid says "The camera is busy", "The camera did not accept that value in its current mode", "The camera has locked this setting in its current mode" or "The camera did not apply the change". On the Zf and Zfc a refused exposure write instead offers to turn on Remote Mode (see below).</li>
+        <li><strong>Landscape</strong> shows the record card and grid on the left and a metadata panel on the right with the camera name, transport, battery, Codec and Res (or Quality and Area in photo mode), a LENS row with focal length and maximum aperture, and the card storage bars.</li>
+      </ul>
+
+      <h2 id="record-card">The record card</h2>
+      <p>At the top of the page: the record button, a status word, a clock line, a remaining line and the card-slot button.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Element</th><th>Video</th><th>Photo</th></tr></thead>
+        <tbody>
+          <tr><td>Status</td><td>READY (green), RECORDING (red)</td><td>PHOTO READY, CAPTURING</td></tr>
+          <tr><td>Clock</td><td><code>REC mm:ss</code> elapsed, or <code>TC hh:mm:ss:ff</code> when Rec TC is on</td><td>STILLS, CAPTURE, or <code>TIMER n</code> during the app countdown</td></tr>
+          <tr><td>Remaining</td><td><code>REM h:mm:ss · x GB free</code> from the camera's estimate; <code>--:--</code> when it has none</td><td><code>n SHOTS</code>, or the free space</td></tr>
+          <tr><td>Card slot</td><td colspan="2">Shows the active slot and card type (for example <code>1 CF</code>). Tap to switch between slot 1 and 2 when the camera allows it.</td></tr>
+          <tr><td>App photo timer</td><td>—</td><td>Off, 2, 5 or 10 seconds, or Custom from 1 to 60 s. An app-side countdown before the shot; the camera's own self-timer is the Release tile's Timer entry.</td></tr>
+        </tbody>
+      </table></div>
+      <p>The record button does what the Live View button does: start and stop in video, capture in photo, cancel a countdown or close a Bulb exposure with a second tap. It is disabled while a command is in flight and while the camera is busy with another change.</p>
+
+      <h3 id="refused">Why a recording was refused</h3>
+      <p>When a video recording does not start, a red line under the clock explains why for five seconds. The reasons come from the camera:</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Message</th><th>What to do</th></tr></thead>
+        <tbody>
+          <tr><td>REC blocked — no memory card</td><td>Insert a card, or switch the card slot.</td></tr>
+          <tr><td>REC blocked — memory card error</td><td>Reseat or replace the card.</td></tr>
+          <tr><td>REC blocked — format the card in the camera</td><td>Format on the camera; the app cannot.</td></tr>
+          <tr><td>REC blocked — card is write-protected</td><td>Slide the lock tab on the card.</td></tr>
+          <tr><td>REC blocked — memory card is full</td><td>Free space or change slot.</td></tr>
+          <tr><td>REC blocked — switch the camera to video mode</td><td>Move the camera's photo/video selector to video.</td></tr>
+          <tr><td>REC blocked — exit zoom on the camera</td><td>Turn off Focus Punch or the camera's magnifier; the body will not record while zoomed.</td></tr>
+          <tr><td>REC blocked — camera is still writing</td><td>Wait for the previous clip to finish writing.</td></tr>
+          <tr><td>REC blocked — camera reports recording already active</td><td>The camera is already rolling; stop it on the camera.</td></tr>
+          <tr><td>REC blocked — camera did not allow remote recording; reconnect</td><td>On first-generation bodies the app switches the camera into application mode and you can try again; otherwise reconnect.</td></tr>
+          <tr><td>REC start rejected — camera busy</td><td>The camera was mid-command; try again in a moment.</td></tr>
+          <tr><td>Stop the Time sequence before starting video recording.</td><td>A running timelapse owns the shutter.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="exposure">Exposure section</h2>
+      <div class="setting">
+        <h3 id="mode">Mode</h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>M, P, A, S</dd><dt>Shows</dt><dd>Also Auto and U1 to U4 with the underlying mode, for example <code>U2 · M</code></dd></dl>
+        <p>The exposure program. The picker offers only the four PASM modes; user modes and Auto are shown but set on the camera. Bodies whose mode dial owns the setting show "Set on camera dial". In video with the R3D codec the mode is fixed at M.</p>
+        <div class="use"><strong>When to use it</strong><p>Shoot video in M so exposure does not drift during a take. Changing the mode re-reads aperture, shutter, ISO, white balance and metering so the tiles match the new mode.</p></div>
+      </div>
+      <div class="setting">
+        <h3 id="aperture">Aperture</h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>The lens's steps as the camera lists them, for example F2.8, F4</dd></dl>
+        <p>Separate photo and video properties, so the value can differ between modes. Writable only in A and M; the camera greys it otherwise. Manual-aperture lenses and lenses without electronics show nothing to set.</p>
+      </div>
+      <div class="setting">
+        <h3 id="base-iso">Base ISO <span class="tag video">Video</span> <span class="tag">ZR</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Low, High (toggle)</dd></dl>
+        <p>Switches the sensor between its two native ISOs. Effective only with the R3D codec on the Nikon ZR; other codecs ignore the tap. The exposure tools recalibrate to the new base.</p>
+        <div class="use"><strong>When to use it</strong><p>Low (800) for daylight and lit interiors, High (6400) for genuinely dark scenes. Change the base, then set the ISO; values near a base are cleanest. See <a class="inl" href="/manual/basics/#iso">Cinematography basics</a>.</p></div>
+      </div>
+      <div class="setting">
+        <h3 id="shutter">Angle / Speed</h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>The camera's list. Speed as <code>1/50</code>, <code>2s</code>, Bulb or Time; angle as <code>180°</code></dd></dl>
+        <p>One tile that shows the shutter as a speed, or as an angle when the camera is in angle mode. Writable in S and M. If the camera reports no list, a fallback of common speeds from 1/25 to 1/8000 is offered.</p>
+      </div>
+      <div class="setting">
+        <h3 id="shutter-mode">Shtr Mode <span class="tag video">Video</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Speed, Angle (toggle)</dd><dt>Bodies</dt><dd>ZR, Z8, Z9, Z6III and other bodies that report shutter angle</dd></dl>
+        <p>Switches the camera between shutter speed and shutter angle. Choosing Angle keeps motion blur constant when you change frame rate; see the <a class="inl" href="/manual/basics/#shutter">180-degree rule</a>.</p>
+      </div>
+      <div class="setting">
+        <h3 id="iso">ISO</h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>The values the camera allows in the current codec and format, between 25 and 409600</dd></dl>
+        <p>The list is re-read every time you open it, because the allowed values change with codec (N-Log, HLG and RAW narrow the list) and with the base ISO. In video with Auto ISO on the camera, the tile reads <code>Auto 1600</code> with the effective value; the picker still lists manual values. In R3D the ISO is locked while recording. On the Zf and Zfc the camera refuses ISO changes unless Remote Mode is on.</p>
+      </div>
+      <div class="setting">
+        <h3 id="exp-comp">Exp±</h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>The camera's range in thirds of a stop: <code>-2/3</code>, <code>±0</code>, <code>+1 1/3</code></dd></dl>
+        <p>Exposure compensation for the automatic modes. Greyed in M because there is nothing to compensate.</p>
+      </div>
+      <div class="setting">
+        <h3 id="meter">Meter</h3>
+        <dl class="setting-meta"><dt>Photo</dt><dd>Matrix, Center, Spot, Highlight</dd><dt>Video</dt><dd>Matrix, Center, HiLight</dd></dl>
+        <p>Which part of the frame the camera's meter weighs. Highlight-weighted protects the brightest areas in automatic modes.</p>
+      </div>
+      <div class="setting">
+        <h3 id="remote-mode">Remote Mode <span class="tag">Zf, Zfc</span> <span class="tag new">New in 2.1</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>On ("App sets exposure"), Off ("Camera dials")</dd><dt>Default</dt><dd>Off</dd></dl>
+        <p>The Zf and Zfc have physical dials for shutter speed, ISO and exposure compensation, and in their normal remote mode the camera refuses exposure changes from an app. Turning Remote Mode on tells the camera to take exposure from the app and ignore its dials. The first time the camera refuses a write the app asks "Turn On Remote Mode?"; the same switch is under Connection › Advanced as Zf Remote-Only Controls. It cannot be changed while recording.</p>
+        <div class="use"><strong>When to use it</strong><p>Turn it on when you want to set exposure from the phone. Leave it off when the operator uses the dials and the phone is only a monitor.</p></div>
+      </div>
+
+      <h2 id="capture">Capture section</h2>
+      <p>Video order: WB, Kelvin, Tint, IS / VR, Res/FPS, Codec. Photo order: WB, Kelvin, Quality, RAW, Size, Area, Picture, Release.</p>
+      <div class="setting">
+        <h3 id="wb">WB</h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Auto, Natural Auto, Sunny, Cloudy, Shade, Incan, Fluor, Flash, K, PRE, Same Photo, as the camera lists them</dd></dl>
+        <p>In video, Auto expands into the camera's Auto 0, Auto 1 and Auto 2 variants (keep white, keep warm, keep warmer). In R3D the automatic modes are removed because the camera does not allow them. Choose <strong>K</strong> to unlock the Kelvin and Tint tiles.</p>
+        <div class="use"><strong>When to use it</strong><p>Set K and a fixed Kelvin for every video scene. Use PRE (a measured preset from a grey card set on the camera) for mixed light. See <a class="inl" href="/manual/basics/#white-balance">White balance</a>.</p></div>
+      </div>
+      <div class="setting">
+        <h3 id="kelvin">Kelvin</h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>The camera's range in 100 K steps</dd></dl>
+        <p>Active only when WB is K; otherwise the tile reads <code>--</code>. Separate photo and video values.</p>
+      </div>
+      <div class="setting">
+        <h3 id="tint">Tint <span class="tag video">Video</span></h3>
+        <dl class="setting-meta"><dt>Range</dt><dd>Amber–blue A6 to B6 in 0.5 steps; green–magenta G6 to M6 in 0.25 steps</dd></dl>
+        <p>Opens the full-screen <strong>WB Fine Tune</strong> grid: tap or drag in the colour field, or nudge one step with the G, A, B and M pad buttons. The tile shows the offset, for example <code>A2 M1.5</code>. Available when the camera reports the movie tint as writable.</p>
+        <div class="use"><strong>When to use it</strong><p>Fluorescent and cheap LED light leaves a green or magenta cast that Kelvin cannot fix. Put a grey card in the shot, open the RGB parade, and move along the G–M axis until the three traces line up.</p></div>
+      </div>
+      <div class="setting">
+        <h3 id="vr">IS / VR <span class="tag video">Video</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Off, Normal, Sport, Electronic</dd></dl>
+        <p>Vibration reduction. Electronic adds a crop and is not offered in R3D. Use Off on a tripod, Normal handheld, Sport for panning and vehicle work.</p>
+      </div>
+      <div class="setting">
+        <h3 id="res-fps">Res/FPS <span class="tag video">Video</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Every frame size and rate the camera offers in the current codec, labelled by size bucket and rate: <code>8K 30p</code>, <code>4K 60p</code>, <code>1920x1080 120p ×4</code></dd></dl>
+        <p>The label carries a <code>[FX]</code> or <code>[DX]</code> prefix when one size exists in two crops (ZR RAW formats), exact pixel sizes when sizes would otherwise collide (Z8 and Z9 RAW), and a <code>×4</code> or <code>×5</code> factor on slow-motion entries that the camera conforms in the file. Changing the format re-reads the ISO list.</p>
+      </div>
+      <div class="setting">
+        <h3 id="codec">Codec <span class="tag video">Video</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>H.264 8b, H.265 8b, H.265 10b, N-RAW, ProRes, ProRes RAW, R3D, as the body supports</dd></dl>
+        <p>The recording format. Changing it changes the available frame sizes, the ISO list, the white balance options and the exposure tool calibration (R3D switches the tools to Log3G10). See <a class="inl" href="/manual/basics/#codecs">Codecs, RAW and bit depth</a>.</p>
+      </div>
+      <div class="setting">
+        <h3 id="quality">Quality <span class="tag photo">Photo</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Basic, Basic★, Normal, Normal★, Fine, Fine★, RAW, RAW+B, RAW+N, RAW+F and their ★ variants</dd></dl>
+        <p>JPEG quality and whether a RAW file is recorded alongside. The ★ variants are the optimal-quality JPEGs. Playback groups RAW+JPEG pairs as one item.</p>
+      </div>
+      <div class="setting">
+        <h3 id="raw">RAW <span class="tag photo">Photo</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Lossless, HE★, HE</dd></dl>
+        <p>RAW compression: lossless, or Nikon's high-efficiency compression in two levels.</p>
+      </div>
+      <div class="setting">
+        <h3 id="size">Size <span class="tag photo">Photo</span></h3>
+        <p>Image size in pixels as the camera reports it, for example <code>8256x5504</code>.</p>
+      </div>
+      <div class="setting">
+        <h3 id="area">Area <span class="tag photo">Photo</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>FX, DX, 1:1, 16:9</dd></dl>
+        <p>The sensor crop. DX gives a 1.5x crop for reach; 16:9 and 1:1 for delivery shapes.</p>
+      </div>
+      <div class="setting">
+        <h3 id="picture-control">Picture <span class="tag photo">Photo</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Standard, Neutral, Vivid, Mono, Portrait, Landscape, Flat, Auto, Flat Mono, Deep Mono, Rich Portrait, the twenty Creative Picture Controls, custom slots C-1 to C-9, and Recipe slots</dd></dl>
+        <p>The in-camera look for JPEGs. Custom slots show the name stored on the camera, for example <code>C-1 MYLOOK</code> <span class="tag new">New in 2.1</span>. Video tone modes (N-Log, HLG) are not controllable from the app, because the camera does not expose them over the control link; the app infers N-Log from the codec.</p>
+      </div>
+      <div class="setting">
+        <h3 id="release">Release <span class="tag photo">Photo</span></h3>
+        <dl class="setting-meta"><dt>Options</dt><dd>Single, CL, CH, CH+, Timer, and high-speed frame capture C15, C30, C60, C120, as the body offers</dd></dl>
+        <p>What one press of the shutter does. Timer is the camera's own self-timer; the app's countdown is on the record card. Continuous modes fire while the record button is held.</p>
+      </div>
+
+      <h2 id="focus">Focus section <span class="tag nikon">Nikon</span></h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Tile</th><th>Options</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>AF Mode</td><td>AF-S, AF-C, AF-F, AF-A, MF as the body reports</td><td>Reads MF when the lens switch is on manual. AF-F (full-time) is the video mode for continuous tracking. Video selections are remembered as startup defaults.</td></tr>
+          <tr><td>AF Area</td><td>Photo: Single, Auto, Wide-S, Wide-L, Wide-C1, Wide-C2, Dyn-S, Dyn-M, Dyn-L, 3D, Pinpoint. Video: Single, Auto, Wide-S, Wide-L, Wide-C1, Wide-C2, Target. Older bodies: Single, Auto, Wide-S, Wide-L, Face, Wide, Normal, Track</td><td>Where the autofocus looks. Wide-S with subject detection is the usual video choice; Single for a fixed point.</td></tr>
+          <tr><td>Subject</td><td>Off, Auto, People, Animal, Vehicle, Birds, Airplanes</td><td>Subject detection. Pick the subject type so the camera does not jump to the wrong thing.</td></tr>
+          <tr><td>Touch Focus</td><td>Instant, Cinematic</td><td>What a tap in Live View does: drive focus now, or move the point and let continuous AF rack to it. Left on Auto, the app picks Instant for stills and AF-S, Cinematic for AF-C and AF-F. An app setting, not a camera write.</td></tr>
+          <tr><td>Pull Time</td><td>0.5, 1, 2, 3, 5, 8 s (cycles)</td><td>The hold time at each point in a Live View focus pull. Video only.</td></tr>
+          <tr><td>AF Speed</td><td>Low −5 to −1, Normal, High +1 to +5</td><td>How fast the camera racks focus in video. Low values give cinematic moves.</td></tr>
+          <tr><td>AF Apply</td><td>Always, Record Only</td><td>Whether the AF speed applies all the time or only while recording (so framing-up is quick and the take is smooth).</td></tr>
+        </tbody>
+      </table></div>
+      <p>Tracking sensitivity (Locked-On to Very Responsive) is set as a startup default in Advanced › Camera, not on this page.</p>
+
+      <h2 id="audio">Audio section <span class="tag video">Video</span> <span class="tag nikon">Nikon</span></h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Tile</th><th>Options</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>Sens</td><td>Auto, or manual 0 to 20</td><td>Microphone input sensitivity (gain). The same control sits under the AUD meters in Live View. Set it so dialogue peaks around the −12 mark with the loudest moments short of the red.</td></tr>
+          <tr><td>32F</td><td>ON, OFF</td><td>32-bit float recording on bodies that support it. Practically clip-proof; levels can be corrected in post.</td></tr>
+          <tr><td>Input</td><td>Mic, Line</td><td>Mic for microphones; Line for the strong signal from a mixer or wireless receiver set to line out.</td></tr>
+          <tr><td>Wind</td><td>On, Off</td><td>A low-cut filter against wind rumble. Leave off indoors; it thins voices.</td></tr>
+          <tr><td>Atten</td><td>On, Off</td><td>A pad for loud sources (concerts, engines) so the preamp does not clip.</td></tr>
+          <tr><td>Resp</td><td>Wide, Vocal</td><td>Frequency response: Wide for music and ambience, Vocal for speech.</td></tr>
+        </tbody>
+      </table></div>
+      <h3 id="audio-meters">Audio meters in Live View</h3>
+      <p>The AUD pill shows left and right meters with a scale from 0 down to −48, a peak hold, and colour bands: green below 72%, orange to 92%, red above. The ▲ and ▼ buttons change the camera's sensitivity in the steps above. Meters are also shown for RED cameras and HDMI sources, and per camera in Multicam. The app does not play camera audio to headphones; the meters are for level only.</p>
+
+      <h2 id="timecode">Timecode section <span class="tag video">Video</span> <span class="tag nikon">Nikon</span></h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Tile</th><th>Options</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>Rec TC</td><td>Off, On, HDMI</td><td>Records timecode into the file (On), also sends it over HDMI (HDMI), or not at all. Turning it on switches the record card clock to the TC value.</td></tr>
+          <tr><td>Method</td><td>Rec Run, Free Run</td><td>Rec Run counts only while recording; Free Run runs continuously like a clock. Disabled while Rec TC is off.</td></tr>
+          <tr><td>Drop</td><td>Drop frame, Non-drop</td><td>Drop-frame counting for 29.97 and 59.94 fps. Leave non-drop at 24, 25 and 30.</td></tr>
+          <tr><td>Reset</td><td>Action</td><td>Sets the timecode to 00:00:00:00. Disabled while recording ("Stop rec"), with Rec TC off ("TC off"), or on bodies without timecode ("Unavailable").</td></tr>
+        </tbody>
+      </table></div>
+      <p>To set every camera to the same time of day, use Timecode Jam-Sync in <a class="inl" href="/manual/multicam/#jam">Multicam</a>; the single-camera page only resets to zero. The live TC value is read from the Live View stream and shown here, in the Live View top bar and in Multicam.</p>
+
+      <h2 id="slow-motion">Slow motion</h2>
+      <p>There is no separate slow-motion tile; high-frame-rate formats appear in the Res/FPS list with a <code>×4</code> or <code>×5</code> suffix. For one-tap switching, save a format and codec under Advanced › Camera › Slow Motion Target and use the <strong>SLOW</strong> pill in Live View: on remembers the current format and writes the target; off restores the format. See <a class="inl" href="/manual/advanced/#slow-motion-target">Advanced settings</a>.</p>
+
+      <h2 id="startup-defaults">Startup defaults and remembered writes</h2>
+      <p>Values you set on this page are remembered and replayed when the camera reconnects, and Advanced › Camera › Startup Defaults can force a format, codec and AF behaviour before Live View starts. See <a class="inl" href="/manual/advanced/#startup-defaults">Advanced settings</a>.</p>
+
+      <h2 id="hardware-triggers">Hardware triggers</h2>
+      <p>While the Controls page or Live View is in front and no picker is open, these fire the record button:</p>
+      <ul>
+        <li>The iPhone's <strong>volume buttons</strong>.</li>
+        <li>The <strong>Camera Control</strong> button on iPhones that have one (iOS 17.2 or later).</li>
+        <li><strong>Bluetooth shutter remotes</strong> that act as volume keys.</li>
+      </ul>
+      <p>Repeated presses within three quarters of a second are ignored so a remote that chatters does not start and stop a clip. The app parks the phone's volume at a mid level while the trigger is armed so both buttons produce an event, and restores it afterwards.</p>
+
+      <h2 id="red">RED cameras</h2>
+      <p>With a RED connected, the page shows RED tiles whose options come from the camera: Aperture, Angle or Shutter, ISO, ND, Kelvin, Tint, Sensor FPS, Project FPS, Format, Codec, R3D Quality and Live Stream. The record card shows TC and media remaining. See <a class="inl" href="/manual/red/">RED cameras</a>.</p>
+      <nav class="chapter-nav" id="chapterNav" aria-label="Previous and next chapter"></nav>
+      <p class="feedback-strip">Something missing or wrong on this page? Email <a href="mailto:mike@itsmadcreative.com?subject=Manual%20feedback%3A%20Controls%20page">mike@itsmadcreative.com</a> with the page name and what you expected to find.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/">Main Page</a></li>
+          <li><a href="/ios/">iOS Site</a></li>
+          <li><a href="/android/">Android Site</a></li>
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/manual/">Manual</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/compliance/">Compliance</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl and Parallax Monitor are independent projects and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/manual/manual.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Known issues | Parallax Monitor &amp; ZR Ctl User Manual</title>
+  <meta name="description" content="Known issues and limitations in the current Parallax Monitor and ZR Ctl releases, what is fixed in 2.1, what is still open with workarounds, and what is a limitation by design.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/manual/known-issues/">
+
+  <meta property="og:title" content="Known issues | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta property="og:description" content="Known issues and limitations in the current Parallax Monitor and ZR Ctl releases, what is fixed in 2.1, what is still open with workarounds, and what is a limitation by design.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zrctl.com/manual/known-issues/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Known issues | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta name="twitter:description" content="Known issues and limitations in the current Parallax Monitor and ZR Ctl releases, what is fixed in 2.1, what is still open with workarounds, and what is a limitation by design.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/manual/manual.css">
+
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.0_android-2.1.7_accsoon-coming';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+    <div class="container update-banner-inner">
+      <span class="update-copy">Parallax Monitor <strong>2.0</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
+      <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
+      <button class="update-close" type="button" aria-label="Dismiss update notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/manual/" aria-current="page">Manual</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container manual-shell">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="false" aria-controls="manualSidebar">
+      <span>Manual contents</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <aside class="manual-sidebar" id="manualSidebar" aria-label="Manual navigation">
+      <p class="sidebar-title">User Manual</p>
+      <div class="sidebar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="manualSearch" placeholder="Search the manual" aria-label="Search the manual" autocomplete="off">
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+      <ul class="chapter-list" id="chapterList"></ul>
+      <div>
+        <p class="sidebar-title">On this page</p>
+        <ul class="page-toc" id="pageToc"></ul>
+      </div>
+    </aside>
+
+    <main class="manual-article" id="main">
+      <p class="chapter-kicker">Chapter 02</p>
+      <h1>Known <span class="hl">issues.</span></h1>
+      <p class="lede">What we know is broken, what is already fixed in the next release, and what is a limitation rather than a bug. Updated 18 October 2026 against Parallax Monitor 2.0 (32) on the App Store and the 2.1 TestFlight builds, and ZR Ctl 2.1.7 on Google Play.</p>
+
+      <div class="callout info"><strong>How to read this page</strong><p>Each item names the versions it applies to, a workaround where one exists, and whether a fix is shipping. If you hit something that is not listed, send logs from the Connection page right after it happens; that is how most of these were found.</p></div>
+
+      <h2 id="fixed-in-2-1">Fixed in 2.1 (still present in 2.0 on the App Store)</h2>
+      <p>If you are on 2.0 and see one of these, the fix is in 2.1. Until then, use the workaround.</p>
+      <div class="tbl-wrap"><table class="tbl wrap">
+        <thead><tr><th>Issue</th><th>Affects</th><th>Workaround on 2.0</th></tr></thead>
+        <tbody>
+          <tr><td>Zf and Zfc refuse ISO, shutter and exposure changes from the app</td><td>Zf, Zfc</td><td>Set exposure on the camera's dials. 2.1 adds a Remote Mode tile and a prompt that lets the app's values win.</td></tr>
+          <tr><td>Recording from the app is refused on Z5, Z6, Z7 and Z50</td><td>First-generation Z bodies</td><td>Record on the camera. 2.1 puts the camera into its application mode on the first attempt and explains any refusal.</td></tr>
+          <tr><td>Tap focus and the MF slider do nothing on older Z bodies</td><td>Z5, Z6, Z7, Z6II, Z7II, Z50, Z30, Zfc</td><td>Focus on the camera. Fixed in 2.1 (40): these bodies send Live View data in an older format the app now reads.</td></tr>
+          <tr><td>After Focus Pull, taps stop focusing in AF-S, and a pull from AF-S does not move the lens</td><td>All Nikon bodies</td><td>Set the camera to AF-F before using Focus Pull, or toggle Touch AF off and on. Fixed in 2.1 (39).</td></tr>
+          <tr><td>Desqueeze with Fast GPU Display shows the LUT picture at the squeezed width with black bars, and peaking smears the edges</td><td>Anamorphic users</td><td>Turn off Fast GPU Display in Advanced › Monitoring (called Metal Monitor Rendering in 2.0). Fixed in 2.1 (35).</td></tr>
+          <tr><td>The app freezes, and sometimes quits, while starting a USB connection</td><td>USB on some iPhones</td><td>Plug the cable in before opening the Connection page. Fixed in 2.1 (34).</td></tr>
+          <tr><td>Leaving the app while recording over USB could lose the take's connection</td><td>USB</td><td>Keep the app in the foreground while recording. 2.1 keeps the session untouched while rolling and shows a clear alert if iOS drops USB anyway.</td></tr>
+          <tr><td>A USB cable drop kicks you out of Live View</td><td>USB</td><td>Reconnect from the Connection page. 2.1 holds the last frame and reconnects by itself when not recording.</td></tr>
+          <tr><td>Lock Screen recording timer shows a wildly wrong time</td><td>Live Activities</td><td>Ignore the Lock Screen timer; the in-app timer is right. Fixed in 2.1 (37), which also adds card time left.</td></tr>
+          <tr><td>Focus Punch stretches the picture on the Z9</td><td>Z9</td><td>Use Monitor Punch. Fixed in 2.1 (34).</td></tr>
+          <tr><td>Import Active Lens reads the previously selected lens and imports 21 mm as 2100 mm</td><td>Non-CPU lens profiles</td><td>Create the profile by hand. Fixed in 2.1 (34); 2.1 also adds Import All Lenses.</td></tr>
+          <tr><td>HDMI capture: the LUT drops off when the camera's preview restarts, 25p runs at 17 to 20 fps, a green or magenta cast, tear lines when panning, glitch lines after signal loss</td><td>iPad with a capture card</td><td>Restart the HDMI source after the camera menu closes. All fixed across 2.1 (35) to (38), including automatic colour matching.</td></tr>
+          <tr><td>Send logs after visiting Multicam reports a RED camera and drops the Nikon details</td><td>Nikon rigs</td><td>Quit and relaunch the app before Send logs. Fixed in 2.1 (36).</td></tr>
+          <tr><td>ZR in R3D offers Auto, Same as Photo and Natural Auto white balance, which the camera ignores</td><td>ZR, R3D</td><td>Use K or a preset. 2.1 (38) hides the automatic modes in R3D.</td></tr>
+          <tr><td>Wi-Fi Live View stutters on a busy router, and long sessions drop on the Zf and Z50II</td><td>Router Wi-Fi</td><td>Use USB or the hotspot. 2.1 (37) adds the adaptive heartbeat and answers the camera's keep-alive checks.</td></tr>
+          <tr><td>Z50II on the camera's own Wi-Fi floods the connection when the camera menu is opened</td><td>Z50II, camera AP</td><td>Use USB or the hotspot. 2.1 (37) bounds the recovery.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="open">Open issues</h2>
+      <p>These are under investigation or waiting for device confirmation. Where a workaround exists it is listed.</p>
+
+      <h3 id="open-connection">Connection</h3>
+      <div class="setting">
+        <h4 id="z50ii-usb">Z50II never appears over USB on one iPhone</h4>
+        <p>iOS on one tester's iPhone never shows the Z50II as a USB camera at all, while the same body works on other phones. The cause looks like a stale iOS permission for the camera. <strong>Workaround:</strong> tap <strong>Reset USB Permissions</strong> on the failure card (inline from 2.1; under Connection › Advanced › USB PERMISSIONS in 2.0), then reconnect. Also try with USB power delivery off on the camera.</p>
+      </div>
+      <div class="setting">
+        <h4 id="zr-usb-drops">Brief USB disconnects on the ZR during Live View</h4>
+        <p>Some ZR users see the camera drop off USB for a moment during Live View. 2.1 (39) reconnects automatically when not recording, so the symptom is now a short freeze rather than a lost session. The root cause is still being investigated with cable, hub and power-delivery evidence. <strong>Workaround:</strong> turn off USB power delivery on the camera, connect directly without a hub, and send logs when it happens.</p>
+      </div>
+      <div class="setting">
+        <h4 id="hotspot-pairing">Hotspot pairing aborts with "Wi-Fi network changed"</h4>
+        <p>On an iPhone Personal Hotspot, the first-time pairing can be aborted by the app half a second after the camera shows its code, because the phone's network path flips while the hotspot bridge comes up. <strong>Workaround:</strong> pair the camera once over USB or the camera's own Wi-Fi, or retry the hotspot pairing a second time; later connections do not need to pair.</p>
+      </div>
+      <div class="setting">
+        <h4 id="stale-search">A switched-off camera stays listed after disconnecting</h4>
+        <p>After a Wi-Fi disconnect, a camera that was then switched off can remain in the found list. The app never dials a stale entry (it searches again instead), but the list can mislead. <strong>Workaround:</strong> tap the Wi-Fi row again to start a fresh search.</p>
+      </div>
+      <div class="setting">
+        <h4 id="camera-ap-route">Camera Wi-Fi: "not reachable while opening the connection"</h4>
+        <p>Occasionally the phone reports it is on the camera's network but the route to 192.168.1.1 is not ready when the app connects. <strong>Workaround:</strong> wait for the Wi-Fi tick in Settings, come back to the app, and tap Camera Wi-Fi again.</p>
+      </div>
+      <div class="setting">
+        <h4 id="router-search">Wi-Fi router search finds nothing although Nikon's own apps connect</h4>
+        <p>Some routers block the discovery traffic the app uses. <strong>Workaround:</strong> type the camera's address under Connection › Advanced › Manual IP (the camera shows it under Connect to computer › Network settings), or use the iPhone hotspot.</p>
+      </div>
+
+      <h3 id="open-multicam">Multicam</h3>
+      <div class="setting">
+        <h4 id="multicam-freeze">Previews freeze when recording starts and do not resume <span class="tag">iOS</span></h4>
+        <p>With two Nikon bodies over Wi-Fi, both tiles can show "Preview paused; recording protected" as soon as group record starts and stay frozen after it stops, while settings, timecode and record control keep working. <strong>The recording itself is not affected.</strong> <strong>Workaround:</strong> after the stop, tap LIVE on a tile and return to the grid, or disconnect and reconnect the cameras. Under investigation with priority.</p>
+      </div>
+      <div class="setting">
+        <h4 id="multicam-recording-adopt">A camera that is already recording cannot join the grid, and leaving the grid drops it <span class="tag">Android</span></h4>
+        <p>Reported on ZR Ctl 2.1.7 with three Z6III over router Wi-Fi: a body that starts recording on its own before the app connects shows a connection error in Multicam, and promoting or returning can drop its session. iOS behaviour is being checked. <strong>Workaround:</strong> connect every camera in Multicam before anyone presses record, and start recording from the group button.</p>
+      </div>
+      <div class="setting">
+        <h4 id="multicam-rename">Renaming a camera in Multicam is not available</h4>
+        <p>The rename sheet exists but cannot be opened from a tile in the current build. Cameras keep their model names. Reordering by drag works.</p>
+      </div>
+
+      <h3 id="open-liveview">Live View and tools</h3>
+      <div class="setting">
+        <h4 id="desqueeze-r3d">Desqueeze on the ZR in R3D looks wrong, or video mode only shrinks the picture</h4>
+        <p>Two reports: in R3D the 1.33x desqueeze appears to stretch the wrong axis, and on one iPhone Air the video-mode desqueeze only made the picture smaller. The second matches the Fast GPU Display bug fixed in 2.1 (35); the R3D report is still being reproduced. <strong>Workaround on 2.0:</strong> turn off Fast GPU Display. If the R3D case persists on 2.1, send logs with the lens and format.</p>
+      </div>
+      <div class="setting">
+        <h4 id="lut-match-off">LUT Match cannot be turned off</h4>
+        <p>The MATCH panel has no off switch, and its Reset leaves Contrast at 1.12 rather than 1.00, so a LUT is always shown with a slight contrast boost unless you change it. <strong>Workaround:</strong> set Contrast to 1.00 with Exposure 0.00 and Gamma 1.00 for the LUT exactly as delivered. A proper off switch is planned.</p>
+      </div>
+      <div class="setting">
+        <h4 id="focus-punch-nothing">Focus Punch appears to do nothing</h4>
+        <p>On the ZR, Z8, Z6III, Z5II and Z50II the camera refuses its magnifier while recording N-RAW, ProRes RAW or R3D, and on 2.0 the app did not say so. 2.1 shows "not during RAW" in the Zoom Mode menu and a notice when it is refused. <strong>Workaround:</strong> use Monitor Punch (LOCAL) while recording RAW.</p>
+      </div>
+      <div class="setting">
+        <h4 id="tap-focus-abrupt">Tap focus is abrupt and ignores the AF speed</h4>
+        <p>An Instant tap drives the autofocus like a half-press, which ignores the movie AF speed. 2.1 (39) makes taps follow the camera's AF mode: in AF-C and AF-F a tap moves the point and the camera racks at your AF Speed (Cinematic). On 2.0, set Touch Focus to Cinematic on the Controls page.</p>
+      </div>
+      <div class="setting">
+        <h4 id="z8-rec-refused">Z8 over camera Wi-Fi: record start refused with "InvalidStatus"</h4>
+        <p>The camera reported a recording prohibition (usually zoom active, card, or the selector not on video) and 2.0 retried without explaining. 2.1 shows the reason under the record card. <strong>Workaround:</strong> clear the condition on the camera, most often exit the camera's magnifier.</p>
+      </div>
+      <div class="setting">
+        <h4 id="battery-heat">Long monitoring sessions drain the battery and run the phone warm</h4>
+        <p>Continuous Live View with several overlays is heavy work for the phone, and charging the camera over USB makes it worse. Not a single bug, but a known cost; see <a class="inl" href="/manual/tips/#battery">Battery and heat</a> for what helps. The experiment to match the preview rate to the camera's frame rate showed no saving and was removed.</p>
+      </div>
+      <div class="setting">
+        <h4 id="hdmi-50p">HDMI capture at 50p looks brighter in the shadows than 25p <span class="tag ipad">iPad</span></h4>
+        <p>One capture card decodes the two rates with different levels. The automatic colour match in 2.1 (38) may remove the difference; this is unverified. <strong>Workaround:</strong> judge exposure with the scopes, which read the camera's signal, not the card's.</p>
+      </div>
+      <div class="setting">
+        <h4 id="small-phones">Layout on the first-generation iPhone SE and other small screens</h4>
+        <p>On a 4-inch screen the main title can wrap vertically and some landscape layouts are tight. Small-screen layout work is on the list. <strong>Workaround:</strong> use the Minimal preset and Icons Only.</p>
+      </div>
+
+      <h3 id="open-playback">Playback</h3>
+      <div class="setting">
+        <h4 id="playback-stops">A clip stops after about two seconds</h4>
+        <p>Reported on 2.0 with large clips from the ZR and Z8 over Wi-Fi: the clip starts, then stalls while small clips play fine. The 2.0 playback rebuild addressed most cases; it is still being watched. <strong>Workaround:</strong> play over USB, or wait for the cache bar under the scrubber to fill before scrubbing.</p>
+      </div>
+      <div class="setting">
+        <h4 id="rating-filter">The rating filter waits forever for photos rated in the camera</h4>
+        <p>Ratings set on the camera are not the ratings the app filters by (the app's ratings live on the phone), and selecting a rating filter on a card with camera-rated photos can leave the view loading. <strong>Workaround:</strong> rate in the app, or clear the filter.</p>
+      </div>
+      <div class="setting">
+        <h4 id="gallery-orientation">Portrait photos in a landscape gallery, and the reverse, can be cropped or oddly fitted</h4>
+        <p>The viewer does not always respect the image orientation against the device orientation. <strong>Workaround:</strong> rotate the phone to match the photo.</p>
+      </div>
+
+      <h2 id="limitations">Limitations by design</h2>
+      <p>These are not bugs. Some are camera or platform limits, some are deliberate choices.</p>
+      <ul>
+        <li><strong>N-RAW and R3D clips cannot play on the phone.</strong> There is no decoder. They are listed with Show RAW video so they can be counted and deleted.</li>
+        <li><strong>No audio monitoring in headphones.</strong> The meters show level; the camera does not send audio over the control link. Clip audio plays in the player.</li>
+        <li><strong>Ratings, picks and colours are stored in the app</strong>, not written to the files on the card.</li>
+        <li><strong>The video tone mode (N-Log, HLG) cannot be set from the app</strong>; the camera does not expose it. The app detects N-Log from the codec.</li>
+        <li><strong>No photo/video switch in the app.</strong> The camera's selector decides, and the app follows.</li>
+        <li><strong>A recording camera will not accept a new connection.</strong> Stop it on the body first.</li>
+        <li><strong>One brand at a time outside Multicam</strong>: connecting a RED disconnects the Nikon and the reverse.</li>
+        <li><strong>A Nikon on USB turns its own Wi-Fi off</strong>, so the Wi-Fi routes are unavailable while the cable is in.</li>
+        <li><strong>HDMI capture cards work on USB-C iPads and Macs, not iPhones.</strong> iOS has no capture-card support; the Accsoon SeeMo is the iPhone route.</li>
+        <li><strong>Remote Viewer has no pairing or encryption.</strong> Anyone on the same Wi-Fi with the app can watch. Use a trusted network.</li>
+        <li><strong>The timecode jam is a software preset over the control link</strong>, not genlock. Nikon-to-Nikon it aligns to a frame or two; RED-to-Nikon accuracy is unverified, and the RED's REC RUN or FREE RUN must be set on the camera.</li>
+        <li><strong>Multicam group record aligns starts within the cameras' own response times</strong>, using a learned profile. Two USB bodies at once is verified on a Mac with a powered hub; test your hub on iPhone or iPad before a shoot.</li>
+        <li><strong>RED:</strong> no stills, subject detection, audio input settings, card slot, focus pull, R3D download or delete, AF box resizing, casting, or more than one RED. See <a class="inl" href="/manual/red/#limits">RED cameras</a>.</li>
+        <li><strong>Older Z bodies</strong> (Z5, Z6, Z7, Z50, Z6II, Z7II, Zfc, Z30) connect with a reduced control set and are best-effort.</li>
+        <li><strong>Sony, Canon, Fujifilm and Panasonic</strong> are not supported.</li>
+        <li><strong>Translations</strong> in the 20 non-English languages are reviewed but still young. Send odd wording through the feedback form.</li>
+        <li><strong>Imported LUTs, presets and lens calibrations live in the app's own storage</strong> and are lost if the app is deleted. A portable settings profile is planned.</li>
+      </ul>
+
+      <h2 id="report">Reporting something new</h2>
+      <p>Send logs from the Connection page right after the problem, with the camera, firmware, route and what you expected. Feature requests go through the <a class="inl" href="/feedback/">feedback form</a>. Requests already on the list include measuring and selecting white balance presets, a subtler peaking style, a meter-mode readout in the top bar, writing ratings to the card, AF-ON style function buttons, DSMC2 support, and a settings backup that survives reinstalling.</p>
+      <nav class="chapter-nav" id="chapterNav" aria-label="Previous and next chapter"></nav>
+      <p class="feedback-strip">Something missing or wrong on this page? Email <a href="mailto:mike@itsmadcreative.com?subject=Manual%20feedback%3A%20Known%20issues">mike@itsmadcreative.com</a> with the page name and what you expected to find.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/">Main Page</a></li>
+          <li><a href="/ios/">iOS Site</a></li>
+          <li><a href="/android/">Android Site</a></li>
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/manual/">Manual</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/compliance/">Compliance</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl and Parallax Monitor are independent projects and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/manual/manual.js"></script>
+</body>
+</html>

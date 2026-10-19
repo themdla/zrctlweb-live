@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RED cameras | Parallax Monitor &amp; ZR Ctl User Manual</title>
+  <meta name="description" content="Connecting RED KOMODO, KOMODO-X and V-RAPTOR to Parallax Monitor and ZR Ctl over Wi-Fi or USB-C, the RED control tiles, autofocus box, LUT handling with Log View, audio meters, timecode, playback remote and what is not supported.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/manual/red/">
+
+  <meta property="og:title" content="RED cameras | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta property="og:description" content="Connecting RED KOMODO, KOMODO-X and V-RAPTOR to Parallax Monitor and ZR Ctl over Wi-Fi or USB-C, the RED control tiles, autofocus box, LUT handling with Log View, audio meters, timecode, playback remote and what is not supported.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zrctl.com/manual/red/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RED cameras | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta name="twitter:description" content="Connecting RED KOMODO, KOMODO-X and V-RAPTOR to Parallax Monitor and ZR Ctl over Wi-Fi or USB-C, the RED control tiles, autofocus box, LUT handling with Log View, audio meters, timecode, playback remote and what is not supported.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/manual/manual.css">
+
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.0_android-2.1.7_accsoon-coming';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+    <div class="container update-banner-inner">
+      <span class="update-copy">Parallax Monitor <strong>2.0</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
+      <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
+      <button class="update-close" type="button" aria-label="Dismiss update notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/manual/" aria-current="page">Manual</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container manual-shell">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="false" aria-controls="manualSidebar">
+      <span>Manual contents</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <aside class="manual-sidebar" id="manualSidebar" aria-label="Manual navigation">
+      <p class="sidebar-title">User Manual</p>
+      <div class="sidebar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="manualSearch" placeholder="Search the manual" aria-label="Search the manual" autocomplete="off">
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+      <ul class="chapter-list" id="chapterList"></ul>
+      <div>
+        <p class="sidebar-title">On this page</p>
+        <ul class="page-toc" id="pageToc"></ul>
+      </div>
+    </aside>
+
+    <main class="manual-article" id="main">
+      <p class="chapter-kicker">Chapter 16</p>
+      <h1>RED <span class="hl">cameras.</span></h1>
+      <p class="lede">The app controls RED KOMODO, KOMODO-X and V-RAPTOR bodies over RED's RCP2 protocol and monitors their live picture with every tool. This chapter covers what is different from a Nikon.</p>
+
+      <div class="key-grid">
+        <div class="key-item"><span>Bodies</span><strong>KOMODO, KOMODO-X, V-RAPTOR and V-RAPTOR XL families. Not DSMC2 or older</strong></div>
+        <div class="key-item"><span>Link</span><strong>Wi-Fi, or a USB-C network tether (the original KOMODO needs the KOMODO Link Adapter)</strong></div>
+        <div class="key-item"><span>Evidence</span><strong>Built against RED's protocol; field reports are from KOMODO-X on Wi-Fi. Test your body before a shoot</strong></div>
+      </div>
+
+      <h2 id="connect">Connecting</h2>
+      <ol class="steps">
+        <li><strong>Put the RED on the network</strong><p>Either join the RED's Wi-Fi (or put the RED on the same network as the phone), or plug the USB-C tether in. The app prefers the wired path when both exist.</p></li>
+        <li><strong>Search</strong><p>On the Connection page tap <strong>RED · USB-C / Wi-Fi</strong> (Pro mode) or let Simple mode find it. The app probes the local subnet for RED's control port; no address is typed.</p></li>
+        <li><strong>Connect</strong><p>The row takes the camera's name; tap it. Connecting a RED disconnects any Nikon, and the reverse, outside Multicam.</p></li>
+      </ol>
+      <p>The Connection page then shows the RED section with <strong>Open RED Controls</strong> and <strong>Disconnect</strong>. There is no manual IP entry for RED, and only one RED session at a time.</p>
+
+      <h2 id="controls">Controls</h2>
+      <p>The Controls page shows RED tiles whose option lists come from the camera's own firmware, so they match what the camera menu offers. A tile is read only when the camera reports no list, and shows "Waiting for RED camera confirmation" while a change is pending.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Tile</th><th>Sets</th></tr></thead>
+        <tbody>
+          <tr><td>Aperture</td><td>Lens iris on electronic lenses.</td></tr>
+          <tr><td>Angle / Shutter</td><td>Shutter angle, or integration time, whichever the body reports first.</td></tr>
+          <tr><td>ISO</td><td>ISO.</td></tr>
+          <tr><td>ND</td><td>The built-in ND filter.</td></tr>
+          <tr><td>Kelvin, Tint</td><td>White balance.</td></tr>
+          <tr><td>Sensor FPS, Project FPS</td><td>Capture rate and timeline rate.</td></tr>
+          <tr><td>Format, Codec, R3D Quality</td><td>Record format, codec and R3D compression.</td></tr>
+          <tr><td>Live Stream</td><td>The JPEG quality of the live-stream picture the camera sends the phone.</td></tr>
+        </tbody>
+      </table></div>
+      <p>The record card shows READY or RECORDING, the camera's timecode and <strong>MEDIA n% REMAINING</strong>. The status strip shows the battery percentage. The Focus section and the Audio / TC group are not shown for RED.</p>
+
+      <h2 id="live-view">Live View</h2>
+      <ul>
+        <li>The top chips (battery, aperture, shutter, ISO, Kelvin, tint, format, codec) open the same RED pickers.</li>
+        <li>Every monitoring tool works on the RED picture: LUT, scopes, false color, zebras, X-Lights, peaking, guides, desqueeze. The exposure tools calibrate to Log3G10 and follow the ISO.</li>
+        <li><strong>Autofocus</strong>: an <strong>AF</strong> capsule shows Single, Continuous or Off; tap it to change. The camera's own focus and face boxes are drawn; with Touch AF on, tap or drag to move the user box. Single mode runs one autofocus; Continuous keeps tracking. The box size is set by the camera, because the protocol has no command to change it.</li>
+        <li><strong>Audio meters</strong> come from the camera's VU data.</li>
+        <li>Not shown for RED: TIME, PULL, MF, LENS, the REMAIN chip, and the Nikon Mode and EV chips.</li>
+      </ul>
+
+      <h2 id="lut">LUTs and Log View</h2>
+      <p>RED cameras can apply their own look to the live stream. To avoid applying two looks, turning on an app LUT saves the camera's state, enables <strong>Log View</strong> and turns the camera's LUT off, so the app's LUT and tools see the log picture. Turning the app LUT off, or disconnecting, restores the camera's settings. The bundled IPP2 Rec709 and RED Creative folders are built for RED's Log3G10. See <a class="inl" href="/manual/luts/">LUTs and looks</a>.</p>
+
+      <h2 id="multicam">Multicam</h2>
+      <p>A connected RED appears as a tile beside the Nikon bodies, joins group record, takes ISO, shutter, aperture, Kelvin and tint from the shared rail, and receives the timecode jam as a manual internal value. The RED's REC RUN or FREE RUN mode cannot be set over the protocol; set it on the camera. See <a class="inl" href="/manual/multicam/">Multicam</a>.</p>
+
+      <h2 id="playback">Playback remote</h2>
+      <p>With a RED connected, the Playback page lists the camera's clips (name, duration, format, compression, start timecode) and plays them through the camera's own decoder, streaming the result to the phone. Controls: previous clip, back 24 frames, play/pause, forward 24 frames, next clip, refresh. Nothing is downloaded and R3D files cannot be transferred, deleted or exported from the phone. If the firmware does not expose playback control the page says so.</p>
+
+      <h2 id="limits">Not supported for RED</h2>
+      <ul>
+        <li>Still capture, subject detection, audio input settings, card slot selection, the camera level.</li>
+        <li>Focus Pull and Manual Focus Drive; resizing the AF box.</li>
+        <li>Downloading, deleting, rating or exporting R3D clips; thumbnails.</li>
+        <li>Casting the RED picture to Remote Viewers; HDMI capture as the picture source.</li>
+        <li>Live Activities.</li>
+        <li>More than one RED at a time, and older DSMC or DSMC2 bodies.</li>
+      </ul>
+      <nav class="chapter-nav" id="chapterNav" aria-label="Previous and next chapter"></nav>
+      <p class="feedback-strip">Something missing or wrong on this page? Email <a href="mailto:mike@itsmadcreative.com?subject=Manual%20feedback%3A%20RED%20cameras">mike@itsmadcreative.com</a> with the page name and what you expected to find.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/">Main Page</a></li>
+          <li><a href="/ios/">iOS Site</a></li>
+          <li><a href="/android/">Android Site</a></li>
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/manual/">Manual</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/compliance/">Compliance</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl and Parallax Monitor are independent projects and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/manual/manual.js"></script>
+</body>
+</html>

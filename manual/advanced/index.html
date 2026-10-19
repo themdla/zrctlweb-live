@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced settings | Parallax Monitor &amp; ZR Ctl User Manual</title>
+  <meta name="description" content="Every setting on the Advanced page of Parallax Monitor and ZR Ctl: UI, Monitoring, Playback, Camera and System, with options, defaults and when to change each one.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <link rel="canonical" href="https://www.zrctl.com/manual/advanced/">
+
+  <meta property="og:title" content="Advanced settings | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta property="og:description" content="Every setting on the Advanced page of Parallax Monitor and ZR Ctl: UI, Monitoring, Playback, Camera and System, with options, defaults and when to change each one.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zrctl.com/manual/advanced/">
+  <meta property="og:site_name" content="ZR Ctl">
+  <meta property="og:image" content="https://www.zrctl.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Advanced settings | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta name="twitter:description" content="Every setting on the Advanced page of Parallax Monitor and ZR Ctl: UI, Monitoring, Playback, Camera and System, with options, defaults and when to change each one.">
+  <meta name="twitter:image" content="https://www.zrctl.com/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/manual/manual.css">
+
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'ios-2.0_android-2.1.7_accsoon-coming';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+    <div class="container update-banner-inner">
+      <span class="update-copy">Parallax Monitor <strong>2.0</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
+      <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
+      <button class="update-close" type="button" aria-label="Dismiss update notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="logo" aria-label="ZR Ctl home">
+        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/how-to/">How-to</a></li>
+        <li><a href="/manual/" aria-current="page">Manual</a></li>
+        <li><a href="/tutorial/">Tutorials</a></li>
+        <li><a href="/#videos">Reviews</a></li>
+        <li><a href="/#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container manual-shell">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="false" aria-controls="manualSidebar">
+      <span>Manual contents</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <aside class="manual-sidebar" id="manualSidebar" aria-label="Manual navigation">
+      <p class="sidebar-title">User Manual</p>
+      <div class="sidebar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="manualSearch" placeholder="Search the manual" aria-label="Search the manual" autocomplete="off">
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+      <ul class="chapter-list" id="chapterList"></ul>
+      <div>
+        <p class="sidebar-title">On this page</p>
+        <ul class="page-toc" id="pageToc"></ul>
+      </div>
+    </aside>
+
+    <main class="manual-article" id="main">
+      <p class="chapter-kicker">Chapter 17</p>
+      <h1>Advanced <span class="hl">settings.</span></h1>
+      <p class="lede">The Advanced page holds every app preference. It is split into five categories along the top: UI, Monitoring, Playback, Camera and System. This chapter walks through each category in order and lists every control with its options and default.</p>
+
+      <div class="key-grid">
+        <div class="key-item"><span>Categories</span><strong>UI · Monitoring · Playback · Camera · System</strong></div>
+        <div class="key-item"><span>Persistence</span><strong>Every setting is saved on the device and survives relaunches</strong></div>
+        <div class="key-item"><span>Version</span><strong>The app version and build number are shown at the bottom of every category</strong></div>
+      </div>
+
+      <p>Most of the UI and Monitoring settings are also captured in Live View <strong>presets</strong>, so you can keep several complete layouts and switch between them. The <a class="inl" href="#presets">Presets</a> section at the end lists exactly what a preset stores.</p>
+
+      <h2 id="ui">UI</h2>
+      <p>Everything about how the app and the Live View page look. Cards in order: Language, Navigation, Live View Layout, Hot Corners (Modern interface only), Top Toolbar, Bottom Toolbar.</p>
+
+      <div class="setting">
+        <h3 id="language">Language</h3>
+        <dl class="setting-meta">
+          <dt>Where</dt><dd>UI › Language</dd>
+          <dt>Options</dt><dd>System Default, plus 21 languages: English, Arabic, Bangla, German, French, Hindi, Indonesian, Italian, Japanese, Korean, Polish, Portuguese (Brazil), Russian, Spanish (Latin America), Thai, Turkish, Ukrainian, Urdu, Vietnamese, Chinese (Simplified), Chinese (Traditional)</dd>
+          <dt>Default</dt><dd>System Default, which follows the iPhone's language</dd>
+        </dl>
+        <p>Changes every string in the app immediately. Arabic and Urdu also flip the general interface to right-to-left; the Live View HUD, playback transport, scopes and keypads stay left-to-right because camera surfaces read that way everywhere. Support logs always stay in English so they can be read by support.</p>
+        <div class="use"><strong>When to change it</strong><p>Only if you want a language other than your phone's. The translations are reviewed but still young; if a label reads oddly, send feedback with the wording.</p></div>
+      </div>
+
+      <div class="setting">
+        <h3 id="open-after-connecting">Open After Connecting</h3>
+        <dl class="setting-meta">
+          <dt>Where</dt><dd>UI › Navigation</dd>
+          <dt>Options</dt><dd>Live View, Controls, Playback, Advanced</dd>
+          <dt>Default</dt><dd>Live View</dd>
+        </dl>
+        <p>The page the app jumps to when a connection completes while you are on the Connection page. If you have already moved to another page, nothing moves.</p>
+        <div class="use"><strong>When to change it</strong><p>Set Controls if you usually dial in settings before monitoring, or Playback if you connect mainly to pull clips.</p></div>
+      </div>
+
+      <h3 id="live-view-layout">Live View Layout card</h3>
+      <div class="setting">
+        <h4 id="interface">Interface</h4>
+        <dl class="setting-meta">
+          <dt>Options</dt><dd>Modern, Classic</dd>
+          <dt>Default</dt><dd>Classic</dd>
+        </dl>
+        <p><strong>Modern</strong> is the layout with hot corners: up to two tools in each landscape corner, around the picture. <strong>Classic</strong> is the original toolbar layout. Choosing Modern reveals the Hot Corners card; choosing Classic reveals the Raise Bottom Toolbar tile. This choice is not stored in presets.</p>
+        <div class="use"><strong>When to change it</strong><p>Modern suits one-handed landscape use on a cage, with your most used tools under your thumbs. Classic keeps everything in the toolbars and is easier to learn.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="overlay">Overlay</h4>
+        <dl class="setting-meta">
+          <dt>Options</dt><dd>Visible, Hidden</dd>
+          <dt>Default</dt><dd>Visible</dd>
+        </dl>
+        <p>Whether the Live View HUD (top bar, bottom toolbar, chips) is shown. This is the same state as the HUD button and the double-tap gesture in Live View.</p>
+      </div>
+      <div class="setting">
+        <h4 id="tools-stay-on">Tools Stay On</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>On / off</dd><dt>Default</dt><dd>Off</dd></dl>
+        <p>Keeps the floating monitoring tools (scopes, audio meters, false color legend, exposure displays) on screen when the HUD is hidden. With it off, hiding the HUD hides them too.</p>
+        <div class="use"><strong>When to use it</strong><p>Turn it on when you want a clean picture for the client but still need your waveform and audio meters in the corner.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="recording-border">Recording Border</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>On / off</dd><dt>Default</dt><dd>On</dd></dl>
+        <p>Draws a red frame around the picture while the camera records. It is the fastest way to confirm you are rolling from across the room.</p>
+      </div>
+      <div class="setting">
+        <h4 id="raise-bottom-toolbar">Raise Bottom Toolbar <span class="tag">Classic only</span></h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>On / off</dd><dt>Default</dt><dd>On</dd></dl>
+        <p>Keeps the Classic bottom toolbar above the iPhone home-indicator zone so swipes to go home do not hit a tool.</p>
+      </div>
+      <div class="setting">
+        <h4 id="on-screen-tools-scale">On-Screen Tools Scale</h4>
+        <dl class="setting-meta"><dt>Range</dt><dd>70% to 160% in 5% steps</dd><dt>Default</dt><dd>100%</dd></dl>
+        <p>Scales the floating tools: scope, audio meters, legends and the other overlays. It is independent of the toolbar and hot-corner scales below.</p>
+      </div>
+      <div class="setting">
+        <h4 id="reset-tool-positions">Reset On-Screen Tool Positions</h4>
+        <p>An action that returns every long-press-draggable floating tool to its anchor position. Positions are stored in presets, so recalling a preset also restores its positions.</p>
+      </div>
+
+      <h3 id="hot-corners">Hot Corners card <span class="tag">Modern only</span></h3>
+      <div class="setting">
+        <h4 id="hot-corners-enable">Enable, Left, Right</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>Three on/off tiles</dd><dt>Default</dt><dd>All on</dd></dl>
+        <p><strong>Enable</strong> turns hot corners on or off. <strong>Left</strong> and <strong>Right</strong> switch the two left-hand or two right-hand landscape corners. Left and Right are greyed out while Enable is off.</p>
+      </div>
+      <div class="setting">
+        <h4 id="hot-corners-scale">Hot Corners Scale</h4>
+        <dl class="setting-meta"><dt>Range</dt><dd>70% to 160% in 5% steps</dd><dt>Default</dt><dd>100%</dd></dl>
+        <p>Scales the corner buttons.</p>
+      </div>
+      <div class="setting">
+        <h4 id="hot-corner-slots">Corner assignments</h4>
+        <dl class="setting-meta">
+          <dt>Where</dt><dd>A map of the four landscape corners, each with a Primary and a Secondary slot</dd>
+          <dt>Options</dt><dd>None, Photo Review, Focus Stack, Time, Exposure Meter, LUT, LUT Selection, LUT Match, LUT Wipe, Slow Motion, Focus Peaking, Scope, False Color, Exposure Assist, Focus Pull, Manual Focus, Punch / Zoom, Level, Audio, Cast, Reference Frame, Composition Guide, Frame Guide, Desqueeze, Presets, HUD / Play, Touch AF, Zebras, Rotation Lock</dd>
+          <dt>Default</dt><dd>Upper left: LUT + Focus Peaking. Lower left: Scope + False Color. Upper right: HUD / Play + Touch AF. Lower right: Zebras + Rotation Lock</dd>
+        </dl>
+        <p>Each corner shows up to two buttons, primary first. Tapping a button triggers that tool exactly as its toolbar pill would. In the Secondary menu the tool already used as Primary in that corner is disabled; the same tool may be assigned in more than one corner.</p>
+        <div class="use"><strong>When to change it</strong><p>Put the four tools you toggle most while rolling in the corners: typically LUT, peaking, false color and zebras. Keep Rotation Lock somewhere if you shoot on a gimbal that tips the phone.</p></div>
+      </div>
+
+      <h3 id="top-toolbar">Top Toolbar card</h3>
+      <div class="setting">
+        <h4 id="top-toolbar-scale">Top Toolbar Scale</h4>
+        <dl class="setting-meta"><dt>Range</dt><dd>70% to 160% in 5% steps</dd><dt>Default</dt><dd>100%</dd></dl>
+        <p>Scales the readout chips in the top bar. Larger chips take more width, which the fit meter below reports.</p>
+      </div>
+      <div class="setting">
+        <h4 id="top-toolbar-arrangement">Arrangement (hold and drag to reorder)</h4>
+        <dl class="setting-meta">
+          <dt>Default order</dt><dd>Mode, Aperture, Shutter, ISO, Exposure Compensation, <em>GAP</em>, Dual Base ISO, WB, Kelvin, WB Tint, Battery</dd>
+        </dl>
+        <p>A strip of sample chips you can reorder by long-pressing and dragging. The dashed <strong>GAP</strong> splits the bar into the landscape left group and right group. Below the strip a <strong>fit meter</strong> shows how much of the landscape width each group uses. On iPhone a group that no longer fits shows a red warning that the bar will scroll, and the advice is to remove a readout, move one across the gap, or lower the scale. Battery chips do not count toward the width because they sit in the side gutters in landscape.</p>
+      </div>
+      <div class="setting">
+        <h4 id="top-toolbar-readouts">Readout tiles</h4>
+        <dl class="setting-meta">
+          <dt>Tiles</dt><dd>Mode, Aperture, Shutter, ISO, Exposure Compensation, Dual Base ISO, WB, Kelvin, WB Tint, Battery, iPhone / iPad Battery</dd>
+          <dt>Default</dt><dd>All on except iPhone / iPad Battery</dd>
+        </dl>
+        <p>Each tile adds or removes that readout from the top bar. On iPhone a tile that would overflow its group is dimmed with a <strong>Full</strong> badge until you free space; iPad has no cap. Most chips are tappable in Live View to change the setting they show.</p>
+      </div>
+      <div class="setting">
+        <h4 id="res-codec-placement">Res / FPS and Codec placement</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>Each tile cycles Bottom → Top → Off</dd><dt>Default</dt><dd>Bottom for both</dd></dl>
+        <p><strong>Bottom</strong> shows the readout in the bottom-left info strip of Live View, <strong>Top</strong> moves it into the top bar, <strong>Off</strong> hides it. Moving them to the top frees the bottom bar for tools. On iPhone the Top option is skipped when the left group is already full.</p>
+      </div>
+      <div class="setting">
+        <h4 id="top-bar-extras">Top bar extras</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <thead><tr><th>Tile</th><th>Default</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Hide Labels</td><td>Off</td><td>Drops the small descriptors (ISO, IRIS) above each value and keeps only the values. Narrower bar. On in the Clean and Minimal presets.</td></tr>
+            <tr><td>FPS Counter</td><td>On</td><td>Shows the live-view frame rate badge, the rate the phone is displaying, not the camera's recording rate.</td></tr>
+            <tr><td>Recording Timer</td><td>On</td><td>Shows the elapsed recording timer while rolling.</td></tr>
+            <tr><td>Remaining Time</td><td>Off</td><td>Shows the camera's remaining card record time in the top bar. Counts as an extra left-group chip in the fit meter.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <h3 id="bottom-toolbar">Bottom Toolbar card</h3>
+      <div class="setting">
+        <h4 id="tool-buttons">Tool buttons</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>Tool Toggle, Tool Menu</dd><dt>Default</dt><dd>Tool Toggle</dd></dl>
+        <p><strong>Tool Toggle</strong> makes each tool button a one-tap on/off that reuses the tool's last mode, with long-press for the options. <strong>Tool Menu</strong> makes a tap open the options menu instead.</p>
+        <div class="use"><strong>When to change it</strong><p>Keep Tool Toggle for speed on set. Switch to Tool Menu while you are learning the options, or if you find yourself opening the menus more often than toggling.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="bottom-toolbar-scale">Bottom Toolbar Scale</h4>
+        <dl class="setting-meta"><dt>Range</dt><dd>70% to 160% in 5% steps</dd><dt>Default</dt><dd>100%</dd></dl>
+        <p>Scales the bottom toolbar buttons. The record button keeps its fixed safety size regardless.</p>
+      </div>
+      <div class="setting">
+        <h4 id="stills-readouts">Stills readouts</h4>
+        <dl class="setting-meta"><dt>Tiles</dt><dd>Photo Timer (TIMER), Release Mode (RELEASE), Photo Quality (QUALITY), Image Area (AREA), Picture Control (PIC)</dd><dt>Default</dt><dd>All on</dd></dl>
+        <p>Shows or hides each photo-mode readout chip in the bottom toolbar. The chips only appear in photo mode. Hide the ones you do not change to give the scrolling tools more room.</p>
+      </div>
+      <div class="setting">
+        <h4 id="bottom-toolbar-tools">Tool tiles</h4>
+        <dl class="setting-meta"><dt>Tiles</dt><dd>27 tools: Time, HUD Toggle, LUT Toggle, LUT Selection, LUT Wipe, Record Controls, Slow Motion, Scopes, LUT Match, Image Tools, False Color, Exposure Meter, Exposure Tools, Focus Pull, Manual Focus Drive, Level, Audio, Composition Guides, Frame Guides, Desqueeze, Reference Frame, Cast, Punch / Zoom, Lens Profiles, Presets, Photo Review, Focus Stack</dd><dt>Default</dt><dd>All on</dd></dl>
+        <p>Shows or hides each tool's button in the Live View bottom toolbar. Hiding a button does not turn the tool off. Some tools only appear when they apply: Lens Profiles needs a camera that exposes non-CPU lens data, and Photo Review, Focus Stack, Exposure Meter and Time appear in photo mode. The Minimal preset keeps just HUD Toggle, Record Controls, LUT Toggle, Scopes, Image Tools, False Color and Audio.</p>
+      </div>
+      <div class="setting">
+        <h4 id="tool-behaviour">Tool behaviour</h4>
+        <div class="tbl-wrap"><table class="tbl">
+          <thead><tr><th>Tile</th><th>Default</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Icons Only</td><td>Off</td><td>Hides the captions on toolbar and hot-corner buttons. On in the Clean and Minimal presets.</td></tr>
+            <tr><td>Touch AF Hides Box</td><td>Off</td><td>When Touch AF is off, also hides the autofocus box and tap feedback. Not stored in presets.</td></tr>
+            <tr><td>Readout On / Readout Off</td><td>On</td><td>Shows the numeric roll and tilt values under the Level tool's meter.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <h2 id="monitoring">Monitoring</h2>
+      <p>How the picture is analysed and displayed. Cards in order: Scopes, Preview, LUT Library, Focus Peaking.</p>
+
+      <h3 id="scopes-card">Scopes card</h3>
+      <div class="setting">
+        <h4 id="analyze-pre-lut">Analyze Pre-LUT</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>On / off</dd><dt>Default</dt><dd>On</dd></dl>
+        <p>Scopes, zebras and false color read the camera signal before the LUT is applied, so they measure what is being recorded rather than what the look shows. Turning it off makes them read the LUT output instead.</p>
+        <div class="use"><strong>When to change it</strong><p>Leave it on for log and RAW. Turn it off only when you are deliberately recording a baked-in Rec.709 look and want the scopes to show the final image, or when a colourist asks for a scope of the graded picture.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="false-color-legend">False Color Legend</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>On / off</dd><dt>Default</dt><dd>On</dd></dl>
+        <p>Shows the colour key while false color is active. The legend can be dragged in Live View.</p>
+      </div>
+      <div class="setting">
+        <h4 id="false-color-style">False color style</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>ZR Calibrated, IRE Spectrum, Cine Classic, Clip Guard, X-Zone</dd><dt>Default</dt><dd>X-Zone</dd></dl>
+        <p>Selects the palette the False Color tool paints with. The same choice is available from the FALSE pill's long-press menu in Live View; the palettes are described in <a class="inl" href="/manual/exposure-tools/#false-color">Exposure tools</a>.</p>
+      </div>
+      <div class="setting">
+        <h4 id="scope-size">Scope Size</h4>
+        <dl class="setting-meta"><dt>Range</dt><dd>85% to 240% in 5% steps</dd><dt>Default</dt><dd>135%</dd></dl>
+        <p>Scales the scope overlay without pinching or dragging in Live View. The scope can still be resized by pinch on the picture.</p>
+      </div>
+
+      <h3 id="preview-card">Preview card</h3>
+      <p>These settings control the Live View stream the camera sends to the phone. They do not affect what the camera records.</p>
+      <div class="setting">
+        <h4 id="preview-resolution">Preview resolution</h4>
+        <dl class="setting-meta">
+          <dt>Options</dt><dd>QVGA 320x240, VGA 640x480, XGA 1024x768</dd>
+          <dt>Default</dt><dd>Seeded on first connection by transport: VGA for Wi-Fi and camera AP, XGA for USB</dd>
+        </dl>
+        <p>The size of the JPEG frames the camera sends. With a camera connected the value is written immediately; otherwise it is saved and applied when Live View starts. Changing the preview size from the Live View or Controls pickers updates this saved value too.</p>
+        <div class="use"><strong>When to change it</strong><p>Drop to VGA or QVGA when Wi-Fi Live View stutters or lags; the picture gets softer but the frame rate and responsiveness recover. XGA is right for USB and for a strong 5 GHz router.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="preview-quality">Preview quality</h4>
+        <dl class="setting-meta">
+          <dt>Options</dt><dd>Basic, Basic+, Normal, Normal+, Fine, Fine+</dd>
+          <dt>Default</dt><dd>Seeded on first connection: Normal+ for Wi-Fi and camera AP, Fine+ for USB</dd>
+        </dl>
+        <p>The JPEG compression of each preview frame. Higher quality means more detail and a heavier stream. Some older bodies do not accept this write and keep their own value.</p>
+        <div class="use"><strong>When to change it</strong><p>Pair it with resolution: lower both together on a weak link, raise both on USB. Fine+ over a crowded Wi-Fi network is the most common cause of a choppy preview.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="fast-gpu-display">Fast GPU Display</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>On / off</dd><dt>Default</dt><dd>On</dd></dl>
+        <p>Draws the monitor picture directly on the GPU (a Metal surface) for the lowest latency. Off falls back to a standard image view. Called "Metal Monitor Surface" in 2.0.</p>
+        <div class="use"><strong>When to change it</strong><p>Only turn it off if the monitor picture glitches, tears or shows the wrong aspect, which is rare. Not stored in presets.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="usb-preview-rate">USB Preview Rate <span class="tag new">New in 2.1</span></h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>Standard (up to 60 fps), Maximum (matches the screen, up to 120 fps on ProMotion displays)</dd><dt>Default</dt><dd>Standard</dd></dl>
+        <p>Caps how many Live View frames per second the app asks for over USB. Maximum is smoother on a 120 Hz iPhone or iPad but loads the camera's USB link more. It applies the next time USB Live View starts, and recording is never affected.</p>
+      </div>
+      <div class="setting">
+        <h4 id="adaptive-heartbeat">Adaptive Wi-Fi Heartbeat <span class="tag new">New in 2.1</span></h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>On / off</dd><dt>Default</dt><dd>On</dd></dl>
+        <p>On router Wi-Fi, spaces the camera status checks between Live View frames instead of running them on a fixed timer, which keeps the preview smoother on a busy network. USB and camera AP connections keep a fixed heartbeat.</p>
+        <div class="use"><strong>When to change it</strong><p>Turn it off if Wi-Fi Live View drops or stutters after an update and you want to rule this out. Send logs either way.</p></div>
+      </div>
+
+      <h3 id="lut-library">LUT Library card</h3>
+      <div class="setting">
+        <h4 id="lut-import">Import .cube LUT… and the imported list</h4>
+        <p>Lists the LUTs you have imported, with the places each is used. <strong>Import .cube LUT…</strong> opens the Files picker filtered to .cube files and copies the LUT into the app. The row of the LUT currently active in Live View is highlighted. Bundled LUTs are not listed here; they live in the LOOK browser in Live View.</p>
+        <p><strong>Delete</strong> on a row asks for confirmation and lists which settings reference the LUT. After deleting, every place that used it (the Live View LUT, quick slots, playback LUT B, presets) switches back to the default LUT. Nothing here is written to the camera.</p>
+        <div class="use"><strong>When to use it</strong><p>Import the show LUT or your colourist's conversion LUT before the shoot. If a LUT fails to import, the file is usually not a 3D .cube or is corrupt; re-export it from your grading software.</p></div>
+      </div>
+
+      <h3 id="focus-peaking-card">Focus Peaking card</h3>
+      <div class="setting">
+        <h4 id="peaking-sensitivity">Sensitivity</h4>
+        <dl class="setting-meta"><dt>Range</dt><dd>0% to 100%, continuous slider</dd><dt>Default</dt><dd>85% (the old Low, Medium and High steps map to 12%, 46% and 85%)</dd></dl>
+        <p>How fine an edge must be to receive a peaking mark. Peaking judges sharpness relative to the surrounding scene, so a given value behaves the same in SDR, log and low light. Higher values mark finer detail; very high values start to pick up sensor grain.</p>
+        <div class="use"><strong>When to change it</strong><p>Lower it on noisy, high-ISO scenes where grain gets marked. Raise it for flat, low-detail subjects like faces in soft light that otherwise show few marks.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="mono-background">Mono Background</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>On / off</dd><dt>Default</dt><dd>Off</dd></dl>
+        <p>While peaking is on, the picture goes monochrome so the coloured peaking ridges are the only colour on screen.</p>
+        <div class="use"><strong>When to use it</strong><p>Use it when the subject's own colour matches the peaking colour, or whenever you are pulling focus by eye and do not need colour for anything else.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="peaking-color">Color</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>Red, Yellow, Green, White, Cyan</dd><dt>Default</dt><dd>Red</dd></dl>
+        <p>The colour of the peaking ridges. Pick one that contrasts with the scene: cyan or white on warm interiors, red or yellow on blue skies and greenery.</p>
+      </div>
+
+      <h2 id="playback-settings">Playback</h2>
+      <p>Cards in order: Playback LUT, Playback.</p>
+      <div class="setting">
+        <h4 id="start-playback-on">Start playback on</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>LUT A · Live View, LUT B · Saved</dd><dt>Default</dt><dd>LUT A · Live View</dd></dl>
+        <p>Which LUT slot the clip player starts with. <strong>LUT A</strong> follows whatever LUT Live View is using. <strong>LUT B</strong> is a saved playback look, chosen below. The A/B button in the player switches between them.</p>
+      </div>
+      <div class="setting">
+        <h4 id="lut-b">LUT B</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>Every bundled and imported LUT</dd><dt>Default</dt><dd>The bundled N-Log to Rec.709 conversion</dd></dl>
+        <p>The LUT used by playback slot B. If the chosen LUT is later deleted, the slot falls back to the N-Log conversion.</p>
+        <div class="use"><strong>When to change it</strong><p>Set LUT B to a plain technical conversion for the footage you shoot (N-Log to Rec.709, or an IPP2 LUT for R3D) so you can always compare the creative look in slot A with a neutral one.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="card-read-speed">Card read speed and Test Link Speed</h4>
+        <p>The readout shows the transport and the measured throughput of recent card reads, with the link class and the session peak. <strong>Test Link Speed</strong> reads a short sample from the newest large file on the card and reports the link class, the rate, the sampled size and the file name. It needs a connected camera with files on the card.</p>
+        <div class="use"><strong>When to use it</strong><p>Run it when playback is slow to tell a slow link from a slow card. USB 3 reads several times faster than USB 2, and both beat Wi-Fi; if a USB-C cable reports a USB 2 class, try a different cable.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="clip-cache-limit">Clip cache limit</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>20 GB, 30 GB, 40 GB, 50 GB</dd><dt>Default</dt><dd>40 GB</dd></dl>
+        <p>The maximum size of the local playback cache, which keeps streamed clip ranges and downloaded clips so recently opened clips start faster. Choosing a smaller value prunes the cache immediately and reports the size removed.</p>
+      </div>
+      <div class="setting">
+        <h4 id="clear-playback-cache">Clear Playback Cache</h4>
+        <p>Deletes all cached clip data and reports how much was freed. The caption shows the current cache size. Use it when the phone is short on storage; nothing on the camera card is touched.</p>
+      </div>
+
+      <h2 id="camera-settings">Camera</h2>
+      <p>Cards in order: Startup Defaults, Slow Motion Target, Lens Profiles.</p>
+      <p>The six target rows in the first two cards share one behaviour. Each shows the saved value or <strong>Not Set</strong>. With a camera connected that exposes the property, tapping the row opens a menu with <strong>Use Current</strong> (copies the camera's value), every value the camera allows, and <strong>Clear Target</strong>. Choosing a value saves it; nothing is written to the camera at that moment.</p>
+
+      <h3 id="startup-defaults">Startup Defaults card</h3>
+      <p>Saved movie settings the app writes to the camera before Live View starts, when the camera is in video mode and supports the value. They are real camera writes, not labels. Clear a value to let the camera keep whatever it already has.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Row</th><th>Options</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Startup Res / FPS</td><td>The camera's allowed frame sizes and rates</td><td>Startup-only: changing Res/FPS in Live View or Controls does not update this target.</td></tr>
+          <tr><td>Startup Codec</td><td>The camera's allowed codecs</td><td>Written together with the resolution target. Startup-only.</td></tr>
+          <tr><td>Movie AF Startup</td><td>AF-S, AF-C, AF-F, AF-A, MF as the body reports</td><td>Menu available only in video mode. Unlike the others, changing AF mode in Live View or Controls does update this value.</td></tr>
+          <tr><td>Startup AF Speed</td><td>Low −5 to Low −1, Normal, High +1 to High +5</td><td>Startup-only.</td></tr>
+          <tr><td>Startup AF Apply</td><td>Always, Record Only</td><td>When the saved AF speed takes effect. Startup-only.</td></tr>
+          <tr><td>Startup Tracking</td><td>Locked-On, Low, Normal, Responsive, Very Responsive</td><td>Applied only when the camera reports the setting as writable.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="use"><strong>When to use it</strong><p>Set these when you always shoot the same format on a camera that other people also use, for example a rental body or a camera shared with a stills shooter. The app puts it back into your format every time you connect.</p></div>
+
+      <h3 id="slow-motion-target">Slow Motion Target card</h3>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Row</th><th>Options</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>Target Res / FPS</td><td>The camera's allowed frame sizes and rates</td><td>The format the SLOW tool in Live View switches the camera to. Turning SLOW on remembers the current format and writes this one; turning it off restores the remembered format.</td></tr>
+          <tr><td>Target Codec</td><td>The camera's allowed codecs</td><td>The codec written together with the target format.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="use"><strong>When to use it</strong><p>Save your high-frame-rate format here once, for example 1080p 120 fps H.265, and the SLOW pill becomes a one-tap slow-motion switch. The slow-motion state resets every launch so you never start a day stuck in 120 fps.</p></div>
+
+      <h3 id="lens-profiles">Lens Profiles card</h3>
+      <div class="setting">
+        <h4 id="lens-profile-list">Profile list</h4>
+        <p>Each saved manual-lens profile shows its name, focal length, maximum aperture, the camera slot number when known, and a note when the camera's slot holds different values. <strong>Write</strong> sends the focal length and aperture into the camera's Non-CPU Lens Data so in-body stabilisation and metadata are correct. The <strong>…</strong> menu offers Rename and Delete. Write appears only with a connected camera that reports writable non-CPU lens data.</p>
+      </div>
+      <div class="setting">
+        <h4 id="add-lens-profile">Add Lens Profile</h4>
+        <dl class="setting-meta"><dt>Fields</dt><dd>Focal (mm), Aperture, Name (optional)</dd></dl>
+        <p>Pick a focal length and maximum aperture from the values Nikon bodies accept, optionally name the profile, and tap <strong>Add Profile</strong>. A blank name becomes a suggested name built from the values. Profiles can also be created from the LENS tool in Live View, which is also where you import the lenses already stored in the camera. See <a class="inl" href="/manual/focus-tools/#lens">Focus tools</a>.</p>
+      </div>
+
+      <h2 id="system">System</h2>
+      <div class="setting">
+        <h4 id="app-info">App</h4>
+        <p>Read-only rows for Version, Build, Source (the short commit the build was made from) and Device (model and iOS version). Include the version and build in any support email; the same string is repeated in the page footer.</p>
+      </div>
+      <div class="setting">
+        <h4 id="automatic-diagnostic-upload">Automatic Diagnostic Upload</h4>
+        <dl class="setting-meta"><dt>Options</dt><dd>On / off</dd><dt>Default</dt><dd>Off</dd></dl>
+        <p>After a connection or Live View failure, uploads the support log automatically so the problem can be investigated without a Send Logs email. No camera footage is included. The same switch is offered from the Connection page's support views.</p>
+        <div class="use"><strong>When to use it</strong><p>Turn it on if you are working with support on a recurring problem, so each failure is captured even when you are busy shooting.</p></div>
+      </div>
+      <div class="setting">
+        <h4 id="developer-mode">Developer Mode</h4>
+        <p>A passcode-protected switch that reveals diagnostic and calibration tools used during development and support. It is not needed for normal use, and its contents are not covered by this manual. Support may ask you to enable a specific tool during troubleshooting.</p>
+      </div>
+
+      <h2 id="presets">Presets</h2>
+      <p>Presets are saved and recalled from the <strong>Presets</strong> (SAVE) tool in Live View, but most of the UI and Monitoring settings above are part of them. On first launch three presets are created from the defaults and then behave like any other preset: you can rename, overwrite or delete them.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Preset</th><th>What it sets</th></tr></thead>
+        <tbody>
+          <tr><td>Full HUD</td><td>Every bottom-toolbar tool and stills readout on, default top bar, labels shown, hot corners at their defaults.</td></tr>
+          <tr><td>Clean</td><td>Same as Full HUD with Icons Only and Hide Labels on.</td></tr>
+          <tr><td>Minimal</td><td>Labels hidden; bottom toolbar reduced to HUD Toggle, Record Controls, LUT Toggle, Scopes, Image Tools, False Color and Audio; top bar reduced to Aperture, Shutter, ISO on the left and WB, Battery on the right.</td></tr>
+        </tbody>
+      </table></div>
+      <h3 id="preset-contents">What a preset stores</h3>
+      <ul>
+        <li>Optionally the recording format (frame size, rate and codec) and the slow-motion state. Built-in presets do not store a format; a preset that carries one writes it to the camera when recalled.</li>
+        <li>Preview resolution and quality (user presets only).</li>
+        <li>Overlay visibility, FPS counter, recording border, recording timer, remaining time, HUD style, Tool Toggle or Tool Menu, Tools Stay On, Raise Bottom Toolbar, rotation lock, portrait fill, landscape toolbar side.</li>
+        <li>LUT on/off, the selected LUT, LUT Match values, Analyze Pre-LUT.</li>
+        <li>Scope mode, exposure assist mode, zebra and image-tool mode, false color legend and style, scope size and opacity.</li>
+        <li>Composition guide, frame guide, frame guide scale, matte opacity, guide opacity, desqueeze.</li>
+        <li>Focus peaking on/off, sensitivity, colour, mono background.</li>
+        <li>Level, audio meters and exposure meter on/off, level readout.</li>
+        <li>Bottom-toolbar tool and stills-readout visibility; top-bar chip visibility and order; Icons Only; Hide Labels; every scale; floating tool positions; hot corner enable, sides and all slot assignments.</li>
+      </ul>
+      <p><strong>Not stored:</strong> Language, Open After Connecting, Interface (Modern or Classic), Touch AF Hides Box, Fast GPU Display, USB Preview Rate, Adaptive Wi-Fi Heartbeat, the playback settings, startup defaults, slow-motion targets, lens profiles, support upload and Developer Mode.</p>
+
+      <h2 id="reset">Reset actions</h2>
+      <p>There is no single "reset everything" button. The resets that exist are Reset On-Screen Tool Positions (UI), Clear Target on each startup or slow-motion row (Camera), Clear Playback Cache (Playback), and deleting an imported LUT (Monitoring). To return the Live View layout to a known state, recall the Full HUD preset.</p>
+      <nav class="chapter-nav" id="chapterNav" aria-label="Previous and next chapter"></nav>
+      <p class="feedback-strip">Something missing or wrong on this page? Email <a href="mailto:mike@itsmadcreative.com?subject=Manual%20feedback%3A%20Advanced%20settings">mike@itsmadcreative.com</a> with the page name and what you expected to find.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="/">Main Page</a></li>
+          <li><a href="/ios/">iOS Site</a></li>
+          <li><a href="/android/">Android Site</a></li>
+          <li><a href="/how-to/">How-to</a></li>
+          <li><a href="/manual/">Manual</a></li>
+          <li><a href="/tutorial/">Tutorials</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/compliance/">Compliance</a></li>
+          <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
+        </ul>
+        <p class="footer-legal">
+          ZR Ctl and Parallax Monitor are independent projects and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/manual/manual.js"></script>
+</body>
+</html>

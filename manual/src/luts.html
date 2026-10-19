@@ -1,0 +1,66 @@
+<!--
+title: LUTs and looks
+description: The LUT pill, Quick LUTs A to D, the LOOK browser with 53 bundled LUTs, WIPE, MATCH, importing .cube files, the LUT library and why exposure analysis stays under the LUT in Parallax Monitor and ZR Ctl.
+kicker: Chapter 09
+-->
+      <p class="chapter-kicker">Chapter 09</p>
+      <h1>LUTs and <span class="hl">looks.</span></h1>
+      <p class="lede">A LUT lets you watch flat log footage as it will look after grading. The app applies the LUT on the phone only; the camera keeps recording the original. Four pills manage it: LUT, LOOK, MATCH and WIPE.</p>
+
+      <figure class="shot"><img src="/images/gallery-liveview-look.png" alt="Live View with a LUT applied and the LOOK browser open" loading="lazy"><figcaption><strong>A LUT applied in Live View.</strong> The camera records N-Log; the phone shows the graded look.</figcaption></figure>
+
+      <h2 id="lut-pill">LUT: on and off, Quick LUTs <span class="tag video">Video</span></h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>LUT preview on or off (on by default)</dd>
+          <dt>Long-press</dt><dd>Quick LUTs panel with slots A, B, C and D</dd>
+          <dt>Default LUT</dt><dd>RED IPP2: Log3G10 to Rec.709 BT.1886, medium contrast, medium roll-off</dd>
+        </dl>
+        <p>In the Quick LUTs panel, tap a slot to apply it (an empty slot reads EMPTY and opens the folder picker so you can fill it). Long-press a slot to reassign it from the folders or to import a .cube file straight into that slot. Applying a slot also turns the LUT on.</p>
+        <p>Photo mode turns the LUT preview off and restores it when you return to video. During a brief Nikon stream restart the LUT is suppressed without changing your choice.</p>
+      </div>
+      <div class="use"><strong>How to use the slots</strong><p>Put your technical conversion in A (N-Log to Rec.709 or an IPP2 LUT), the show look in B, and alternatives in C and D. A tap on the pill still toggles whatever is active, so you can flick between log and look without opening anything.</p></div>
+
+      <h2 id="look">LOOK: the LUT browser <span class="tag video">Video</span></h2>
+      <p>Tap or long-press opens <strong>LUT Folders</strong>. The pill is lit while a LUT is enabled.</p>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Folder</th><th>Contents</th><th>Use with</th></tr></thead>
+        <tbody>
+          <tr><td>IPP2 Rec709 (16)</td><td>RED's Log3G10 to Rec.709 BT.1886 conversions: contrast None, Low, Medium or High, each with a highlight roll-off of Hard, Medium, Soft or Very Soft.</td><td>R3D on the ZR and RED cameras. Medium contrast and medium roll-off is the default; pick a softer roll-off to see more highlight detail.</td></tr>
+          <tr><td>N-Log (5)</td><td>Nikon's N-Log BT.2020 to Rec.709 conversion, plus RED FilmBias, FilmBias Offset, Achromic and FilmBias Bleach Bypass built for N-Log.</td><td>N-Log on any Nikon body. Start with the Nikon conversion.</td></tr>
+          <tr><td>RED Creative (32)</td><td>RED's creative looks: Achromic, Awash, Base, Bipolar, Blau, Bleach 1 and 2, seven black and white looks, Caustic, Chromatic, Deep Chroma, FilmBias, FilmBias Bleach Bypass, FilmBias Offset, Flash, Fluoresce, Grime, Lush, Mauve, Narcissus, Pastel, Process, ST4, Supercolor, Tech, Zone.</td><td>Log3G10 footage. They include the conversion, so use one on its own, not on top of an IPP2 LUT.</td></tr>
+          <tr><td>User (n)</td><td>Your imported .cube files.</td><td>Show LUTs, colourist conversions, camera-matching LUTs.</td></tr>
+          <tr><td>Built In</td><td>Any bundled LUT not in the folders above.</td><td></td></tr>
+        </tbody>
+      </table></div>
+      <p>Inside a folder, tap a LUT to select it. <strong>Import .cube LUT…</strong> opens the Files picker. In the User folder, <strong>Delete Selected User LUT</strong> removes the selected import, and any imported row can be long-pressed for Delete; the confirmation lists the presets and quick slots that reference it, all of which fall back to the default LUT.</p>
+      <div class="callout warn"><strong>Match the LUT to the log</strong><p>A LUT built for Log3G10 looks wrong on N-Log and the other way round: skin goes green or magenta and contrast is off. Check the folder matches the codec you are recording. The exposure tools know the curve from the codec, so a wrong LUT does not break them, but it will mislead your eye.</p></div>
+
+      <h2 id="match">MATCH: exposure, gamma and contrast <span class="tag video">Video</span></h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Exposure</dt><dd>−1.00 to +3.00 EV in 0.05 steps (default 0.00), applied before the LUT</dd>
+          <dt>Gamma</dt><dd>0.70 to 1.00 in 0.01 steps (default 1.00), applied before the LUT</dd>
+          <dt>Contrast</dt><dd>1.00 to 1.15 in 0.01 steps (default 1.12), applied after the LUT</dd>
+          <dt>Buttons</dt><dd>Reset (0.00 / 1.00 / 1.12), Close</dd>
+        </dl>
+        <p>Opening the panel turns LUT compensation on. The exposure and gamma shifts happen before the LUT, so they behave like exposing the log differently; contrast is added to the LUT output. None of it touches the recording or the exposure tools.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>When you deliberately expose log brighter than nominal (a common N-Log practice) the standard conversion looks too bright. Pull Exposure down by the same amount and the LUT shows what the colourist will see after normalising. Gamma lifts or lowers the mids; the contrast slider is a taste control for a flat LUT.</p></div>
+
+      <h2 id="wipe">WIPE: split comparison <span class="tag video">Video</span></h2>
+      <p>Tap toggles a split screen: the LUT on one side, the ungraded picture on the other, with a draggable divider that starts at the middle. Turning WIPE on also turns the LUT on. It is not available while an HDMI or SeeMo picture source is in use.</p>
+      <div class="use"><strong>When to use it</strong><p>Showing a client what the log looks like next to the look, or checking a creative LUT is not crushing shadows that the log still holds.</p></div>
+
+      <h2 id="pre-lut">Analysis stays under the LUT</h2>
+      <p>With <strong>Analyze Pre-LUT</strong> on in Advanced › Monitoring › Scopes (the default), scopes, zebras, false color and X-Lights read the signal before the LUT. The LUT changes what you see; the tools measure what is recorded. Turn it off only when you record a baked-in Rec.709 look and want the tools to read the final image. See <a class="inl" href="/manual/exposure-tools/#calibration">Exposure tools</a>.</p>
+
+      <h2 id="playback-lut">LUTs in Playback and Multicam</h2>
+      <ul>
+        <li>The clip player has two slots: <strong>LUT A</strong> follows Live View, <strong>LUT B</strong> is a saved look (the N-Log conversion by default). Advanced › Playback chooses which the player starts on. Clips can be saved to Photos with the LUT baked in. See <a class="inl" href="/manual/playback/#lut">Playback</a>.</li>
+        <li>In Multicam each tile has its own LUT. See <a class="inl" href="/manual/multicam/">Multicam</a>.</li>
+        <li>On RED cameras, turning on an app LUT switches the camera to Log View so the camera's own look is not applied underneath, and restores it afterwards. See <a class="inl" href="/manual/red/">RED cameras</a>.</li>
+      </ul>
+
+      <h2 id="library">The LUT library</h2>
+      <p>Advanced › Monitoring › LUT Library lists every imported LUT with the places it is used, imports new .cube files and deletes old ones. Only 3D .cube files are supported. If an import fails, re-export the LUT from your grading software as a 33-point 3D cube. See <a class="inl" href="/manual/advanced/#lut-library">Advanced settings</a>.</p>

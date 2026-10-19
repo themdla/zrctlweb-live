@@ -1,0 +1,118 @@
+<!--
+title: Focus tools
+description: Focus peaking, touch AF, Monitor Punch, Focus Punch, Power Zoom, Hi-Res Zoom, Focus Pull, Manual Focus Drive and non-CPU lens profiles in Parallax Monitor and ZR Ctl.
+kicker: Chapter 08
+-->
+      <p class="chapter-kicker">Chapter 08</p>
+      <h1>Focus <span class="hl">tools.</span></h1>
+      <p class="lede">Seeing focus on a phone screen is hard, and video focus cannot be fixed afterwards. The app gives you peaking to see sharpness, zoom to check it, tap-to-focus to set it, and two ways to pull it: between autofocus points, or by driving the lens directly.</p>
+
+      <figure class="shot"><img src="/images/focus-peaking.png" alt="Focus peaking outlining sharp edges in red over a log image" loading="lazy"><figcaption><strong>Focus peaking.</strong> Coloured ridges mark the sharpest edges. The picture here is log, which is why it looks flat; peaking judges sharpness relative to the scene, so it works the same on log and Rec.709.</figcaption></figure>
+
+      <h2 id="peaking">PEAK: focus peaking</h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Peaking on or off (off by default)</dd>
+          <dt>Long-press</dt><dd>Sensitivity slider 0 to 100% (default 85%); Mono Background (default off); colour Red, Yellow, Green, White, Cyan (default Red)</dd>
+          <dt>Mode</dt><dd>Video and photo</dd>
+          <dt>Exclusive with</dt><dd>False color. Turning peaking on turns false color off</dd>
+        </dl>
+        <p>Peaking runs on the GPU and marks edges by their sharpness relative to the surrounding scene, with temporal smoothing so the marks do not sparkle, and a dark halo so the ridges read against bright backgrounds. The same settings live in Advanced › Monitoring › Focus Peaking.</p>
+        <ul>
+          <li><strong>Sensitivity</strong>: higher values mark finer detail; very high values pick up sensor grain. Lower it for noisy high-ISO scenes, raise it for soft, low-detail subjects.</li>
+          <li><strong>Mono Background</strong>: the picture goes monochrome while peaking is on, so the coloured ridges are the only colour on screen.</li>
+          <li><strong>Colour</strong>: pick the one that contrasts with your scene. Cyan or white in warm interiors; red or yellow against sky and foliage.</li>
+        </ul>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Always, when pulling focus by hand. Peaking stays on while recording and does not change the recording. For critical focus on an eye, add Focus Punch for a moment, then come back to peaking.</p></div>
+
+      <h2 id="touch-af">Touch AF</h2>
+      <p>Tap the picture to focus there. The AF button (a hot corner in Modern, a rail button in Classic) turns tap-to-focus on or off. A yellow box appears at the tap and turns green when the camera confirms focus. Nikon AF-area boxes from the camera and RED face boxes are drawn too.</p>
+      <p>What a tap does depends on the <strong>Touch Focus</strong> mode, set on the Controls page:</p>
+      <ul>
+        <li><strong>Instant</strong> drives the autofocus immediately, like a half-press.</li>
+        <li><strong>Cinematic</strong> only moves the AF point; the camera's continuous AF then racks focus to it at the AF speed you set, which gives a smooth, deliberate move.</li>
+      </ul>
+      <p>Left on automatic, the rule is: stills and video AF-S use Instant; video AF-C and AF-F use Cinematic. A Cinematic tap in video AF-S switches the camera to AF-F when it can. In photo mode with a manual-focus lens, a tap only moves the AF area. The override is cleared when you run a Focus Pull or toggle Touch AF.</p>
+      <p><strong>Touch AF Hides Box</strong> in Advanced › UI › Bottom Toolbar hides the AF box and tap feedback whenever Touch AF is off.</p>
+      <div class="use"><strong>When to use which</strong><p>Cinematic for smooth on-camera focus moves during a take. Instant for stills and for snapping focus before you roll. Turn Touch AF off on a gimbal or in a pocket so stray touches do not refocus.</p></div>
+
+      <h2 id="zoom">ZOOM: punch and zoom</h2>
+      <p>One pill holds four magnification tools. Its label follows the chosen mode: <strong>LOCAL</strong>, <strong>PUNCH</strong>, <strong>PZ</strong> or <strong>HI-RES</strong>. Tap toggles the chosen tool; long-press opens the <strong>Zoom Mode</strong> menu. A mode the camera cannot do shows a suffix such as "(not during RAW)", "(unavailable)" or "(format dependent)". The choice is remembered.</p>
+      <div class="setting">
+        <h3 id="monitor-punch">Monitor Punch (LOCAL)</h3>
+        <dl class="setting-meta">
+          <dt>Scales</dt><dd>1x, 2x, 4x with − and + (enabling sets 2x)</dd>
+          <dt>Pan</dt><dd>Drag the picture</dd>
+          <dt>Works on</dt><dd>Every camera and picture source; the default mode</dd>
+        </dl>
+        <p>Magnifies the picture on the phone only. The camera does not know, so recording and the camera's own screen are unaffected. It cannot be enabled while Focus Pull has points set.</p>
+        <div class="use"><strong>When to use it</strong><p>Checking focus while recording, where the camera's own magnifier is not allowed. The detail is limited by the preview resolution, so set XGA on USB if you lean on it.</p></div>
+      </div>
+      <div class="setting">
+        <h3 id="focus-punch">Focus Punch (PUNCH) <span class="tag nikon">Nikon</span></h3>
+        <dl class="setting-meta">
+          <dt>Levels</dt><dd>The camera's own magnification steps, shown as a percentage (on the ZR: 50%, 100%, 200%, 400%)</dd>
+          <dt>Pan</dt><dd>Drag the picture to move the camera's zoom centre</dd>
+          <dt>Not available</dt><dd>While recording N-RAW, ProRes RAW or R3D on the ZR, Z8, Z6III, Z5II, Z5IIC and Z50II (the camera refuses it); tap focus is off while active</dd>
+        </dl>
+        <p>Uses the camera's magnifier, so you see full-resolution detail from the sensor rather than a blown-up preview frame. The last frame is kept on screen while the camera switches so the picture does not go black.</p>
+        <div class="use"><strong>When to use it</strong><p>Critical focus before a take, especially on wide lenses and small screens. Switch it off before you roll RAW, or the camera will refuse to record while the magnifier is active.</p></div>
+      </div>
+      <div class="setting">
+        <h3 id="power-zoom">Power Zoom (PZ) <span class="tag nikon">Nikon</span></h3>
+        <dl class="setting-meta">
+          <dt>Controls</dt><dd>Hold W (wide) or T (tele); speed S1 to S10 with − and + (default 5)</dd>
+          <dt>Needs</dt><dd>A power-zoom (PZ) lens; otherwise the menu shows "(unavailable)"</dd>
+        </dl>
+        <p>Drives the lens's zoom motor while you hold the button. Zoom stops when you let go, when the app goes to the background or when the connection drops.</p>
+      </div>
+      <div class="setting">
+        <h3 id="hi-res-zoom">Hi-Res Zoom (HI-RES) <span class="tag nikon">Nikon</span></h3>
+        <p>Turns on the camera's high-resolution zoom, a sensor crop that keeps full output resolution. The magnification stays under the camera's control; the panel shows ON. Only offered in formats where the body allows it ("format dependent" otherwise).</p>
+      </div>
+
+      <h2 id="focus-pull">PULL: focus pull between AF points <span class="tag video">Video</span> <span class="tag nikon">Nikon</span></h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Opens</dt><dd>The SEQ panel, by tap or long-press</dd>
+          <dt>Points</dt><dd>Up to six; the oldest is dropped when you add a seventh</dd>
+          <dt>Hold</dt><dd>0.5 s, 1 s, 2 s, 3 s, 5 s, 8 s per point (default 2 s)</dd>
+          <dt>Speed</dt><dd>The camera's movie AF speed, −5 to +5, cycled from the panel</dd>
+        </dl>
+        <p>Tap <strong>Add Points</strong>, then tap the picture at each subject you want to rack between. Markers can be dragged. Each point row shows the estimated travel time plus its hold; the hold button on a row cycles that point's hold and <strong>NEW HOLD</strong> sets the hold for points you add next. <strong>AF Speed</strong> cycles the camera's AF speed (it shows "REC only" when the body only applies the speed while recording). Press ▶ to run: the camera moves its AF point through the list, waiting the estimated travel plus the hold at each, then ■ cancels. Starting from AF-S switches the camera to AF-F and restores AF-S afterwards.</p>
+        <p>Running a pull resets any Touch Focus override and closes Monitor Punch and the MF drive. The pill is lit while adding points, running, or when two or more points exist.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Repeatable focus moves with an autofocus lens: interview to product, foreground to background, a slow reveal. Set the AF speed low (−3 to −5) for a cinematic rack; the estimate in the panel tells you how long each move takes.</p></div>
+
+      <h2 id="mf-drive">MF: manual focus drive <span class="tag video">Video</span> <span class="tag nikon">Nikon</span></h2>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Tap</dt><dd>Shows or hides the FOCUS tape overlay</dd>
+          <dt>Needs</dt><dd>The camera in AF-S or AF-C (the lens motor is driven through the AF system)</dd>
+          <dt>Time</dt><dd>1 to 60 s in half-second steps, quick picks 1, 2, 3, 5 s (default 3 s)</dd>
+        </dl>
+        <p>The overlay has a vertical tape (0 to 100, starting at 50) and a set of buttons; on phones a chevron expands or collapses them.</p>
+        <ul>
+          <li><strong>Drag the tape</strong> to drive focus. Faster drags take bigger steps.</li>
+          <li><strong>SET IN</strong> and <strong>SET OUT</strong> store the current lens position as the In and Out marks. <strong>GO IN</strong> and <strong>GO OUT</strong> jump to them. <strong>CLR</strong> clears both.</li>
+          <li><strong>TIME</strong> sets how long a timed pull takes. <strong>PLAY</strong> runs a smooth pull from the current position to the farther mark; <strong>STOP</strong> cancels.</li>
+          <li>The lens line shows focal length, lens ID and the non-CPU profile when one is active. <strong>CAL INF</strong> stores an infinity calibration for the lens while the tape sits at infinity, which makes the tape positions repeatable for that lens; <strong>RESET</strong> clears it after a confirmation.</li>
+        </ul>
+        <p>Opening MF closes Focus Pull setup, and starting a pull or a focus stack closes MF. Tape positions are relative steps, not distances in metres.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Repeatable pulls without autofocus hunting, and lenses where you want a precise, slow move. Mark In on the first subject, Out on the second, set a time, and PLAY gives the same move every take.</p></div>
+
+      <h2 id="lens">LENS: non-CPU lens profiles <span class="tag nikon">Nikon</span></h2>
+      <p>Manual lenses without electronics (adapted vintage glass, cine primes) cannot tell the camera their focal length or aperture, so in-body stabilisation and metadata are wrong unless you enter the data in the camera's Non-CPU Lens Data menu. The LENS pill, shown only on bodies that expose that data, lets you keep named profiles in the app and write them to the camera's twenty lens slots.</p>
+      <div class="setting">
+        <dl class="setting-meta">
+          <dt>Menu</dt><dd>New Lens Profile… (focal length, then maximum aperture, then a name); Import All Lenses ← Camera or Import Active Lens ← Camera; one row per profile; Write ‹name› → Camera; Erase All 20 Camera Slots</dd>
+          <dt>Row</dt><dd>Shows the slot, name and values, plus "Camera: …" when the camera's slot holds different values, or "Camera slot empty". Tap selects the profile and switches the camera's lens number when supported; long-press offers Edit Values…, Rename…, Clear Camera Slot, Delete</dd>
+        </dl>
+        <p><strong>Import All Lenses</strong> <span class="tag new">New in 2.1</span> reads the camera's whole lens table in one go and adds every lens the app does not yet have, keeping the camera's numbers and names. Existing profiles are never changed. Profiles can also be managed in Advanced › Camera › Lens Profiles, and the active profile is shown on the MF tape.</p>
+      </div>
+      <div class="use"><strong>When to use it</strong><p>Any time you swap manual lenses. Select the profile and the camera's lens number follows, so VR and the recorded metadata match the glass on the front.</p></div>
+
+      <h2 id="focus-stack-link">Focus stacking</h2>
+      <p>Automated focus stacking for stills drives the lens between frames and is covered in <a class="inl" href="/manual/stills/#focus-stack">Stills, timelapse, stacking</a>.</p>
