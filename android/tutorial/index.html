@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZR Ctl Android Tutorials | Nikon Z Camera Control</title>
-  <meta name="description" content="Watch ZR Ctl tutorials for Android: general tools, exposure tools, customization, and advanced Nikon Z camera workflows.">
+  <title>Parallax Monitor for Android Tutorials | Nikon Z Camera Control</title>
+  <meta name="description" content="Watch Parallax Monitor tutorials for Android: general tools, exposure tools, customization, and advanced Nikon Z camera workflows.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#09090b">
   <link rel="canonical" href="https://www.zrctl.com/android/tutorial/">
 
-  <meta property="og:title" content="ZR Ctl Android Tutorials">
-  <meta property="og:description" content="Guided Android tutorials for ZR Ctl general tools, exposure tools, customization, and advanced Nikon Z workflows.">
+  <meta property="og:title" content="Parallax Monitor for Android Tutorials">
+  <meta property="og:description" content="Guided Android tutorials for Parallax Monitor general tools, exposure tools, customization, and advanced Nikon Z workflows.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.zrctl.com/android/tutorial/">
-  <meta property="og:site_name" content="ZR Ctl">
-  <meta property="og:image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
+  <meta property="og:site_name" content="Parallax Monitor">
+  <meta property="og:image" content="https://www.zrctl.com/parallax-icon-512.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ZR Ctl Android Tutorials">
-  <meta name="twitter:description" content="Watch guided ZR Ctl tutorials for Android and Nikon Z camera workflows.">
-  <meta name="twitter:image" content="https://themdla.github.io/zrctl/og-logo-simple-v1.jpg">
+  <meta name="twitter:title" content="Parallax Monitor for Android Tutorials">
+  <meta name="twitter:description" content="Watch guided Parallax Monitor tutorials for Android and Nikon Z camera workflows.">
+  <meta name="twitter:image" content="https://www.zrctl.com/parallax-icon-512.png">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/parallax-icon-192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/parallax-icon-48.png">
   <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 96x96 192x192">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/parallax-apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "ZR Ctl Android Tutorials",
+    "name": "Parallax Monitor for Android Tutorials",
     "url": "https://www.zrctl.com/android/tutorial/",
-    "description": "Tutorial videos for ZR Ctl on Android.",
+    "description": "Tutorial videos for Parallax Monitor on Android.",
     "publisher": {
       "@type": "Organization",
       "name": "MAD Creative",
@@ -74,7 +74,8 @@
     }
     nav .container { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; }
-    .brand img { height: 38px; width: auto; }
+    .brand img { width: 38px; height: 38px; border-radius: 8px; }
+    .brand span { font-size: 28px; line-height: 1; }
     .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; color: var(--text-2); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
     .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--text); }
     .nav-cta { background: var(--accent); color: #000 !important; font-weight: 800; padding: 9px 18px; border-radius: 6px; }
@@ -127,13 +128,38 @@
       h1 { font-size: clamp(58px, 18vw, 92px); }
       main { padding-top: 52px; }
     }
+    /* ── Update banner (same look as the site-wide banner, in normal flow on this page) ── */
+    .update-banner { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:6px 14px; min-height:44px; padding:8px 18px;
+      background:linear-gradient(90deg, rgba(255,210,0,.14), rgba(255,210,0,.05)); border-bottom:1px solid rgba(255,210,0,.28);
+      font-size:13px; line-height:1.4; color:#a1a1aa; text-align:center; }
+    html.update-dismissed .update-banner { display:none; }
+    .ub-copy strong { color:#fafafa; }
+    .ub-link { background:#ffd200; color:#000; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:6px 13px; border-radius:5px; white-space:nowrap; }
+    .ub-close { width:26px; height:26px; flex-shrink:0; display:grid; place-items:center; background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.16); border-radius:5px; color:#a1a1aa; font-size:15px; line-height:1; cursor:pointer; }
   </style>
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'parallax-rename_ios-2.0_android-2.1.14';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
 </head>
 <body>
+  <aside class="update-banner" aria-label="Parallax Monitor announcement">
+    <span class="ub-copy"><strong>ZR Ctl is now Parallax Monitor.</strong> Same app, same developer, nothing to buy again.</span>
+    <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="ub-link update-link">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="ub-link update-link">Google Play</a>
+    <button class="ub-close update-close" type="button" aria-label="Dismiss update notice">&times;</button>
+  </aside>
   <nav>
     <div class="container">
-      <a href="/android/" class="brand" aria-label="ZR Ctl Android home">
-        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl">
+      <a href="/android/" class="brand" aria-label="Parallax Monitor for Android home">
+        <img src="/parallax-icon-192.png" alt="">
+        <span class="display">Parallax Monitor</span>
       </a>
       <ul class="nav-links mono">
         <li><a href="/android/">Android Home</a></li>
@@ -152,8 +178,8 @@
       <section class="hero">
         <div>
           <p class="eyebrow mono">Android tutorials</p>
-          <h1 class="display">Learn <span>ZR Ctl.</span></h1>
-          <p class="intro">Watch the tutorial series for general controls, exposure tools, customization, and advanced Nikon Z camera workflows on Android.</p>
+          <h1 class="display">Learn <span>Parallax Monitor.</span></h1>
+          <p class="intro">Watch the Parallax Monitor for Android (formerly ZR Ctl) tutorial series for general controls, exposure tools, customization, and advanced Nikon Z camera workflows.</p>
           <div class="hero-actions mono" aria-label="Return navigation">
             <a class="home-link" href="/android/">Back to Android main page</a>
             <a class="secondary-link" href="/">All apps</a>
@@ -165,7 +191,7 @@
         </aside>
       </section>
 
-      <section class="video-grid" aria-label="ZR Ctl Android tutorial videos">
+      <section class="video-grid" aria-label="Parallax Monitor for Android tutorial videos">
         <article class="card">
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/f8U2XGORzIg" title="Parallax Monitor | ZR Ctl Tutorial Series: General Tools" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
@@ -195,7 +221,7 @@
           <div class="card-body">
             <p class="card-kicker mono">Tutorial 03</p>
             <h2 class="display">Customization &amp; Advanced</h2>
-            <p>Tailor ZR Ctl to your camera, rig, and shooting habits.</p>
+            <p>Tailor Parallax Monitor to your camera, rig, and shooting habits.</p>
             <a class="watch-link mono" href="https://youtu.be/deyFVZIhbuE" target="_blank" rel="noopener">Watch on YouTube</a>
           </div>
         </article>
@@ -205,7 +231,7 @@
 
   <footer>
     <div class="container footer-row mono">
-      <span>ZR CTL &middot; &copy; 2026</span>
+      <span>PARALLAX MONITOR &middot; &copy; 2026</span>
       <ul class="footer-links">
         <li><a href="/android/">Android Home</a></li>
         <li><a href="/">Main Page</a></li>
@@ -215,5 +241,13 @@
       </ul>
     </div>
   </footer>
+  <script>
+    document.querySelectorAll('.update-close').forEach(button => {
+      button.addEventListener('click', () => {
+        document.documentElement.classList.add('update-dismissed');
+        try { localStorage.setItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY, window.ZRCTL_UPDATE_BANNER_VERSION); } catch (_) {}
+      });
+    });
+  </script>
 </body>
 </html>
