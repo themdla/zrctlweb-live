@@ -61,8 +61,14 @@
         "@id": "https://www.zrctl.com/#website",
         "url": "https://www.zrctl.com/",
         "name": "Parallax Monitor",
-        "alternateName": ["ZR Ctl", "ZR Control", "ZRCTL"],
-        "publisher": { "@id": "https://www.zrctl.com/#organization" },
+        "alternateName": [
+          "ZR Ctl",
+          "ZR Control",
+          "ZRCTL"
+        ],
+        "publisher": {
+          "@id": "https://www.zrctl.com/#organization"
+        },
         "inLanguage": "en-US"
       },
       {
@@ -71,27 +77,139 @@
         "url": "https://www.zrctl.com/",
         "name": "Parallax Monitor for iOS and Android",
         "description": "Parallax Monitor is the Nikon Z remote camera app for iPhone, iPad and Android. Paid purchases include a 30-day full refund promise.",
-        "isPartOf": { "@id": "https://www.zrctl.com/#website" },
-        "mainEntity": { "@id": "https://www.zrctl.com/#apps" }
-      },
-      {
-        "@type": "ItemList",
-        "@id": "https://www.zrctl.com/#apps",
-        "name": "Nikon Z remote camera apps by platform",
-        "itemListElement": [
+        "isPartOf": {
+          "@id": "https://www.zrctl.com/#website"
+        },
+        "mainEntity": [
           {
-            "@type": "ListItem",
-            "position": 1,
-            "url": "https://www.zrctl.com/ios/",
-            "name": "Parallax Monitor for iPhone and iPad"
+            "@id": "https://www.zrctl.com/#ios-app"
           },
           {
-            "@type": "ListItem",
-            "position": 2,
-            "url": "https://www.zrctl.com/android/",
-            "name": "Parallax Monitor for Android"
+            "@id": "https://www.zrctl.com/#android-app"
           }
         ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.zrctl.com/#ios-app",
+        "name": "Parallax Monitor",
+        "alternateName": [
+          "Parallax",
+          "ZR Ctl iOS",
+          "ZR Control iOS",
+          "ZRCTL iOS"
+        ],
+        "description": "Parallax Monitor is an independent iPhone and iPad remote camera control app for Nikon ZR and Z-series shooters with live view, exposure scopes, focus control, LUT preview, framing guides, and camera-card playback.",
+        "url": "https://www.zrctl.com/#ios",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Camera remote control app",
+        "operatingSystem": [
+          "iOS",
+          "iPadOS"
+        ],
+        "softwareVersion": "2.0",
+        "downloadUrl": "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
+          "price": "19.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "sameAs": "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
+        "featureList": [
+          "Nikon ZR remote camera control",
+          "Live view",
+          "Exposure scopes",
+          "False color",
+          "Traffic lights",
+          "Focus control",
+          "Anamorphic desqueeze",
+          "Waveform",
+          "Histogram",
+          "Zebras",
+          "Camera-card playback",
+          "Audio meters",
+          "Custom frame guides",
+          "Shutter angle control",
+          "Dual base ISO",
+          "Stills photo mode",
+          "Ultra low-latency USB monitoring"
+        ],
+        "screenshot": "https://www.zrctl.com/parallax-icon-512.png",
+        "image": "https://www.zrctl.com/parallax-icon-512.png",
+        "logo": "https://www.zrctl.com/parallax-icon-512.png",
+        "brand": {
+          "@type": "Brand",
+          "name": "Parallax Monitor",
+          "alternateName": "Parallax"
+        },
+        "publisher": {
+          "@id": "https://www.zrctl.com/#organization"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Mike Aguado"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.zrctl.com/#android-app",
+        "name": "Parallax Monitor",
+        "alternateName": [
+          "ZR Ctl",
+          "ZR Control"
+        ],
+        "description": "Parallax Monitor for Android is a paid independent remote camera control app for Nikon ZR and Z-series shooters with live view, exposure scopes, focus control, LUT preview, framing guides, and camera-card playback.",
+        "url": "https://www.zrctl.com/#android",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Camera remote control app",
+        "operatingSystem": [
+          "Android"
+        ],
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share",
+        "softwareVersion": "2.1.14",
+        "isAccessibleForFree": false,
+        "offers": {
+          "@type": "Offer",
+          "url": "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share",
+          "availability": "https://schema.org/InStock"
+        },
+        "sameAs": "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share",
+        "featureList": [
+          "Nikon ZR remote camera control",
+          "Live view",
+          "Exposure scopes",
+          "False color",
+          "Traffic lights",
+          "Focus control",
+          "Anamorphic desqueeze",
+          "Waveform",
+          "Histogram",
+          "Zebras",
+          "Camera-card playback",
+          "Audio meters",
+          "Custom frame guides",
+          "Shutter angle control",
+          "Dual base ISO",
+          "Stills photo mode",
+          "Ultra low-latency USB monitoring"
+        ],
+        "screenshot": "https://www.zrctl.com/parallax-icon-512.png",
+        "image": "https://www.zrctl.com/parallax-icon-512.png",
+        "logo": "https://www.zrctl.com/parallax-icon-512.png",
+        "brand": {
+          "@type": "Brand",
+          "name": "Parallax Monitor",
+          "alternateName": "Parallax"
+        },
+        "publisher": {
+          "@id": "https://www.zrctl.com/#organization"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Mike Aguado"
+        }
       }
     ]
   }
@@ -104,14 +222,6 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Which Nikon Z remote camera app should I download?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Parallax Monitor runs on iPhone, iPad and Android: get it on the App Store or on Google Play. On every platform it is an independent Nikon Z remote monitoring and camera control tool with live view, exposure scopes, focus control, LUT preview, framing guides, and camera-card playback."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "Where did ZR Ctl go?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -120,10 +230,26 @@
       },
       {
         "@type": "Question",
-        "name": "Where can I get Parallax Monitor for Android?",
+        "name": "How do I control a Nikon ZR remotely?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Parallax Monitor for Android is available now on Google Play for Android phones and tablets."
+          "text": "Install Parallax Monitor on your iPhone, iPad or Android device and connect to the camera over USB, your phone's hotspot, a shared WiFi network, or the camera's own access point. You get live view with scopes, full camera settings, focus control, audio, and camera-card playback — no extra hardware required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Parallax Monitor work with the Nikon Z8 and Z6III?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Parallax Monitor is built for the Nikon ZR first, and Z8 and Z6III shooters have confirmed it working as a remote monitor and control surface on their bodies. Other Z-series cameras may work too."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where can I get Parallax Monitor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "iPhone and iPad: Parallax Monitor is available now on the App Store. Android: Parallax Monitor for Android is available now on Google Play for Android phones and tablets."
         }
       },
       {
@@ -132,6 +258,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. Paid app purchases are covered by a 30-day, no-questions-asked full refund promise. Refund requests begin through Apple or Google Play, and support is available if you need help."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I apply to beta test Parallax Monitor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use the beta tester application page to share your iPhone, iPad or Android device, Nikon cameras, shooting background, and email address. Beta access is reviewed from those applications."
         }
       },
       {
@@ -159,13 +293,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <script>
-    try {
-      const rootPath = window.location.pathname === '/' || window.location.pathname === '/index.html';
-      if (rootPath) document.documentElement.classList.add('platform-prompt');
-    } catch (_) {
-      document.documentElement.classList.add('platform-prompt');
-    }
-
     window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
     window.ZRCTL_UPDATE_BANNER_VERSION = 'parallax-rename_ios-2.0_android-2.1.14';
     try {
@@ -178,7 +305,7 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
-      --accent:#ffd200; --bg:#09090b; --bg-2:#0e0e11; --card:#141417;
+      --accent:#ffd200; --accent-rgb:255,210,0; --bg:#09090b; --bg-2:#0e0e11; --card:#141417;
       --border:#222226; --text-2:#a1a1aa; --text-3:#71717a; --red:#ff4d4d;
       --ubh:44px;
     }
@@ -190,6 +317,7 @@
     }
     a { color:inherit; text-decoration:none; }
     .mono { font-family:'JetBrains Mono','SF Mono',Menlo,monospace; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
     .display { font-family:'Bebas Neue','Arial Narrow','Helvetica Narrow',sans-serif; font-weight:400; }
     .container { max-width:1240px; margin:0 auto; padding:0 32px; }
     section { scroll-margin-top:calc(var(--ubh) + 86px); }
@@ -240,37 +368,6 @@
     .nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px rgba(255,210,0,.3); }
     .hamburger { display:none; background:none; border:none; color:#fafafa; cursor:pointer; padding:8px; }
 
-    /* ── Platform chooser ── */
-    html.platform-prompt,
-    html.platform-prompt body { overflow:hidden; }
-    .platform-chooser { position:fixed; inset:0; z-index:500; display:none; place-items:center;
-      padding:24px; background:rgba(0,0,0,.82); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
-    html.platform-prompt .platform-chooser { display:grid; }
-    .platform-dialog { width:min(940px, 100%); background:#0b0b0e; border:1px solid rgba(255,255,255,.14);
-      box-shadow:0 34px 120px rgba(0,0,0,.72); padding:34px; }
-    .platform-dialog h1 { font-size:clamp(38px,5vw,76px); line-height:.92; text-transform:uppercase; text-align:center; }
-    .platform-dialog h1 span { color:var(--accent); }
-    .platform-dialog > p { max-width:620px; margin:18px auto 30px; text-align:center; color:var(--text-2); font-size:16px; }
-    .platform-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-    .platform-card { display:grid; grid-template-columns:78px 1fr; gap:20px; align-items:center;
-      padding:22px; min-height:170px; background:var(--card); border:1px solid var(--border);
-      transition:transform .2s, border-color .2s, background .2s, box-shadow .2s; }
-    .platform-card:hover { transform:translateY(-2px); border-color:rgba(255,210,0,.42); background:#18181c;
-      box-shadow:0 18px 50px rgba(0,0,0,.34); }
-    .platform-card.ios:hover { border-color:rgba(31,214,255,.5); box-shadow:0 18px 54px rgba(31,214,255,.12); }
-    .platform-icon { width:78px; height:78px; display:grid; place-items:center; border-radius:20px; color:#fff;
-      background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); }
-    .platform-icon svg { width:42px; height:42px; display:block; }
-    .platform-card.ios .platform-icon { background:rgba(36,215,255,.12); color:#24d7ff; border-color:rgba(36,215,255,.26); }
-    .platform-card.android .platform-icon { background:rgba(255,210,0,.12); color:var(--accent); border-color:rgba(255,210,0,.26); }
-    .platform-card h3 { font-size:30px; line-height:1; text-transform:uppercase; margin-bottom:8px; }
-    .platform-card p { color:var(--text-2); font-size:14px; margin-bottom:12px; }
-    .platform-card strong { display:inline-flex; align-items:center; color:#000; background:var(--accent);
-      min-height:34px; padding:8px 14px; border-radius:6px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
-    .platform-card.ios strong { background:#24d7ff; }
-    .platform-links { margin-top:20px; text-align:center; font-size:12px; color:var(--text-3); }
-    .platform-links a { color:var(--accent); text-decoration:underline; text-decoration-color:rgba(255,210,0,.35); text-underline-offset:3px; }
-
     /* ── Hero ── */
     .hero { position:relative; padding:calc(150px + var(--ubh)) 0 0; text-align:center; overflow:hidden; }
     .hero::before {
@@ -298,6 +395,13 @@
       font-size:19px; line-height:1.55; font-weight:600; color:#e4e4e7;
       text-transform:none; letter-spacing:0; }
     .hero-sub { margin:18px auto 38px; max-width:620px; font-size:16.5px; line-height:1.7; color:var(--text-2); position:relative; z-index:1; }
+    .hero-rating { display:inline-flex; align-items:center; justify-content:center; gap:10px; max-width:calc(100% - 48px);
+      margin:0 auto 28px; padding:9px 14px; border:1px solid rgba(255,255,255,.14); border-radius:6px;
+      background:rgba(255,255,255,.06); color:var(--text-2); font-size:11px; letter-spacing:.12em;
+      text-transform:uppercase; position:relative; z-index:1; transition:border-color .2s, background .2s; }
+    .hero-rating:hover { border-color:rgba(var(--accent-rgb),.45); background:rgba(var(--accent-rgb),.08); }
+    .hero-rating strong { color:#fff; font-weight:700; }
+    .hero-rating .stars { font-size:13px; letter-spacing:.02em; }
     .btns { display:flex; gap:16px; justify-content:center; margin-bottom:64px; position:relative; z-index:1; flex-wrap:wrap; }
     .b1 { background:var(--accent); color:#000; font-weight:700; font-size:15px; letter-spacing:.06em;
       padding:17px 42px; border-radius:6px; text-transform:uppercase; display:inline-flex; align-items:center; gap:10px;
@@ -335,6 +439,70 @@
     .stat:last-child { border-right:0; }
     .stat b { display:block; font-size:54px; line-height:1; color:var(--accent); font-weight:400; }
     .stat span { display:block; margin-top:10px; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--text-3); }
+
+    /* ── App Store reviews ── */
+    .store-reviews { padding:86px 0 18px; }
+    .reviews-panel { display:grid; grid-template-columns:minmax(240px, .82fr) minmax(0, 2fr); gap:22px; align-items:stretch; }
+    .rating-card, .review-card {
+      border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius:8px; box-shadow:0 24px 60px rgba(0,0,0,.22); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    }
+    .rating-card { padding:30px; display:flex; flex-direction:column; justify-content:space-between; min-height:270px; }
+    .rating-source { display:flex; align-items:center; gap:12px; margin-bottom:22px; }
+    .rating-source img { width:48px; height:48px; border-radius:8px; object-fit:cover; box-shadow:0 10px 28px rgba(0,0,0,.32); }
+    .rating-source span { display:block; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--text-3); }
+    .rating-source strong { display:block; font-size:17px; line-height:1.2; color:#fff; }
+    .rating-card .kicker { display:block; margin-bottom:20px; font-size:10px; letter-spacing:.16em; }
+    .rating-card .kicker::before, .rating-card .kicker::after { display:none; }
+    .rating-score { display:flex; align-items:flex-end; gap:14px; margin-bottom:12px; }
+    .rating-score b { font-size:74px; line-height:.86; color:#f5f5f7; letter-spacing:0; }
+    .stars { color:#ffcc00; letter-spacing:.08em; line-height:1; }
+    .rating-score .stars { font-size:20px; padding-bottom:7px; }
+    .rating-meta { font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-3); }
+    .rating-link { display:inline-flex; align-items:center; justify-content:center; margin-top:22px; width:max-content;
+      border:1px solid rgba(255,255,255,.18); color:#fff; border-radius:6px; padding:10px 14px;
+      font-size:11px; letter-spacing:.12em; text-transform:uppercase; transition:all .2s; }
+    .rating-link:hover { border-color:var(--accent); color:#000; background:var(--accent); }
+    .reviews-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+    .reviews-browser { display:flex; flex-direction:column; gap:16px; min-width:0; }
+    .review-card { padding:24px; min-height:318px; display:flex; flex-direction:column; transition:transform .25s, border-color .25s; }
+    .review-card:hover { transform:translateY(-3px); border-color:rgba(var(--accent-rgb),.38); }
+    .review-top { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:15px; }
+    .review-author { min-width:0; }
+    .review-author strong { display:block; font-size:13px; line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .review-author span { display:block; margin-top:4px; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); }
+    .review-top .stars { flex-shrink:0; font-size:13px; }
+    .review-title { font-size:18px; line-height:1.2; color:#f5f5f7; margin-bottom:12px; font-weight:700; letter-spacing:0; }
+    .review-card blockquote { margin:0; color:#d4d4d8; font-size:14px; line-height:1.62; }
+    .review-foot { margin-top:auto; padding-top:18px; font-size:10px; letter-spacing:.16em; color:var(--text-3); text-transform:uppercase; }
+    .review-pager { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .review-range { color:var(--text-3); font-size:10px; letter-spacing:.16em; text-transform:uppercase; }
+    .pager-controls { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .pager-button, .page-dot {
+      height:36px; min-width:36px; display:inline-grid; place-items:center; border:1px solid rgba(255,255,255,.16);
+      border-radius:6px; background:rgba(255,255,255,.04); color:#fff; cursor:pointer;
+      font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+      transition:background .2s, border-color .2s, color .2s, transform .2s;
+    }
+    .pager-button { padding:0 13px; }
+    .pager-button:hover, .page-dot:hover { border-color:rgba(var(--accent-rgb),.45); background:rgba(var(--accent-rgb),.08); }
+    .pager-button:disabled { opacity:.38; cursor:not-allowed; transform:none; }
+    .page-dot[aria-current="page"] { background:var(--accent); border-color:var(--accent); color:#000; font-weight:700; }
+    .review-feed-note { color:var(--text-3); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+
+    /* ── Platforms (what differs between iPhone/iPad and Android) ── */
+    .platforms { padding:110px 0; text-align:center; border-top:1px solid #18181c; }
+    .platforms .plats { align-items:stretch; }
+    .platforms .plat { flex:1 1 340px; max-width:540px; text-align:left; scroll-margin-top:calc(var(--ubh) + 96px); }
+    .platforms .plat:target { border-color:var(--accent); }
+    .plat-facts { list-style:none; margin-top:22px; padding-top:18px; border-top:1px solid var(--border); display:grid; gap:14px; }
+    .plat-facts li { font-size:13.5px; line-height:1.6; color:var(--text-2); }
+    .plat-facts b { display:block; margin-bottom:3px; font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-weight:500;
+      font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
+    .plat .plat-facts a, .inline-links a { display:inline; background:none; color:var(--accent); font:inherit; letter-spacing:0;
+      text-transform:none; padding:0; border-radius:0; text-decoration:underline; text-underline-offset:3px; }
+    .plat .plat-facts a:hover { transform:none; box-shadow:none; }
+    .cta .btns { margin-bottom:44px; }
 
     /* ── Marquee ── */
     .marquee { border-top:1px solid #1c1c20; border-bottom:1px solid #1c1c20; margin-top:72px;
@@ -562,6 +730,7 @@
       .feat-row.rev .feat-text { order:1; } .feat-row.rev .feat-media { order:2; }
       .tool-grid { grid-template-columns:1fr 1fr; }
       .cams-row { grid-template-columns:1fr; }
+      .reviews-panel { grid-template-columns:1fr; }
       .cov-grid { grid-template-columns:1fr 1fr; }
     }
     @media (max-width:768px) {
@@ -577,23 +746,27 @@
       .hero { padding-top:calc(120px + var(--ubh)); }
       .h1-big { font-size:clamp(48px, 17vw, 72px); }
       .h1-tag { font-size:16px; padding:0 12px; }
+      .hero-rating { flex-wrap:wrap; row-gap:4px; }
       .stats { grid-template-columns:repeat(2,1fr); }
       .stat:nth-child(2) { border-right:0; }
       .feat h3 { font-size:40px; }
       .feat-num { font-size:72px; }
       .tool-grid { grid-template-columns:1fr; }
+      .store-reviews { padding-top:64px; }
+      .rating-card { min-height:0; padding:24px; }
+      .rating-score b { font-size:62px; }
+      .reviews-grid { grid-template-columns:1fr; }
+      .review-card { min-height:0; }
+      .review-pager { justify-content:center; text-align:center; }
+      .review-range, .review-feed-note { flex-basis:100%; }
       .vid-grid, .cov-grid { grid-template-columns:1fr; }
       .gal-head { flex-direction:column; align-items:flex-start; }
       .shot { width:min(78vw, 420px); }
       .shot.portrait { width:min(44vw, 240px); }
       .plats { flex-direction:column; align-items:center; }
       .plat { width:100%; max-width:340px; }
-      .platform-dialog { padding:24px; }
-      .platform-grid { grid-template-columns:1fr; }
-      .platform-card { grid-template-columns:64px 1fr; min-height:0; padding:18px; }
-      .platform-icon { width:64px; height:64px; border-radius:16px; }
-      .platform-icon svg { width:34px; height:34px; }
-      .platform-card h3 { font-size:24px; }
+      .platforms { padding:80px 0; }
+      .platforms .plat { max-width:520px; padding:28px 24px; }
       .strip .corners,
       .strip .hud-rec { display:none; }
       .strip-caption { justify-content:center; }
@@ -604,50 +777,6 @@
 <body>
 
   <div id="scroll-progress" aria-hidden="true"></div>
-
-  <aside class="platform-chooser" aria-label="Choose your app">
-    <div class="platform-dialog" role="dialog" aria-modal="true" aria-labelledby="platformTitle">
-      <h1 id="platformTitle" class="display">Choose your <span>platform!</span></h1>
-      <p>Choose your app, or explore our new Accsoon partnership.</p>
-      <div class="platform-grid">
-        <a class="platform-card ios" href="/ios/">
-          <span class="platform-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="currentColor" focusable="false">
-              <path d="M30.5 8.4c1.4-1.7 2.2-4 2-6.4-2.1.2-4.5 1.4-6 3.1-1.3 1.5-2.4 3.9-2.1 6.2 2.3.2 4.7-1.2 6.1-2.9z"/>
-              <path d="M39.7 34.4c-1 2.3-1.5 3.3-2.8 5.4-1.8 2.8-4.3 6.3-7.4 6.3-2.8 0-3.5-1.8-7.2-1.8-3.8 0-4.6 1.8-7.3 1.8-3.1 0-5.5-3.2-7.3-6-5-7.8-5.5-17-.2-21.9 1.9-1.8 4.4-2.9 6.7-2.9 3.2 0 5.2 1.9 7.8 1.9 2.5 0 4-1.9 7.7-1.9 2.7 0 5.6 1.5 7.5 4.1-6.6 3.6-5.5 12.9 1.9 15z"/>
-            </svg>
-          </span>
-          <span>
-            <h3 class="display">Apple</h3>
-            <p>Parallax Monitor for iPhone and iPad.</p>
-            <strong class="mono">Continue</strong>
-          </span>
-        </a>
-        <a class="platform-card android" href="/android/">
-          <span class="platform-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-              <path d="M15 18h18a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H15a4 4 0 0 1-4-4V22a4 4 0 0 1 4-4z"/>
-              <path d="M15 18 10.5 11M33 18 37.5 11"/>
-              <path d="M17 38v6M31 38v6M7 25v9M41 25v9"/>
-              <path d="M19 26h.01M29 26h.01"/>
-            </svg>
-          </span>
-          <span>
-            <h3 class="display">Android</h3>
-            <p>Parallax Monitor for Android phones and tablets on Google Play. Formerly ZR Ctl.</p>
-            <strong class="mono">Continue</strong>
-          </span>
-        </a>
-        <a class="platform-card accsoon-platform" href="/accsoon/">
-          <img src="/accsoon/assets/accsoon-wordmark-white.svg?v=2" alt="Accsoon" width="140" height="31">
-          <span><h3 class="display">Meet the Accsoon integrations</h3><p>SeeMo for iOS: coming in 2.1. Parallax Monitor for CineView M7: available now.</p><strong class="mono">Explore Accsoon</strong></span>
-        </a>
-      </div>
-      <p class="platform-links mono">
-        Direct links: <a href="/ios/">iOS site</a> &middot; <a href="/android/">Android site</a> &middot; <a href="/feedback/">Feedback</a> &middot; <button type="button" id="exploreSite">Explore the website</button>
-      </p>
-    </div>
-  </aside>
 
   <aside class="update-banner" aria-label="Parallax Monitor announcement">
     <span class="ub-copy"><strong>ZR Ctl is now Parallax Monitor.</strong> Same app, same developer, nothing to buy again.</span>
@@ -663,16 +792,16 @@
         <span class="display">Parallax Monitor</span>
       </a>
       <ul class="nav-links mono" id="navLinks">
-        <li><a href="/ios/">iOS</a></li>
-        <li><a href="/android/">Android</a></li>
-        <li><a href="/accsoon/">Accsoon</a></li>
         <li><a href="#features">Features</a></li>
+        <li><a href="/accsoon/">Accsoon</a></li>
         <li><a href="/how-to/">How-to</a></li>
         <li><a href="/manual/">Manual</a></li>
         <li><a href="/tutorial/">Tutorials</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#videos">Reviews</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#coverage">Coverage</a></li>
+        <li><a href="/beta/">Beta</a></li>
         <li><a href="/feedback/">Feedback</a></li>
         <li><a href="#download" class="nav-cta">Get the apps</a></li>
       </ul>
@@ -690,11 +819,20 @@
       <span class="display h1-big"><span class="line"><span>Take full</span></span><span class="line"><span class="y">control.</span></span></span>
       <span class="h1-tag">The ultimate remote monitor &amp; control app for Nikon ZR, Z8, Z6III &amp; Z-series cameras.</span>
     </h1>
-    <p class="hero-sub">Scopes, LUTs, focus pulls, framing, audio, playback — and a full stills mode — from the phone or tablet already on your rig.</p>
+    <p class="hero-sub">Scopes, LUTs, focus pulls, framing, audio, playback — and a full stills mode — from the iPhone, iPad or Android device already on your rig. On Android, Parallax Monitor was formerly ZR Ctl.</p>
+    <a class="hero-rating mono" href="#reviews" aria-label="Jump to App Store reviews">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <strong>5.0 App Store rating</strong>
+      <span>18 US ratings</span>
+    </a>
     <div class="btns">
-      <a class="b1" href="#download">
+      <a class="b1" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Get the apps
+        Get it on the App Store
+      </a>
+      <a class="b1" href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Get it on Google Play
       </a>
       <a class="b2" href="#features">See the features</a>
     </div>
@@ -723,11 +861,6 @@
       <div class="stat"><b class="display" data-count="30">30</b><span>Day refund promise</span></div>
     </div>
   </header>
-
-
-  <section class="accsoon-announcement" id="accsoon-partnership" aria-label="Accsoon partnership">
-    <div class="container"><div class="accsoon-announcement-brand"><p class="mono">IN PARTNERSHIP WITH</p><img src="/accsoon/assets/accsoon-wordmark-white.svg?v=2" alt="Accsoon" width="140" height="31" loading="lazy"></div><div><h2 class="display">Your camera. Your tools. Now with Accsoon.</h2><p>Parallax Monitor for CineView M7 is available now. SeeMo support for iPhone and iPad is coming in Parallax Monitor 2.1.</p><a href="/accsoon/">Explore both integrations <span aria-hidden="true">↗</span></a></div></div>
-  </section>
 
   <!-- ───────── MARQUEE ───────── -->
   <div class="marquee mono" aria-label="What filmmakers say about Parallax Monitor">
@@ -921,6 +1054,45 @@
     </div>
   </section>
 
+  <!-- ───────── PLATFORMS ───────── -->
+  <section class="platforms" id="platforms">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="kicker mono">One app &middot; two stores</p>
+        <h2 class="display">iPhone, iPad <span class="y">&amp; Android.</span></h2>
+        <p>Parallax Monitor for Android shares the same tools, names and layout as the iPhone and iPad app. This is what differs by platform.</p>
+      </div>
+      <div class="plats reveal">
+        <div class="plat" id="ios">
+          <h3 class="display">iPhone &amp; iPad</h3>
+          <p class="mono">iPhone &middot; iPad &middot; Version 2.0</p>
+          <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">Get it on the App Store</a>
+          <ul class="plat-facts">
+            <li><b>Rating</b>5.0 App Store rating from 18 US ratings. <a href="#reviews">Read the reviews</a>.</li>
+            <li><b>Requires</b>iOS or iPadOS 17 or later. The Camera Control button needs iOS 17.2. <a href="/manual/cameras/#devices">Device notes in the manual</a>.</li>
+            <li><b>Cameras</b>Remote monitoring and camera control for Nikon Z-series and RED cameras.</li>
+            <li><b>Coming in 2.1</b>Your camera&rsquo;s HDMI picture through Accsoon SeeMo. Keep your LUTs, scopes and exposure tools, with camera control over Wi-Fi. <a href="/accsoon/#seemo">Explore SeeMo for iOS</a>.</li>
+            <li><b>Refunds</b>30-day, no-questions-asked full refund promise. App Store refund requests begin through Apple.</li>
+            <li><b>Tutorials</b><a href="/ios/tutorial/">iPhone and iPad tutorials</a></li>
+          </ul>
+        </div>
+        <div class="plat" id="android">
+          <h3 class="display">Android</h3>
+          <p class="mono">Android phones &middot; tablets &middot; Version 2.1.14</p>
+          <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">Get it on Google Play</a>
+          <ul class="plat-facts">
+            <li><b>Formerly ZR Ctl</b>Same app, same developer. Your purchase carries over and there is nothing to buy again.</li>
+            <li><b>Requires</b>Android 9 or later, on phones and tablets. <a href="/manual/cameras/#devices">Device notes in the manual</a>.</li>
+            <li><b>Android differences</b>Multicam has a grid that grows past eight tiles, and jam-sync adds a wait-for-jam option. Where Android behaves differently, the <a href="/manual/">manual</a> says so in an Android note.</li>
+            <li><b>On Accsoon monitors</b>The dedicated Parallax Monitor edition for CineView M7 is a native app for your Accsoon monitor, with HDMI monitoring and camera control. <a href="/accsoon/#m7">Explore the Accsoon edition</a>.</li>
+            <li><b>Refunds</b>30-day, no-questions-asked full refund promise. Google Play refund requests begin through Google.</li>
+            <li><b>Tutorials</b><a href="/android/tutorial/">Android tutorials</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ───────── GALLERY ───────── -->
   <section class="gallery" id="gallery">
     <div class="container">
@@ -990,6 +1162,7 @@
         <p class="kicker mono">See it in action</p>
         <h2 class="display">Watch Parallax Monitor <span class="y">in the field.</span></h2>
         <p>Real reviews from real filmmakers putting Parallax Monitor through its paces.</p>
+        <p class="inline-links">Want a guided walkthrough? Watch the <a href="/tutorial/">tutorial series</a>, also listed for <a href="/ios/tutorial/">iPhone and iPad</a> and for <a href="/android/tutorial/">Android</a>.</p>
       </div>
       <div class="vid-grid">
         <div class="video-card reveal">
@@ -1034,6 +1207,11 @@
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/KElQmK-cOnE" title="la ZR devient IMBATTABLE grâce à ça ! ( Parallax Monitor )" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/EQdh922NleM?start=4914" title="Nikon ZR &amp; ZR CTL - EPIC Creation Tool For Z - Meet the Creator Ask Question Live MAMPOD 48" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
@@ -1070,6 +1248,45 @@
         <div class="video-card reveal">
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/bzKogCm9bfg" title="Тест приложения ZR Control для Nikon" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── APP STORE REVIEWS ───────── -->
+  <section class="store-reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews-panel reveal">
+        <div class="rating-card">
+          <div>
+            <div class="rating-source">
+              <img src="/parallax-icon-192.png" alt="">
+              <div>
+                <span class="mono">App Store</span>
+                <strong>Ratings &amp; Reviews</strong>
+              </div>
+            </div>
+            <p class="kicker mono">iPhone &amp; iPad &middot; early release response</p>
+            <h2 class="display sr-only" id="reviews-title">Parallax Monitor App Store reviews</h2>
+            <div class="rating-score">
+              <b class="display">5.0</b>
+              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+            </div>
+            <p class="rating-meta mono">18 US ratings · 15 public reviews · Reviews from earlier releases</p>
+          </div>
+          <a class="rating-link mono" href="https://apps.apple.com/us/app/6762336561?platform=iphone&amp;see-all=reviews" target="_blank" rel="noopener">See all reviews</a>
+        </div>
+        <div class="reviews-browser">
+          <div class="reviews-grid" id="reviewsGrid" aria-live="polite"></div>
+          <div class="review-pager" aria-label="App Store review pages">
+            <p class="review-range mono" id="reviewRange">Loading reviews</p>
+            <div class="pager-controls">
+              <button class="pager-button" id="reviewPrev" type="button">Prev</button>
+              <div class="pager-controls" id="reviewPages" aria-label="Review page numbers"></div>
+              <button class="pager-button" id="reviewNext" type="button">Next</button>
+            </div>
+            <p class="review-feed-note mono" id="reviewFeedNote">Public US App Store reviews</p>
           </div>
         </div>
       </div>
@@ -1221,6 +1438,11 @@
     </div>
   </section>
 
+  <!-- ───────── ACCSOON ───────── -->
+  <section class="accsoon-announcement" id="accsoon-partnership" aria-label="Accsoon partnership">
+    <div class="container"><div class="accsoon-announcement-brand"><p class="mono">IN PARTNERSHIP WITH</p><img src="/accsoon/assets/accsoon-wordmark-white.svg?v=2" alt="Accsoon" width="140" height="31" loading="lazy"></div><div><h2 class="display">Your camera. Your tools. Now with Accsoon.</h2><p>Parallax Monitor for CineView M7 is available now. SeeMo support for iPhone and iPad is coming in Parallax Monitor 2.1.</p><a href="/accsoon/">Explore both integrations <span aria-hidden="true">↗</span></a></div></div>
+  </section>
+
   <!-- ───────── FAQ ───────── -->
   <section class="faq" id="faq">
     <div class="container">
@@ -1230,20 +1452,28 @@
       </div>
       <div class="faq-list reveal">
         <details>
-          <summary>Which Nikon Z remote camera app should I download?</summary>
-          <p class="a">Parallax Monitor runs on iPhone, iPad and Android: get it on the App Store or on Google Play. On every platform it is an independent Nikon Z remote monitoring and camera control tool with live view, exposure scopes, focus control, LUT preview, framing guides, and camera-card playback.</p>
-        </details>
-        <details>
           <summary>Where did ZR Ctl go?</summary>
           <p class="a">ZR Ctl is now Parallax Monitor on every platform: iPhone, iPad and Android. It is the same app from the same developer. Your purchase carries over and there is nothing to buy again. After the update, the Android app appears under "Parallax Monitor" with a new icon.</p>
         </details>
         <details>
-          <summary>Where can I get Parallax Monitor for Android?</summary>
-          <p class="a">Parallax Monitor for Android is available now on <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">Google Play</a> for Android phones and tablets.</p>
+          <summary>How do I control a Nikon ZR remotely?</summary>
+          <p class="a">Install Parallax Monitor on your iPhone, iPad or Android device and connect to the camera over USB, your phone's hotspot, a shared WiFi network, or the camera's own access point. You get live view with scopes, full camera settings, focus control, audio, and camera-card playback — no extra hardware required.</p>
+        </details>
+        <details>
+          <summary>Does Parallax Monitor work with the Nikon Z8 and Z6III?</summary>
+          <p class="a">Yes. Parallax Monitor is built for the Nikon ZR first, and Z8 and Z6III shooters have confirmed it working as a remote monitor and control surface on their bodies. Other Z-series cameras may work too — we'd love to hear your results.</p>
+        </details>
+        <details>
+          <summary>Where can I get Parallax Monitor?</summary>
+          <p class="a"><strong>iPhone and iPad:</strong> Parallax Monitor is available now on the <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">App Store</a>. <strong>Android:</strong> Parallax Monitor for Android is available now on <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">Google Play</a> for Android phones and tablets.</p>
         </details>
         <details>
           <summary>Do you offer refunds for paid app purchases?</summary>
           <p class="a">Yes. Paid app purchases are covered by a 30-day, no-questions-asked full refund promise. Refund requests begin through Apple or Google Play, and support is available if you need help.</p>
+        </details>
+        <details>
+          <summary>How do I apply to beta test Parallax Monitor?</summary>
+          <p class="a">Use the <a href="/beta/">beta tester application</a> to share your iPhone, iPad or Android device, Nikon cameras, shooting background, and email address. Beta access is reviewed from those applications.</p>
         </details>
         <details>
           <summary>Can I shoot stills with Parallax Monitor, or is it video-only?</summary>
@@ -1261,24 +1491,29 @@
   <section class="cta" id="download">
     <div class="container reveal">
       <h2 class="display">Ready to take<br><span class="y">control?</span></h2>
-      <p>Get Parallax Monitor on the App Store for iPhone and iPad, or on Google Play for Android phones and tablets.</p>
+      <p>Get Parallax Monitor on the App Store for iPhone and iPad, or on Google Play for Android phones and tablets. Try it on your rig with no pressure: paid purchases are covered by a 30-day, no-questions-asked full refund promise.</p>
+      <div class="btns">
+        <a class="b1" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">Get it on the App Store</a>
+        <a class="b1" href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">Get it on Google Play</a>
+        <a class="b2" href="#platforms">Compare platforms</a>
+      </div>
       <div class="plats">
         <div class="plat">
-          <h3 class="display">Parallax Monitor</h3>
-          <p class="mono">iPhone &middot; iPad &middot; Version 2.0</p>
-          <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">Get it now</a>
+          <h3 class="display">Tutorials</h3>
+          <p class="mono">iPhone &middot; iPad &middot; Android &middot; Nikon Z</p>
+          <a href="/tutorial/">Watch tutorials</a>
           <div class="purchase-note">
-            <span class="note-kicker mono">30-day full refund</span>
-            <p>Try it on your rig with no pressure. Paid purchases are covered by a no-questions-asked full refund promise.</p>
+            <span class="note-kicker mono">Guided walkthroughs</span>
+            <p>Learn general controls, exposure tools, customization, and advanced workflows for Parallax Monitor.</p>
           </div>
         </div>
         <div class="plat">
-          <h3 class="display">Android</h3>
-          <p class="mono">Android phones &middot; tablets</p>
-          <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">Get it on Google Play</a>
+          <h3 class="display">Beta Testing</h3>
+          <p class="mono">iOS &middot; iPadOS &middot; Android</p>
+          <a href="/beta/">Apply to beta test</a>
           <div class="purchase-note">
-            <span class="note-kicker mono">30-day full refund</span>
-            <p>Try it on your rig with no pressure. Paid purchases are covered by a no-questions-asked full refund promise.</p>
+            <span class="note-kicker mono">Tester access</span>
+            <p>Apply with your cameras, device, and shooting background so upcoming builds can be tested on real Nikon setups.</p>
           </div>
         </div>
       </div>
@@ -1316,12 +1551,275 @@
   </dialog>
 
   <script>
-    document.getElementById('exploreSite').addEventListener('click', () => {
-      document.documentElement.classList.remove('platform-prompt');
-      document.querySelector('nav .logo').focus();
-    });
-
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ── App Store reviews (iPhone and iPad) ──
+    const APP_STORE_REVIEWS_URL = 'https://itunes.apple.com/us/rss/customerreviews/id=6762336561/sortBy=mostRecent/json';
+    const fallbackReviews = [
+      {
+        updated: '2026-08-24T15:38:28-07:00',
+        rating: 5,
+        version: '1.2',
+        author: 'Myron Hill',
+        title: 'Game Changer',
+        content: 'This app is such a game changer.'
+      },
+      {
+        updated: '2026-08-12T16:47:43-07:00',
+        rating: 5,
+        version: '1.2',
+        author: 'Midnight Film Club',
+        title: 'Powerful stable app',
+        content: 'This is the killer app for Nikon ZR and all latest generation Nikon Z cameras. Gives all the functionality and tools that Nikon left out and also can playback footage. And it doesn’t stop there, the app is also a fantastic photo app. You no longer lose the ability to look through your viewfinder or LCD when using the app like with SnapBridge. You can keep shooting and look through the viewfinder and have a client holding an iPad and they can see the shots as they pop up one by one. Then you can quickly review the photos in the app. This is a dream app. And can’t wait for all the future updates coming. The developer doesn’t stop, every week it’s new  updates with more powerful tools.  One more thing, that app can monitor multiple camera feeds at same time. Bam!!'
+      },
+      {
+        updated: '2026-07-31T20:01:37-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Alexander Sikes aka Lx Luthor',
+        title: 'Thank You from the Sikes family',
+        content: 'Just wanted to say thanks. Keep changing things'
+      },
+      {
+        updated: '2026-07-09T18:08:06-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'agitprops',
+        title: 'The cure for my fat sausage fingers.',
+        content: 'This APP is intuitive and extremely useful. Packed with features to speed up and streamline my ZR workflow. A lifesaver in preventing my fingers from fumbling with tiny buttons and scrolling through menus. Highly recommended. Tip: for those using a lighting connection, you do not need a dongle - a straight up OTG cable will work perfectly.'
+      },
+      {
+        updated: '2026-07-09T15:53:05-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Neosinner',
+        title: 'You don’t understand',
+        content: 'I could go on about this app. They’re really truly are no words for it. The man who took the time to create this. I hope this is something that truly changes your life, and I mean that from a financial standpoint of view. The fact that I literally just filmed a very high-end video in my studio from my chair and then was able to not only film it in raw, but download the MP4 directly to my phone, cut edits and post it without ever having to go to my computer and color grade or do anything in Davinci resolve or my other apps? Dude this is game over territory unbelievable thank you'
+      },
+      {
+        updated: '2026-07-06T05:48:49-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'ksennett',
+        title: '10 Stars',
+        content: 'Spread. The. Word. This is the most beautifully-implemented Nikon app out there right now. It’s sophisticated but easy to use, incredibly feature-rich, and extremely responsive. For Video and Photo alike, if you shoot Nikon, get this and dump all the other apps/monitors/etc that you’ve been so frustrated with. This is the one!! Well done!'
+      },
+      {
+        updated: '2026-07-04T21:33:36-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Phil_B 123',
+        title: 'Excellent app excellent support',
+        content: 'The developer responded quickly to questions like within a few minutes. I get the feeling he really wants to build one of best apps out there. The current functionality is excellent and a great value'
+      },
+      {
+        updated: '2026-07-03T23:20:36-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Cameronlazzari',
+        title: 'Doing what Nikon has not…thank you!!!',
+        content: 'Using this app allows for the proper exposure tools needed. Now the Nikon ZR has traffic lights. I really love that you added multi camera support. Thank you for making an app that Nikon should have put out!!'
+      },
+      {
+        updated: '2026-07-03T15:48:18-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Dustin York',
+        title: 'Better than Nikon’s App',
+        content: 'Works flawlessly with the Nikon Z8! It’s definitely worth more than $20 bucks, so get it at this price while you can. I would have gladly paid North of $50 for this feature set. Looking forward to seeing how the app evolves in the future! Great work to the developer.'
+      },
+      {
+        updated: '2026-07-03T15:43:13-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Ricky Bloodmoon',
+        title: 'A MUST HAVE!',
+        content: 'I was one of the beta testers for this app and I’m so happy it finally hit the App Store. If you own a Nikon ZR, this app is a total no brainer. The designer is a real life wizard who is so passionate about giving filmmakers one of the best tools you can own for your new camera. The software, reliability, functionality are all TOP TIER!! You won’t regret it. Also, I can’t believe he’s only charging $20. I would have easily paid $100 for this thing. It’s that great!'
+      },
+      {
+        updated: '2026-07-02T14:59:23-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Samurotek',
+        title: 'Best app for your NIKON',
+        content: 'La probé durante el testing y definitivamente la compré tan pronto salió a la venta! VALE CADA CENTAVO'
+      },
+      {
+        updated: '2026-07-02T14:18:59-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'dubuj',
+        title: 'What I have Been Looking For',
+        content: 'I shoot still images exclusively and have been frustrated with Nikon’s SnapBridge. I learned about this app during its pre release and simply love that it connects every time, as well as, the feature set already available. It does everything thing I need it to do and more. I plan on spreading the word to fellow photographers.'
+      },
+      {
+        updated: '2026-07-02T04:02:26-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'kurashenko',
+        title: 'Good job',
+        content: 'I’ve been waiting for an app like this for a long time. Thank you! There’s still a lot that could be improved :) But most importantly, please add proper support for the Nikon Zf. It’s an excellent camera too.'
+      },
+      {
+        updated: '2026-06-30T22:43:40-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'dbaileyire',
+        title: 'It just works',
+        content: 'It’s not often a piece of software just has almost every feature you could need right out of the gate. Parallax monitor hits all the bases and the some. The developer is very responsive to feedback and adding new features. A+++'
+      },
+      {
+        updated: '2026-06-30T13:42:47-07:00',
+        rating: 5,
+        version: '1.1',
+        author: 'Whippdog78',
+        title: 'Does Everything!',
+        content: 'I’ve been using this app during testing for over a month. It has so many features, and now that it’s live there are even more. I bought a second Nikon ZR and iPad mini just because of this app. If you have any Nikon camera this just became the must have app, for video or photo.'
+      }
+    ];
+    const reviewState = { reviews: fallbackReviews, page: 0, source: 'Snapshot of public US App Store reviews' };
+
+    function reviewPageSize() {
+      return matchMedia('(max-width:768px)').matches ? 1 : 3;
+    }
+
+    function formatReviewDate(value) {
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value || '';
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function normalizeReview(entry) {
+      return {
+        updated: entry.updated?.label || entry.updated || '',
+        rating: Number(entry['im:rating']?.label || entry.rating || 5),
+        version: entry['im:version']?.label || entry.version || '',
+        author: entry.author?.name?.label || entry.author || 'App Store reviewer',
+        title: entry.title?.label || entry.title || 'App Store review',
+        content: entry.content?.label || entry.content || ''
+      };
+    }
+
+    function createReviewCard(review) {
+      const card = document.createElement('article');
+      card.className = 'review-card';
+
+      const top = document.createElement('div');
+      top.className = 'review-top';
+
+      const author = document.createElement('div');
+      author.className = 'review-author';
+      const authorName = document.createElement('strong');
+      authorName.textContent = review.author;
+      const date = document.createElement('span');
+      date.className = 'mono';
+      date.textContent = formatReviewDate(review.updated);
+      author.append(authorName, date);
+
+      const stars = document.createElement('span');
+      stars.className = 'stars';
+      stars.setAttribute('aria-label', `${review.rating} out of 5 stars`);
+      stars.textContent = '★'.repeat(Math.max(0, Math.min(review.rating || 5, 5)));
+
+      const title = document.createElement('h3');
+      title.className = 'review-title';
+      title.textContent = review.title;
+
+      const quote = document.createElement('blockquote');
+      quote.textContent = `“${review.content}”`;
+
+      const foot = document.createElement('p');
+      foot.className = 'review-foot mono';
+      foot.textContent = review.version ? `Version ${review.version} · App Store review` : 'App Store review';
+
+      top.append(author, stars);
+      card.append(top, title, quote, foot);
+      return card;
+    }
+
+    function renderReviews() {
+      const grid = document.getElementById('reviewsGrid');
+      const range = document.getElementById('reviewRange');
+      const pages = document.getElementById('reviewPages');
+      const prev = document.getElementById('reviewPrev');
+      const next = document.getElementById('reviewNext');
+      const note = document.getElementById('reviewFeedNote');
+      if (!grid || !range || !pages || !prev || !next || !note) return;
+
+      const pageSize = reviewPageSize();
+      const total = reviewState.reviews.length;
+      const totalPages = Math.max(1, Math.ceil(total / pageSize));
+      reviewState.page = Math.min(reviewState.page, totalPages - 1);
+      const start = reviewState.page * pageSize;
+      const visible = reviewState.reviews.slice(start, start + pageSize);
+
+      grid.replaceChildren(...visible.map(createReviewCard));
+      range.textContent = total
+        ? `${start + 1}-${Math.min(start + pageSize, total)} of ${total} public reviews`
+        : 'No public reviews found';
+      note.textContent = reviewState.source;
+      prev.disabled = reviewState.page === 0;
+      next.disabled = reviewState.page >= totalPages - 1;
+      prev.setAttribute('aria-label', `Previous review page, page ${Math.max(1, reviewState.page)} of ${totalPages}`);
+      next.setAttribute('aria-label', `Next review page, page ${Math.min(totalPages, reviewState.page + 2)} of ${totalPages}`);
+
+      pages.replaceChildren();
+      for (let i = 0; i < totalPages; i += 1) {
+        const button = document.createElement('button');
+        button.className = 'page-dot';
+        button.type = 'button';
+        button.textContent = i + 1;
+        button.setAttribute('aria-label', `Show review page ${i + 1} of ${totalPages}`);
+        if (i === reviewState.page) button.setAttribute('aria-current', 'page');
+        button.addEventListener('click', () => {
+          reviewState.page = i;
+          renderReviews();
+        });
+        pages.append(button);
+      }
+    }
+
+    function bindReviewPager() {
+      document.getElementById('reviewPrev')?.addEventListener('click', () => {
+        reviewState.page = Math.max(0, reviewState.page - 1);
+        renderReviews();
+      });
+      document.getElementById('reviewNext')?.addEventListener('click', () => {
+        reviewState.page += 1;
+        renderReviews();
+      });
+      let currentPageSize = reviewPageSize();
+      addEventListener('resize', () => {
+        const nextPageSize = reviewPageSize();
+        if (nextPageSize === currentPageSize) return;
+        const firstVisible = reviewState.page * currentPageSize;
+        currentPageSize = nextPageSize;
+        reviewState.page = Math.floor(firstVisible / nextPageSize);
+        renderReviews();
+      });
+    }
+
+    async function refreshReviewsFromAppStore() {
+      try {
+        const response = await fetch(APP_STORE_REVIEWS_URL, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`App Store reviews returned ${response.status}`);
+        const data = await response.json();
+        const entries = Array.isArray(data.feed?.entry) ? data.feed.entry : data.feed?.entry ? [data.feed.entry] : [];
+        const reviews = entries.map(normalizeReview).filter(review => review.content);
+        if (!reviews.length) return;
+        reviewState.reviews = reviews;
+        reviewState.page = 0;
+        reviewState.source = 'Live public US App Store reviews';
+        renderReviews();
+      } catch (_) {
+        reviewState.source = 'Snapshot of public US App Store reviews';
+        renderReviews();
+      }
+    }
+
+    bindReviewPager();
+    renderReviews();
+    refreshReviewsFromAppStore();
 
     // ── Update banner dismiss ──
     document.querySelectorAll('.update-close').forEach(button => {
