@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bug Reports and Feature Requests | ZR Ctl</title>
-  <meta name="description" content="Report a Parallax Monitor or ZR Ctl problem, or suggest an improvement. Structured feedback helps us investigate issues and prioritize useful features.">
+  <title>Bug Reports and Feature Requests | Parallax Monitor</title>
+  <meta name="description" content="Report a Parallax Monitor problem, or suggest an improvement. Structured feedback helps us investigate issues and prioritize useful features.">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#09090b">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/parallax-icon-48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/parallax-icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/parallax-apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,8 +34,8 @@
     .container { width:min(100% - 40px,1040px); margin:0 auto; }
     header { border-bottom:1px solid var(--border-soft); background:rgba(9,9,11,.86); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
     .nav { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:16px 0; }
-    .brand { display:inline-flex; align-items:center; font-weight:700; }
-    .brand img { width:auto; height:42px; }
+    .brand { display:inline-flex; align-items:center; gap:12px; font-weight:700; }
+    .brand img { width:auto; height:42px; border-radius:10px; }
     .back-link { color:var(--muted); font-size:.9rem; transition:color .2s; }
     .back-link:hover { color:var(--text); }
     main { padding:76px 0 96px; }
@@ -79,13 +78,37 @@
       .footer-inner { flex-direction:column; }
     }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; } }
+    /* ── Update banner (same look as the site-wide banner, in normal flow on this page) ── */
+    .update-banner { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:6px 14px; min-height:44px; padding:8px 18px;
+      background:linear-gradient(90deg, rgba(255,210,0,.14), rgba(255,210,0,.05)); border-bottom:1px solid rgba(255,210,0,.28);
+      font-size:13px; line-height:1.4; color:#a1a1aa; text-align:center; }
+    html.update-dismissed .update-banner { display:none; }
+    .ub-copy strong { color:#fafafa; }
+    .ub-link { background:#ffd200; color:#000; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:6px 13px; border-radius:5px; white-space:nowrap; }
+    .ub-close { width:26px; height:26px; flex-shrink:0; display:grid; place-items:center; background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.16); border-radius:5px; color:#a1a1aa; font-size:15px; line-height:1; cursor:pointer; }
   </style>
+  <script>
+    window.ZRCTL_UPDATE_BANNER_STORAGE_KEY = 'zrctl-update-banner-dismissed';
+    window.ZRCTL_UPDATE_BANNER_VERSION = 'parallax-rename_ios-2.0_android-2.1.14';
+    try {
+      if (localStorage.getItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY) === window.ZRCTL_UPDATE_BANNER_VERSION) {
+        document.documentElement.classList.add('update-dismissed');
+      }
+    } catch (_) {}
+  </script>
 </head>
 <body>
+  <aside class="update-banner" aria-label="Parallax Monitor announcement">
+    <span class="ub-copy"><strong>ZR Ctl is now Parallax Monitor.</strong> Same app, same developer, nothing to buy again.</span>
+    <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="ub-link update-link">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="ub-link update-link">Google Play</a>
+    <button class="ub-close update-close" type="button" aria-label="Dismiss update notice">&times;</button>
+  </aside>
   <header>
     <div class="container nav">
-      <a class="brand" href="/" aria-label="ZR Ctl home"><img src="/zrctl-logo-cropped.png" alt="ZR Ctl"></a>
-      <a class="back-link" href="/">Back to ZR Ctl</a>
+      <a class="brand" href="/" aria-label="Parallax Monitor home"><img src="/parallax-icon-192.png" alt=""><span>Parallax Monitor</span></a>
+      <a class="back-link" href="/">Back to Parallax Monitor</a>
     </div>
   </header>
   <main>
@@ -93,7 +116,7 @@
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow">Help shape the apps</p>
         <h1 id="page-title">Report a problem.<br>Request what’s next.</h1>
-        <p class="lede">Your reports go into one organized feedback queue. Choose the path that fits, add as much useful detail as you can, and attach screenshots or logs when they help explain the issue.</p>
+        <p class="lede">Your reports go into one organized feedback queue. Choose the path that fits, add as much useful detail as you can, and attach screenshots or logs when they help explain the issue. Parallax Monitor for Android was formerly ZR Ctl; reports for either name belong here.</p>
       </section>
       <section class="paths" aria-label="Feedback type">
         <article class="path">
@@ -127,7 +150,7 @@
   </main>
   <footer>
     <div class="container footer-inner">
-      <span>&copy; 2026 ZR Ctl</span>
+      <span>&copy; 2026 Parallax Monitor</span>
       <div class="footer-links"><a href="/privacy/">Privacy</a><a href="mailto:mike@itsmadcreative.com">Contact</a></div>
     </div>
   </footer>
@@ -165,6 +188,14 @@
     });
 
     if (requestedType === 'bug' || requestedType === 'feature') openFeedbackForm(requestedType);
+  </script>
+  <script>
+    document.querySelectorAll('.update-close').forEach(button => {
+      button.addEventListener('click', () => {
+        document.documentElement.classList.add('update-dismissed');
+        try { localStorage.setItem(window.ZRCTL_UPDATE_BANNER_STORAGE_KEY, window.ZRCTL_UPDATE_BANNER_VERSION); } catch (_) {}
+      });
+    });
   </script>
 </body>
 </html>
