@@ -2081,7 +2081,12 @@
       });
     });
     addEventListener('load', () => {
-      if (window.location.hash) scrollToAnchoredTarget(window.location.hash, 'auto');
+      if (!window.location.hash) return;
+      // Land on the linked section at once (old /ios/ and /android/ links arrive here with a hash).
+      const root = document.documentElement;
+      root.style.scrollBehavior = 'auto';
+      scrollToAnchoredTarget(window.location.hash, 'auto');
+      root.style.scrollBehavior = '';
     });
   </script>
 </body>
