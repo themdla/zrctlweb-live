@@ -1,4 +1,4 @@
-/* Parallax Monitor / ZR Ctl user manual — shared behaviour.
+/* Parallax Monitor user manual — shared behaviour.
    Builds the chapter list, the on-this-page list, prev/next links and search. */
 (function () {
   'use strict';

@@ -27,34 +27,35 @@ SRC = os.path.join(ROOT, "manual", "src")
 OUT = os.path.join(ROOT, "manual")
 SITE = "https://www.zrctl.com"
 
-BANNER_VERSION = "ios-2.0_android-2.1.7_accsoon-coming"
+BANNER_VERSION = "parallax-rename_ios-2.0_android-2.1.14"
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} | Parallax Monitor &amp; ZR Ctl User Manual</title>
+  <title>{title} | Parallax Monitor User Manual</title>
   <meta name="description" content="{description}">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#09090b">
   <link rel="canonical" href="{canonical}">
 
-  <meta property="og:title" content="{title} | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta property="og:title" content="{title} | Parallax Monitor User Manual">
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:site_name" content="ZR Ctl">
-  <meta property="og:image" content="{site}/og-image.jpg">
+  <meta property="og:site_name" content="Parallax Monitor">
+  <meta property="og:image" content="{site}/parallax-icon-512.png">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{title} | Parallax Monitor &amp; ZR Ctl User Manual">
+  <meta name="twitter:title" content="{title} | Parallax Monitor User Manual">
   <meta name="twitter:description" content="{description}">
-  <meta name="twitter:image" content="{site}/og-image.jpg">
+  <meta name="twitter:image" content="{site}/parallax-icon-512.png">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/parallax-icon-48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/parallax-icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/parallax-apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,9 +73,9 @@ TEMPLATE = """<!DOCTYPE html>
   </script>
 </head>
 <body>
-  <aside class="update-banner" aria-label="Parallax Monitor and ZR Ctl releases">
+  <aside class="update-banner" aria-label="Parallax Monitor announcement">
     <div class="container update-banner-inner">
-      <span class="update-copy">Parallax Monitor <strong>2.0</strong> for iOS and ZR Ctl <strong>2.1.7</strong> for Android are now available.</span>
+      <span class="update-copy"><strong>ZR Ctl is now Parallax Monitor.</strong> Same app, same developer, nothing to buy again.</span>
       <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener" class="update-link">App Store</a>
       <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener" class="update-link">Google Play</a>
       <button class="update-close" type="button" aria-label="Dismiss update notice">
@@ -85,8 +86,9 @@ TEMPLATE = """<!DOCTYPE html>
 
   <nav class="site-nav">
     <div class="container">
-      <a href="/" class="logo" aria-label="ZR Ctl home">
-        <img src="/zrctl-logo-cropped.png" alt="ZR Ctl" class="logo-img">
+      <a href="/" class="logo" aria-label="Parallax Monitor home">
+        <img src="/parallax-icon-192.png" alt="" class="logo-img">
+        <span>Parallax Monitor</span>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="/">Main Page</a></li>
@@ -132,7 +134,7 @@ TEMPLATE = """<!DOCTYPE html>
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-left">&copy; 2026 ZR Ctl. All rights reserved.</div>
+        <div class="footer-left">&copy; 2026 Parallax Monitor. All rights reserved.</div>
         <ul class="footer-links">
           <li><a href="/">Main Page</a></li>
           <li><a href="/ios/">iOS Site</a></li>
@@ -145,7 +147,7 @@ TEMPLATE = """<!DOCTYPE html>
           <li><a href="mailto:mike@itsmadcreative.com">Support</a></li>
         </ul>
         <p class="footer-legal">
-          ZR Ctl and Parallax Monitor are independent projects and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
+          Parallax Monitor is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation, Nikon Inc., or RED Digital Cinema. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. RED, KOMODO, V-RAPTOR, R3D and IPP2 are trademarks of RED Digital Cinema. Other names and marks belong to their respective owners.
         </p>
       </div>
     </div>

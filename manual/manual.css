@@ -1,4 +1,4 @@
-/* Parallax Monitor / ZR Ctl user manual — shared styles.
+/* Parallax Monitor user manual — shared styles.
    Tokens mirror the main site (index.html, how-to/index.html). */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -77,8 +77,8 @@ nav.site-nav {
   border-bottom: 1px solid var(--border-subtle);
 }
 nav.site-nav .container { display: flex; justify-content: space-between; align-items: center; }
-.logo { display: flex; align-items: center; }
-.logo-img { height: 44px; width: auto; }
+.logo { display: flex; align-items: center; gap: 12px; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+.logo-img { height: 44px; width: auto; border-radius: 10px; }
 .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
 .nav-links a { font-size: 0.875rem; color: var(--text-2); transition: color 0.2s; font-weight: 500; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--text); }
