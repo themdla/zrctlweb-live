@@ -7,7 +7,7 @@ async page => {
     await page.evaluate(() => document.fonts.ready);
     if (/\bZR\s*Ctl\b/i.test(await page.locator('body').innerText())) throw Error('Old app name is visible');
     await page.screenshot({path:`output/playwright/accsoon-rebrand-${width}.png`});
-    await page.goto('https://www.zrctl.com/accsoon/');
+    await page.goto('https://www.parallaxmonitor.com/accsoon/');
     await page.addStyleTag({path:'accsoon/accsoon.css'});
     await page.locator('[data-polar-checkout]').click();
     const frame = page.locator('body > iframe[src^="https://buy.polar.sh/"]');

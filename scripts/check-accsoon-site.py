@@ -43,7 +43,7 @@ for name in ['index.html','ios/index.html','android/index.html']:
 # /ios/ and /android/ are redirect stubs to the single home page: check they still point there.
 for name,anchor in [('ios/index.html','ios'),('android/index.html','android')]:
     stub=Page((root/name).read_text())
-    assert any(t=='link' and a.get('rel')=='canonical' and a.get('href')=='https://www.zrctl.com/' for t,a in stub.tags),name
+    assert any(t=='link' and a.get('rel')=='canonical' and a.get('href')=='https://www.parallaxmonitor.com/' for t,a in stub.tags),name
     assert any(t=='meta' and a.get('http-equiv')=='refresh' and a.get('content')=='0; url=/#'+anchor for t,a in stub.tags),name
     assert any(t=='a' and a.get('href')=='/#'+anchor for t,a in stub.tags),name
     assert any(a.get('id')==anchor for t,a in Page((root/'index.html').read_text()).tags),anchor

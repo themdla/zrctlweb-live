@@ -25,7 +25,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "manual", "src")
 OUT = os.path.join(ROOT, "manual")
-SITE = "https://www.zrctl.com"
+SITE = "https://www.parallaxmonitor.com"
 
 BANNER_VERSION = "parallax-rename_ios-2.0_android-2.1.14"
 
