@@ -71,6 +71,7 @@ TEMPLATE = """<!DOCTYPE html>
       }}
     }} catch (_) {{}}
   </script>
+  <script defer src="/site-tags.js"></script>
 </head>
 <body>
   <aside class="update-banner" aria-label="Parallax Monitor announcement">

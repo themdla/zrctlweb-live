@@ -4,23 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parallax Monitor for Android</title>
+  <meta name="description" content="Remote monitor and camera control app for Nikon ZR, Z8, Z6III and Z-series cameras, on iPhone, iPad and Android.">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#09090b">
   <link rel="canonical" href="https://www.parallaxmonitor.com/">
+  <meta property="og:title" content="Parallax Monitor for Android">
+  <meta property="og:description" content="Remote monitor and camera control app for Nikon ZR, Z8, Z6III and Z-series cameras, on iPhone, iPad and Android.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.parallaxmonitor.com/">
+  <meta property="og:site_name" content="Parallax Monitor">
+  <meta property="og:image" content="https://www.parallaxmonitor.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.parallaxmonitor.com/og-image.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/parallax-icon-192.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/parallax-icon-48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/parallax-apple-touch-icon.png">
   <script>
     // This page moved into the single Parallax Monitor page. Old in-page links keep working:
-    // a hash that still exists on the home page is kept, anything else lands on the Android block.
+    // a hash that still exists on the home page is kept, anything else lands at the top.
     (function () {
-      var kept = ['features', 'monitoring', 'playback', 'stills', 'cameras', 'gallery', 'videos', 'coverage', 'faq', 'download', 'accsoon-partnership'];
+      var kept = ['features', 'monitoring', 'playback', 'stills', 'cameras', 'platforms', 'ios', 'android', 'gallery', 'videos', 'reviews', 'coverage', 'faq', 'download', 'accsoon-partnership'];
       var hash = (window.location.hash || '').slice(1);
-      var target = kept.indexOf(hash) !== -1 ? hash : 'android';
-      window.location.replace('/' + window.location.search + '#' + target);
+      window.location.replace('/' + window.location.search + (kept.indexOf(hash) !== -1 ? '#' + hash : ''));
     })();
   </script>
-  <meta http-equiv="refresh" content="0; url=/#android">
+  <meta http-equiv="refresh" content="0; url=/">
   <style>
     body { margin:0; min-height:100vh; display:grid; place-items:center; background:#09090b; color:#fafafa;
       font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; text-align:center; padding:24px; }
@@ -28,6 +36,6 @@
   </style>
 </head>
 <body>
-  <p>Parallax Monitor for Android (formerly ZR Ctl) now lives on the main Parallax Monitor page. <a href="/#android">Continue to Parallax Monitor</a>.</p>
+  <p>Parallax Monitor for Android (formerly ZR Ctl) now lives on the main Parallax Monitor page. <a href="/">Continue to Parallax Monitor</a>.</p>
 </body>
 </html>

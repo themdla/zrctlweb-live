@@ -41,11 +41,14 @@ assert 'id="accsoon-partnership"' in (root/'index.html').read_text()
 for name in ['index.html','ios/index.html','android/index.html']:
     assert '/icon-48.png' in (root/name).read_text() or '/parallax-icon-48.png' in (root/name).read_text()
 # /ios/ and /android/ are redirect stubs to the single home page: check they still point there.
-for name,anchor in [('ios/index.html','ios'),('android/index.html','android')]:
+# So are /share/ and the two per-platform tutorial pages (to the single tutorials page).
+for name,target in [('ios/index.html','/'),('android/index.html','/'),('share/index.html','/'),('ios/tutorial/index.html','/tutorial/'),('android/tutorial/index.html','/tutorial/')]:
     stub=Page((root/name).read_text())
-    assert any(t=='link' and a.get('rel')=='canonical' and a.get('href')=='https://www.parallaxmonitor.com/' for t,a in stub.tags),name
-    assert any(t=='meta' and a.get('http-equiv')=='refresh' and a.get('content')=='0; url=/#'+anchor for t,a in stub.tags),name
-    assert any(t=='a' and a.get('href')=='/#'+anchor for t,a in stub.tags),name
+    assert any(t=='link' and a.get('rel')=='canonical' and a.get('href')=='https://www.parallaxmonitor.com'+target for t,a in stub.tags),name
+    assert any(t=='meta' and a.get('http-equiv')=='refresh' and a.get('content')=='0; url='+target for t,a in stub.tags),name
+    assert any(t=='a' and a.get('href')==target for t,a in stub.tags),name
+    assert any(t=='meta' and a.get('name')=='robots' and a.get('content','').startswith('noindex') for t,a in stub.tags),name
+for anchor in ['ios','android']:
     assert any(a.get('id')==anchor for t,a in Page((root/'index.html').read_text()).tags),anchor
 ET.parse(root/'sitemap.xml')
 for f in (root/'accsoon/assets').glob('*.svg'):ET.parse(f)

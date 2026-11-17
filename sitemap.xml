@@ -31,18 +31,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.parallaxmonitor.com/ios/tutorial/</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.parallaxmonitor.com/android/tutorial/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.parallaxmonitor.com/privacy/</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>

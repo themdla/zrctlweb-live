@@ -107,7 +107,7 @@
           "iOS",
           "iPadOS"
         ],
-        "softwareVersion": "2.0",
+        "softwareVersion": "2.1",
         "downloadUrl": "https://apps.apple.com/us/app/parallax-monitor/id6762336561",
         "offers": {
           "@type": "Offer",
@@ -168,11 +168,13 @@
           "Android"
         ],
         "downloadUrl": "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share",
-        "softwareVersion": "2.1.14",
+        "softwareVersion": "2.1.15",
         "isAccessibleForFree": false,
         "offers": {
           "@type": "Offer",
           "url": "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share",
+          "price": "19.99",
+          "priceCurrency": "USD",
           "availability": "https://schema.org/InStock"
         },
         "sameAs": "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share",
@@ -616,9 +618,22 @@
     .video-card:hover { border-color:#3f3f46; transform:translateY(-3px); }
     .video-wrap { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; }
     .video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
-    .video-lightbox-trigger { position:absolute; inset:0; z-index:1; width:100%; height:100%;
-      border:0; background:transparent; cursor:zoom-in; }
-    .video-lightbox-trigger:focus-visible { outline:2px solid var(--accent); outline-offset:-4px; }
+    /* Video cards show a thumbnail; the YouTube player loads only when one is opened. */
+    .video-thumb { position:absolute; inset:0; width:100%; height:100%; padding:0; border:0; background:#000;
+      cursor:pointer; color:#fff; text-align:left; font:inherit; }
+    .video-thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;
+      transition:transform .35s ease, opacity .35s ease; opacity:.92; }
+    .video-thumb:hover img { transform:scale(1.03); opacity:1; }
+    .video-thumb:focus-visible { outline:2px solid var(--accent); outline-offset:-4px; }
+    .video-play { position:absolute; left:50%; top:50%; width:68px; height:48px; margin:-24px 0 0 -34px;
+      border-radius:12px; background:rgba(9,9,11,.82); transition:background .2s ease; }
+    .video-play::after { content:''; position:absolute; left:27px; top:14px; border-style:solid;
+      border-width:10px 0 10px 18px; border-color:transparent transparent transparent #fff; }
+    .video-thumb:hover .video-play { background:var(--accent); }
+    .video-thumb:hover .video-play::after { border-left-color:#09090b; }
+    .video-title { position:absolute; left:0; right:0; bottom:0; padding:28px 14px 12px; font-size:13px; line-height:1.35;
+      background:linear-gradient(to top, rgba(9,9,11,.92), rgba(9,9,11,0)); overflow:hidden;
+      display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
 
     /* ── Coverage ── */
     .coverage { padding:110px 0; }
@@ -773,6 +788,7 @@
     }
   </style>
   <link rel="stylesheet" href="/accsoon/announcement.css">
+  <script defer src="/site-tags.js"></script>
 </head>
 <body>
 
@@ -822,8 +838,8 @@
     <p class="hero-sub">Scopes, LUTs, focus pulls, framing, audio, playback — and a full stills mode — from the iPhone, iPad or Android device already on your rig. On Android, Parallax Monitor was formerly ZR Ctl.</p>
     <a class="hero-rating mono" href="#reviews" aria-label="Jump to App Store reviews">
       <span class="stars" aria-hidden="true">★★★★★</span>
-      <strong>5.0 App Store rating</strong>
-      <span>18 US ratings</span>
+      <strong>4.9 App Store rating</strong>
+      <span>27 US ratings</span>
     </a>
     <div class="btns">
       <a class="b1" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">
@@ -1065,28 +1081,31 @@
       <div class="plats reveal">
         <div class="plat" id="ios">
           <h3 class="display">iPhone &amp; iPad</h3>
-          <p class="mono">iPhone &middot; iPad &middot; Version 2.0</p>
+          <p class="mono">iPhone &middot; iPad &middot; Version 2.1</p>
           <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">Get it on the App Store</a>
           <ul class="plat-facts">
-            <li><b>Rating</b>5.0 App Store rating from 18 US ratings. <a href="#reviews">Read the reviews</a>.</li>
+            <li><b>Price</b>US$19.99, one-time purchase. No subscription.</li>
+            <li><b>Rating</b>4.9 App Store rating from 27 US ratings. <a href="#reviews">Read the reviews</a>.</li>
             <li><b>Requires</b>iOS or iPadOS 17 or later. The Camera Control button needs iOS 17.2. <a href="/manual/cameras/#devices">Device notes in the manual</a>.</li>
             <li><b>Cameras</b>Remote monitoring and camera control for Nikon Z-series and RED cameras.</li>
-            <li><b>Coming in 2.1</b>Your camera&rsquo;s HDMI picture through Accsoon SeeMo. Keep your LUTs, scopes and exposure tools, with camera control over Wi-Fi. <a href="/accsoon/#seemo">Explore SeeMo for iOS</a>.</li>
+            <li><b>New in 2.1</b>Your camera&rsquo;s HDMI picture through Accsoon SeeMo. Keep your LUTs, scopes and exposure tools, with camera control over Wi-Fi. <a href="/accsoon/#seemo">Explore SeeMo for iOS</a>.</li>
             <li><b>Refunds</b>30-day, no-questions-asked full refund promise. App Store refund requests begin through Apple.</li>
-            <li><b>Tutorials</b><a href="/ios/tutorial/">iPhone and iPad tutorials</a></li>
+            <li><b>Tutorials</b><a href="/tutorial/">Watch the tutorials</a></li>
           </ul>
         </div>
         <div class="plat" id="android">
           <h3 class="display">Android</h3>
-          <p class="mono">Android phones &middot; tablets &middot; Version 2.1.14</p>
+          <p class="mono">Android phones &middot; tablets &middot; Version 2.1.15</p>
           <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">Get it on Google Play</a>
           <ul class="plat-facts">
             <li><b>Formerly ZR Ctl</b>Same app, same developer. Your purchase carries over and there is nothing to buy again.</li>
+            <li><b>Price</b>US$19.99, one-time purchase. No subscription.</li>
+            <li><b>Cameras</b>Remote monitoring and camera control for Nikon Z-series and RED cameras.</li>
             <li><b>Requires</b>Android 9 or later, on phones and tablets. <a href="/manual/cameras/#devices">Device notes in the manual</a>.</li>
             <li><b>Android differences</b>Multicam has a grid that grows past eight tiles, and jam-sync adds a wait-for-jam option. Where Android behaves differently, the <a href="/manual/">manual</a> says so in an Android note.</li>
             <li><b>On Accsoon monitors</b>The dedicated Parallax Monitor edition for CineView M7 is a native app for your Accsoon monitor, with HDMI monitoring and camera control. <a href="/accsoon/#m7">Explore the Accsoon edition</a>.</li>
             <li><b>Refunds</b>30-day, no-questions-asked full refund promise. Google Play refund requests begin through Google.</li>
-            <li><b>Tutorials</b><a href="/android/tutorial/">Android tutorials</a></li>
+            <li><b>Tutorials</b><a href="/tutorial/">Watch the tutorials</a></li>
           </ul>
         </div>
       </div>
@@ -1162,92 +1181,92 @@
         <p class="kicker mono">See it in action</p>
         <h2 class="display">Watch Parallax Monitor <span class="y">in the field.</span></h2>
         <p>Real reviews from real filmmakers putting Parallax Monitor through its paces.</p>
-        <p class="inline-links">Want a guided walkthrough? Watch the <a href="/tutorial/">tutorial series</a>, also listed for <a href="/ios/tutorial/">iPhone and iPad</a> and for <a href="/android/tutorial/">Android</a>.</p>
+        <p class="inline-links">Want a guided walkthrough? Watch the <a href="/tutorial/">tutorial series</a>.</p>
       </div>
       <div class="vid-grid">
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/VBYQJeuXUAY" title="The Secret Weapon for Nikon ZR Filmmakers - Parallax Monitor - Creator Interview BAMPOD 57 Matt Irwin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/VBYQJeuXUAY?autoplay=1" data-title="The Secret Weapon for Nikon ZR Filmmakers - Parallax Monitor - Creator Interview BAMPOD 57 Matt Irwin" aria-label="Play video: The Secret Weapon for Nikon ZR Filmmakers - Parallax Monitor - Creator Interview BAMPOD 57 Matt Irwin"><img src="https://i.ytimg.com/vi/VBYQJeuXUAY/mqdefault.jpg" srcset="https://i.ytimg.com/vi/VBYQJeuXUAY/mqdefault.jpg 320w, https://i.ytimg.com/vi/VBYQJeuXUAY/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">The Secret Weapon for Nikon ZR Filmmakers - Parallax Monitor - Creator Interview BAMPOD 57 Matt Irwin</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/YGg09T4eVS4?start=306" title="Hollywood Star Using Custom RED/Nikon ZR | New ZR Accessories/Software Updates | Parallax Monitor 2.0 section | Matt Irwin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/YGg09T4eVS4?autoplay=1&amp;start=306" data-title="Hollywood Star Using Custom RED/Nikon ZR | New ZR Accessories/Software Updates | Parallax Monitor 2.0 section | Matt Irwin" aria-label="Play video: Hollywood Star Using Custom RED/Nikon ZR | New ZR Accessories/Software Updates | Parallax Monitor 2.0 section | Matt Irwin"><img src="https://i.ytimg.com/vi/YGg09T4eVS4/mqdefault.jpg" srcset="https://i.ytimg.com/vi/YGg09T4eVS4/mqdefault.jpg 320w, https://i.ytimg.com/vi/YGg09T4eVS4/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Hollywood Star Using Custom RED/Nikon ZR | New ZR Accessories/Software Updates | Parallax Monitor 2.0 section | Matt Irwin</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/ssFpcxv7Ue0?start=127" title="Nikon ZR FW 2.00 - More Features? | Live Remote Zooming with Parallax section | Matt Irwin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/ssFpcxv7Ue0?autoplay=1&amp;start=127" data-title="Nikon ZR FW 2.00 - More Features? | Live Remote Zooming with Parallax section | Matt Irwin" aria-label="Play video: Nikon ZR FW 2.00 - More Features? | Live Remote Zooming with Parallax section | Matt Irwin"><img src="https://i.ytimg.com/vi/ssFpcxv7Ue0/mqdefault.jpg" srcset="https://i.ytimg.com/vi/ssFpcxv7Ue0/mqdefault.jpg 320w, https://i.ytimg.com/vi/ssFpcxv7Ue0/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Nikon ZR FW 2.00 - More Features? | Live Remote Zooming with Parallax section | Matt Irwin</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/8sBIGRDum6E" title="Nikon Z Video Shooters NEED This Multicam App! (Parallax Monitor)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/8sBIGRDum6E?autoplay=1" data-title="Nikon Z Video Shooters NEED This Multicam App! (Parallax Monitor)" aria-label="Play video: Nikon Z Video Shooters NEED This Multicam App! (Parallax Monitor)"><img src="https://i.ytimg.com/vi/8sBIGRDum6E/mqdefault.jpg" srcset="https://i.ytimg.com/vi/8sBIGRDum6E/mqdefault.jpg 320w, https://i.ytimg.com/vi/8sBIGRDum6E/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Nikon Z Video Shooters NEED This Multicam App! (Parallax Monitor)</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/_cl7Wx-3Xrg" title="The FASTEST Way to Control Multiple Nikon Cameras at Once | Parallax / ZRCtl App" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/_cl7Wx-3Xrg?autoplay=1" data-title="The FASTEST Way to Control Multiple Nikon Cameras at Once | Parallax / ZRCtl App" aria-label="Play video: The FASTEST Way to Control Multiple Nikon Cameras at Once | Parallax / ZRCtl App"><img src="https://i.ytimg.com/vi/_cl7Wx-3Xrg/mqdefault.jpg" srcset="https://i.ytimg.com/vi/_cl7Wx-3Xrg/mqdefault.jpg 320w, https://i.ytimg.com/vi/_cl7Wx-3Xrg/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">The FASTEST Way to Control Multiple Nikon Cameras at Once | Parallax / ZRCtl App</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/9YIGUj79FXg" title="Nikon / RED Camera &amp; Monitoring Controls via Parallax Monitor / ZRCtl Apps" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/9YIGUj79FXg?autoplay=1" data-title="Nikon / RED Camera &amp; Monitoring Controls via Parallax Monitor / ZRCtl Apps" aria-label="Play video: Nikon / RED Camera &amp; Monitoring Controls via Parallax Monitor / ZRCtl Apps"><img src="https://i.ytimg.com/vi/9YIGUj79FXg/mqdefault.jpg" srcset="https://i.ytimg.com/vi/9YIGUj79FXg/mqdefault.jpg 320w, https://i.ytimg.com/vi/9YIGUj79FXg/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Nikon / RED Camera &amp; Monitoring Controls via Parallax Monitor / ZRCtl Apps</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/vt5-fzy8uIw" title="How to Connect Nikon Cameras to the Parallax Monitor / ZRCtl to WiFi (Step-by-Step)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/vt5-fzy8uIw?autoplay=1" data-title="How to Connect Nikon Cameras to the Parallax Monitor / ZRCtl to WiFi (Step-by-Step)" aria-label="Play video: How to Connect Nikon Cameras to the Parallax Monitor / ZRCtl to WiFi (Step-by-Step)"><img src="https://i.ytimg.com/vi/vt5-fzy8uIw/mqdefault.jpg" srcset="https://i.ytimg.com/vi/vt5-fzy8uIw/mqdefault.jpg 320w, https://i.ytimg.com/vi/vt5-fzy8uIw/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">How to Connect Nikon Cameras to the Parallax Monitor / ZRCtl to WiFi (Step-by-Step)</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/IuvIfzUINWo" title="Nikon ZR Users Needed This… | ZR CTRL First Look LIVE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/IuvIfzUINWo?autoplay=1" data-title="Nikon ZR Users Needed This… | ZR CTRL First Look LIVE" aria-label="Play video: Nikon ZR Users Needed This… | ZR CTRL First Look LIVE"><img src="https://i.ytimg.com/vi/IuvIfzUINWo/mqdefault.jpg" srcset="https://i.ytimg.com/vi/IuvIfzUINWo/mqdefault.jpg 320w, https://i.ytimg.com/vi/IuvIfzUINWo/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Nikon ZR Users Needed This… | ZR CTRL First Look LIVE</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/KElQmK-cOnE" title="la ZR devient IMBATTABLE grâce à ça ! ( Parallax Monitor )" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/KElQmK-cOnE?autoplay=1" data-title="la ZR devient IMBATTABLE grâce à ça ! ( Parallax Monitor )" aria-label="Play video: la ZR devient IMBATTABLE grâce à ça ! ( Parallax Monitor )"><img src="https://i.ytimg.com/vi/KElQmK-cOnE/mqdefault.jpg" srcset="https://i.ytimg.com/vi/KElQmK-cOnE/mqdefault.jpg 320w, https://i.ytimg.com/vi/KElQmK-cOnE/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">la ZR devient IMBATTABLE grâce à ça ! ( Parallax Monitor )</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/EQdh922NleM?start=4914" title="Nikon ZR &amp; ZR CTL - EPIC Creation Tool For Z - Meet the Creator Ask Question Live MAMPOD 48" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/EQdh922NleM?autoplay=1&amp;start=4914" data-title="Nikon ZR &amp; ZR CTL - EPIC Creation Tool For Z - Meet the Creator Ask Question Live MAMPOD 48" aria-label="Play video: Nikon ZR &amp; ZR CTL - EPIC Creation Tool For Z - Meet the Creator Ask Question Live MAMPOD 48"><img src="https://i.ytimg.com/vi/EQdh922NleM/mqdefault.jpg" srcset="https://i.ytimg.com/vi/EQdh922NleM/mqdefault.jpg 320w, https://i.ytimg.com/vi/EQdh922NleM/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Nikon ZR &amp; ZR CTL - EPIC Creation Tool For Z - Meet the Creator Ask Question Live MAMPOD 48</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/9n52h3N9vTI" title="How to properly expose your Nikon ZR with ZR Ctl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/9n52h3N9vTI?autoplay=1" data-title="How to properly expose your Nikon ZR with ZR Ctl" aria-label="Play video: How to properly expose your Nikon ZR with ZR Ctl"><img src="https://i.ytimg.com/vi/9n52h3N9vTI/mqdefault.jpg" srcset="https://i.ytimg.com/vi/9n52h3N9vTI/mqdefault.jpg 320w, https://i.ytimg.com/vi/9n52h3N9vTI/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">How to properly expose your Nikon ZR with ZR Ctl</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/1yu-0u911w4" title="Cheap Upgrades for Content Creators on a Budget - $50 BUILD" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/1yu-0u911w4?autoplay=1" data-title="Cheap Upgrades for Content Creators on a Budget - $50 BUILD" aria-label="Play video: Cheap Upgrades for Content Creators on a Budget - $50 BUILD"><img src="https://i.ytimg.com/vi/1yu-0u911w4/mqdefault.jpg" srcset="https://i.ytimg.com/vi/1yu-0u911w4/mqdefault.jpg 320w, https://i.ytimg.com/vi/1yu-0u911w4/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Cheap Upgrades for Content Creators on a Budget - $50 BUILD</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/LcS3AC8731M" title="False Color, Anamorphic Desqueeze, Traffic Lights and More in Nikon ZR" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/LcS3AC8731M?autoplay=1" data-title="False Color, Anamorphic Desqueeze, Traffic Lights and More in Nikon ZR" aria-label="Play video: False Color, Anamorphic Desqueeze, Traffic Lights and More in Nikon ZR"><img src="https://i.ytimg.com/vi/LcS3AC8731M/mqdefault.jpg" srcset="https://i.ytimg.com/vi/LcS3AC8731M/mqdefault.jpg 320w, https://i.ytimg.com/vi/LcS3AC8731M/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">False Color, Anamorphic Desqueeze, Traffic Lights and More in Nikon ZR</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/eBtMKzhka58?start=2057" title="Nikon ZR Control App section" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/eBtMKzhka58?autoplay=1&amp;start=2057" data-title="Nikon ZR Control App section" aria-label="Play video: Nikon ZR Control App section"><img src="https://i.ytimg.com/vi/eBtMKzhka58/mqdefault.jpg" srcset="https://i.ytimg.com/vi/eBtMKzhka58/mqdefault.jpg 320w, https://i.ytimg.com/vi/eBtMKzhka58/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Nikon ZR Control App section</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/V2cIB4bvzNM" title="ZR Ctl Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/V2cIB4bvzNM?autoplay=1" data-title="ZR Ctl Review" aria-label="Play video: ZR Ctl Review"><img src="https://i.ytimg.com/vi/V2cIB4bvzNM/mqdefault.jpg" srcset="https://i.ytimg.com/vi/V2cIB4bvzNM/mqdefault.jpg 320w, https://i.ytimg.com/vi/V2cIB4bvzNM/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">ZR Ctl Review</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/m-3EqPhjzUY" title="ZR Ctl Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/m-3EqPhjzUY?autoplay=1" data-title="ZR Ctl Review" aria-label="Play video: ZR Ctl Review"><img src="https://i.ytimg.com/vi/m-3EqPhjzUY/mqdefault.jpg" srcset="https://i.ytimg.com/vi/m-3EqPhjzUY/mqdefault.jpg 320w, https://i.ytimg.com/vi/m-3EqPhjzUY/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">ZR Ctl Review</span></button>
           </div>
         </div>
         <div class="video-card reveal">
           <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/bzKogCm9bfg" title="Тест приложения ZR Control для Nikon" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/bzKogCm9bfg?autoplay=1" data-title="Тест приложения ZR Control для Nikon" aria-label="Play video: Тест приложения ZR Control для Nikon"><img src="https://i.ytimg.com/vi/bzKogCm9bfg/mqdefault.jpg" srcset="https://i.ytimg.com/vi/bzKogCm9bfg/mqdefault.jpg 320w, https://i.ytimg.com/vi/bzKogCm9bfg/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Тест приложения ZR Control для Nikon</span></button>
           </div>
         </div>
       </div>
@@ -1270,10 +1289,10 @@
             <p class="kicker mono">iPhone &amp; iPad &middot; early release response</p>
             <h2 class="display sr-only" id="reviews-title">Parallax Monitor App Store reviews</h2>
             <div class="rating-score">
-              <b class="display">5.0</b>
-              <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <b class="display">4.9</b>
+              <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
             </div>
-            <p class="rating-meta mono">18 US ratings · 15 public reviews · Reviews from earlier releases</p>
+            <p class="rating-meta mono">27 US ratings · Public US reviews shown here</p>
           </div>
           <a class="rating-link mono" href="https://apps.apple.com/us/app/6762336561?platform=iphone&amp;see-all=reviews" target="_blank" rel="noopener">See all reviews</a>
         </div>
@@ -1440,7 +1459,7 @@
 
   <!-- ───────── ACCSOON ───────── -->
   <section class="accsoon-announcement" id="accsoon-partnership" aria-label="Accsoon partnership">
-    <div class="container"><div class="accsoon-announcement-brand"><p class="mono">IN PARTNERSHIP WITH</p><img src="/accsoon/assets/accsoon-wordmark-white.svg?v=2" alt="Accsoon" width="140" height="31" loading="lazy"></div><div><h2 class="display">Your camera. Your tools. Now with Accsoon.</h2><p>Parallax Monitor for CineView M7 is available now. SeeMo support for iPhone and iPad is coming in Parallax Monitor 2.1.</p><a href="/accsoon/">Explore both integrations <span aria-hidden="true">↗</span></a></div></div>
+    <div class="container"><div class="accsoon-announcement-brand"><p class="mono">IN PARTNERSHIP WITH</p><img src="/accsoon/assets/accsoon-wordmark-white.svg?v=2" alt="Accsoon" width="140" height="31" loading="lazy"></div><div><h2 class="display">Your camera. Your tools. Now with Accsoon.</h2><p>Parallax Monitor for CineView M7 is available now. SeeMo support for iPhone and iPad is new in Parallax Monitor 2.1.</p><a href="/accsoon/">Explore both integrations <span aria-hidden="true">↗</span></a></div></div>
   </section>
 
   <!-- ───────── FAQ ───────── -->
@@ -1986,14 +2005,9 @@
       });
     });
 
-    // YouTube embeds → lightbox overlay triggers
-    document.querySelectorAll('.video-wrap iframe').forEach(iframe => {
-      const button = document.createElement('button');
-      button.className = 'video-lightbox-trigger';
-      button.type = 'button';
-      button.setAttribute('aria-label', `Open larger preview${iframe.title ? `: ${iframe.title}` : ''}`);
-      button.addEventListener('click', () => openLightbox('iframe', iframe.src, '', iframe.title || ''));
-      iframe.parentElement.append(button);
+    // YouTube thumbnails → the player loads in the lightbox when a card is opened
+    document.querySelectorAll('.video-thumb').forEach(button => {
+      button.addEventListener('click', () => openLightbox('iframe', button.dataset.embed, '', button.dataset.title || ''));
     });
 
     // ── Gallery carousel ──
