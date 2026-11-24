@@ -36,7 +36,7 @@
   <rect x="55" y="110" width="116" height="72" rx="14" fill="#18181b" stroke="#27272a"/>
   <text x="73" y="137" fill="#fafafa" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">Step 1</text>
   <text x="73" y="158" fill="#a1a1aa" font-family="Inter, Arial, sans-serif" font-size="11">Turn on</text>
-  <text x="73" y="174" fill="#ffd200" font-family="JetBrains Mono, Menlo, monospace" font-size="10">Allow Others</text>
-  <path d="M172 145h25" stroke="#ffd200" stroke-width="2" stroke-linecap="round"/>
-  <path d="M191 137l8 8-8 8" fill="none" stroke="#ffd200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="73" y="174" fill="#24d7ff" font-family="JetBrains Mono, Menlo, monospace" font-size="10">Allow Others</text>
+  <path d="M172 145h25" stroke="#24d7ff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M191 137l8 8-8 8" fill="none" stroke="#24d7ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

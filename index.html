@@ -39,10 +39,10 @@
   <meta name="twitter:image" content="https://www.parallaxmonitor.com/parallax-icon-512.png">
   <meta name="twitter:image:alt" content="Parallax Monitor app icon">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/parallax-icon-192.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/parallax-icon-48.png">
-  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 96x96 192x192">
-  <link rel="apple-touch-icon" sizes="180x180" href="/parallax-apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/parallax-icon-192.png?v=20261123">
+  <link rel="icon" type="image/png" sizes="48x48" href="/parallax-icon-48.png?v=20261123">
+  <link rel="icon" href="/favicon.ico?v=20261123" sizes="16x16 32x32 48x48 96x96 192x192">
+  <link rel="apple-touch-icon" sizes="180x180" href="/parallax-apple-touch-icon.png?v=20261123">
   <link rel="manifest" href="/site.webmanifest">
 
   <script type="application/ld+json">
@@ -168,7 +168,7 @@
           "Android"
         ],
         "downloadUrl": "https://play.google.com/store/apps/details?id=com.zrctl.android&pcampaignid=web_share",
-        "softwareVersion": "2.1.15",
+        "softwareVersion": "2.1.18",
         "isAccessibleForFree": false,
         "offers": {
           "@type": "Offer",
@@ -307,7 +307,7 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     :root {
-      --accent:#ffd200; --accent-rgb:255,210,0; --bg:#09090b; --bg-2:#0e0e11; --card:#141417;
+      --accent:#24d7ff; --accent-rgb:36,215,255; --bg:#09090b; --bg-2:#0e0e11; --card:#141417;
       --border:#222226; --text-2:#a1a1aa; --text-3:#71717a; --red:#ff4d4d;
       --ubh:44px;
     }
@@ -330,8 +330,8 @@
     /* ── Update banner ── */
     .update-banner { position:fixed; top:0; left:0; right:0; height:var(--ubh); z-index:120;
       display:flex; align-items:center; justify-content:center; gap:14px; padding:0 18px;
-      background:linear-gradient(90deg, rgba(255,210,0,.14), rgba(255,210,0,.05));
-      border-bottom:1px solid rgba(255,210,0,.28);
+      background:linear-gradient(90deg, rgba(36,215,255,.14), rgba(36,215,255,.05));
+      border-bottom:1px solid rgba(36,215,255,.28);
       backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
       font-size:13px; color:var(--text-2); }
     html.update-dismissed .update-banner { display:none; }
@@ -340,7 +340,7 @@
     .ub-copy strong { color:#fafafa; }
     .ub-link { background:var(--accent); color:#000; font-weight:700; font-size:11px; letter-spacing:.08em;
       text-transform:uppercase; padding:6px 13px; border-radius:5px; white-space:nowrap; transition:transform .2s, box-shadow .2s; }
-    .ub-link:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(255,210,0,.3); }
+    .ub-link:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(36,215,255,.3); }
     .ub-close { width:26px; height:26px; flex-shrink:0; display:grid; place-items:center;
       background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:5px;
       color:var(--text-2); font-size:15px; line-height:1; cursor:pointer; transition:all .2s; }
@@ -367,7 +367,7 @@
     .nav-links a:not(.nav-cta):hover::after { transform:scaleX(1); }
     .nav-cta { background:var(--accent); color:#000 !important; font-weight:700; padding:9px 20px; border-radius:6px;
       transition:transform .2s, box-shadow .2s; }
-    .nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px rgba(255,210,0,.3); }
+    .nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px rgba(36,215,255,.3); }
     .hamburger { display:none; background:none; border:none; color:#fafafa; cursor:pointer; padding:8px; }
 
     /* ── Hero ── */
@@ -381,7 +381,7 @@
       -webkit-mask-image:linear-gradient(to bottom, black, transparent 80%);
     }
     .hero-wm { position:absolute; right:-40px; top:10px; font-size:420px; line-height:1;
-      color:transparent; -webkit-text-stroke:1px rgba(255,210,0,.06); pointer-events:none; }
+      color:transparent; -webkit-text-stroke:1px rgba(36,215,255,.06); pointer-events:none; }
     .kicker { display:inline-flex; align-items:center; gap:14px; font-size:12px; letter-spacing:.3em;
       color:var(--accent); text-transform:uppercase; margin-bottom:28px; }
     .kicker::before, .kicker::after { content:''; width:34px; height:1px; background:var(--accent); opacity:.7; }
@@ -407,8 +407,8 @@
     .btns { display:flex; gap:16px; justify-content:center; margin-bottom:64px; position:relative; z-index:1; flex-wrap:wrap; }
     .b1 { background:var(--accent); color:#000; font-weight:700; font-size:15px; letter-spacing:.06em;
       padding:17px 42px; border-radius:6px; text-transform:uppercase; display:inline-flex; align-items:center; gap:10px;
-      box-shadow:0 10px 44px rgba(255,210,0,.28); transition:transform .2s, box-shadow .2s; }
-    .b1:hover { transform:translateY(-2px); box-shadow:0 14px 54px rgba(255,210,0,.4); }
+      box-shadow:0 10px 44px rgba(36,215,255,.28); transition:transform .2s, box-shadow .2s; }
+    .b1:hover { transform:translateY(-2px); box-shadow:0 14px 54px rgba(36,215,255,.4); }
     .b2 { border:1px solid #3f3f46; color:#fff; font-weight:600; font-size:15px; letter-spacing:.04em;
       padding:17px 36px; border-radius:6px; text-transform:uppercase; transition:border-color .2s; }
     .b2:hover { border-color:#71717a; }
@@ -533,7 +533,7 @@
     .feat.alt { background:var(--bg-2); border-top:1px solid #18181c; border-bottom:1px solid #18181c; }
     .feat-row { display:grid; grid-template-columns:1fr 1.15fr; gap:64px; align-items:center; }
     .feat-row.rev .feat-text { order:2; } .feat-row.rev .feat-media { order:1; }
-    .feat-num { font-size:100px; line-height:1; color:transparent; -webkit-text-stroke:1px rgba(255,210,0,.35); margin-bottom:8px; }
+    .feat-num { font-size:100px; line-height:1; color:transparent; -webkit-text-stroke:1px rgba(36,215,255,.35); margin-bottom:8px; }
     .feat-label { font-size:11px; letter-spacing:.3em; color:var(--accent); text-transform:uppercase; margin-bottom:18px; }
     .feat h3 { font-size:54px; line-height:.95; text-transform:uppercase; letter-spacing:.01em; margin-bottom:22px; }
     .feat p { color:var(--text-2); font-size:16px; margin-bottom:14px; }
@@ -543,6 +543,15 @@
     .spec-list li::before { content:'▸'; color:var(--accent); font-size:12px; }
     .feat-media { position:relative; }
     .feat-media .mattes { padding:18px 0; }
+    /* 2026-11-24: bigger app screens in the feature blocks. The media column is about twice the
+       text column, the section is wider, and still images sit bare (bezel on the page, no matte box). */
+    .feat .container { max-width:1560px; }
+    .feat-row { grid-template-columns:.78fr 1.6fr; gap:56px; }
+    .feat-row.rev { grid-template-columns:1.6fr .78fr; }
+    .feat-media .mattes:has(img) { background:none; padding:0; box-shadow:none; }
+    .feat-media .frame:has(img) { aspect-ratio:auto; background:none; overflow:visible; }
+    .feat-media .frame:has(img)::after { display:none; }
+    .feat-media .frame:has(img) img { height:auto; filter:drop-shadow(0 28px 60px rgba(0,0,0,.6)); }
 
     /* ── Tool cards ── */
     .tools { padding:110px 0; }
@@ -589,7 +598,7 @@
     .shot.hidden { display:none; }
     .shot.pop { animation:cardIn .45s cubic-bezier(.16,1,.3,1) both; }
     @keyframes cardIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
-    .shot:hover { border-color:rgba(255,210,0,.45); }
+    .shot:hover { border-color:rgba(36,215,255,.45); }
     .shot .ph { width:100%; aspect-ratio:16/9; display:grid; place-items:center; overflow:hidden; }
     .shot.portrait { grid-row:span 2; width:clamp(240px, 21vw, 350px); }
     .shot.portrait .ph { aspect-ratio:auto; height:100%; min-height:0; flex:1; }
@@ -602,10 +611,149 @@
     .gal-progress { height:2px; background:#222226; margin-top:26px; position:relative; }
     .gal-progress i { position:absolute; left:0; top:0; bottom:0; width:10%; background:var(--accent); transition:width .2s, left .2s; }
 
+
+    /* ── Try the monitor (interactive demo, prototype 2026-11-23) ── */
+    .try { padding:110px 0 90px; background:var(--bg-2); border-top:1px solid #18181c; border-bottom:1px solid #18181c; }
+    .try-head { text-align:center; max-width:820px; margin:0 auto 40px; }
+    .try-head h2 { font-size:clamp(44px,5.4vw,76px); line-height:.98; text-transform:uppercase; margin-bottom:16px; }
+    .try-head h2 .y { color:var(--accent); }
+    .try-head p { color:var(--text-2); font-size:17px; }
+    .try-note { text-align:center; margin-top:18px; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--text-3); }
+    @media (max-width:700px) { .try { padding:70px 0 60px; } }
+
+    .store-badge { display:inline-flex; line-height:0; border-radius:9px; transition:transform .2s, box-shadow .2s; }
+    .store-badge img { height:56px; width:auto; display:block; }
+    .store-badge:hover { transform:translateY(-2px); box-shadow:0 14px 44px rgba(36,215,255,.28); }
+    .store-badge:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+    .btns { align-items:center; }
+    .plat a.store-badge { background:none; padding:0; letter-spacing:0; }
+    .plat a.store-badge img { height:50px; }
+    @media (max-width:520px) { .store-badge img { height:50px; } }
+
+    .play-reviews { margin-top:22px; }
+    .play-reviews-label { font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
+    .play-reviews .review-card { min-height:0; }
+
+
+    /* ── Cameras, tiered (2026-11-23) ── */
+    .cams-h { text-align:center; font-size:clamp(44px,5.4vw,76px); line-height:.98; text-transform:uppercase; margin:0 0 34px; }
+    .cams-h .y { color:var(--accent); }
+    .cam-table { border:1px solid var(--border); border-radius:14px; overflow:hidden; background:var(--bg); }
+    .cam-row { display:grid; grid-template-columns:230px 1fr; gap:28px; align-items:center; padding:24px 30px; border-top:1px solid var(--border); }
+    .cam-row:first-child { border-top:0; }
+    .cam-row-head b { display:block; font-size:34px; line-height:1; letter-spacing:.02em; font-weight:400; }
+    .cam-row-head span { display:inline-block; margin-top:9px; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); border:1px solid rgba(36,215,255,.35); border-radius:999px; padding:3px 10px; }
+    .cam-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
+    .cam-chips span { font-family:'Inter',system-ui,sans-serif; font-weight:600; font-size:17px; letter-spacing:.01em; color:#fff; background:var(--card); border:1px solid #2c2c31; border-radius:8px; padding:8px 14px; white-space:nowrap; }
+    .cam-row-body p { font-size:14px; color:var(--text-2); line-height:1.55; }
+    /* ── What's inside: ranked highlights ── */
+    .power { padding:110px 0; }
+    .power-head { text-align:center; max-width:860px; margin:0 auto 46px; }
+    .power-head h2 { font-size:clamp(52px,7vw,104px); line-height:.92; text-transform:uppercase; }
+    .power-head h2 .y { color:var(--accent); }
+    .power-head p { color:var(--text-2); font-size:17px; margin-top:18px; }
+    .power-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+    .pcard { background:var(--bg); padding:32px 28px 26px; display:flex; flex-direction:column; color:inherit; text-decoration:none; transition:background .25s; }
+    .pcard:hover { background:#0f1114; }
+    .pcard:hover .pcard-idx { color:var(--accent); -webkit-text-stroke:0; }
+    .pcard:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+    .pcard-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
+    .pcard-idx { font-size:44px; line-height:1; color:transparent; -webkit-text-stroke:1px #3f3f46; transition:color .25s; }
+    .pcard-count { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--text-3); text-align:right; }
+    .pcard-count b { display:block; font-family:'Bebas Neue','Arial Narrow',sans-serif; font-weight:400; font-size:30px; line-height:1; color:var(--accent); letter-spacing:.02em; }
+    .pcard h3 { font-size:30px; line-height:1; text-transform:uppercase; letter-spacing:.02em; margin-bottom:8px; }
+    .pcard h3 small { font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-size:9px; letter-spacing:.18em; color:var(--accent); border:1px solid rgba(36,215,255,.4); border-radius:999px; padding:2px 8px; vertical-align:middle; margin-left:8px; }
+    .pcard > p { font-size:14px; color:#e4e4e7; margin-bottom:14px; }
+    .pcard ul { list-style:none; margin:0 0 18px; }
+    .pcard li { position:relative; padding:6px 0 6px 16px; font-size:13px; color:var(--text-2); line-height:1.5; border-top:1px solid #17171a; }
+    .pcard li::before { content:'▸'; position:absolute; left:0; color:var(--accent); font-size:10px; top:8px; }
+    .pcard-more { margin-top:auto; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); }
+    .power-cta { text-align:center; margin-top:40px; }
+    @media (max-width:1000px) { .power-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:700px) { .power { padding:70px 0; } .power-grid { grid-template-columns:1fr; } .cam-row { grid-template-columns:1fr; gap:14px; padding:22px 20px; } .cam-chips span { font-size:15px; padding:7px 11px; } }
+
+
+    /* ── Live monitor demo (monitor-demo.js) ── */
+    .mon { max-width:1240px; margin:0 auto; }
+    .mon-stage { position:relative; aspect-ratio:1976/964; container-type:inline-size; -webkit-user-select:none; user-select:none; filter:drop-shadow(0 30px 60px rgba(0,0,0,.55)); }
+    .mon-chrome, .mon-fallback { position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; }
+    .mon-fallback { display:none; }
+    .mon.no-gl .mon-fallback { display:block; } .mon.no-gl .mon-pic, .mon.no-gl .mon-rail, .mon.no-gl .mon-pills { display:none; }
+    .mon-pic { position:absolute; left:10.7287%; top:4.668%; width:78.5425%; height:90.5602%; overflow:hidden; background:#050607; touch-action:pan-y; }
+    #mon-video { position:absolute; left:0; top:0; width:2px; height:2px; opacity:0; pointer-events:none; }
+    .mon-zoom { position:absolute; inset:0; transition:transform .28s cubic-bezier(.2,.8,.2,1); }
+    .mon.punch .mon-zoom { transform:scale(2); }
+    #mon-gl { display:block; width:100%; height:100%; }
+    .mon-guides { position:absolute; inset:0; pointer-events:none; }
+    .mon-guides svg { position:absolute; inset:0; width:100%; height:100%; display:block; } .mon-guides svg * { vector-effect:non-scaling-stroke; }
+    .mon-hud { position:absolute; inset:0; width:100%; height:100%; mix-blend-mode:screen; pointer-events:none; transition:opacity .2s; }
+    .mon-bar { position:absolute; left:28.028%; width:61.985%; top:85.338%; height:14.662%; overflow:hidden; mix-blend-mode:screen; cursor:pointer; touch-action:pan-y; transition:opacity .2s; }
+    .mon-strip { width:166.84%; height:100%; background:url(images/demo/live/toolbar.png) left top / 100% 100% no-repeat; transition:transform .25s ease; }
+    .mon-marks-wrap { position:absolute; left:28.028%; width:61.985%; top:85.338%; height:14.662%; overflow:hidden; pointer-events:none; transition:opacity .2s; }
+    .mon-marks { position:relative; width:166.84%; height:100%; transition:transform .25s ease; }
+    .mon-marks i { position:absolute; bottom:5%; width:3.8%; height:.3cqw; min-height:2px; margin-left:-1.9%; border-radius:2px; background:#ff9f0a; opacity:0; transition:opacity .15s; }
+    .mon-marks i.on { opacity:1; }
+    .mon-arrow { position:absolute; top:87.2%; height:10.4%; width:2.3%; border:0; padding:0; border-radius:.6cqw; background:rgba(0,0,0,.45); color:#fff; font:500 2cqw/1 'Inter',sans-serif; opacity:.9; cursor:pointer; transition:opacity .2s, background .2s; }
+    .mon-arrow:hover { background:rgba(36,215,255,.35); }
+    .mon-arrow:hover { opacity:1; }
+    .mon-arrow.next { left:90.15%; } .mon-arrow.prev { left:25.5%; }
+    .mon.at-end .mon-arrow.next, .mon.at-start .mon-arrow.prev { opacity:0; pointer-events:none; }
+    .mon-menu { position:absolute; left:94.8%; top:92.4%; width:6.2%; height:13%; transform:translate(-50%,-50%); background:none; border:0; padding:0; cursor:pointer; }
+    .mon.hud-off .mon-hud, .mon.hud-off .mon-bar, .mon.hud-off .mon-marks-wrap, .mon.hud-off .mon-arrow, .mon.hud-off .mon-menu, .mon.hud-off .mon-tc, .mon.hud-off .mon-scope, .mon.hud-off .mon-xl, .mon.hud-off .mon-legend { opacity:0; pointer-events:none; }
+    .mon-tc { position:absolute; left:50%; top:0; width:20%; height:9%; margin-left:-10%; pointer-events:none; font-family:'JetBrains Mono','SF Mono',Menlo,monospace; text-align:center; transition:opacity .2s; }
+    .mon-tc span { position:absolute; left:0; right:0; top:27%; transform:translateY(-50%); font-size:.86cqw; font-weight:700; letter-spacing:.08em; color:#b4b4ba; }
+    .mon-tc b { position:absolute; left:0; right:0; top:71%; transform:translateY(-50%); font-size:1.72cqw; font-weight:500; letter-spacing:.01em; color:#fff; }
+    .mon-tc.rec span { color:#ff3438; }
+    .mon-recborder { position:absolute; inset:0; border:.42cqw solid rgba(255,52,56,.88); border-radius:.5cqw; pointer-events:none; }
+    .mon-rail.rec.on::after { content:''; position:absolute; inset:34%; background:#fff; border-radius:16%; }
+    .mon-rail { position:absolute; width:6.2%; height:12.4%; transform:translate(-50%,-50%); background:none; border:0; padding:0; border-radius:1cqw; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+    .mon-rail.rec { width:7.6%; height:15.4%; border-radius:50%; }
+    .mon-rail:hover, .mon-menu:hover { box-shadow:inset 0 0 0 1px rgba(255,255,255,.28); }
+    .mon-rail:focus-visible, .mon-menu:focus-visible, .mon-arrow:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+    .mon-rail.on[aria-label="SCOPE"], .mon-rail.on[aria-label="PEAK"], .mon-rail.on[aria-label="HUD"] { background:#24d7ff; mix-blend-mode:multiply; }
+    .mon-rail.on[aria-label="FALSE"], .mon-rail.on[aria-label="EXPO"] { background:#ff9f0a; mix-blend-mode:multiply; }
+    .mon-rail.dim { background:rgba(0,0,0,.6); }
+    .mon-wipe { position:absolute; top:0; bottom:0; width:44px; margin-left:-22px; cursor:ew-resize; touch-action:none; }
+    .mon-wipe::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:2px; margin-left:-1px; background:#fff; box-shadow:0 0 6px rgba(0,0,0,.6); }
+    .mon-wipe span { position:absolute; left:50%; top:50%; width:2.3cqw; height:2.3cqw; min-width:20px; min-height:20px; transform:translate(-50%,-50%); border-radius:50%; background:#fff; box-shadow:0 2px 10px rgba(0,0,0,.5); }
+    .mon-legend { position:absolute; right:1.6%; top:14%; padding:.7cqw .8cqw; border-radius:.7cqw; background:rgba(5,6,7,.66); box-shadow:inset 0 0 0 1px rgba(255,255,255,.12); transition:opacity .2s; font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-size:clamp(7px,.86cqw,11px); line-height:1; color:#e4e4e7; pointer-events:none; }
+    .mon-legend b { display:block; font-weight:700; letter-spacing:.08em; margin-bottom:.6cqw; }
+    .mon-legend span { display:flex; align-items:center; gap:.55cqw; padding:.22cqw 0; }
+    .mon-legend i { width:1cqw; height:1cqw; min-width:7px; min-height:7px; border-radius:2px; display:block; }
+    .mon-scope { position:absolute; left:1.6%; bottom:16.2%; width:27%; aspect-ratio:150/84; background:rgb(5,6,7); box-shadow:inset 0 0 0 1px rgba(255,255,255,.14); border-radius:.8cqw; cursor:grab; touch-action:none; transition:opacity .2s; }
+    .mon-xl { position:absolute; right:1.6%; bottom:16.2%; width:18.4%; aspect-ratio:570/470; background:rgba(5,6,7,.66); box-shadow:inset 0 0 0 1px rgba(255,255,255,.12); border-radius:.8cqw; pointer-events:none; transition:opacity .2s, right .2s; }
+    .mon.fc .mon-xl { right:11.5%; }
+    .mon-luts { position:absolute; left:1.2%; top:15.4%; width:31%; padding:.7cqw; border-radius:1.1cqw; background:rgba(20,23,27,.96); box-shadow:0 10px 40px rgba(0,0,0,.5); display:flex; flex-direction:column; gap:.55cqw; }
+    .mon-luts button { display:flex; align-items:center; gap:1.2cqw; width:100%; text-align:left; border:0; border-radius:.75cqw; background:#24282d; color:#cfd3d8; padding:1.25cqw 1.2cqw; font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-size:clamp(8px,1.06cqw,13px); letter-spacing:.06em; cursor:pointer; }
+    .mon-luts button:hover { background:#2c3137; }
+    .mon-luts button em { font-style:normal; color:#8b9198; } .mon-luts button span { flex:1; } .mon-luts button i { font-style:normal; color:#24d7ff; opacity:0; }
+    .mon-luts button.sel { background:#10363c; color:#fff; box-shadow:inset .3cqw 0 0 #24d7ff; } .mon-luts button.sel i { opacity:1; }
+    .mon-choice { position:absolute; right:1.4%; bottom:16%; width:54%; padding:1cqw; border-radius:1.5cqw; background:rgba(10,12,14,.84); box-shadow:inset 0 0 0 1px rgba(255,255,255,.08), 0 10px 40px rgba(0,0,0,.45); display:grid; grid-template-columns:repeat(4, 1fr); gap:.6cqw; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+    .mon-choice button { position:relative; display:flex; align-items:center; text-align:left; min-height:4.5cqw; border:0; border-radius:.9cqw; background:rgba(255,255,255,.075); box-shadow:inset 0 0 0 1px rgba(255,255,255,.05); color:#f2f2f4; padding:.5cqw 2.2cqw .5cqw 1.1cqw; font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-size:clamp(8px,1.22cqw,15px); line-height:1.2; cursor:pointer; }
+    .mon-choice button:hover { background:rgba(255,255,255,.13); }
+    .mon-choice button i { position:absolute; right:.9cqw; top:50%; transform:translateY(-50%); font-style:normal; opacity:0; }
+    .mon-choice button.sel { background:rgba(255,255,255,.22); box-shadow:inset 0 0 0 1px rgba(255,255,255,.34); }
+    .mon-choice button.sel::before { content:''; position:absolute; left:.38cqw; top:26%; bottom:26%; width:.28cqw; min-width:2px; border-radius:2px; background:#fff; }
+    .mon-choice button.sel i { opacity:1; }
+    .mon-choice button:focus-visible, .mon-luts button:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+    .mon-toast { position:absolute; left:50%; top:15%; transform:translate(-50%,-6px); max-width:72%; padding:.8cqw 1.3cqw; border-radius:.9cqw; background:rgba(8,10,12,.86); border:1px solid rgba(36,215,255,.4); color:#fff; font-size:clamp(10px,1.28cqw,15px); line-height:1.4; text-align:center; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; }
+    .mon-toast.on { opacity:1; transform:translate(-50%,0); }
+    .mon-toast b { display:block; font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-weight:700; font-size:.82em; letter-spacing:.18em; color:var(--accent); }
+    .mon-pills { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin:26px auto 0; }
+    .mon-pills button { font-family:'JetBrains Mono','SF Mono',Menlo,monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-2); background:var(--card); border:1px solid var(--border); border-radius:999px; padding:10px 16px; cursor:pointer; transition:color .2s, border-color .2s, background .2s; }
+    .mon-pills button:hover { color:#fff; border-color:rgba(36,215,255,.5); }
+    .mon-pills button[aria-pressed="true"] { color:#09090b; background:var(--accent); border-color:var(--accent); }
+    .mon-pills button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+    [hidden] { display:none !important; }
+    .mon-cap { display:none; }
+    @media (max-width:700px) { .mon-toast { font-size:0; padding:4px 9px; } .mon-toast b { font-size:10px; }
+      .mon-cap { display:block; min-height:3.1em; margin:14px 8px 0; text-align:center; font-size:14px; line-height:1.45; color:var(--text-2); } .mon-pills { margin-top:12px; } }
+    @media (max-width:700px) { .mon-pills { gap:7px; } .mon-pills button { padding:9px 12px; font-size:10.5px; letter-spacing:.08em; } }
+
     /* ── Manifesto ── */
     .manifesto { padding:130px 0; text-align:center; position:relative; overflow:hidden; }
     .manifesto::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-      width:800px; height:500px; background:radial-gradient(ellipse, rgba(255,210,0,.07), transparent 65%); pointer-events:none; }
+      width:800px; height:500px; background:radial-gradient(ellipse, rgba(36,215,255,.07), transparent 65%); pointer-events:none; }
     .manifesto h2 { font-size:clamp(44px,5.4vw,76px); line-height:1.02; text-transform:uppercase; max-width:980px; margin:0 auto; }
     .manifesto h2 .y { color:var(--accent); }
     .manifesto p { margin:26px auto 0; max-width:620px; color:var(--text-2); font-size:17px; }
@@ -639,7 +787,7 @@
     .coverage { padding:110px 0; }
     .cov-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:20px; }
     .cov { border:1px solid var(--border); background:var(--card); transition:border-color .25s, transform .25s; position:relative; display:block; }
-    .cov:hover { border-color:rgba(255,210,0,.4); transform:translateY(-3px); }
+    .cov:hover { border-color:rgba(36,215,255,.4); transform:translateY(-3px); }
     .cov-media { aspect-ratio:16/8; overflow:hidden; background:#0c0c0f; position:relative; }
     .cov-media img { width:100%; height:100%; object-fit:cover; transition:transform .35s, filter .35s; }
     .cov:hover .cov-media img { transform:scale(1.035); filter:saturate(1.08); }
@@ -650,7 +798,7 @@
     .cov-logo.podcastvideos { background:#111827; color:#fff; border:1px solid rgba(255,255,255,.18); }
     .cov-logo.fstoppers { background:#0a0a0a; color:#fff; border:1px solid rgba(255,255,255,.22); }
     .cov-logo.dcw { background:#d71920; color:#fff; border:1px solid rgba(255,255,255,.2); }
-    .cov-logo.nikonrumors { background:#1b1b1f; color:#ffd200; border:1px solid rgba(255,210,0,.35); }
+    .cov-logo.nikonrumors { background:#1b1b1f; color:#24d7ff; border:1px solid rgba(36,215,255,.35); }
     .cov-logo.chimney { background:#0f172a; color:#fff; border:1px solid rgba(255,255,255,.18); }
     .cov-logo.sinisazec { background:rgba(250,250,250,.94); color:#101014; }
     .cov-body { padding:26px 28px 30px; }
@@ -675,24 +823,24 @@
     /* ── CTA ── */
     .cta { padding:140px 0 120px; text-align:center; position:relative; overflow:hidden; }
     .cta::before { content:''; position:absolute; bottom:-30%; left:50%; transform:translateX(-50%);
-      width:900px; height:600px; background:radial-gradient(ellipse, rgba(255,210,0,.1), transparent 65%); pointer-events:none; }
+      width:900px; height:600px; background:radial-gradient(ellipse, rgba(36,215,255,.1), transparent 65%); pointer-events:none; }
     .cta h2 { font-size:clamp(64px,9vw,130px); line-height:.9; text-transform:uppercase; position:relative; }
     .cta h2 .y { color:var(--accent); }
     .cta > .container > p { margin:24px auto 44px; max-width:540px; color:var(--text-2); font-size:17px; position:relative; }
     .plats { display:flex; gap:18px; justify-content:center; position:relative; flex-wrap:wrap; }
     .plat { border:1px solid var(--border); background:var(--card); padding:28px 40px; min-width:250px; transition:border-color .25s; }
-    .plat:hover { border-color:rgba(255,210,0,.5); }
+    .plat:hover { border-color:rgba(36,215,255,.5); }
     .plat h3 { font-size:26px; text-transform:uppercase; margin-bottom:2px; }
     .plat p { font-size:12px; color:var(--text-3); margin-bottom:16px; }
     .plat a { display:inline-block; background:var(--accent); color:#000; font-weight:700; font-size:13px;
       letter-spacing:.06em; text-transform:uppercase; padding:12px 26px; border-radius:6px;
       transition:transform .2s, box-shadow .2s; }
-    .plat a:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(255,210,0,.3); }
+    .plat a:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(36,215,255,.3); }
     .android-note, .purchase-note { margin-top:18px; padding-top:16px; border-top:1px solid var(--border); max-width:320px; }
     .android-note .note-kicker, .purchase-note .note-kicker { display:block; margin-bottom:7px; color:var(--accent); font-size:10px; letter-spacing:.14em; text-transform:uppercase; }
     .plat .android-note p, .plat .purchase-note p { margin:0 0 12px; color:var(--text-2); font-size:13px; line-height:1.55; }
-    .plat .android-note .pre-link { background:transparent; border:1px solid rgba(255,210,0,.45); color:var(--accent); font-size:12px; padding:10px 16px; }
-    .plat .android-note .pre-link:hover { background:rgba(255,210,0,.08); }
+    .plat .android-note .pre-link { background:transparent; border:1px solid rgba(36,215,255,.45); color:var(--accent); font-size:12px; padding:10px 16px; }
+    .plat .android-note .pre-link:hover { background:rgba(36,215,255,.08); }
 
     /* ── Footer ── */
     footer { border-top:1px solid #18181c; padding:44px 0 36px; }
@@ -808,6 +956,7 @@
         <span class="display">Parallax Monitor</span>
       </a>
       <ul class="nav-links mono" id="navLinks">
+        <li><a href="/features/">All features</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="/accsoon/">Accsoon</a></li>
         <li><a href="/how-to/">How-to</a></li>
@@ -839,17 +988,11 @@
     <a class="hero-rating mono" href="#reviews" aria-label="Jump to App Store reviews">
       <span class="stars" aria-hidden="true">★★★★★</span>
       <strong>4.9 App Store rating</strong>
-      <span>27 US ratings</span>
+      <span>28 US ratings</span>
     </a>
     <div class="btns">
-      <a class="b1" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Get it on the App Store
-      </a>
-      <a class="b1" href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Get it on Google Play
-      </a>
+      <a class="store-badge" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener"><img src="images/badges/app-store-badge.svg" alt="Download on the App Store" width="168" height="56"></a>
+      <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener"><img src="images/badges/google-play-badge.png" alt="Get it on Google Play" width="188" height="56"></a>
       <a class="b2" href="#features">See the features</a>
     </div>
 
@@ -858,8 +1001,8 @@
         <div class="frame">
           <div class="corners"><i></i><i></i><i></i><i></i></div>
           <div class="hud-rec mono"><span class="rec-dot"></span>REC <span class="tc" id="heroTimecode">00:00:00:00</span></div>
-          <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-main-poster.jpg" aria-label="Parallax Monitor live view monitoring a Nikon Z camera">
-            <source src="videos/ZRCTL-Main-web.mp4" type="video/mp4">
+          <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/parallax-monitor-hero-poster.jpg" aria-label="Parallax Monitor live view monitoring a Nikon Z camera">
+            <source src="videos/parallax-monitor-hero-web.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -902,16 +1045,181 @@
     </div>
   </div>
 
+  <!-- ───────── TRY THE MONITOR (live demo: monitor-demo.js) ───────── -->
+  <section class="try" id="try">
+    <div class="container">
+      <div class="try-head reveal">
+        <p class="feat-label mono">Try it here</p>
+        <h2 class="display">The monitor,<br><span class="y">live in your browser.</span></h2>
+        <p>Real log footage from a Nikon ZR, with the app&rsquo;s own looks and exposure tools running on it right here. Tap any tool on the phone.</p>
+      </div>
+      <div class="mon reveal" id="mon">
+        <div class="mon-stage" id="mon-stage">
+          <img class="mon-chrome" src="images/demo/live/chrome.png" alt="Parallax Monitor running on an iPhone" draggable="false">
+          <img class="mon-fallback" src="images/demo/monitor-lut.jpg" alt="Parallax Monitor live view with a LUT applied" loading="lazy">
+          <div class="mon-pic" id="mon-pic">
+            <video id="mon-video" data-src-1080="images/demo/live/monitor-log-1080.mp4" data-src-720="images/demo/live/monitor-log-720.mp4" muted loop playsinline webkit-playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+            <div class="mon-zoom"><canvas id="mon-gl" aria-label="Live picture with the selected tools applied"></canvas><div class="mon-guides" id="mon-guides"></div></div>
+            <div class="mon-wipe" id="mon-wipe" hidden><span></span></div>
+            <div class="mon-legend" id="mon-legend" hidden></div>
+            <canvas class="mon-scope" id="mon-scope" width="600" height="336" hidden></canvas>
+            <canvas class="mon-xl" id="mon-xl" width="570" height="470" hidden></canvas>
+            <div class="mon-recborder" id="mon-recborder" hidden></div>
+            <img class="mon-hud" id="mon-hud" src="images/demo/live/hud.png?v=2" alt="" draggable="false">
+            <div class="mon-tc" id="mon-tc"><span>STBY</span><b>--:--:--:--</b></div>
+            <div class="mon-bar" id="mon-bar" role="group" aria-label="Toolbar. Drag sideways for more tools."><div class="mon-strip" id="mon-strip"></div></div>
+            <div class="mon-marks-wrap"><div class="mon-marks" id="mon-marks"></div></div>
+            <button class="mon-arrow prev" id="mon-prev" type="button" aria-label="First tools">&lsaquo;</button>
+            <button class="mon-arrow next" id="mon-next" type="button" aria-label="More tools">&rsaquo;</button>
+            <button class="mon-menu" id="mon-menu" type="button" aria-label="MENU"></button>
+            <div class="mon-luts" id="mon-luts" hidden></div>
+            <div class="mon-choice" id="mon-choice" hidden></div>
+            <div class="mon-toast" id="mon-toast" role="status"></div>
+          </div>
+        </div>
+        <p class="mon-cap" id="mon-cap" aria-hidden="true"></p>
+        <div class="mon-pills" role="group" aria-label="Shortcuts to the tools">
+          <button type="button" data-p="looks" aria-pressed="false">Looks</button>
+          <button type="button" data-p="log" aria-pressed="false">LUT off</button>
+          <button type="button" data-p="wipe" aria-pressed="false">Wipe</button>
+          <button type="button" data-p="falseC" aria-pressed="false">False color</button>
+          <button type="button" data-p="scope" aria-pressed="false">Waveform</button>
+          <button type="button" data-p="expo" aria-pressed="false">Traffic lights</button>
+          <button type="button" data-p="zebra" aria-pressed="false">Zebras</button>
+          <button type="button" data-p="peak" aria-pressed="false">Peaking</button>
+          <button type="button" data-p="guides" aria-pressed="false">Frame guides</button>
+          <button type="button" data-p="reset" aria-pressed="false">Reset</button>
+        </div>
+        <p class="try-note mono">A working model of the monitor &middot; shot on Nikon ZR &middot; R3D</p>
+      </div>
+    </div>
+  </section>
+  <script src="/monitor-demo.js?v=8"></script>
+
+  <!-- ───────── APP STORE REVIEWS ───────── -->
+  <section class="store-reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews-panel reveal">
+        <div class="rating-card">
+          <div>
+            <div class="rating-source">
+              <img src="/parallax-icon-192.png" alt="">
+              <div>
+                <span class="mono">App Store</span>
+                <strong>Ratings &amp; Reviews</strong>
+              </div>
+            </div>
+            <p class="kicker mono">iPhone &amp; iPad</p>
+            <h2 class="display sr-only" id="reviews-title">Parallax Monitor App Store reviews</h2>
+            <div class="rating-score">
+              <b class="display">4.9</b>
+              <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+            </div>
+            <p class="rating-meta mono">28 US ratings · Live from the US App Store</p>
+          </div>
+          <a class="rating-link mono" href="https://apps.apple.com/us/app/6762336561?platform=iphone&amp;see-all=reviews" target="_blank" rel="noopener">See all reviews</a>
+        </div>
+        <div class="reviews-browser">
+          <div class="reviews-grid" id="reviewsGrid" aria-live="polite"></div>
+          <div class="review-pager" aria-label="App Store review pages">
+            <p class="review-range mono" id="reviewRange">Loading reviews</p>
+            <div class="pager-controls">
+              <button class="pager-button" id="reviewPrev" type="button">Prev</button>
+              <div class="pager-controls" id="reviewPages" aria-label="Review page numbers"></div>
+              <button class="pager-button" id="reviewNext" type="button">Next</button>
+            </div>
+            <p class="review-feed-note mono" id="reviewFeedNote">Public US App Store reviews</p>
+          </div>
+        </div>
+      </div>
+      <div class="play-reviews reveal">
+        <p class="play-reviews-label mono">From Google Play</p>
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-top"><div class="review-author"><strong>Klaus Zeuch</strong><span class="mono">Oct 24, 2026</span></div><span class="stars" aria-label="5 out of 5 stars">★★★★★</span></div>
+            <h3 class="review-title">Another world of functions</h3>
+            <blockquote>“compared with Nikon Snapbridge: it's another world of functions and way more stable (if you own one of the supported Z cameras)”</blockquote>
+            <p class="review-foot mono">Version 2.1.7 · Google Play review</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top"><div class="review-author"><strong>Sinisa Zec</strong><span class="mono">Jul 9, 2026</span></div><span class="stars" aria-label="5 out of 5 stars">★★★★★</span></div>
+            <h3 class="review-title">An essential tool for my setup</h3>
+            <blockquote>“You get full control of your Nikon Z Camera, the live view is incredible, and it provides everything you need for a professional workflow. … It's perfectly responsive and has become an essential tool for my setup.”</blockquote>
+            <p class="review-foot mono">Nikon Z6III · Google Play review</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top"><div class="review-author"><strong>Philip Park</strong><span class="mono">Aug 14, 2026</span></div><span class="stars" aria-label="5 out of 5 stars">★★★★★</span></div>
+            <h3 class="review-title">Plug and play with my Z8</h3>
+            <blockquote>“Works perfectly plug&amp;play with my Z8”</blockquote>
+            <p class="review-foot mono">Version 1.4.0 · Google Play review</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ───────── SUPPORTED CAMERAS ───────── -->
   <section class="cams" id="cameras">
     <div class="container reveal">
-      <p class="cams-label mono">Supported Nikon cameras</p>
-      <div class="cams-row">
-        <div class="cam"><b class="display">Nikon ZR</b><span class="mono">Primary &middot; cinema &amp; stills</span></div>
-        <div class="cam"><b class="display">Nikon Z8</b><span class="mono">Confirmed by shooters</span></div>
-        <div class="cam"><b class="display">Nikon Z6III</b><span class="mono">Confirmed by shooters</span></div>
+      <p class="cams-label mono">Supported cameras</p>
+      <h2 class="display cams-h">Nikon Z <span class="y">and RED.</span></h2>
+      <div class="cam-table">
+        <div class="cam-row">
+          <div class="cam-row-head"><b class="display">Nikon Z</b><span class="mono">Full control</span></div>
+          <div class="cam-row-body">
+            <div class="cam-chips"><span>ZR</span><span>Z8</span><span>Z9</span><span>Z6III</span><span>Zf</span><span>Z5II</span><span>Z50II</span></div>
+            <p>Every tool and the full video control set: codec, frame size and rate, shutter angle, autofocus, audio and timecode.</p>
+          </div>
+        </div>
+        <div class="cam-row">
+          <div class="cam-row-head"><b class="display">Nikon Z</b><span class="mono">Core control</span></div>
+          <div class="cam-row-body">
+            <div class="cam-chips"><span>Z6II</span><span>Z7II</span><span>Zfc</span><span>Z30</span></div>
+            <p>Monitoring with every tool, plus the basic exposure controls.</p>
+          </div>
+        </div>
+        <div class="cam-row">
+          <div class="cam-row-head"><b class="display">Nikon Z</b><span class="mono">Monitoring</span></div>
+          <div class="cam-row-body">
+            <div class="cam-chips"><span>Z5</span><span>Z6</span><span>Z7</span><span>Z50</span></div>
+            <p>First-generation bodies. A monitor first, with control where the camera allows it.</p>
+          </div>
+        </div>
+        <div class="cam-row">
+          <div class="cam-row-head"><b class="display">RED</b><span class="mono">Early access</span></div>
+          <div class="cam-row-body">
+            <div class="cam-chips"><span>KOMODO</span><span>KOMODO-X</span><span>V-RAPTOR</span><span>V-RAPTOR XL</span></div>
+            <p>Live view, camera controls, LUTs, playback and Multicam over Wi-Fi or a USB-C tether.</p>
+          </div>
+        </div>
       </div>
-      <p class="cams-note">Running Parallax Monitor on another Z-series body? <a href="mailto:mike@itsmadcreative.com">Tell us how it goes</a> — compatibility grows with every report.</p>
+      <p class="cams-note">What your camera reports decides which controls you get. <a href="/manual/cameras/">Read the camera guide</a> or <a href="mailto:mike@itsmadcreative.com">tell us how yours behaves</a>.</p>
+    </div>
+  </section>
+
+  <!-- ───────── WHAT’S INSIDE (ranked highlights) ───────── -->
+  <section class="power" id="inside">
+    <div class="container">
+      <div class="power-head reveal">
+        <p class="feat-label mono">What’s inside</p>
+        <h2 class="display">562 features.<br><span class="y">One app.</span></h2>
+        <p>Parallax Monitor has grown far past a remote monitor. These are the twelve areas that matter most on set, in the order we would show them to a friend.</p>
+      </div>
+      <div class="power-grid reveal">
+        <a class="pcard" href="/features/#exposure"><div class="pcard-top"><div class="pcard-idx display">01</div><div class="pcard-count mono"><b>31</b>items</div></div><h3 class="display">Exposure tools</h3><p>Scopes that know your log curve.</p><ul><li>Waveform, RGB parade, vectorscope and histogram</li><li>Five false color scales, one with 13 one-stop zones</li><li>Zebras for highlights, shadows and mid gray</li><li>Traffic lights per channel, plus clip and noise meters</li><li>Everything reads the signal under your LUT</li></ul><span class="pcard-more mono">See all 31 &rarr;</span></a>
+        <a class="pcard" href="/features/#luts"><div class="pcard-top"><div class="pcard-idx display">02</div><div class="pcard-count mono"><b>22</b>items</div></div><h3 class="display">LUTs and looks</h3><p>Your look on the monitor, not in your head.</p><ul><li>53 LUTs built in: IPP2 Rec.709, N-Log and 32 RED creative looks</li><li>Import your own .cube files</li><li>Wipe: drag a divider between the look and the log</li><li>Match: exposure, gamma and contrast around the LUT</li></ul><span class="pcard-more mono">See all 22 &rarr;</span></a>
+        <a class="pcard" href="/features/#controls"><div class="pcard-top"><div class="pcard-idx display">03</div><div class="pcard-count mono"><b>60</b>items</div></div><h3 class="display">Camera controls</h3><p>Run the camera without touching it.</p><ul><li>Exposure, capture, focus, audio and timecode on one page</li><li>Shutter angle, dual base ISO, codec, resolution and frame rate</li><li>Record from the volume buttons, the Camera Control button or a Bluetooth remote</li><li>Settings are replayed when the camera reconnects</li></ul><span class="pcard-more mono">See all 60 &rarr;</span></a>
+        <a class="pcard" href="/features/#multicam"><div class="pcard-top"><div class="pcard-idx display">04</div><div class="pcard-count mono"><b>48</b>items</div></div><h3 class="display">Multicam</h3><p>A video village in your hand.</p><ul><li>Up to eight cameras on one screen, and more by rows</li><li>One record button that learns each camera’s start delay</li><li>Match ISO, shutter, aperture and white balance across bodies</li><li>Timecode jam-sync, verified by reading it back</li><li>Nikon and RED in the same grid</li></ul><span class="pcard-more mono">See all 48 &rarr;</span></a>
+        <a class="pcard" href="/features/#red"><div class="pcard-top"><div class="pcard-idx display">05</div><div class="pcard-count mono"><b>23</b>items</div></div><h3 class="display">RED cameras<small>Early access</small></h3><p>The same monitor on a KOMODO or V-RAPTOR.</p><ul><li>ISO, shutter, aperture, ND and white balance</li><li>Sensor and project frame rate, format, codec and R3D quality</li><li>Every monitoring tool and LUT on the RED picture</li><li>Joins Multicam next to your Nikon bodies</li></ul><span class="pcard-more mono">See all 23 &rarr;</span></a>
+        <a class="pcard" href="/features/#focus"><div class="pcard-top"><div class="pcard-idx display">06</div><div class="pcard-count mono"><b>33</b>items</div></div><h3 class="display">Focus tools</h3><p>See focus. Then move it on cue.</p><ul><li>Peaking in five colours, with a mono background option</li><li>Punch in on the monitor or with the camera’s own focus punch</li><li>Touch autofocus, instant or cinematic</li><li>Timed focus pulls across up to six points</li><li>Lens profiles for manual lenses, written to the camera</li></ul><span class="pcard-more mono">See all 33 &rarr;</span></a>
+        <a class="pcard" href="/features/#stills"><div class="pcard-top"><div class="pcard-idx display">07</div><div class="pcard-count mono"><b>40</b>items</div></div><h3 class="display">Timelapse and stills</h3><p>Not just cinema. A full stills rig.</p><ul><li>Intervalometer that runs for up to seven days</li><li>Builds the timelapse video on your phone, up to 4K</li><li>Bulb and Time exposures with a running timer</li><li>Focus stacking, from 2 to 100 frames, on iPhone and iPad</li><li>Red night display for astrophotography</li></ul><span class="pcard-more mono">See all 40 &rarr;</span></a>
+        <a class="pcard" href="/features/#playback"><div class="pcard-top"><div class="pcard-idx display">08</div><div class="pcard-count mono"><b>57</b>items</div></div><h3 class="display">Playback and culling</h3><p>Review the take. Keep moving.</p><ul><li>Play clips from the card with your LUT on</li><li>Stars, picks and five colour tags</li><li>Filter by type, date, card, shape and rating</li><li>Save clips and photos to your phone</li><li>Tether sessions that review each shot as it lands</li></ul><span class="pcard-more mono">See all 57 &rarr;</span></a>
+        <a class="pcard" href="/features/#framing"><div class="pcard-top"><div class="pcard-idx display">09</div><div class="pcard-count mono"><b>43</b>items</div></div><h3 class="display">Framing and guides</h3><p>Frame for every delivery at once.</p><ul><li>Nine frame guides plus custom ratios, several at a time</li><li>Eight composition guides</li><li>Anamorphic desqueeze from 1.25x to 2x, or any factor</li><li>Reference frame ghost with A/B blink</li><li>Camera level in three styles</li></ul><span class="pcard-more mono">See all 43 &rarr;</span></a>
+        <a class="pcard" href="/features/#remote"><div class="pcard-top"><div class="pcard-idx display">10</div><div class="pcard-count mono"><b>23</b>items</div></div><h3 class="display">Share the picture</h3><p>Everyone sees the shot.</p><ul><li>Remote Viewer: up to 16 phones and tablets watch live (4 from an Android host)</li><li>HDMI capture card as the picture source on iPad and Android</li><li>Accsoon SeeMo as the picture source on iPhone and iPad</li><li>Live Activities put the record timer on your lock screen</li></ul><span class="pcard-more mono">See all 23 &rarr;</span></a>
+        <a class="pcard" href="/features/#live-view"><div class="pcard-top"><div class="pcard-idx display">11</div><div class="pcard-count mono"><b>65</b>items</div></div><h3 class="display">Interface</h3><p>Laid out the way you shoot.</p><ul><li>Modern and Classic interfaces</li><li>Presets that save your whole layout</li><li>Hot corners and a reorderable top bar</li><li>Built for phones, tablets and foldables, in 21 languages</li></ul><span class="pcard-more mono">See all 65 &rarr;</span></a>
+        <a class="pcard" href="/features/#connecting"><div class="pcard-top"><div class="pcard-idx display">12</div><div class="pcard-count mono"><b>57</b>items</div></div><h3 class="display">Connecting</h3><p>Four ways in. One of them will work on set.</p><ul><li>USB cable, phone hotspot, Wi-Fi router or the camera’s own Wi-Fi</li><li>A setup guide for each route</li><li>One-tap reconnect to cameras you have used before</li><li>Clear fixes when a connection fails</li></ul><span class="pcard-more mono">See all 57 &rarr;</span></a>
+      </div>
+      <div class="power-cta reveal"><a class="b2" href="/features/">See every feature, all 562</a></div>
     </div>
   </section>
 
@@ -934,8 +1242,8 @@
         <div class="feat-media">
           <div class="mattes">
             <div class="frame">
-              <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-2nd-poster.jpg" aria-label="Parallax Monitor waveform scope and traffic light exposure tools on Nikon Z live view">
-                <source src="videos/ZRCTL-2nd-web.mp4" type="video/mp4">
+              <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/parallax-monitor-scopes-poster.jpg" aria-label="Parallax Monitor waveform scope and traffic light exposure tools on Nikon Z live view">
+                <source src="videos/parallax-monitor-scopes-web.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -962,8 +1270,8 @@
         <div class="feat-media">
           <div class="mattes">
             <div class="frame">
-              <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/zrctl-focus-poster.jpg" aria-label="Parallax Monitor manual focus, focus pull, and cinematic autofocus controls on Nikon Z live view">
-                <source src="videos/ZRCTL-focus-web.mp4" type="video/mp4">
+              <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/parallax-monitor-focus-poster.jpg" aria-label="Parallax Monitor manual focus, focus pull, and cinematic autofocus controls on Nikon Z live view">
+                <source src="videos/parallax-monitor-focus-web.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -990,7 +1298,9 @@
         <div class="feat-media">
           <div class="mattes">
             <div class="frame">
-              <img src="images/frame-guides.png" alt="Parallax Monitor frame guides with multiple aspect ratio overlays on Nikon Z live view" loading="lazy">
+              <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/parallax-monitor-framing-poster.jpg" aria-label="Parallax Monitor frame guides, composition grid and mask on Nikon Z live view">
+                <source src="videos/parallax-monitor-framing-web.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
         </div>
@@ -1016,7 +1326,9 @@
         <div class="feat-media">
           <div class="mattes">
             <div class="frame">
-              <img src="images/gallery-playback-overview.png" alt="Parallax Monitor camera card playback gallery with thumbnails and media filters" loading="lazy">
+              <video class="loop-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="images/parallax-monitor-playback-poster.jpg" aria-label="Parallax Monitor playback: camera card gallery, photo viewer and clip player">
+                <source src="videos/parallax-monitor-playback-web.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
         </div>
@@ -1043,7 +1355,34 @@
         <div class="feat-media">
           <div class="mattes">
             <div class="frame">
-              <img src="images/gallery-photo-controls.png" alt="Parallax Monitor photo mode stills controls for Nikon Z cameras" loading="lazy">
+              <img src="images/feat-stills.webp" alt="Parallax Monitor photo mode stills controls for Nikon Z cameras" width="1800" height="877" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat alt" id="multicam">
+    <div class="container">
+      <div class="feat-row rev reveal">
+        <div class="feat-text">
+          <div class="feat-num display">06</div>
+          <p class="feat-label mono">Multicam</p>
+          <h3 class="display">Every camera.<br>One screen.</h3>
+          <p>A video village in your hand. Put up to eight cameras on one grid, Nikon and RED side by side, roll them together and keep exposure matched across bodies, without walking the set.</p>
+          <ul class="spec-list mono">
+            <li>Up to eight cameras on one screen, more by rows</li>
+            <li>Nikon and RED cameras in the same grid</li>
+            <li>One record button for every camera</li>
+            <li>Match ISO, shutter, aperture &amp; white balance</li>
+            <li>Timecode jam-sync, verified by read-back</li>
+          </ul>
+        </div>
+        <div class="feat-media">
+          <div class="mattes">
+            <div class="frame">
+              <img src="images/feat-multicam.webp" alt="Parallax Monitor Multicam on iPad showing four Nikon Z cameras on one grid" width="1800" height="1379" loading="lazy">
             </div>
           </div>
         </div>
@@ -1082,10 +1421,10 @@
         <div class="plat" id="ios">
           <h3 class="display">iPhone &amp; iPad</h3>
           <p class="mono">iPhone &middot; iPad &middot; Version 2.1</p>
-          <a href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">Get it on the App Store</a>
+          <a class="store-badge" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener"><img src="images/badges/app-store-badge.svg" alt="Download on the App Store" width="168" height="56"></a>
           <ul class="plat-facts">
             <li><b>Price</b>US$19.99, one-time purchase. No subscription.</li>
-            <li><b>Rating</b>4.9 App Store rating from 27 US ratings. <a href="#reviews">Read the reviews</a>.</li>
+            <li><b>Rating</b>4.9 App Store rating from 28 US ratings. <a href="#reviews">Read the reviews</a>.</li>
             <li><b>Requires</b>iOS or iPadOS 17 or later. The Camera Control button needs iOS 17.2. <a href="/manual/cameras/#devices">Device notes in the manual</a>.</li>
             <li><b>Cameras</b>Remote monitoring and camera control for Nikon Z-series and RED cameras.</li>
             <li><b>New in 2.1</b>Your camera&rsquo;s HDMI picture through Accsoon SeeMo. Keep your LUTs, scopes and exposure tools, with camera control over Wi-Fi. <a href="/accsoon/#seemo">Explore SeeMo for iOS</a>.</li>
@@ -1095,8 +1434,8 @@
         </div>
         <div class="plat" id="android">
           <h3 class="display">Android</h3>
-          <p class="mono">Android phones &middot; tablets &middot; Version 2.1.15</p>
-          <a href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">Get it on Google Play</a>
+          <p class="mono">Android phones &middot; tablets &middot; Version 2.1.18</p>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener"><img src="images/badges/google-play-badge.png" alt="Get it on Google Play" width="188" height="56"></a>
           <ul class="plat-facts">
             <li><b>Formerly ZR Ctl</b>Same app, same developer. Your purchase carries over and there is nothing to buy again.</li>
             <li><b>Price</b>US$19.99, one-time purchase. No subscription.</li>
@@ -1135,32 +1474,38 @@
         <button class="gal-tab" data-cat="advanced" type="button">Advanced</button>
       </div>
       <div class="gal-scroller reveal" id="galScroller">
-        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-band.png" alt="Parallax Monitor live view monitoring a stage performance on a Nikon Z camera" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>LUT look</span></figcaption></figure>
-        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-rome.png" alt="Parallax Monitor live view monitoring a cinematic statue shot in R3D NE" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>R3D NE monitoring</span></figcaption></figure>
-        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-scopes-audio.png" alt="Parallax Monitor live view with waveform scopes and audio meters" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>WFM + audio</span></figcaption></figure>
-        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-false-color.png" alt="Parallax Monitor false color exposure overlay on Nikon Z live view" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>False color</span></figcaption></figure>
-        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-monitor-frame-guides.png" alt="Parallax Monitor frame guide monitoring overlay" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Frame guides</span></figcaption></figure>
-        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-recording.png" alt="Parallax Monitor live view recording overlay" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Recording</span></figcaption></figure>
-        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-elin.png" alt="Parallax Monitor live view monitoring a portrait scene" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Portrait session</span></figcaption></figure>
-        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-look.png" alt="Parallax Monitor live view with monitoring LUT controls" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>LUT preview</span></figcaption></figure>
-        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-video-exposure.png" alt="Parallax Monitor video exposure controls page" loading="lazy"></div><figcaption class="mono"><b>Video</b><span>Exposure</span></figcaption></figure>
-        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-video-focus.png" alt="Parallax Monitor video focus controls page" loading="lazy"></div><figcaption class="mono"><b>Video</b><span>Focus</span></figcaption></figure>
-        <figure class="shot portrait" data-cat="controls"><div class="ph"><img src="images/gallery-video-portrait.png" alt="Parallax Monitor video controls in portrait orientation" loading="lazy"></div><figcaption class="mono"><b>Video</b><span>Portrait</span></figcaption></figure>
-        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-audio-timecode.png" alt="Parallax Monitor audio and timecode controls page" loading="lazy"></div><figcaption class="mono"><b>Audio / TC</b><span>Input &middot; TC &middot; card</span></figcaption></figure>
-        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-photo-controls.png" alt="Parallax Monitor photo controls page with status and exposure" loading="lazy"></div><figcaption class="mono"><b>Photo</b><span>Status &middot; exposure</span></figcaption></figure>
-        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-photo-capture.png" alt="Parallax Monitor photo capture and storage controls page" loading="lazy"></div><figcaption class="mono"><b>Photo</b><span>Capture &middot; storage</span></figcaption></figure>
-        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-overview.png" alt="Parallax Monitor playback gallery overview with camera card thumbnails" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Camera card &middot; WiFi</span></figcaption></figure>
-        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-filter-menu.png" alt="Parallax Monitor playback type filter menu" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Type filters</span></figcaption></figure>
-        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-photo-viewer.png" alt="Parallax Monitor playback photo viewer" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Photo viewer</span></figcaption></figure>
-        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-video-player.png" alt="Parallax Monitor playback video player with scrubber" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Video player</span></figcaption></figure>
-        <figure class="shot portrait" data-cat="playback"><div class="ph"><img src="images/gallery-playback-portrait-grid.png" alt="Parallax Monitor portrait playback gallery grid" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Portrait grid</span></figcaption></figure>
-        <figure class="shot" data-cat="connect"><div class="ph"><img src="images/gallery-connect-landscape.png" alt="Parallax Monitor connect page with transport selection in landscape" loading="lazy"></div><figcaption class="mono"><b>Connect</b><span>Transports</span></figcaption></figure>
-        <figure class="shot portrait" data-cat="connect"><div class="ph"><img src="images/gallery-connect-portrait.png" alt="Parallax Monitor connect page in portrait" loading="lazy"></div><figcaption class="mono"><b>Connect</b><span>Portrait</span></figcaption></figure>
-        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-live-view.png" alt="Parallax Monitor advanced live view layout settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Live view</span></figcaption></figure>
-        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-monitoring.png" alt="Parallax Monitor advanced monitoring settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Monitoring</span></figcaption></figure>
-        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-framing.png" alt="Parallax Monitor advanced framing settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Framing</span></figcaption></figure>
-        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-playback.png" alt="Parallax Monitor advanced playback settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Playback</span></figcaption></figure>
-        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-camera.png" alt="Parallax Monitor advanced camera settings" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Camera</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-wedding.webp" alt="Parallax Monitor live view with a monitoring LUT on a wedding reception shot on a Nikon ZR" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>LUT on</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-peru.webp" alt="Parallax Monitor live view with camera settings, timecode and battery on screen" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Camera status</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-waveform.webp" alt="Parallax Monitor live view with the waveform scope" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Waveform</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-false-color.webp" alt="Parallax Monitor X-Zone false color exposure overlay with its legend on Nikon Z live view" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>False color</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-frame-guides.webp" alt="Parallax Monitor with several frame guides shown at once" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Frame guides</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-recording.webp" alt="Parallax Monitor live view while recording, with the red record border and timecode" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Recording</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-portrait-session.webp" alt="Parallax Monitor live view monitoring a portrait scene" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Portrait session</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-lut-slots.webp" alt="Parallax Monitor LUT slots with a black and white look applied to live view" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>LUT slots</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="liveview"><div class="ph"><img src="images/gallery-liveview-portrait.webp" alt="Parallax Monitor live view in portrait on a vertical shot" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Portrait</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="liveview"><div class="ph"><img src="images/gallery-menu-portrait.webp" alt="Parallax Monitor menu open over portrait live view, with Connection, Controls, Playback, Multicam, Remote and Advanced" loading="lazy"></div><figcaption class="mono"><b>Live view</b><span>Menu</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-photo-mode.webp" alt="Parallax Monitor photo mode live view with shutter, timer, release mode and quality" loading="lazy"></div><figcaption class="mono"><b>Photo mode</b><span>Live view</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-photo-timelapse-menu.webp" alt="Parallax Monitor timelapse panel in photo mode with sequence, capture, timing, video, display and presets" loading="lazy"></div><figcaption class="mono"><b>Photo mode</b><span>Timelapse</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-photo-timelapse.webp" alt="Parallax Monitor timelapse sequence panel showing shooting time and resulting clip length" loading="lazy"></div><figcaption class="mono"><b>Photo mode</b><span>Sequence</span></figcaption></figure>
+        <figure class="shot" data-cat="liveview"><div class="ph"><img src="images/gallery-photo-focus-stack.webp" alt="Parallax Monitor focus stacking settings in photo mode" loading="lazy"></div><figcaption class="mono"><b>Photo mode</b><span>Focus stacking</span></figcaption></figure>
+        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-controls-shoot.webp" alt="Parallax Monitor camera controls page with exposure and capture settings" loading="lazy"></div><figcaption class="mono"><b>Controls</b><span>Exposure &middot; capture</span></figcaption></figure>
+        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-controls-focus.webp" alt="Parallax Monitor camera controls page with focus settings" loading="lazy"></div><figcaption class="mono"><b>Controls</b><span>Focus</span></figcaption></figure>
+        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-controls-audio-timecode.webp" alt="Parallax Monitor audio and timecode controls page" loading="lazy"></div><figcaption class="mono"><b>Audio / TC</b><span>Input &middot; timecode</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="controls"><div class="ph"><img src="images/gallery-controls-portrait.webp" alt="Parallax Monitor camera controls page in portrait" loading="lazy"></div><figcaption class="mono"><b>Controls</b><span>Portrait</span></figcaption></figure>
+        <figure class="shot" data-cat="controls"><div class="ph"><img src="images/gallery-photo-controls.webp" alt="Parallax Monitor photo controls page with exposure and capture settings" loading="lazy"></div><figcaption class="mono"><b>Photo</b><span>Controls</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="controls"><div class="ph"><img src="images/gallery-photo-controls-portrait.webp" alt="Parallax Monitor photo controls page in portrait" loading="lazy"></div><figcaption class="mono"><b>Photo</b><span>Portrait</span></figcaption></figure>
+        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-overview.webp" alt="Parallax Monitor playback gallery overview with camera card thumbnails" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Camera card &middot; WiFi</span></figcaption></figure>
+        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-tabs.webp" alt="Parallax Monitor playback filtered to videos with a clip selected" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Photos &middot; Videos &middot; Favorites</span></figcaption></figure>
+        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-photo-viewer.webp" alt="Parallax Monitor playback photo viewer" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Photo viewer</span></figcaption></figure>
+        <figure class="shot" data-cat="playback"><div class="ph"><img src="images/gallery-playback-video-player.webp" alt="Parallax Monitor playback video player with scrubber" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Video player</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="playback"><div class="ph"><img src="images/gallery-playback-portrait-grid.webp" alt="Parallax Monitor portrait playback gallery grid" loading="lazy"></div><figcaption class="mono"><b>Playback</b><span>Portrait grid</span></figcaption></figure>
+        <figure class="shot" data-cat="connect"><div class="ph"><img src="images/gallery-connect-connected.webp" alt="Parallax Monitor connection page showing a connected Nikon ZR over Wi-Fi" loading="lazy"></div><figcaption class="mono"><b>Connect</b><span>Connected over Wi-Fi</span></figcaption></figure>
+        <figure class="shot" data-cat="connect"><div class="ph"><img src="images/gallery-connect-a-camera.webp" alt="Parallax Monitor connection page before a camera is connected" loading="lazy"></div><figcaption class="mono"><b>Connect</b><span>Find your camera</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="connect"><div class="ph"><img src="images/gallery-connect-portrait.webp" alt="Parallax Monitor connection page in portrait with a Nikon ZR connected over Wi-Fi" loading="lazy"></div><figcaption class="mono"><b>Connect</b><span>Portrait</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-ui-portrait.webp" alt="Parallax Monitor advanced settings, interface tab, in portrait" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Interface</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-playback-portrait.webp" alt="Parallax Monitor advanced settings, playback tab, in portrait" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Playback</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-camera-portrait.webp" alt="Parallax Monitor advanced settings, camera tab with startup defaults, in portrait" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Camera</span></figcaption></figure>
+        <figure class="shot portrait" data-cat="advanced"><div class="ph"><img src="images/gallery-advanced-monitoring-portrait.webp" alt="Parallax Monitor advanced monitoring settings in portrait" loading="lazy"></div><figcaption class="mono"><b>Advanced</b><span>Portrait</span></figcaption></figure>
       </div>
       <div class="gal-progress"><i id="galBar"></i></div>
     </div>
@@ -1267,45 +1612,6 @@
         <div class="video-card reveal">
           <div class="video-wrap">
             <button class="video-thumb" type="button" data-embed="https://www.youtube.com/embed/bzKogCm9bfg?autoplay=1" data-title="Тест приложения ZR Control для Nikon" aria-label="Play video: Тест приложения ZR Control для Nikon"><img src="https://i.ytimg.com/vi/bzKogCm9bfg/mqdefault.jpg" srcset="https://i.ytimg.com/vi/bzKogCm9bfg/mqdefault.jpg 320w, https://i.ytimg.com/vi/bzKogCm9bfg/maxresdefault.jpg 1280w" sizes="(max-width: 760px) 100vw, 580px" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="video-play" aria-hidden="true"></span><span class="video-title">Тест приложения ZR Control для Nikon</span></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────── APP STORE REVIEWS ───────── -->
-  <section class="store-reviews" id="reviews" aria-labelledby="reviews-title">
-    <div class="container">
-      <div class="reviews-panel reveal">
-        <div class="rating-card">
-          <div>
-            <div class="rating-source">
-              <img src="/parallax-icon-192.png" alt="">
-              <div>
-                <span class="mono">App Store</span>
-                <strong>Ratings &amp; Reviews</strong>
-              </div>
-            </div>
-            <p class="kicker mono">iPhone &amp; iPad &middot; early release response</p>
-            <h2 class="display sr-only" id="reviews-title">Parallax Monitor App Store reviews</h2>
-            <div class="rating-score">
-              <b class="display">4.9</b>
-              <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
-            </div>
-            <p class="rating-meta mono">27 US ratings · Public US reviews shown here</p>
-          </div>
-          <a class="rating-link mono" href="https://apps.apple.com/us/app/6762336561?platform=iphone&amp;see-all=reviews" target="_blank" rel="noopener">See all reviews</a>
-        </div>
-        <div class="reviews-browser">
-          <div class="reviews-grid" id="reviewsGrid" aria-live="polite"></div>
-          <div class="review-pager" aria-label="App Store review pages">
-            <p class="review-range mono" id="reviewRange">Loading reviews</p>
-            <div class="pager-controls">
-              <button class="pager-button" id="reviewPrev" type="button">Prev</button>
-              <div class="pager-controls" id="reviewPages" aria-label="Review page numbers"></div>
-              <button class="pager-button" id="reviewNext" type="button">Next</button>
-            </div>
-            <p class="review-feed-note mono" id="reviewFeedNote">Public US App Store reviews</p>
           </div>
         </div>
       </div>
@@ -1512,8 +1818,8 @@
       <h2 class="display">Ready to take<br><span class="y">control?</span></h2>
       <p>Get Parallax Monitor on the App Store for iPhone and iPad, or on Google Play for Android phones and tablets. Try it on your rig with no pressure: paid purchases are covered by a 30-day, no-questions-asked full refund promise.</p>
       <div class="btns">
-        <a class="b1" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener">Get it on the App Store</a>
-        <a class="b1" href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener">Get it on Google Play</a>
+        <a class="store-badge" href="https://apps.apple.com/us/app/parallax-monitor/id6762336561" target="_blank" rel="noopener"><img src="images/badges/app-store-badge.svg" alt="Download on the App Store" width="168" height="56"></a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.zrctl.android&amp;pcampaignid=web_share" target="_blank" rel="noopener"><img src="images/badges/google-play-badge.png" alt="Get it on Google Play" width="188" height="56"></a>
         <a class="b2" href="#platforms">Compare platforms</a>
       </div>
       <div class="plats">
@@ -1557,7 +1863,7 @@
         </div>
       </div>
       <p class="legal">
-        Parallax Monitor is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation or Nikon Inc. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. Other names and marks belong to their respective owners.
+        Parallax Monitor is an independent project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nikon Corporation or Nikon Inc. Accsoon integrations are developed in partnership with Accsoon. Nikon, Z, and related marks are trademarks of Nikon Corporation. Parallax Monitor is not affiliated with or endorsed by RED Digital Cinema. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC. Other names and marks belong to their respective owners.
       </p>
     </div>
   </footer>
