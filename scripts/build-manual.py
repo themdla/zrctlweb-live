@@ -45,12 +45,18 @@ TEMPLATE = """<!DOCTYPE html>
   <meta property="og:type" content="article">
   <meta property="og:url" content="{canonical}">
   <meta property="og:site_name" content="Parallax Monitor">
-  <meta property="og:image" content="{site}/parallax-icon-512.png">
+  <meta property="og:image" content="{site}/images/share/parallax-monitor-share-1200x630.jpg">
+  <meta property="og:image:secure_url" content="{site}/images/share/parallax-monitor-share-1200x630.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Parallax Monitor live view on a phone, with exposure, focus and LUT tools around the picture">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title} | Parallax Monitor User Manual">
   <meta name="twitter:description" content="{description}">
-  <meta name="twitter:image" content="{site}/parallax-icon-512.png">
+  <meta name="twitter:image" content="{site}/images/share/parallax-monitor-share-1200x630.jpg">
+  <meta name="twitter:image:alt" content="Parallax Monitor live view on a phone, with exposure, focus and LUT tools around the picture">
 
   <link rel="icon" href="/favicon.ico?v=20261123" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="/parallax-icon-48.png?v=20261123">
