@@ -9,8 +9,8 @@
 (function () {
   'use strict';
 
-  var CLOUDFLARE_TOKEN = '';   // Cloudflare dashboard > Web Analytics > Manage site > JS snippet
-  var APPLE_PROVIDER_ID = '';  // App Store Connect > App Analytics > campaign link generator ("pt" value)
+  var CLOUDFLARE_TOKEN = '25193517e664424c8500778682429eaf';   // Cloudflare dashboard > Web Analytics > Manage site > JS snippet
+  var APPLE_PROVIDER_ID = '128765263';  // App Store Connect > App Analytics > campaign link generator ("pt" value)
 
   if (CLOUDFLARE_TOKEN) {
     var beacon = document.createElement('script');
