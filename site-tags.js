@@ -5,7 +5,9 @@
       It counts page views, referrers and paths. It cannot count clicks and it ignores query strings.
    2. Store links: every App Store and Google Play link is tagged with where the click came from,
       so App Store Connect and Play Console report store visits and sales by source.
-      A visitor who lands with ?utm_source=meta&utm_campaign=song1 carries those values to the store. */
+      A visitor who lands with ?utm_source=meta&utm_campaign=song1 carries those values to the store.
+   3. Links to other pages of this site keep the visitor's campaign values in the address,
+      so a visitor from an ad is still counted for that ad after opening a second page. */
 (function () {
   'use strict';
 
@@ -55,6 +57,30 @@
     document.querySelectorAll('a[href^="https://apps.apple.com/"]').forEach(tagApple);
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tagStoreLinks);
-  else tagStoreLinks();
+  var CAMPAIGN_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+
+  function carryCampaign() {
+    if (!query.get('utm_source') && !query.get('utm_campaign')) return;
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      var raw = link.getAttribute('href');
+      if (!raw || raw.charAt(0) === '#') return;
+      var url;
+      try { url = new URL(raw, window.location.href); } catch (error) { return; }
+      if (url.origin !== window.location.origin) return;
+      if (/\.[a-z0-9]{2,5}$/i.test(url.pathname) && !/\.html?$/i.test(url.pathname)) return;
+      CAMPAIGN_KEYS.forEach(function (key) {
+        var value = query.get(key);
+        if (value && !url.searchParams.has(key)) url.searchParams.set(key, value);
+      });
+      link.href = url.toString();
+    });
+  }
+
+  function tagLinks() {
+    tagStoreLinks();
+    carryCampaign();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tagLinks);
+  else tagLinks();
 })();
