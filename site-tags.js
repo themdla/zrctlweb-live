@@ -11,6 +11,14 @@
 (function () {
   'use strict';
 
+  // Stopgap (2026-11-26): GitHub Pages cannot enforce HTTPS until its certificate request clears,
+  // so send plain-http visitors on the live host to the same address over https. Remove once
+  // "Enforce HTTPS" is back on for the repo.
+  if (window.location.protocol === 'http:' && window.location.hostname === 'www.parallaxmonitor.com') {
+    window.location.replace('https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash);
+    return;
+  }
+
   var CLOUDFLARE_TOKEN = '25193517e664424c8500778682429eaf';   // Cloudflare dashboard > Web Analytics > Manage site > JS snippet
   var APPLE_PROVIDER_ID = '128765263';  // App Store Connect > App Analytics > campaign link generator ("pt" value)
 
